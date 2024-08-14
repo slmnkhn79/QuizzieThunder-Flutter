@@ -179,7 +179,8 @@ class UpdatePasswordPage extends StatelessWidget {
                               onPressed: () {
                                 updatePasswordController.updatePassword();
                               },
-                              child: Text("Update Password"),
+                              child: Text("Update Password",
+                                  style: TextStyle(color: ThemeColor.white)),
                               style: TextButton.styleFrom(
                                 textStyle: TextStyle(
                                     fontSize: 16, fontWeight: FontWeight.w500),

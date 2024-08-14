@@ -103,7 +103,8 @@ class QuizQuestionPage extends StatelessWidget {
                                 quizQuestionController.nextQuestion(
                                     isSkipped: true);
                               },
-                              child: Text("Skip"),
+                              child: Text("Skip",
+                                  style: TextStyle(color: ThemeColor.white)),
                               style: TextButton.styleFrom(
                                 textStyle: TextStyle(
                                     fontSize: 16, fontWeight: FontWeight.w500),

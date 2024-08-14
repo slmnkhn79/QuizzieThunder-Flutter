@@ -307,7 +307,8 @@ class SignupPage extends StatelessWidget {
                             onPressed: () {
                               signupController.signUp();
                             },
-                            child: Text("Register"),
+                            child: Text("Register",
+                                style: TextStyle(color: ThemeColor.white)),
                             style: TextButton.styleFrom(
                               textStyle: TextStyle(
                                   fontSize: 16, fontWeight: FontWeight.w500),

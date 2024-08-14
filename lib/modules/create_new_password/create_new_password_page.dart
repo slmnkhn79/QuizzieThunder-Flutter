@@ -228,7 +228,10 @@ class CreateNewPasswordPage extends StatelessWidget {
                                   createNewPasswordController
                                       .createNewPassword();
                                 },
-                                child: Text("Reset Password"),
+                                child: Text(
+                                  "Reset Password",
+                                  style: TextStyle(color: ThemeColor.white),
+                                ),
                                 style: TextButton.styleFrom(
                                   textStyle: TextStyle(
                                       fontSize: 16,

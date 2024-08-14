@@ -86,7 +86,8 @@ class VerifyOtpPage extends StatelessWidget {
                                 onPressed: () {
                                   verifyOtpController.verifyOtp();
                                 },
-                                child: Text("Confirm"),
+                                child: Text("Confirm",
+                                    style: TextStyle(color: ThemeColor.white)),
                                 style: TextButton.styleFrom(
                                   textStyle: TextStyle(
                                       fontSize: 16,

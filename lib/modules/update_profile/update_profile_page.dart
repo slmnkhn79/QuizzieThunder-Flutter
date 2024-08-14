@@ -262,7 +262,9 @@ class UpdateProfilePage extends StatelessWidget {
                                   onPressed: () {
                                     updateProfileController.updateUserProfile();
                                   },
-                                  child: Text("Update"),
+                                  child: Text("Update",
+                                      style:
+                                          TextStyle(color: ThemeColor.white)),
                                   style: TextButton.styleFrom(
                                     textStyle: TextStyle(
                                         fontSize: 16,

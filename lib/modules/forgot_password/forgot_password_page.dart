@@ -100,7 +100,8 @@ class ForgotPasswordPage extends StatelessWidget {
                             onPressed: () {
                               forgotPasswordController.forgotPassword();
                             },
-                            child: Text("Next"),
+                            child: Text("Next",
+                                style: TextStyle(color: ThemeColor.white)),
                             style: TextButton.styleFrom(
                               textStyle: TextStyle(
                                   fontSize: 16, fontWeight: FontWeight.w500),

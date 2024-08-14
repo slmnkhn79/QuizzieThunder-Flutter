@@ -2,8 +2,6 @@ import 'package:get/get.dart';
 
 import '../../apis/leaderboard_api.dart';
 import '../../models/leaderboard_screen_response_model.dart';
-import '../../utils/app_utils.dart';
-import '../../utils/enums/snackbar_status.dart';
 
 class LeaderboardController extends GetxController {
   LeaderboardApi leaderboardApi = LeaderboardApi();

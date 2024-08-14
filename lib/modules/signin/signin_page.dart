@@ -187,7 +187,8 @@ class SigninPage extends StatelessWidget {
                             onPressed: () {
                               signinController.login();
                             },
-                            child: Text("Login"),
+                            child: Text("Login",
+                                style: TextStyle(color: ThemeColor.white)),
                             style: TextButton.styleFrom(
                               textStyle: TextStyle(
                                   fontSize: 16, fontWeight: FontWeight.w500),

@@ -72,7 +72,10 @@ class WelcomePage extends StatelessWidget {
                                 onPressed: () {
                                   Get.toNamed(AppRoutes.signUpPage);
                                 },
-                                child: Text("Sign Up"),
+                                child: Text(
+                                  "Sign Up",
+                                  style: TextStyle(color: ThemeColor.white),
+                                ),
                                 style: TextButton.styleFrom(
                                   textStyle: TextStyle(
                                       fontSize: 16,
