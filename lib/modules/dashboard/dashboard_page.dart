@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:quizzie_thunder/modules/discover/discover_page.dart';
+import 'package:quizzie_thunder/modules/profile/profile_page.dart';
 
 import '../../theme/colors_theme.dart';
-import '../discover/discover_page.dart';
 import '../home/home_page.dart';
 import '../leaderboard/leaderboard_page.dart';
-import '../profile/profile_page.dart';
 import 'dashboard_controller.dart';
 
 class DashboardPage extends StatelessWidget {
@@ -21,8 +21,8 @@ class DashboardPage extends StatelessWidget {
             index: dashboardController.selectedTabIndex.value,
             children: [
               HomePage(),
-              // DiscoverPage(),
-              LeaderboardPage(),
+              DiscoverPage(),
+              // LeaderboardPage(),
               // ProfilePage()
             ],
           )),

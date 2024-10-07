@@ -9,7 +9,7 @@ class HomeApi {
       // final response = await DioClient.getDioInstance().get("api/home");
       final response = await DioClient.getDioInstance().post("/home",options: Options(headers: {'X-Parse-Application-Id': 'myappID',}));
 
-      return HomeScreenResponseModel.fromJson(response.data);
+      return HomeScreenResponseModel.fromJson(response.data['result']);
     } catch (e) {
       rethrow;
     }

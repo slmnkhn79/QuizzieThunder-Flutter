@@ -1,7 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:get_storage/get_storage.dart';
 
-import '../models/signin_response_model.dart';
 import 'api_logging_interceptor.dart';
 import 'constants.dart';
 import 'error_handling_interceptor.dart';
