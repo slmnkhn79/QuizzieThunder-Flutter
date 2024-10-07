@@ -1,5 +1,4 @@
 import 'package:dio/dio.dart';
-import 'package:get/route_manager.dart';
 import 'package:get_storage/get_storage.dart';
 
 import '../models/api_error_response_model.dart';

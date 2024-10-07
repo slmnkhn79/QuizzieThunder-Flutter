@@ -14,10 +14,12 @@ class DioClient {
       receiveTimeout: Duration(minutes: 1),
     ))
       ..options.headers["content-type"] = "application/json"
-      ..options.headers["Authorization"] = GetStorage().read(KEY_USER_DATA) ==
-              null
-          ? ""
-          : "Bearer ${(SignInResponseModel.fromJson((GetStorage().read(KEY_USER_DATA)))).result?.token}"
+
+      // ..options.headers["Authorization"] = GetStorage().read(KEY_USER_DATA) ==
+      //         null
+      //     ? ""
+      //     : "Bearer ${(SignInResponseModel.fromJson((GetStorage().read(KEY_USER_DATA)))).result?.token}"
+
       ..interceptors.add(ErrorHandingInterceptor())
       ..interceptors.add(LoggingInterceptor());
     return dio;

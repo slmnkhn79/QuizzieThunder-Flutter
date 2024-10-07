@@ -21,9 +21,9 @@ class DashboardPage extends StatelessWidget {
             index: dashboardController.selectedTabIndex.value,
             children: [
               HomePage(),
-              DiscoverPage(),
+              // DiscoverPage(),
               LeaderboardPage(),
-              ProfilePage()
+              // ProfilePage()
             ],
           )),
       bottomNavigationBar: Obx(() => ClipRRect(

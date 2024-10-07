@@ -22,7 +22,8 @@ class SplashController extends GetxController {
     Future.delayed(
         Duration(seconds: 3),
         () => localStorage.read(KEY_USER_DATA) == null
-            ? Get.offNamed(AppRoutes.welcomePage)
+            // ? Get.offNamed(AppRoutes.welcomePage)
+            ? Get.offNamed(AppRoutes.dashboardPage)
             : Get.offNamed(AppRoutes.dashboardPage));
     super.onReady();
   }
