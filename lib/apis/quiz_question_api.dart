@@ -6,8 +6,9 @@ class QuizQuestionApi {
       {required String? quizId}) async {
     try {
       final response = await DioClient.getDioInstance()
-          .get("api/question/$quizId/questions");
-      return QuizQuestionResponseModel.fromJson(response.data);
+          // .post("question/$quizId/questions");
+          .post("/questions",data: {"quizId":quizId});
+      return QuizQuestionResponseModel.fromJson(response.data['result']);
     } catch (e) {
       rethrow;
     }

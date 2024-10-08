@@ -7,7 +7,7 @@ class HomeApi {
   Future<HomeScreenResponseModel> getHomeScreenDetails() async {
     try {
       // final response = await DioClient.getDioInstance().get("api/home");
-      final response = await DioClient.getDioInstance().post("/home",options: Options(headers: {'X-Parse-Application-Id': 'myappID',}));
+      final response = await DioClient.getDioInstance().post("/home");
 
       return HomeScreenResponseModel.fromJson(response.data['result']);
     } catch (e) {

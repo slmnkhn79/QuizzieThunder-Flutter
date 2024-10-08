@@ -23,7 +23,7 @@ class DashboardPage extends StatelessWidget {
               HomePage(),
               DiscoverPage(),
               LeaderboardPage(),
-              // ProfilePage()
+              ProfilePage()
             ],
           )),
       bottomNavigationBar: Obx(() => ClipRRect(

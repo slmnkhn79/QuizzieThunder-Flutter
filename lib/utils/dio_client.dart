@@ -12,6 +12,7 @@ class DioClient {
       receiveTimeout: Duration(minutes: 1),
     ))
       ..options.headers["content-type"] = "application/json"
+      ..options.headers["X-Parse-Application-Id"] = "myappID"
 
       // ..options.headers["Authorization"] = GetStorage().read(KEY_USER_DATA) ==
       //         null
