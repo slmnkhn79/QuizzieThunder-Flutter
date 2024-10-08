@@ -7,7 +7,7 @@ class LeaderboardApi {
   Future<LeaderboardScreenResponseModel> getLeaderboardScreenDetails() async {
     try {
       final response = await DioClient.getDioInstance().post("/leaderboard", options: Options(headers: {'X-Parse-Application-Id': 'myappID',}));
-      return LeaderboardScreenResponseModel.fromJson(response.data);
+      return LeaderboardScreenResponseModel.fromJson(response.data['result']);
     } catch (e) {
       rethrow;
     }

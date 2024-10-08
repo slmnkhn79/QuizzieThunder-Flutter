@@ -22,7 +22,7 @@ class DashboardPage extends StatelessWidget {
             children: [
               HomePage(),
               DiscoverPage(),
-              // LeaderboardPage(),
+              LeaderboardPage(),
               // ProfilePage()
             ],
           )),
