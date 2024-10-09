@@ -9,6 +9,7 @@ class DiscoverController extends GetxController {
   DiscoverApi discoverApi = DiscoverApi();
 
   var isLoading = false.obs;
+  var selectedTabIndex = 0.obs;
 
   DiscoverScreenResponseModel? discoverScreenResponseModel;
 

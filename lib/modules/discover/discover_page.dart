@@ -40,6 +40,103 @@ class DiscoverPage extends StatelessWidget {
                     ))
                   : SingleChildScrollView(
                       child: Column(children: [
+
+                      Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 24),
+                          child: Container(
+                            width: double.infinity,
+                            decoration: BoxDecoration(
+                                color: ThemeColor.primaryDark,
+                                borderRadius: BorderRadius.circular(16)),
+                            padding: const EdgeInsets.all(4),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Expanded(
+                                  child: InkWell(
+                                    onTap: () {
+                                      discoverController
+                                          .selectedTabIndex.value = 0;
+                                    },
+                                    child: discoverController
+                                                .selectedTabIndex.value ==
+                                            0
+                                        ? Container(
+                                            decoration: BoxDecoration(
+                                                color: ThemeColor.lightPrimary,
+                                                borderRadius:
+                                                    BorderRadius.circular(16)),
+                                            padding: const EdgeInsets.symmetric(
+                                                horizontal: 16, vertical: 8),
+                                            child: Text(
+                                              "Weekly",
+                                              textAlign: TextAlign.center,
+                                              style: TextStyle(
+                                                  color: ThemeColor.white,
+                                                  fontSize: 14,
+                                                  fontWeight: FontWeight.bold),
+                                            ))
+                                        : Container(
+                                            padding: const EdgeInsets.symmetric(
+                                                horizontal: 16, vertical: 8),
+                                            child: Text(
+                                              "Weekly",
+                                              textAlign: TextAlign.center,
+                                              style: TextStyle(
+                                                  color: ThemeColor.white
+                                                      .withOpacity(0.6),
+                                                  fontSize: 14,
+                                                  fontWeight: FontWeight.bold),
+                                            ),
+                                          ),
+                                  ),
+                                ),
+                                Expanded(
+                                  child: InkWell(
+                                    onTap: () {
+                                      discoverController
+                                          .selectedTabIndex.value = 1;
+                                    },
+                                    child: discoverController
+                                                .selectedTabIndex.value ==
+                                            1
+                                        ? Container(
+                                            decoration: BoxDecoration(
+                                                color: ThemeColor.lightPrimary,
+                                                borderRadius:
+                                                    BorderRadius.circular(16)),
+                                            padding: const EdgeInsets.symmetric(
+                                                horizontal: 16, vertical: 8),
+                                            child: Text(
+                                              "All Time",
+                                              textAlign: TextAlign.center,
+                                              style: TextStyle(
+                                                  color: ThemeColor.white,
+                                                  fontSize: 14,
+                                                  fontWeight: FontWeight.bold),
+                                            ))
+                                        : Container(
+                                            padding: const EdgeInsets.symmetric(
+                                                horizontal: 16, vertical: 8),
+                                            child: Text(
+                                              "All Time",
+                                              textAlign: TextAlign.center,
+                                              style: TextStyle(
+                                                  color: ThemeColor.white
+                                                      .withOpacity(0.6),
+                                                  fontSize: 14,
+                                                  fontWeight: FontWeight.bold),
+                                            ),
+                                          ),
+                                  ),
+                                )
+                              ],
+                            ),
+                          ),
+                        ),
+
+
+                      
                       Padding(
                         padding: const EdgeInsets.all(16.0),
                         child: Column(
