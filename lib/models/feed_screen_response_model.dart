@@ -1,4 +1,4 @@
-import 'package:quizzie_thunder/modules/home/post_card/post_card_model.dart';
+import 'package:quizzie_thunder/models/post_card_item_model.dart';
 
 class FeedScreenResponseModel {
   
