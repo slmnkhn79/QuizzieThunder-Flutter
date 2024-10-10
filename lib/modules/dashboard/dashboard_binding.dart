@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:quizzie_thunder/modules/home/post_card/feed_controller.dart';
 
 import '../discover/discover_controller.dart';
 import '../home/home_controller.dart';
@@ -14,5 +15,6 @@ class DashboardBinding extends Bindings {
     Get.lazyPut(() => DiscoverController());
     Get.lazyPut(() => LeaderboardController());
     Get.lazyPut(() => ProfileController());
+    Get.lazyPut(() => FeedController());
   }
 }

@@ -1,16 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:quizzie_thunder/models/post_card_item_model.dart';
+import 'package:quizzie_thunder/modules/home/post_card/like_animation.dart';
 
-class PostCard 
-{
-Container getPostCardView(PostCardModel post, BuildContext context){
-return  Container(
+class PostCard extends StatelessWidget {
+  final PostCardModel post;
+
+  const PostCard({Key? key, required this.post});
+  @override
+  Widget build(BuildContext context) {
+    return getPostCardView(post, context);
+  }
+
+  Container getPostCardView(PostCardModel post, BuildContext context) {
+    final width = MediaQuery.of(context).size.width;
+    return Container(
+      
       // boundary needed for web
       decoration: BoxDecoration(
         border: Border.all(
-          // color: width > webScreenSize ? secondaryColor : mobileBackgroundColor,
-        ),
-        // color: mobileBackgroundColor,
+            // color: width > webScreenSize ? secondaryColor : mobileBackgroundColor,
+            ),
+        borderRadius: BorderRadius.all(Radius.circular(8.0)),
+        color: Colors.white,
       ),
       padding: const EdgeInsets.symmetric(
         vertical: 10,
@@ -18,7 +29,7 @@ return  Container(
       child: Column(
         children: [
           // HEADER SECTION OF THE POST
-          Container(
+          Container(              
             padding: const EdgeInsets.symmetric(
               vertical: 4,
               horizontal: 16,
@@ -28,8 +39,8 @@ return  Container(
                 CircleAvatar(
                   radius: 16,
                   backgroundImage: NetworkImage(
-                    post.profImage.toString(),
-                  ),
+                      // post.profImage.toString(),
+                      'https://res.cloudinary.com/dt6hyafmc/image/upload/v1692392344/Avatars/avatar_8609.png'),
                 ),
                 Expanded(
                   child: Padding(
@@ -41,7 +52,7 @@ return  Container(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
                         Text(
-                          post.user.username.toString(),
+                          post.school.schoolName.toString(),
                           style: const TextStyle(
                             fontWeight: FontWeight.bold,
                           ),
@@ -51,7 +62,7 @@ return  Container(
                   ),
                 ),
                 // widget.snap['uid'].toString() == user.uid
-                1==1
+                1 == 1
                     ? IconButton(
                         onPressed: () {
                           showDialog(
@@ -96,98 +107,101 @@ return  Container(
             ),
           ),
           // IMAGE SECTION OF THE POST
-          // GestureDetector(
-          //   onDoubleTap: () {
-              // FireStoreMethods().likePost(
-              //   widget.snap['postId'].toString(),
-              //   user.uid,
-              //   widget.snap['likes'],
-              // );
-              // setState(() {
-              //   isLikeAnimating = true;
-              // });
-          //   },
-          //   child: Stack(
-          //     alignment: Alignment.center,
-          //     children: [
-          //       SizedBox(
-          //         height: MediaQuery.of(context).size.height * 0.35,
-          //         width: double.infinity,
-          //         child: Image.network(
-          //           widget.snap['postUrl'].toString(),
-          //           fit: BoxFit.cover,
-          //         ),
-          //       ),
-          //       AnimatedOpacity(
-          //         duration: const Duration(milliseconds: 200),
-          //         opacity: isLikeAnimating ? 1 : 0,
-          //         child: LikeAnimation(
-          //           isAnimating: isLikeAnimating,
-          //           duration: const Duration(
-          //             milliseconds: 400,
-          //           ),
-          //           onEnd: () {
-          //             setState(() {
-          //               isLikeAnimating = false;
-          //             });
-          //           },
-          //           child: const Icon(
-          //             Icons.favorite,
-          //             color: Colors.white,
-          //             size: 100,
-          //           ),
-          //         ),
-          //       ),
-          //     ],
-          //   ),
-          // ),
+          GestureDetector(
+            onDoubleTap: () {
+          // FireStoreMethods().likePost(
+          //   widget.snap['postId'].toString(),
+          //   user.uid,
+          //   widget.snap['likes'],
+          // );
+          // setState(() {
+          //   isLikeAnimating = true;
+          // });
+            },
+            child: Stack(
+              alignment: Alignment.center,
+              children: [
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.35,
+                  width: double.infinity,
+                  child: Image.network(
+                    post.photoUrl.toString(),
+                    fit: BoxFit.cover,
+                  ),
+                ),
+                // AnimatedOpacity(
+                //   duration: const Duration(milliseconds: 200),
+                //   opacity: isLikeAnimating ? 1 : 0,
+                //   child: LikeAnimation(
+                //     isAnimating: isLikeAnimating,
+                //     duration: const Duration(
+                //       milliseconds: 400,
+                //     ),
+                //     onEnd: () {
+                //       setState(() {
+                //         isLikeAnimating = false;
+                //       });
+                //     },
+                //     child: const Icon(
+                //       Icons.favorite,
+                //       color: Colors.white,
+                //       size: 100,
+                //     ),
+                //   ),
+                // ),
+              ],
+            ),
+          ),
           // LIKE, COMMENT SECTION OF THE POST
-          // Row(
-          //   children: <Widget>[
-          //     LikeAnimation(
-          //       isAnimating: widget.snap['likes'].contains(user.uid),
-          //       smallLike: true,
-          //       child: IconButton(
-          //         icon: widget.snap['likes'].contains(user.uid)
-          //             ? const Icon(
-          //                 Icons.favorite,
-          //                 color: Colors.red,
-          //               )
-          //             : const Icon(
-          //                 Icons.favorite_border,
-          //               ),
-          //         onPressed: () => FireStoreMethods().likePost(
-          //           widget.snap['postId'].toString(),
-          //           user.uid,
-          //           widget.snap['likes'],
-          //         ),
-          //       ),
-          //     ),
-          //     IconButton(
-          //       icon: const Icon(
-          //         Icons.comment_outlined,
-          //       ),
-          //       onPressed: () => Navigator.of(context).push(
-          //         MaterialPageRoute(
-          //           builder: (context) => CommentsScreen(
-          //             postId: widget.snap['postId'].toString(),
-          //           ),
-          //         ),
-          //       ),
-          //     ),
-          //     IconButton(
-          //         icon: const Icon(
-          //           Icons.send,
-          //         ),
-          //         onPressed: () {}),
-          //     Expanded(
-          //         child: Align(
-          //       alignment: Alignment.bottomRight,
-          //       child: IconButton(
-          //           icon: const Icon(Icons.bookmark_border), onPressed: () {}),
-          //     ))
-          //   ],
-          // ),
+          Row(
+            children: <Widget>[
+              LikeAnimation(
+                isAnimating: 1==1,
+                smallLike: true,
+                child: IconButton(
+                  icon: 
+                  // widget.snap['likes'].contains(user.uid)
+                  1==1
+                      ? const Icon(
+                          Icons.favorite,
+                          color: Colors.red,
+                        )
+                      : const Icon(
+                          Icons.favorite_border,
+                        ),
+                  onPressed: () => {}
+                  // FireStoreMethods().likePost(
+                  //   widget.snap['postId'].toString(),
+                  //   user.uid,
+                  //   widget.snap['likes'],
+                  // ),
+                ),
+              ),
+              IconButton(
+                icon: const Icon(
+                  Icons.comment_outlined,
+                ),
+                onPressed: () => {}
+                // Navigator.of(context).push(
+                  // MaterialPageRoute(
+                  //   builder: (context) => CommentsScreen(
+                  //     postId: widget.snap['postId'].toString(),
+                  //   ),
+                  // ),
+                ),
+              IconButton(
+                  icon: const Icon(
+                    Icons.send,
+                  ),
+                  onPressed: () {}),
+              Expanded(
+                  child: Align(
+                alignment: Alignment.bottomRight,
+                child: IconButton(
+                    icon: const Icon(Icons.bookmark_border), onPressed: () {}),
+              ))
+            ],
+          ),
           //DESCRIPTION AND NUMBER OF COMMENTS
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -214,12 +228,13 @@ return  Container(
                       // style: const TextStyle(color: primaryColor),
                       children: [
                         TextSpan(
-                          text: post.user.username.toString(),
+                          text: post.school.schoolName.toString(),
                           style: const TextStyle(
                             fontWeight: FontWeight.bold,
                           ),
                         ),
-                        TextSpan(                          text: ' ${post.caption}',
+                        TextSpan(
+                          text: ' ${post.caption}',
                         ),
                       ],
                     ),
@@ -250,9 +265,7 @@ return  Container(
                     // DateFormat.yMMMd()
                     //     .format(widget.snap['datePublished'].toDate()),
                     post.createdAt.toString(),
-                    
-
-
+      
                     // style: const TextStyle(
                     //   color: secondaryColor,
                     // ),
@@ -264,5 +277,5 @@ return  Container(
         ],
       ),
     );
-}
+  }
 }
