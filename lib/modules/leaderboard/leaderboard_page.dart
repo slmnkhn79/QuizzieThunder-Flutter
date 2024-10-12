@@ -1,11 +1,13 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:quizzie_thunder/models/school_leaderboard_screen_response_model.dart';
+import 'package:quizzie_thunder/modules/leaderboard/school_leaderboard_controller.dart';
 
 import '../../models/leaderboard_screen_response_model.dart';
 import '../../theme/colors_theme.dart';
 import '../../utils/app_utils.dart';
-import 'leaderboard_controller.dart';
+import 'student_leaderboard_controller.dart';
 
 class LeaderboardPage extends StatelessWidget {
   const LeaderboardPage({Key? key}) : super(key: key);
@@ -14,6 +16,7 @@ class LeaderboardPage extends StatelessWidget {
   Widget build(BuildContext context) {
     LeaderboardController leaderboardController =
         Get.find<LeaderboardController>();
+    SchoolLeaderboardController schoolLeaderboardController = Get.find<SchoolLeaderboardController>();
     return Scaffold(
         appBar: AppBar(
           title: Text(
@@ -70,7 +73,7 @@ class LeaderboardPage extends StatelessWidget {
                                             padding: const EdgeInsets.symmetric(
                                                 horizontal: 16, vertical: 8),
                                             child: Text(
-                                              "Weekly",
+                                              "Schools",
                                               textAlign: TextAlign.center,
                                               style: TextStyle(
                                                   color: ThemeColor.white,
@@ -81,7 +84,7 @@ class LeaderboardPage extends StatelessWidget {
                                             padding: const EdgeInsets.symmetric(
                                                 horizontal: 16, vertical: 8),
                                             child: Text(
-                                              "Weekly",
+                                              "Schools",
                                               textAlign: TextAlign.center,
                                               style: TextStyle(
                                                   color: ThemeColor.white
@@ -109,7 +112,7 @@ class LeaderboardPage extends StatelessWidget {
                                             padding: const EdgeInsets.symmetric(
                                                 horizontal: 16, vertical: 8),
                                             child: Text(
-                                              "All Time",
+                                              "Students",
                                               textAlign: TextAlign.center,
                                               style: TextStyle(
                                                   color: ThemeColor.white,
@@ -120,7 +123,7 @@ class LeaderboardPage extends StatelessWidget {
                                             padding: const EdgeInsets.symmetric(
                                                 horizontal: 16, vertical: 8),
                                             child: Text(
-                                              "All Time",
+                                              "Students",
                                               textAlign: TextAlign.center,
                                               style: TextStyle(
                                                   color: ThemeColor.white
@@ -139,8 +142,8 @@ class LeaderboardPage extends StatelessWidget {
                           height: 16,
                         ),
                         leaderboardController.selectedTabIndex.value == 0
-                            ? weeklyLeaderboard(leaderboardController)
-                            : allTimeLeaderboard(leaderboardController)
+                            ? schoolLeaderboard(schoolLeaderboardController) //schools
+                            : allTimeLeaderboard(leaderboardController) //students
                       ],
                     ),
             )));
@@ -293,12 +296,12 @@ class LeaderboardPage extends StatelessWidget {
     );
   }
 
-  Expanded weeklyLeaderboard(LeaderboardController leaderboardController) {
+  Expanded schoolLeaderboard(SchoolLeaderboardController schoolLeaderBoardController) {
     return Expanded(
       child: Padding(
           padding: const EdgeInsets.only(left: 8, right: 8, bottom: 24),
-          child: leaderboardController.leaderboardScreenResponseModel
-                      ?.weeklyLeaderboard?.isEmpty ==
+          child: schoolLeaderBoardController.schoolLeaderboardScreenResponseModel
+                      ?.schoolLeaderboard?.isEmpty ==
                   true
               ? Container(
                   width: double.infinity,
@@ -323,16 +326,18 @@ class LeaderboardPage extends StatelessWidget {
                         return SizedBox(height: 12);
                       },
                       scrollDirection: Axis.vertical,
-                      itemCount: leaderboardController
-                              .leaderboardScreenResponseModel
-                              ?.weeklyLeaderboard
+                      itemCount: schoolLeaderBoardController
+                              .schoolLeaderboardScreenResponseModel
+                              ?.schoolLeaderboard
                               ?.length ??
                           0,
                       itemBuilder: (context, index) {
-                        return userQuizPointsInfoContainter(
-                            index,
-                            leaderboardController.leaderboardScreenResponseModel
-                                ?.weeklyLeaderboard?[index]);
+                        //  return Container(color: Colors.red);
+                        // return userQuizPointsInfoContainter(
+                        //     index,
+                        //     leaderboardController.leaderboardScreenResponseModel
+                        //         ?.weeklyLeaderboard?[index]);
+                                return schoolLeaderBoardContainer( index, schoolLeaderBoardController.schoolLeaderboardScreenResponseModel?.schoolLeaderboard?[index]);
                       }),
                 )),
     );
@@ -420,6 +425,115 @@ class LeaderboardPage extends StatelessWidget {
                       ),
                       Text(
                         "${leaderboard?.points} points",
+                        style:
+                            TextStyle(fontSize: 14, color: ThemeColor.grey_500),
+                      ),
+                    ],
+                  ),
+                )
+              ],
+            ),
+          ),
+          Visibility(
+            visible: index < 3,
+            child: Image.asset(
+              index == 0
+                  ? "assets/images/gold_badge.png"
+                  : index == 1
+                      ? "assets/images/silver_badge.png"
+                      : "assets/images/bronze_badge.png",
+              width: 28,
+              fit: BoxFit.cover,
+            ),
+          ),
+        ],
+      ),
+    );
+
+  }
+  Container schoolLeaderBoardContainer(int index, SchoolLeaderboard? schoolLeaderboard)
+  {
+    return Container(
+      padding: const EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        color: ThemeColor.white,
+        borderRadius: BorderRadius.circular(20),
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Expanded(
+            child: Row(
+              children: [
+                Container(
+                  width: 32,
+                  padding: const EdgeInsets.all(4),
+                  decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      border: Border.all(
+                        color: ThemeColor.grey_400,
+                      )),
+                  child: Text(
+                    "${index + 1}",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                        fontSize: 12,
+                        fontWeight: FontWeight.bold,
+                        color: ThemeColor.grey_600),
+                  ),
+                ),
+                SizedBox(
+                  width: 16,
+                ),
+                CircleAvatar(
+                  backgroundColor: AppUtils.getRandomAvatarBgColor(),
+                  radius: 24,
+                  child: ClipOval(
+                    child: CachedNetworkImage(
+                      imageUrl: "${schoolLeaderboard?.school?.profilePic}",
+                      width: double.infinity,
+                      height: double.infinity,
+                      fit: BoxFit.cover,
+                      placeholder: (context, url) => Center(
+                        child: Container(
+                          width: 20,
+                          height: 20,
+                          child: CircularProgressIndicator(
+                            color: ThemeColor.accent,
+                          ),
+                        ),
+                      ),
+                      errorWidget: (context, url, error) => Icon(
+                        Icons.error,
+                        color: ThemeColor.red,
+                      ),
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  width: 12,
+                ),
+                Expanded(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "${schoolLeaderboard?.school?.schoolName}",
+                        softWrap: false,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                            color: ThemeColor.black),
+                      ),
+                      SizedBox(
+                        height: 4,
+                      ),
+                      Text(
+                        "${schoolLeaderboard?.points} points",
                         style:
                             TextStyle(fontSize: 14, color: ThemeColor.grey_500),
                       ),
