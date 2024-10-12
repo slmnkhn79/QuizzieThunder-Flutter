@@ -427,11 +427,11 @@ class HomePage extends StatelessWidget {
             itemBuilder: (context, index) {
               return InkWell(
                   onTap: () {
-                    // Get.toNamed(AppRoutes.quizDetailPage, arguments: {
-                    //   ARG_QUIZ_DETAIL:
-                    //       // feedController.feedScreenResponseModel?.posts?[index]
-                    //       feedController.posts[index]
-                    // });
+                    Get.toNamed(AppRoutes.eventDetailsPage, arguments: {
+                      ARG_QUIZ_DETAIL:
+                          // feedController.feedScreenResponseModel?.posts?[index]
+                          feedController.posts[index]
+                    });
                   },
                   child: PostCard(
                       // post: feedController.feedScreenResponseModel!.posts[index])
@@ -443,7 +443,7 @@ class HomePage extends StatelessWidget {
                         ),
                         SizedBox(
                             width: double.infinity,
-                            height: 20,
+                            height: 44,
                             child: ElevatedButton(
                               onPressed: () {
                                 feedController.incrementSkip();

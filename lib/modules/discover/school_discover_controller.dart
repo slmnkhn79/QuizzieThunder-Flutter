@@ -10,8 +10,7 @@ import '../../utils/enums/snackbar_status.dart';
 class SchoolDiscoverController extends GetxController {
   SchoolDiscoverApi discoverApi = SchoolDiscoverApi();
 
-  var isLoading = false.obs;
-  var selectedTabIndex = 0.obs;
+  var isLoading = true.obs;
 
   SchoolDiscoverScreenResponseModel? schoolDiscoverScreenResponseModel;
 

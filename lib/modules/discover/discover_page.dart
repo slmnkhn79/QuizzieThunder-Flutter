@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:quizzie_thunder/modules/discover/event_card.dart';
 import 'package:quizzie_thunder/modules/discover/school_discover_controller.dart';
 import 'package:quizzie_thunder/models/all_quiz_response_model.dart';
+import 'package:quizzie_thunder/modules/discover/search_controller.dart';
 import 'package:quizzie_thunder/modules/home/post_card/post_card.dart';
 
 import '../../routes/app_routes.dart';
@@ -35,13 +36,19 @@ class DiscoverPage extends StatelessWidget {
           elevation: 0,
         ),
         //fiters the current feed for the applied filted
-        floatingActionButton: Padding(
-          child: FloatingActionButton(
-            onPressed: () {},
-            child: Icon(Icons.filter_alt_outlined),
-          ),
-          padding: EdgeInsets.only(bottom: 44.0),
-        ),
+        floatingActionButton: Obx(() => Visibility(
+            visible: discoverController.selectedTabIndex == 0,
+            child: Padding(
+              child: FloatingActionButton(
+                backgroundColor: ThemeColor.primary,
+                foregroundColor: ThemeColor.lightSalmon,
+                onPressed: () {
+                  openDialog();
+                },
+                child: Icon(Icons.filter_alt_outlined),
+              ),
+              padding: EdgeInsets.only(bottom: 44.0),
+            ))),
         backgroundColor: ThemeColor.primary,
         body: Obx(() => RefreshIndicator(
               onRefresh: () async {
@@ -506,7 +513,8 @@ class DiscoverPage extends StatelessWidget {
             scrollDirection: Axis.vertical,
             itemBuilder: (context, index) {
               return Padding(
-                padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
+                padding:
+                    const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
                 child: EventCard(
                     // post: feedController.feedScreenResponseModel!.posts[index])
                     post: schoolDiscoverController
@@ -540,33 +548,33 @@ class DiscoverPage extends StatelessWidget {
             children: [
               Expanded(
                 child: InkWell(
-                  child: Container(
-                          decoration: BoxDecoration(
-                              color: ThemeColor.lightPrimary,
-                              borderRadius: BorderRadius.circular(16)),
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 16, vertical: 8),
-                          child: Text(
-                            head,
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                                color: ThemeColor.white,
-                                fontSize: 14,
-                                fontWeight: FontWeight.bold),
-                          ))
-                      // : Container(
-                      //     padding: const EdgeInsets.symmetric(
-                      //         horizontal: 16, vertical: 8),
-                      //     child: Text(
-                      //       "Nearby",
-                      //       textAlign: TextAlign.center,
-                      //       style: TextStyle(
-                      //           color: ThemeColor.white.withOpacity(0.6),
-                      //           fontSize: 14,
-                      //           fontWeight: FontWeight.bold),
-                      //     ),
-                      //   ),
-                ),
+                    child: Container(
+                        decoration: BoxDecoration(
+                            color: ThemeColor.lightPrimary,
+                            borderRadius: BorderRadius.circular(16)),
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 16, vertical: 8),
+                        child: Text(
+                          head,
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              color: ThemeColor.white,
+                              fontSize: 14,
+                              fontWeight: FontWeight.bold),
+                        ))
+                    // : Container(
+                    //     padding: const EdgeInsets.symmetric(
+                    //         horizontal: 16, vertical: 8),
+                    //     child: Text(
+                    //       "Nearby",
+                    //       textAlign: TextAlign.center,
+                    //       style: TextStyle(
+                    //           color: ThemeColor.white.withOpacity(0.6),
+                    //           fontSize: 14,
+                    //           fontWeight: FontWeight.bold),
+                    //     ),
+                    //   ),
+                    ),
               )
             ],
           ),
@@ -578,7 +586,8 @@ class DiscoverPage extends StatelessWidget {
     ]);
   }
 
-Column upComingEventsDicover(SchoolDiscoverController schoolDiscoverController) {
+  Column upComingEventsDicover(
+      SchoolDiscoverController schoolDiscoverController) {
     return Column(
       children: [
         //top liked event of nearby school or filtered schools
@@ -593,7 +602,8 @@ Column upComingEventsDicover(SchoolDiscoverController schoolDiscoverController) 
             scrollDirection: Axis.vertical,
             itemBuilder: (context, index) {
               return Padding(
-                padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
+                padding:
+                    const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
                 child: EventCard(
                     // post: feedController.feedScreenResponseModel!.posts[index])
                     post: schoolDiscoverController
@@ -608,4 +618,94 @@ Column upComingEventsDicover(SchoolDiscoverController schoolDiscoverController) 
     );
   }
 
+  void openDialog() {
+    SearchResultsController searchController =
+        Get.find<SearchResultsController>();
+    Get.dialog(Dialog(
+      child: SizedBox(
+        height: 600,
+        width: 600,
+        child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              //filter input
+              Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: TextField(
+                  // controller:  searchController,
+                  decoration: InputDecoration(
+                    hintText: 'Start typing!',
+                    border: OutlineInputBorder(),
+                  ),
+                  onChanged: (value) {
+                    // SearchResultsController searchController = Get.find<SearchResultsController>();
+                    searchController.getSearchResults(value);
+                    print(value);
+                  },
+                ),
+              ),
+              //results value
+              // SingleChildScrollView(
+              // child:
+              // ListView.builder(itemBuilder: (context, index){
+              //   SearchResultsController searchController = Get.find<SearchResultsController>();
+              //   return ElevatedButton(onPressed: (){}, child:
+              //   Text(
+              //     searchController.searchDialogResponseModel!.searchResults[index].displayValue
+              //   ));
+              // }
+              // ,itemCount:10
+              // //  searchController.searchDialogResponseModel!.searchResults!.length,
+              // ),
+
+              // Padding(
+              //     padding: EdgeInsets.all(8.0),
+              //     child: Column(children: [
+              //       Text('Results'),
+              //       if (searchController.searchDialogResponseModel != null &&
+              //           searchController.isLoading == false &&
+              //           searchController.searchDialogResponseModel!
+              //                   .searchResults!.length >
+              //               0)
+              //         ...searchController
+              //             .searchDialogResponseModel!.searchResults!
+              //             .map((e) => Text(e.displayValue))
+              //     ])), // ),
+
+              // selection
+              Text("One"),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: <Widget>[
+                  ElevatedButton(
+                    onPressed: () {
+                      Get.back();
+                    },
+                    child: Text('Close'),
+                  ),
+                  ElevatedButton(
+                    onPressed: () {
+                      // Apply filter logic here
+                    },
+                    child: Text('Apply'),
+                  ),
+                ],
+              ),
+            ]),
+      ),
+    )
+
+        // AlertDialog(
+        //   title: const Text('Dialog'),
+        //   content: const Text('This is a dialog'),
+        //   actions: [
+        // TextButton(
+        //   child: const Text("Close"),
+        //   onPressed: () => Get.back(),
+        // ),
+        //   ],
+        // ),
+        );
+  }
 }

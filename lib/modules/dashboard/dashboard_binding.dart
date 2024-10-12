@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 import 'package:quizzie_thunder/modules/discover/school_discover_controller.dart';
+import 'package:quizzie_thunder/modules/discover/search_controller.dart';
 import 'package:quizzie_thunder/modules/home/post_card/feed_controller.dart';
 import 'package:quizzie_thunder/modules/leaderboard/school_leaderboard_controller.dart';
 
@@ -20,5 +21,6 @@ class DashboardBinding extends Bindings {
     Get.lazyPut(() => FeedController());
     Get.lazyPut(() => SchoolLeaderboardController());
     Get.lazyPut(() => SchoolDiscoverController());
+    Get.lazyPut(() => SearchResultsController());
   }
 }

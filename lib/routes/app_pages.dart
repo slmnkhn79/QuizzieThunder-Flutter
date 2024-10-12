@@ -1,4 +1,6 @@
 import 'package:get/get.dart';
+import 'package:quizzie_thunder/modules/event_details/event_detail_binding.dart';
+import 'package:quizzie_thunder/modules/event_details/event_details_page.dart';
 
 import '../modules/create_new_password/create_new_password_binding.dart';
 import '../modules/create_new_password/create_new_password_page.dart';
@@ -108,6 +110,11 @@ class AppPages {
       name: AppRoutes.quizQuestionPage,
       page: () => QuizQuestionPage(),
       binding: QuizQuestionBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.eventDetailsPage,
+      page: () => EventDetailsPage(),
+      binding: EventDetailsBinding(),
     ),
   ];
 }
