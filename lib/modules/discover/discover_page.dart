@@ -1,16 +1,16 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:quizzie_thunder/models/post_card_item_model.dart';
-import 'package:quizzie_thunder/models/school_discover_screen_response_model.dart';
+import 'package:quizzie_thunder/modules/discover/event_card.dart';
 import 'package:quizzie_thunder/modules/discover/school_discover_controller.dart';
+import 'package:quizzie_thunder/models/all_quiz_response_model.dart';
+import 'package:quizzie_thunder/modules/home/post_card/post_card.dart';
 
 import '../../routes/app_routes.dart';
 import '../../theme/colors_theme.dart';
 import '../../utils/app_utils.dart';
 import '../../utils/constants.dart';
 import 'discover_controller.dart';
-import '../../models/all_quiz_response_model.dart';
 
 class DiscoverPage extends StatelessWidget {
   const DiscoverPage({Key? key}) : super(key: key);
@@ -33,6 +33,14 @@ class DiscoverPage extends StatelessWidget {
           backgroundColor: Colors.transparent,
           centerTitle: true,
           elevation: 0,
+        ),
+        //fiters the current feed for the applied filted
+        floatingActionButton: Padding(
+          child: FloatingActionButton(
+            onPressed: () {},
+            child: Icon(Icons.filter_alt_outlined),
+          ),
+          padding: EdgeInsets.only(bottom: 44.0),
         ),
         backgroundColor: ThemeColor.primary,
         body: Obx(() => RefreshIndicator(
@@ -74,7 +82,7 @@ class DiscoverPage extends StatelessWidget {
                                           padding: const EdgeInsets.symmetric(
                                               horizontal: 16, vertical: 8),
                                           child: Text(
-                                            "Weekly",
+                                            "Schools",
                                             textAlign: TextAlign.center,
                                             style: TextStyle(
                                                 color: ThemeColor.white,
@@ -85,7 +93,7 @@ class DiscoverPage extends StatelessWidget {
                                           padding: const EdgeInsets.symmetric(
                                               horizontal: 16, vertical: 8),
                                           child: Text(
-                                            "Weekly",
+                                            "Schools",
                                             textAlign: TextAlign.center,
                                             style: TextStyle(
                                                 color: ThemeColor.white
@@ -113,7 +121,7 @@ class DiscoverPage extends StatelessWidget {
                                           padding: const EdgeInsets.symmetric(
                                               horizontal: 16, vertical: 8),
                                           child: Text(
-                                            "All Time",
+                                            "Quiz",
                                             textAlign: TextAlign.center,
                                             style: TextStyle(
                                                 color: ThemeColor.white,
@@ -124,7 +132,7 @@ class DiscoverPage extends StatelessWidget {
                                           padding: const EdgeInsets.symmetric(
                                               horizontal: 16, vertical: 8),
                                           child: Text(
-                                            "All Time",
+                                            "Quiz",
                                             textAlign: TextAlign.center,
                                             style: TextStyle(
                                                 color: ThemeColor.white
@@ -139,102 +147,90 @@ class DiscoverPage extends StatelessWidget {
                           ),
                         ),
                       ),
-                      Padding(
-                        padding: const EdgeInsets.all(16.0),
-                        child: Column(
-                          children: [
-                            InkWell(
-                              onTap: () {
-                                Get.toNamed(AppRoutes.quizDetailPage,
-                                    arguments: {
-                                      ARG_QUIZ_DETAIL: Quiz(
-                                          id: discoverController
-                                              .discoverScreenResponseModel
-                                              ?.topPicQuiz
-                                              ?.id,
-                                          title: discoverController
-                                              .discoverScreenResponseModel
-                                              ?.topPicQuiz
-                                              ?.title,
-                                          description: discoverController
-                                              .discoverScreenResponseModel
-                                              ?.topPicQuiz
-                                              ?.description,
-                                          // category: Category(
-                                          //     id: discoverController
-                                          //         .discoverScreenResponseModel
-                                          //         ?.topPicQuiz
-                                          //         ?.category
-                                          //         ?.id,
-                                          //     title: discoverController
-                                          //         .discoverScreenResponseModel
-                                          //         ?.topPicQuiz
-                                          //         ?.category
-                                          //         ?.title,
-                                          //     createdAt: discoverController
-                                          //         .discoverScreenResponseModel
-                                          //         ?.topPicQuiz
-                                          //         ?.category
-                                          //         ?.createdAt,
-                                          //     updatedAt: discoverController
-                                          //         .discoverScreenResponseModel
-                                          //         ?.topPicQuiz
-                                          //         ?.category
-                                          //         ?.updatedAt),
-                                          createdAt: discoverController.discoverScreenResponseModel?.topPicQuiz?.createdAt,
-                                          updatedAt: discoverController.discoverScreenResponseModel?.topPicQuiz?.updatedAt)
-                                    });
-                              },
-                              child: Stack(children: [
-                                Image.asset(
-                                  "assets/images/top_pick_bg.png",
-                                  width: double.infinity,
-                                  fit: BoxFit.cover,
-                                ),
-                                Padding(
-                                    padding: const EdgeInsets.all(16.0),
-                                    child: Column(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.start,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          SizedBox(
-                                            height: 84,
-                                          ),
-                                          Text(
-                                              "${discoverController.discoverScreenResponseModel?.topPicQuiz?.title}",
-                                              style: TextStyle(
-                                                  fontSize: 16,
-                                                  fontWeight: FontWeight.bold,
-                                                  color: ThemeColor.burgundy)),
-                                          SizedBox(
-                                            height: 8,
-                                          ),
-                                          Text(
-                                              "${discoverController.discoverScreenResponseModel?.topPicQuiz?.category?.title} - 10 Questions",
-                                              style: TextStyle(
-                                                  fontSize: 12,
-                                                  color: ThemeColor.burgundy))
-                                        ])),
-                              ]),
-                            ),
-                          ],
-                        ),
-                      ),
-                      discoverController.selectedTabIndex == 0 
-                      ? schoolDicover(schoolDiscoverController)
-                      : quizDiscover(discoverController)
-                      
-                    ])
-                    )
-                    ,
+                      discoverController.selectedTabIndex == 0
+                          ? schoolDicover(schoolDiscoverController)
+                          : quizDiscover(discoverController)
+                    ])),
             )));
   }
 
-  Column quizDiscover(DiscoverController  discoverController) {
+  Column quizDiscover(DiscoverController discoverController) {
     return Column(
       children: [
+        Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            children: [
+              InkWell(
+                onTap: () {
+                  Get.toNamed(AppRoutes.quizDetailPage, arguments: {
+                    ARG_QUIZ_DETAIL: Quiz(
+                        id: discoverController
+                            .discoverScreenResponseModel?.topPicQuiz?.id,
+                        title: discoverController
+                            .discoverScreenResponseModel?.topPicQuiz?.title,
+                        description: discoverController
+                            .discoverScreenResponseModel
+                            ?.topPicQuiz
+                            ?.description,
+                        category: Category(
+                            id: discoverController.discoverScreenResponseModel
+                                ?.topPicQuiz?.category?.id,
+                            title: discoverController
+                                .discoverScreenResponseModel
+                                ?.topPicQuiz
+                                ?.category
+                                ?.title,
+                            createdAt: discoverController
+                                .discoverScreenResponseModel
+                                ?.topPicQuiz
+                                ?.category
+                                ?.createdAt,
+                            updatedAt: discoverController
+                                .discoverScreenResponseModel
+                                ?.topPicQuiz
+                                ?.category
+                                ?.updatedAt),
+                        createdAt: discoverController
+                            .discoverScreenResponseModel?.topPicQuiz?.createdAt,
+                        updatedAt:
+                            discoverController.discoverScreenResponseModel?.topPicQuiz?.updatedAt)
+                  });
+                },
+                child: Stack(children: [
+                  Image.asset(
+                    "assets/images/top_pick_bg.png",
+                    width: double.infinity,
+                    fit: BoxFit.cover,
+                  ),
+                  Padding(
+                      padding: const EdgeInsets.all(16.0),
+                      child: Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            SizedBox(
+                              height: 84,
+                            ),
+                            Text(
+                                "${discoverController.discoverScreenResponseModel?.topPicQuiz?.title}",
+                                style: TextStyle(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.bold,
+                                    color: ThemeColor.burgundy)),
+                            SizedBox(
+                              height: 8,
+                            ),
+                            Text(
+                                "${discoverController.discoverScreenResponseModel?.topPicQuiz?.category?.title} - 10 Questions",
+                                style: TextStyle(
+                                    fontSize: 12, color: ThemeColor.burgundy))
+                          ])),
+                ]),
+              ),
+            ],
+          ),
+        ),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 8),
           child: Container(
@@ -450,14 +446,166 @@ class DiscoverPage extends StatelessWidget {
       ],
     );
   }
-  Column schoolDicover(SchoolDiscoverController schoolDiscoverController)
-  {
+
+  Column schoolDicover(SchoolDiscoverController schoolDiscoverController) {
     return Column(
       children: [
-        Text("Scholls diover"),
-        Text("Scholls dioer"),
-        Text("Scholls diover"),
+        //top liked event of nearby school or filtered schools
+        AddSpacer("Top Event"),
+        Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            children: [
+              InkWell(
+                onTap: () {},
+                child: Stack(children: [
+                  Image.network(
+                    schoolDiscoverController
+                        .schoolDiscoverScreenResponseModel!.mostLiked!.imageUrl,
+                    width: double.infinity,
+                    fit: BoxFit.cover,
+                  ),
+                  Padding(
+                      padding: const EdgeInsets.all(16.0),
+                      child: Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            SizedBox(
+                              height: 84,
+                            ),
+                            Text(
+                                "${schoolDiscoverController.schoolDiscoverScreenResponseModel?.mostLiked?.title}",
+                                style: TextStyle(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.bold,
+                                    color: ThemeColor.burgundy)),
+                            SizedBox(
+                              height: 8,
+                            ),
+                            Text(
+                                "${schoolDiscoverController.schoolDiscoverScreenResponseModel?.mostLiked?.caption}",
+                                style: TextStyle(
+                                    fontSize: 12, color: ThemeColor.burgundy))
+                          ])),
+                ]),
+              ),
+            ],
+          ),
+        ),
+        //recent activity by schools top 10 activites  or filtered schools
+
+        AddSpacer("Top Activities"),
+
+        ListView.separated(
+            shrinkWrap: true,
+            physics: NeverScrollableScrollPhysics(),
+            separatorBuilder: (BuildContext context, int index) {
+              return SizedBox(height: 8);
+            },
+            scrollDirection: Axis.vertical,
+            itemBuilder: (context, index) {
+              return Padding(
+                padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
+                child: EventCard(
+                    // post: feedController.feedScreenResponseModel!.posts[index])
+                    post: schoolDiscoverController
+                        .schoolDiscoverScreenResponseModel!
+                        .recentActivity![index]),
+              );
+            },
+            itemCount: schoolDiscoverController
+                .schoolDiscoverScreenResponseModel!.recentActivity!.length),
+        //upcoming events of nearby school or filtered schools
+        upComingEventsDicover(schoolDiscoverController)
       ],
     );
   }
+
+  Column AddSpacer(String head) {
+    return Column(children: [
+      SizedBox(
+        height: 16,
+      ),
+      Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 8),
+        child: Container(
+          width: double.infinity,
+          decoration: BoxDecoration(
+              color: ThemeColor.primaryDark,
+              borderRadius: BorderRadius.circular(16)),
+          padding: const EdgeInsets.all(4),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Expanded(
+                child: InkWell(
+                  child: Container(
+                          decoration: BoxDecoration(
+                              color: ThemeColor.lightPrimary,
+                              borderRadius: BorderRadius.circular(16)),
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 16, vertical: 8),
+                          child: Text(
+                            head,
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                                color: ThemeColor.white,
+                                fontSize: 14,
+                                fontWeight: FontWeight.bold),
+                          ))
+                      // : Container(
+                      //     padding: const EdgeInsets.symmetric(
+                      //         horizontal: 16, vertical: 8),
+                      //     child: Text(
+                      //       "Nearby",
+                      //       textAlign: TextAlign.center,
+                      //       style: TextStyle(
+                      //           color: ThemeColor.white.withOpacity(0.6),
+                      //           fontSize: 14,
+                      //           fontWeight: FontWeight.bold),
+                      //     ),
+                      //   ),
+                ),
+              )
+            ],
+          ),
+        ),
+      ),
+      SizedBox(
+        height: 16,
+      )
+    ]);
+  }
+
+Column upComingEventsDicover(SchoolDiscoverController schoolDiscoverController) {
+    return Column(
+      children: [
+        //top liked event of nearby school or filtered schools
+        AddSpacer("Upcoming Event"),
+
+        ListView.separated(
+            shrinkWrap: true,
+            physics: NeverScrollableScrollPhysics(),
+            separatorBuilder: (BuildContext context, int index) {
+              return SizedBox(height: 8);
+            },
+            scrollDirection: Axis.vertical,
+            itemBuilder: (context, index) {
+              return Padding(
+                padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
+                child: EventCard(
+                    // post: feedController.feedScreenResponseModel!.posts[index])
+                    post: schoolDiscoverController
+                        .schoolDiscoverScreenResponseModel!
+                        .recentActivity![index]),
+              );
+            },
+            itemCount: schoolDiscoverController
+                .schoolDiscoverScreenResponseModel!.recentActivity!.length),
+        //upcoming events of nearby school or filtered schools
+      ],
+    );
+  }
+
 }
