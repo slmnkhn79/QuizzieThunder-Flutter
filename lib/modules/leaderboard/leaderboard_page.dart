@@ -491,7 +491,7 @@ class LeaderboardPage extends StatelessWidget {
                   radius: 24,
                   child: ClipOval(
                     child: CachedNetworkImage(
-                      imageUrl: "${schoolLeaderboard?.school?.profilePic}",
+                      imageUrl: "${schoolLeaderboard?.school.profilePic}",
                       width: double.infinity,
                       height: double.infinity,
                       fit: BoxFit.cover,
@@ -520,7 +520,7 @@ class LeaderboardPage extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        "${schoolLeaderboard?.school?.schoolName}",
+                        "${schoolLeaderboard?.school.schoolName}",
                         softWrap: false,
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,

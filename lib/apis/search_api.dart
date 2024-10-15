@@ -9,11 +9,13 @@ class SearchApi {
       options:
        Options(
         headers: {'X-Parse-Application-Id': 'myappID',},
+        
        ),
-       data: (
+       data: 
         {"searchValue":input},
-       ));
+       );
       return SearchDialogResponseModel.fromJson(response.data['result']);
+      // return SearchDialogResponseModel(code: 200, status: true, message: 'cistp,er');
     } catch (e) {
       rethrow;
     }

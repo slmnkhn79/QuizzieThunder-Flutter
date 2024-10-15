@@ -2,8 +2,6 @@ import 'package:get/get.dart';
 import 'package:quizzie_thunder/apis/school_leaderboard_api.dart';
 import 'package:quizzie_thunder/models/school_leaderboard_screen_response_model.dart';
 
-import '../../apis/leaderboard_api.dart';
-import '../../models/leaderboard_screen_response_model.dart';
 
 class SchoolLeaderboardController extends GetxController {
   SchoolLeaderboardApi leaderboardApi = SchoolLeaderboardApi();

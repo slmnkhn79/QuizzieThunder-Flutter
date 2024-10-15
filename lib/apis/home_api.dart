@@ -1,4 +1,3 @@
-import 'package:dio/dio.dart';
 
 import '../models/home_screen_response_model.dart';
 import '../utils/dio_client.dart';

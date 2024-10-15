@@ -2,23 +2,24 @@ class SearchDialogResponseModel {
   final int code;
   final bool status;
   final String message;
-  final List<SearchValue>? searchResults;
+  final List<SearchValue> searchResults;
 
   SearchDialogResponseModel(
       {required this.code,
       required this.status,
       required this.message,
-      required this.searchResults});
+      required this.searchResults
+      });
 
   factory SearchDialogResponseModel.fromJson(Map<String, dynamic> json) {
     return SearchDialogResponseModel(
       code: json["code"],
       status: json["status"],
-      message: json["message"],
-      searchResults: json["searchResults"] == null
-          ? []
-          : List<SearchValue>.from(
-              json["searchResults"]?.map((x) => SearchValue.fromJson(x))),
+      message: json["message"]
+      ,
+      searchResults: List<SearchValue>.from(
+              json["searchResults"]!.map((x) => SearchValue.fromJson(x))),
+
     );
   }
 
@@ -26,7 +27,7 @@ class SearchDialogResponseModel {
         "code": code,
         "status": status,
         "message": message,
-        "searchResults": searchResults?.map((x) => x.toJson()).toList()
+        "searchResults": searchResults!.map((x) => x.toJson()).toList()
       };
 }
 

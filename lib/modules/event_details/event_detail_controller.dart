@@ -1,30 +1,34 @@
 import 'package:get/get.dart';
+import 'package:quizzie_thunder/apis/event_details_api.dart';
+import 'package:quizzie_thunder/models/event_detail_response_model.dart';
+import 'package:quizzie_thunder/utils/app_utils.dart';
+import 'package:quizzie_thunder/utils/enums/snackbar_status.dart';
 
 
 
 class EventDetailsController extends GetxController {
-  // HomeApi homeApi = HomeApi();
+  EventDetailsApi eventDetailsApi = EventDetailsApi();
 
-  // var isLoading = false.obs;
-  // var selectedTabIndex = 0.obs;
+  var isLoading = true.obs;
+  var eventId = ''.obs;
 
-  // HomeScreenResponseModel? homeScreenResponseModel;
+  EventDetailsResponseModel? eventDetailsResponseModel;
 
   @override
   void onInit() {
-    // getHomeScreenDetails();
+    // getEventDetails();
     super.onInit();
   }
 
-  // void getHomeScreenDetails() async {
-  //   isLoading.value = true;
-  //   var response = await homeApi.getHomeScreenDetails();
-  //   if (response.code == 200) {
-  //     homeScreenResponseModel = response;
-  //     isLoading.value = false;
-  //   } else {
-  //     isLoading.value = false;
-  //     AppUtils.showSnackBar("Error", status: MessageStatus.ERROR);
-  //   }
-  // }
+  void getEventDetails() async {
+    isLoading.value = true;
+    var response = await eventDetailsApi.getEventDetails(eventId:eventId.value);
+    if (response.code == 200) {
+      eventDetailsResponseModel = response;
+      isLoading.value = false;
+    } else {
+      isLoading.value = false;
+      AppUtils.showSnackBar("Error", status: MessageStatus.ERROR);
+    }
+  }
 }

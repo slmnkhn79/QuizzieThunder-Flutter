@@ -5,7 +5,6 @@ import 'package:quizzie_thunder/modules/discover/event_card.dart';
 import 'package:quizzie_thunder/modules/discover/school_discover_controller.dart';
 import 'package:quizzie_thunder/models/all_quiz_response_model.dart';
 import 'package:quizzie_thunder/modules/discover/search_controller.dart';
-import 'package:quizzie_thunder/modules/home/post_card/post_card.dart';
 
 import '../../routes/app_routes.dart';
 import '../../theme/colors_theme.dart';
@@ -626,7 +625,7 @@ class DiscoverPage extends StatelessWidget {
         height: 600,
         width: 600,
         child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               //filter input
@@ -638,44 +637,50 @@ class DiscoverPage extends StatelessWidget {
                     hintText: 'Start typing!',
                     border: OutlineInputBorder(),
                   ),
-                  onChanged: (value) {
-                    // SearchResultsController searchController = Get.find<SearchResultsController>();
-                    searchController.getSearchResults(value);
-                    print(value);
+                  onChanged: (value) async {
+                    if (value.length >= 3) {
+                      await searchController.getSearchResults(value);
+                      // print(value);
+                    }
                   },
                 ),
               ),
-              //results value
-              // SingleChildScrollView(
-              // child:
-              // ListView.builder(itemBuilder: (context, index){
-              //   SearchResultsController searchController = Get.find<SearchResultsController>();
-              //   return ElevatedButton(onPressed: (){}, child:
-              //   Text(
-              //     searchController.searchDialogResponseModel!.searchResults[index].displayValue
-              //   ));
-              // }
-              // ,itemCount:10
-              // //  searchController.searchDialogResponseModel!.searchResults!.length,
-              // ),
 
-              // Padding(
-              //     padding: EdgeInsets.all(8.0),
-              //     child: Column(children: [
-              //       Text('Results'),
-              //       if (searchController.searchDialogResponseModel != null &&
-              //           searchController.isLoading == false &&
-              //           searchController.searchDialogResponseModel!
-              //                   .searchResults!.length >
-              //               0)
-              //         ...searchController
-              //             .searchDialogResponseModel!.searchResults!
-              //             .map((e) => Text(e.displayValue))
-              //     ])), // ),
+              Obx(() => searchController.isLoading.value == false && searchController.searchDialogResponseModel!.searchResults.isNotEmpty
+                  ? Expanded(
+                    child:
+                  GridView(
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      mainAxisExtent: 44,
+                    mainAxisSpacing: 10.0,
+                     crossAxisCount: 4,
+                    crossAxisSpacing: 10.0,
+                    childAspectRatio: 1.0,
+                    ) ,
+                    children: [
+                        ...searchController
+                            .searchDialogResponseModel!.searchResults!
+                            .map((e) {
+                          return ElevatedButton(onPressed: (){}, child :  Text(e.displayValue));
+                        })
+                    ]
+                    )
+                    )
+                  : SizedBox(
+                      height: 60,
+                      width: double.infinity,
+                      // child: Container(color: Colors.red)
+                      )),
 
               // selection
-              Text("One"),
-              Row(
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
+              child:
+              Column(
+                mainAxisAlignment: MainAxisAlignment.end,
+              children:[
+                Divider(),
+                Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
                   ElevatedButton(
@@ -691,7 +696,9 @@ class DiscoverPage extends StatelessWidget {
                     child: Text('Apply'),
                   ),
                 ],
-              ),
+              )],
+              )
+              )
             ]),
       ),
     )

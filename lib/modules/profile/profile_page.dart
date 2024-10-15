@@ -331,6 +331,16 @@ class ProfilePage extends StatelessWidget {
             textAlign: TextAlign.left,
             style: TextStyle(color: ThemeColor.black, fontSize: 16),
           ),
+          ElevatedButton(
+              onPressed: () {
+                Get.toNamed(AppRoutes.addPostPage, arguments: {
+                  // ARG_QUIZ_DETAIL:
+                  //     quizzesController.allQuizzes[index],
+                  // ARG_QUIZ_CATEGORY_NAME:
+                  //     quizzesController.quizCategoryName
+                });
+              },
+              child: Text("Add a Post"))
         ],
       ),
     );

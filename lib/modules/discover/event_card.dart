@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:quizzie_thunder/models/post_card_item_model.dart';
 import 'package:quizzie_thunder/models/school_discover_screen_response_model.dart';
 import 'package:quizzie_thunder/modules/home/post_card/like_animation.dart';
 
