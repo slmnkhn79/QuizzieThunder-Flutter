@@ -18,6 +18,9 @@ const PAGE_LIMIT = "50";
 // const BASE_URL = "https://quizzie-thunder-apis.onrender.com/";
 const BASE_URL = "http://192.168.1.40:1337/parse/functions";
 
+const BASE_URL_DEFAULT= "http://192.168.1.40:1337/parse/";
+
+
 // Date and Time
 const API_DATE_FORMAT_1 = "yyyy-MM-dd HH:mm:ss";
 const API_DATE_FORMAT_2 = "yyyy-MM-dd";

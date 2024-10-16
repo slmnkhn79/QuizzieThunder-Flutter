@@ -7,7 +7,7 @@ class SignUpApi {
       {required SignUpPostBodyModel signUpPostBodyModel}) async {
     try {
       final response = await DioClient.getDioInstance()
-          .post("api/user/register", data: signUpPostBodyModel.toJson());
+          .post("signup", data: signUpPostBodyModel.toJson());
       return SignUpResponseModel.fromJson(response.data);
     } catch (e) {
       rethrow;
