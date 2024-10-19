@@ -1,21 +1,21 @@
 class SignInPostBodyModel {
   SignInPostBodyModel({
-    required this.mobile,
+    required this.username,
     required this.password,
   });
 
-  final String? mobile;
+  final String? username;
   final String? password;
 
   factory SignInPostBodyModel.fromJson(Map<String, dynamic> json) {
     return SignInPostBodyModel(
-      mobile: json["mobile"],
+      username: json["username"],
       password: json["password"],
     );
   }
 
   Map<String, dynamic> toJson() => {
-        "mobile": mobile,
+        "username": username,
         "password": password,
       };
 }

@@ -24,7 +24,19 @@ class HomePage extends StatelessWidget {
     FeedController feedController = Get.find<FeedController>();
 
     return Scaffold(
-        backgroundColor: ThemeColor.primary,
+        appBar: AppBar(
+          title: Text(
+            "Home",
+            style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+                color: ThemeColor.white),
+          ),
+          backgroundColor: ThemeColor.headerOne,
+          centerTitle: true,
+          elevation: 0,
+        ),
+        backgroundColor: ThemeColor.facebook_light_4,
         body: Obx(() => RefreshIndicator(
             onRefresh: () async {
               homeController.getHomeScreenDetails();
@@ -35,201 +47,236 @@ class HomePage extends StatelessWidget {
                     feedController.isLoading.value
                 ? const Center(
                     child: CircularProgressIndicator(
-                    color: ThemeColor.white,
+                    color: ThemeColor.headerOne,
                   ))
                 : SingleChildScrollView(
-                    child: Column(children: [
-                    Padding(
-                        padding: const EdgeInsets.all(16.0),
-                        child: Column(children: [
-                          SizedBox(
-                            height: 36,
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Column(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    "${AppUtils.getGreeting()}",
-                                    style: TextStyle(
-                                        fontSize: 12,
-                                        fontWeight: FontWeight.bold,
-                                        color: ThemeColor.candyPink),
-                                  ),
-                                  SizedBox(
-                                    height: 8,
-                                  ),
-                                  Visibility(
-                                    visible: profileController
-                                        .fullName.value.isNotNullOrEmpty,
-                                    child: Text(
-                                      "${profileController.fullName}",
-                                      style: TextStyle(
-                                          fontSize: 20,
-                                          fontWeight: FontWeight.bold,
-                                          color: ThemeColor.white),
+                    child: Center(
+                      child: SizedBox(
+                        width: MediaQuery.of(context).size.width > 600
+                            ? 600
+                            : MediaQuery.of(context).size.width,
+                        child: Container(
+                          
+                          color: ThemeColor.headerThree,
+                          child: SizedBox(
+                            child: Column(children: [
+                              Padding(
+                                  padding: const EdgeInsets.all(16.0),
+                                  child: Column(children: [
+                                    SizedBox(
+                                      height: 36,
                                     ),
-                                  ),
-                                ],
-                              ),
-                              Visibility(
-                                visible: profileController
-                                    .profilePic.value.isNotNullOrEmpty,
-                                child: CircleAvatar(
-                                  backgroundColor:
-                                      AppUtils.getRandomAvatarBgColor(),
-                                  radius: 24,
-                                  child: ClipOval(
-                                    child: CachedNetworkImage(
-                                      imageUrl:
-                                          "${profileController.profilePic}",
-                                      width: double.infinity,
-                                      height: double.infinity,
-                                      fit: BoxFit.cover,
-                                      placeholder: (context, url) => Center(
-                                        child: Container(
-                                          width: 20,
-                                          height: 20,
-                                          child: CircularProgressIndicator(
-                                            color: ThemeColor.accent,
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.start,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Text(
+                                              "${AppUtils.getGreeting()}",
+                                              style: TextStyle(
+                                                  fontSize: 12,
+                                                  fontWeight: FontWeight.bold,
+                                                  // color: ThemeColor.candyPink
+                                                  color: ThemeColor.headerOne),
+                                            ),
+                                            SizedBox(
+                                              height: 8,
+                                            ),
+                                            Visibility(
+                                              visible: profileController.fullName
+                                                  .value.isNotNullOrEmpty,
+                                              child: Text(
+                                                "${profileController.fullName}",
+                                                style: TextStyle(
+                                                    fontSize: 20,
+                                                    fontWeight: FontWeight.bold,
+                                                    color: ThemeColor.headerOne),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                        Visibility(
+                                          visible: profileController
+                                              .profilePic.value.isNotNullOrEmpty,
+                                          child: CircleAvatar(
+                                            backgroundColor:
+                                                AppUtils.getRandomAvatarBgColor(),
+                                            radius: 24,
+                                            child: ClipOval(
+                                              child: CachedNetworkImage(
+                                                imageUrl:
+                                                    "${profileController.profilePic}",
+                                                width: double.infinity,
+                                                height: double.infinity,
+                                                fit: BoxFit.cover,
+                                                placeholder: (context, url) =>
+                                                    Center(
+                                                  child: Container(
+                                                    width: 20,
+                                                    height: 20,
+                                                    child:
+                                                        CircularProgressIndicator(
+                                                      color: ThemeColor.accent,
+                                                    ),
+                                                  ),
+                                                ),
+                                                errorWidget:
+                                                    (context, url, error) => Icon(
+                                                  Icons.error,
+                                                  color: ThemeColor.red,
+                                                ),
+                                              ),
+                                            ),
                                           ),
                                         ),
-                                      ),
-                                      errorWidget: (context, url, error) =>
-                                          Icon(
-                                        Icons.error,
-                                        color: ThemeColor.red,
-                                      ),
+                                      ],
                                     ),
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                          SizedBox(
-                            height: 32,
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 16),
-                            child: Container(
-                              width: double.infinity,
-                              decoration: BoxDecoration(
-                                  color: ThemeColor.primaryDark,
-                                  borderRadius: BorderRadius.circular(16)),
-                              padding: const EdgeInsets.all(4),
-                              child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Expanded(
-                                    child: InkWell(
-                                      onTap: () {
-                                        homeController.selectedTabIndex.value =
-                                            0;
-                                      },
-                                      child: homeController
-                                                  .selectedTabIndex.value ==
-                                              0
-                                          ? Container(
-                                              decoration: BoxDecoration(
-                                                  color:
-                                                      ThemeColor.lightPrimary,
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          16)),
-                                              padding:
-                                                  const EdgeInsets.symmetric(
-                                                      horizontal: 16,
-                                                      vertical: 8),
-                                              child: Text(
-                                                "Nearby",
-                                                textAlign: TextAlign.center,
-                                                style: TextStyle(
-                                                    color: ThemeColor.white,
-                                                    fontSize: 14,
-                                                    fontWeight:
-                                                        FontWeight.bold),
-                                              ))
-                                          : Container(
-                                              padding:
-                                                  const EdgeInsets.symmetric(
-                                                      horizontal: 16,
-                                                      vertical: 8),
-                                              child: Text(
-                                                "Nearby",
-                                                textAlign: TextAlign.center,
-                                                style: TextStyle(
-                                                    color: ThemeColor.white
-                                                        .withOpacity(0.6),
-                                                    fontSize: 14,
-                                                    fontWeight:
-                                                        FontWeight.bold),
-                                              ),
+                                    SizedBox(
+                                      height: 32,
+                                    ),
+                                    Container(
+                                      width: double.infinity,
+                                      decoration: BoxDecoration(
+                                          // color: ThemeColor.primaryDark,
+                                          color: ThemeColor.headerOne,
+                                          borderRadius:
+                                              BorderRadius.circular(16)),
+                                      // padding: const EdgeInsets.all(4),
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Expanded(
+                                            child: InkWell(
+                                              onTap: () {
+                                                homeController
+                                                    .selectedTabIndex.value = 0;
+                                              },
+                                              child: homeController
+                                                          .selectedTabIndex
+                                                          .value ==
+                                                      0
+                                                  ? Container(
+                                                      decoration: BoxDecoration(
+                                                          color: ThemeColor
+                                                              .headerTwo,
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                                      16)),
+                                                      padding: const EdgeInsets
+                                                          .symmetric(
+                                                          horizontal: 16,
+                                                          vertical: 8),
+                                                      child: Text(
+                                                        "Nearby",
+                                                        textAlign:
+                                                            TextAlign.center,
+                                                        style: TextStyle(
+                                                            color: ThemeColor
+                                                                .facebook_light_4,
+                                                            fontSize: 14,
+                                                            fontWeight:
+                                                                FontWeight
+                                                                    .bold),
+                                                      ))
+                                                  : Container(
+                                                      padding: const EdgeInsets
+                                                          .symmetric(
+                                                          horizontal: 16,
+                                                          vertical: 8),
+                                                      child: Text(
+                                                        "Nearby",
+                                                        textAlign:
+                                                            TextAlign.center,
+                                                        style: TextStyle(
+                                                            color: ThemeColor
+                                                                .facebook_light_4
+                                                                ,
+                                                            fontSize: 14,
+                                                            fontWeight:
+                                                                FontWeight
+                                                                    .bold),
+                                                      ),
+                                                    ),
                                             ),
-                                    ),
-                                  ),
-                                  Expanded(
-                                    child: InkWell(
-                                      onTap: () {
-                                        homeController.selectedTabIndex.value =
-                                            1;
-                                      },
-                                      child: homeController
-                                                  .selectedTabIndex.value ==
-                                              1
-                                          ? Container(
-                                              decoration: BoxDecoration(
-                                                  color:
-                                                      ThemeColor.lightPrimary,
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          16)),
-                                              padding:
-                                                  const EdgeInsets.symmetric(
-                                                      horizontal: 16,
-                                                      vertical: 8),
-                                              child: Text(
-                                                "Weekly",
-                                                textAlign: TextAlign.center,
-                                                style: TextStyle(
-                                                    color: ThemeColor.white,
-                                                    fontSize: 14,
-                                                    fontWeight:
-                                                        FontWeight.bold),
-                                              ))
-                                          : Container(
-                                              padding:
-                                                  const EdgeInsets.symmetric(
-                                                      horizontal: 16,
-                                                      vertical: 8),
-                                              child: Text(
-                                                "Weekly",
-                                                textAlign: TextAlign.center,
-                                                style: TextStyle(
-                                                    color: ThemeColor.white
-                                                        .withOpacity(0.6),
-                                                    fontSize: 14,
-                                                    fontWeight:
-                                                        FontWeight.bold),
-                                              ),
+                                          ),
+                                          Expanded(
+                                            child: InkWell(
+                                              onTap: () {
+                                                homeController
+                                                    .selectedTabIndex.value = 1;
+                                              },
+                                              child: homeController
+                                                          .selectedTabIndex
+                                                          .value ==
+                                                      1
+                                                  ? Container(
+                                                      decoration: BoxDecoration(
+                                                          color: ThemeColor
+                                                              .headerTwo,
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                                      16)),
+                                                      padding: const EdgeInsets
+                                                          .symmetric(
+                                                          horizontal: 16,
+                                                          vertical: 8),
+                                                      child: Text(
+                                                        "Weekly",
+                                                        textAlign:
+                                                            TextAlign.center,
+                                                        style: TextStyle(
+                                                            color: ThemeColor
+                                                                .facebook_light_4,
+                                                            fontSize: 14,
+                                                            fontWeight:
+                                                                FontWeight
+                                                                    .bold),
+                                                      ))
+                                                  : Container(
+                                                      padding: const EdgeInsets
+                                                          .symmetric(
+                                                          horizontal: 16,
+                                                          vertical: 8),
+                                                      child: Text(
+                                                        "Weekly",
+                                                        textAlign:
+                                                            TextAlign.center,
+                                                        style: TextStyle(
+                                                            color: ThemeColor
+                                                                .facebook_light_4                                                                                                                                                                                                      
+                                                                ,
+                                                            fontSize: 14,
+                                                            fontWeight:
+                                                                FontWeight
+                                                                    .bold),
+                                                      ),
+                                                    ),
                                             ),
+                                          )
+                                        ],
+                                      ),
                                     ),
-                                  )
-                                ],
-                              ),
-                            ),
+                                    SizedBox(
+                                      height: 32,
+                                    ),
+                                    homeController.selectedTabIndex.value == 0
+                                        ? nearByFeedContainer(feedController)
+                                        : quizFeedContainer(homeController)
+                                  ]))
+                            ]),
                           ),
-                          SizedBox(
-                            height: 32,
-                          ),
-                          homeController.selectedTabIndex.value == 0
-                              ? nearByFeedContainer(feedController)
-                              : quizFeedContainer(homeController)
-                        ]))
-                  ])))));
+                        ),
+                      ),
+                    ),
+                  ))));
   }
 
   Column quizFeedContainer(HomeController homeController) {
@@ -423,7 +470,7 @@ class HomePage extends StatelessWidget {
                 // feedController.feedScreenResponseModel?.posts?.length ?? 0,
                 // feedController.posts.length + (feedController.isLoading.value ? 1 : 0),
                 feedController.postLen,
-                // feedController.feedScreenResponseModel!.posts.length + (feedController.isLoading.value ? 1 : 0),
+            // feedController.feedScreenResponseModel!.posts.length + (feedController.isLoading.value ? 1 : 0),
             itemBuilder: (context, index) {
               return InkWell(
                   onTap: () {
@@ -435,33 +482,28 @@ class HomePage extends StatelessWidget {
                   },
                   child: PostCard(
                       // post: feedController.feedScreenResponseModel!.posts[index])
-                      post: feedController.posts[index])
-                      );
+                      post: feedController.posts[index]));
             }),
-      SizedBox(
-                          height: 5,
-                        ),
-                        SizedBox(
-                            width: double.infinity,
-                            height: 44,
-                            child: ElevatedButton(
-                              onPressed: () {
-                                feedController.incrementSkip();
-                                feedController.getFeedScreenDetails();
-                              },
-                              child: Text("Load More",
-                                  style: TextStyle(color: ThemeColor.primaryDark)),
-                              style: TextButton.styleFrom(
-                                textStyle: TextStyle(
-                                    fontSize: 16, fontWeight: FontWeight.w500),
-                                shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(12)),
-                                backgroundColor: ThemeColor.lighterPrimary,
-                              ),
-                            )),  
-                             SizedBox(
-                          height: 44,
-                        ),    
+        SizedBox(
+            width: double.infinity,
+            height: 44,
+            child: ElevatedButton(
+              onPressed: () {
+                feedController.incrementSkip();
+                feedController.getFeedScreenDetails();
+              },
+              style: TextButton.styleFrom(
+                textStyle: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12)),
+                backgroundColor: ThemeColor.headerOne,
+              ),
+              child: Text("Load More",
+                  style: TextStyle(color: ThemeColor.headerThree)),
+            )),
+        SizedBox(
+          height: 64,
+        ),
       ],
     );
   }

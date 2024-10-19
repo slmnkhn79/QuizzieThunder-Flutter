@@ -29,7 +29,7 @@ class SigninController extends GetxController {
     if (phoneNumberController.text.isEmpty) {
       errorMessage = "Phone number should not be empty";
       return false;
-    } else if (phoneNumberController.text.toString().length != 10) {
+    } else if (phoneNumberController.text.toString().length < 8) {
       errorMessage = "Enter valid phone number";
       return false;
     } else if (passwordController.text.isEmpty) {
@@ -43,7 +43,7 @@ class SigninController extends GetxController {
   void login() async {
     if (_loginFormValidation()) {
       SignInPostBodyModel signInPostBodyModel = SignInPostBodyModel(
-          mobile: phoneNumberController.text,
+          username: phoneNumberController.text,
           password: passwordController.text);
       isLoading.value = true;
       var response =

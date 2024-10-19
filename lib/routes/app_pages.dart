@@ -1,8 +1,10 @@
 import 'package:get/get.dart';
-import 'package:quizzie_thunder/modules/add_a_post/add_post_binding.dart';
-import 'package:quizzie_thunder/modules/add_a_post/add_post_page.dart';
+import 'package:quizzie_thunder/modules/add_a_school/add_post_binding.dart';
+import 'package:quizzie_thunder/modules/add_a_school/add_post_page.dart';
 import 'package:quizzie_thunder/modules/event_details/event_detail_binding.dart';
 import 'package:quizzie_thunder/modules/event_details/event_details_page.dart';
+import 'package:quizzie_thunder/modules/school_details/school_details_binding.dart';
+import 'package:quizzie_thunder/modules/school_details/school_details_page.dart';
 
 import '../modules/create_new_password/create_new_password_binding.dart';
 import '../modules/create_new_password/create_new_password_page.dart';
@@ -118,10 +120,16 @@ class AppPages {
       page: () => EventDetailsPage(eventId: ''),
       binding: EventDetailsBinding(),
     ),
+    // GetPage(
+    //   name: AppRoutes.addPostPage,
+    //   page: () => AddSchoolDetails(),
+    //   binding: AddSchoolBinding(),
+    // ),
     GetPage(
-      name: AppRoutes.addPostPage,
-      page: () => AddPost(),
-      binding: AddPostBinding(),
+      name: AppRoutes.schoolDetailsPage,
+      page: () => SchoolDetails(),
+      binding: SchoolBinding(),
     ),
   ];
+
 }

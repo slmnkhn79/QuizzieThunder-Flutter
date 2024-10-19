@@ -1,6 +1,7 @@
 // Commonly used Arguments
 const ARG_PHONE_NUMBER = "arg_phone_number";
 const ARG_QUIZ_DETAIL = "arg_quiz_detail";
+const ARG_SCHOOL_DETAIL = "arg_school_detail";
 const ARG_QUIZ_ID = "arg_quiz_id";
 const ARG_SKIPPED_QUESTIONS_COUNT = "arg_skipped_questions_count";
 const ARG_CORRECT_ANSWER_COUNT = "arg_correct_answers_count";

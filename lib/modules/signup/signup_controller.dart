@@ -41,7 +41,7 @@ class SignupController extends GetxController {
     } else if (phoneNumberController.text.isEmpty) {
       errorMessage = "Phone number should not be empty";
       return false;
-    } else if (phoneNumberController.text.toString().length != 10) {
+    } else if (phoneNumberController.text.toString().length < 6) {
       errorMessage = "Enter valid phone number";
       return false;
     } else if (passwordController.text.isEmpty) {
@@ -58,7 +58,7 @@ class SignupController extends GetxController {
           firstname: firstNameController.text,
           lastname: lastNameController.text,
           email: emailController.text,
-          mobile: phoneNumberController.text,
+          username: phoneNumberController.text,
           password: passwordController.text);
       isLoading.value = true;
       var response =

@@ -30,7 +30,7 @@ class DiscoverPage extends StatelessWidget {
                 fontWeight: FontWeight.bold,
                 color: ThemeColor.white),
           ),
-          backgroundColor: Colors.transparent,
+          backgroundColor: ThemeColor.headerOne,
           centerTitle: true,
           elevation: 0,
         ),
@@ -38,17 +38,17 @@ class DiscoverPage extends StatelessWidget {
         floatingActionButton: Obx(() => Visibility(
             visible: discoverController.selectedTabIndex == 0,
             child: Padding(
+              padding: EdgeInsets.only(bottom: 44.0),
               child: FloatingActionButton(
-                backgroundColor: ThemeColor.primary,
-                foregroundColor: ThemeColor.lightSalmon,
+                backgroundColor: ThemeColor.headerOne,
+                foregroundColor: ThemeColor.headerThree,
                 onPressed: () {
                   openDialog();
                 },
                 child: Icon(Icons.filter_alt_outlined),
               ),
-              padding: EdgeInsets.only(bottom: 44.0),
             ))),
-        backgroundColor: ThemeColor.primary,
+        backgroundColor: ThemeColor.facebook_light_4,
         body: Obx(() => RefreshIndicator(
               onRefresh: () async {
                 discoverController.getDiscoverScreenDetails();
@@ -59,104 +59,115 @@ class DiscoverPage extends StatelessWidget {
                       color: ThemeColor.white,
                     ))
                   : SingleChildScrollView(
-                      child: Column(children: [
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 24),
-                        child: Container(
-                          width: double.infinity,
-                          decoration: BoxDecoration(
-                              color: ThemeColor.primaryDark,
-                              borderRadius: BorderRadius.circular(16)),
-                          padding: const EdgeInsets.all(4),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Expanded(
-                                child: InkWell(
-                                  onTap: () {
-                                    discoverController.selectedTabIndex.value =
-                                        0;
-                                  },
-                                  child: discoverController
-                                              .selectedTabIndex.value ==
-                                          0
-                                      ? Container(
-                                          decoration: BoxDecoration(
-                                              color: ThemeColor.lightPrimary,
-                                              borderRadius:
-                                                  BorderRadius.circular(16)),
-                                          padding: const EdgeInsets.symmetric(
-                                              horizontal: 16, vertical: 8),
-                                          child: Text(
-                                            "Schools",
-                                            textAlign: TextAlign.center,
-                                            style: TextStyle(
-                                                color: ThemeColor.white,
-                                                fontSize: 14,
-                                                fontWeight: FontWeight.bold),
-                                          ))
-                                      : Container(
-                                          padding: const EdgeInsets.symmetric(
-                                              horizontal: 16, vertical: 8),
-                                          child: Text(
-                                            "Schools",
-                                            textAlign: TextAlign.center,
-                                            style: TextStyle(
-                                                color: ThemeColor.white
-                                                    .withOpacity(0.6),
-                                                fontSize: 14,
-                                                fontWeight: FontWeight.bold),
-                                          ),
+                      child: Center(
+                        child: SizedBox(
+                           width: MediaQuery.of(context).size.width > 600 ? 600 : MediaQuery.of(context).size.width,
+                          child: Container(
+                            color: ThemeColor.headerThree,
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Column(children: [
+                              Padding(
+                                padding: const EdgeInsets.symmetric(horizontal: 8),
+                                child: Container(
+                                  width: double.infinity,
+                                  decoration: BoxDecoration(
+                                      color: ThemeColor.headerOne,
+                                      borderRadius: BorderRadius.circular(16)),
+                                  // padding: const EdgeInsets.all(4),
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Expanded(
+                                        child: InkWell(
+                                          onTap: () {
+                                            discoverController.selectedTabIndex.value =
+                                                0;
+                                          },
+                                          child: discoverController
+                                                      .selectedTabIndex.value ==
+                                                  0
+                                              ? Container(
+                                                  decoration: BoxDecoration(
+                                                      color: ThemeColor.headerTwo,
+                                                      borderRadius:
+                                                          BorderRadius.circular(16)),
+                                                  padding: const EdgeInsets.symmetric(
+                                                      horizontal: 16, vertical: 8),
+                                                  child: Text(
+                                                    "Schools",
+                                                    textAlign: TextAlign.center,
+                                                    style: TextStyle(
+                                                        color: ThemeColor.facebook_light_4,
+                                                        fontSize: 14,
+                                                        fontWeight: FontWeight.bold),
+                                                  ))
+                                              : Container(
+                                                  padding: const EdgeInsets.symmetric(
+                                                      horizontal: 16, vertical: 8),
+                                                  child: Text(
+                                                    "Schools",
+                                                    textAlign: TextAlign.center,
+                                                    style: TextStyle(
+                                                        color: ThemeColor.facebook_light_4
+                                                            ,
+                                                        fontSize: 14,
+                                                        fontWeight: FontWeight.bold),
+                                                  ),
+                                                ),
                                         ),
+                                      ),
+                                      Expanded(
+                                        child: InkWell(
+                                          onTap: () {
+                                            discoverController.selectedTabIndex.value =
+                                                1;
+                                          },
+                                          child: discoverController
+                                                      .selectedTabIndex.value ==
+                                                  1
+                                              ? Container(
+                                                  decoration: BoxDecoration(
+                                                      color: ThemeColor.headerTwo,
+                                                      borderRadius:
+                                                          BorderRadius.circular(16)),
+                                                  padding: const EdgeInsets.symmetric(
+                                                      horizontal: 16, vertical: 8),
+                                                  child: Text(
+                                                    "Quiz",
+                                                    textAlign: TextAlign.center,
+                                                    style: TextStyle(
+                                                        color: ThemeColor.facebook_light_4,
+                                                        fontSize: 14,
+                                                        fontWeight: FontWeight.bold),
+                                                  ))
+                                              : Container(
+                                                  padding: const EdgeInsets.symmetric(
+                                                      horizontal: 16, vertical: 8),
+                                                  child: Text(
+                                                    "Quiz",
+                                                    textAlign: TextAlign.center,
+                                                    style: TextStyle(
+                                                        color: ThemeColor.facebook_light_4
+                                                           ,
+                                                        fontSize: 14,
+                                                        fontWeight: FontWeight.bold),
+                                                  ),
+                                                ),
+                                        ),
+                                      )
+                                    ],
+                                  ),
                                 ),
                               ),
-                              Expanded(
-                                child: InkWell(
-                                  onTap: () {
-                                    discoverController.selectedTabIndex.value =
-                                        1;
-                                  },
-                                  child: discoverController
-                                              .selectedTabIndex.value ==
-                                          1
-                                      ? Container(
-                                          decoration: BoxDecoration(
-                                              color: ThemeColor.lightPrimary,
-                                              borderRadius:
-                                                  BorderRadius.circular(16)),
-                                          padding: const EdgeInsets.symmetric(
-                                              horizontal: 16, vertical: 8),
-                                          child: Text(
-                                            "Quiz",
-                                            textAlign: TextAlign.center,
-                                            style: TextStyle(
-                                                color: ThemeColor.white,
-                                                fontSize: 14,
-                                                fontWeight: FontWeight.bold),
-                                          ))
-                                      : Container(
-                                          padding: const EdgeInsets.symmetric(
-                                              horizontal: 16, vertical: 8),
-                                          child: Text(
-                                            "Quiz",
-                                            textAlign: TextAlign.center,
-                                            style: TextStyle(
-                                                color: ThemeColor.white
-                                                    .withOpacity(0.6),
-                                                fontSize: 14,
-                                                fontWeight: FontWeight.bold),
-                                          ),
-                                        ),
-                                ),
-                              )
-                            ],
+                              discoverController.selectedTabIndex == 0
+                                  ? schoolDicover(schoolDiscoverController)
+                                  : quizDiscover(discoverController)
+                                                  ]),
+                            ),
                           ),
                         ),
-                      ),
-                      discoverController.selectedTabIndex == 0
-                          ? schoolDicover(schoolDiscoverController)
-                          : quizDiscover(discoverController)
-                    ])),
+                      )),
             )));
   }
 
@@ -539,7 +550,7 @@ class DiscoverPage extends StatelessWidget {
         child: Container(
           width: double.infinity,
           decoration: BoxDecoration(
-              color: ThemeColor.primaryDark,
+              color: ThemeColor.headerOne,
               borderRadius: BorderRadius.circular(16)),
           padding: const EdgeInsets.all(4),
           child: Row(
@@ -549,7 +560,7 @@ class DiscoverPage extends StatelessWidget {
                 child: InkWell(
                     child: Container(
                         decoration: BoxDecoration(
-                            color: ThemeColor.lightPrimary,
+                            color: ThemeColor.headerOne,
                             borderRadius: BorderRadius.circular(16)),
                         padding: const EdgeInsets.symmetric(
                             horizontal: 16, vertical: 8),
@@ -646,59 +657,60 @@ class DiscoverPage extends StatelessWidget {
                 ),
               ),
 
-              Obx(() => searchController.isLoading.value == false && searchController.searchDialogResponseModel!.searchResults.isNotEmpty
+              Obx(() => searchController.isLoading.value == false &&
+                      searchController
+                          .searchDialogResponseModel!.searchResults.isNotEmpty
                   ? Expanded(
-                    child:
-                  GridView(
-                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                      mainAxisExtent: 44,
-                    mainAxisSpacing: 10.0,
-                     crossAxisCount: 4,
-                    crossAxisSpacing: 10.0,
-                    childAspectRatio: 1.0,
-                    ) ,
-                    children: [
-                        ...searchController
-                            .searchDialogResponseModel!.searchResults!
-                            .map((e) {
-                          return ElevatedButton(onPressed: (){}, child :  Text(e.displayValue));
-                        })
-                    ]
-                    )
-                    )
+                      child: GridView(
+                          gridDelegate:
+                              SliverGridDelegateWithFixedCrossAxisCount(
+                            mainAxisExtent: 44,
+                            mainAxisSpacing: 10.0,
+                            crossAxisCount: 4,
+                            crossAxisSpacing: 10.0,
+                            childAspectRatio: 1.0,
+                          ),
+                          children: [
+                          ...searchController
+                              .searchDialogResponseModel!.searchResults!
+                              .map((e) {
+                            return ElevatedButton(
+                                onPressed: () {}, child: Text(e.displayValue));
+                          })
+                        ]))
                   : SizedBox(
                       height: 60,
                       width: double.infinity,
                       // child: Container(color: Colors.red)
-                      )),
+                    )),
 
               // selection
               Padding(
-                padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
-              child:
-              Column(
-                mainAxisAlignment: MainAxisAlignment.end,
-              children:[
-                Divider(),
-                Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: <Widget>[
-                  ElevatedButton(
-                    onPressed: () {
-                      Get.back();
-                    },
-                    child: Text('Close'),
-                  ),
-                  ElevatedButton(
-                    onPressed: () {
-                      // Apply filter logic here
-                    },
-                    child: Text('Apply'),
-                  ),
-                ],
-              )],
-              )
-              )
+                  padding: const EdgeInsets.symmetric(
+                      vertical: 8.0, horizontal: 16.0),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      Divider(),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: <Widget>[
+                          ElevatedButton(
+                            onPressed: () {
+                              Get.back();
+                            },
+                            child: Text('Close'),
+                          ),
+                          ElevatedButton(
+                            onPressed: () {
+                              // Apply filter logic here
+                            },
+                            child: Text('Apply'),
+                          ),
+                        ],
+                      )
+                    ],
+                  ))
             ]),
       ),
     )

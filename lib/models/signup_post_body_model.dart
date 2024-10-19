@@ -3,14 +3,14 @@ class SignUpPostBodyModel {
     required this.firstname,
     required this.lastname,
     required this.email,
-    required this.mobile,
+    required this.username,
     required this.password,
   });
 
   final String? firstname;
   final String? lastname;
   final String? email;
-  final String? mobile;
+  final String? username;
   final String? password;
 
   factory SignUpPostBodyModel.fromJson(Map<String, dynamic> json) {
@@ -18,7 +18,7 @@ class SignUpPostBodyModel {
       firstname: json["firstname"],
       lastname: json["lastname"],
       email: json["email"],
-      mobile: json["mobile"],
+      username: json["username"],
       password: json["password"],
     );
   }
@@ -27,7 +27,7 @@ class SignUpPostBodyModel {
         "firstname": firstname,
         "lastname": lastname,
         "email": email,
-        "mobile": mobile,
+        "username": username,
         "password": password,
       };
 }

@@ -6,12 +6,14 @@ import 'package:path/path.dart';
 
 import 'package:get/get.dart';
 import 'package:get/get_state_manager/src/simple/get_controllers.dart';
-import 'package:quizzie_thunder/apis/event_details_api.dart';
+import 'package:quizzie_thunder/apis/school_details_api.dart';
+import 'package:quizzie_thunder/models/school_details_model.dart';
 import 'package:quizzie_thunder/utils/app_utils.dart';
 import 'package:quizzie_thunder/utils/enums/snackbar_status.dart';
 
-class AddPostController extends GetxController {
-  EventDetailsApi eventDetailsApi = EventDetailsApi();
+class AddSchoolController extends GetxController {
+  SchoolDetailsApi eventDetailsApi = SchoolDetailsApi();
+  SchoolDetailsModel? schoolDetailsModel ;
 
   var isLoading = true.obs;
   // var eventId = ''.obs;
@@ -27,12 +29,12 @@ class AddPostController extends GetxController {
     super.onInit();
   }
 
-  void uploadEventDetails() async {
+  void uploadSchoolDetails() async {
     isLoading.value = true;
-    var response = await eventDetailsApi.postEventDetails(bytesData!,'file.jpg');
-    print(response);
-    if (response == 200) {
-      
+    var response = await eventDetailsApi.postSchoolDetails(schoolDetailsModel!);
+    var result =json.decode(response);
+    if (response.isNotEmpty) {
+      String photoUrl = result['url'];
       isLoading.value = false;
     } else {
       isLoading.value = false;

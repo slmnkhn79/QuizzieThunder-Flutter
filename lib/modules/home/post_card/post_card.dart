@@ -17,10 +17,10 @@ class PostCard extends StatelessWidget {
       
       // boundary needed for web
       decoration: BoxDecoration(
-        border: Border.all(
-            // color: width > webScreenSize ? secondaryColor : mobileBackgroundColor,
-            ),
-        borderRadius: BorderRadius.all(Radius.circular(8.0)),
+        // border: Border(
+        //     // color: width > webScreenSize ? secondaryColor : mobileBackgroundColor,
+        //     ),
+        // borderRadius: BorderRadius.all(Radius.circular(8.0)),
         color: Colors.white,
       ),
       padding: const EdgeInsets.symmetric(

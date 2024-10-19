@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:quizzie_thunder/apis/event_details_api.dart';
+import 'package:quizzie_thunder/apis/school_details_api.dart';
 import 'package:quizzie_thunder/models/event_detail_response_model.dart';
 import 'package:quizzie_thunder/utils/app_utils.dart';
 import 'package:quizzie_thunder/utils/enums/snackbar_status.dart';
@@ -7,7 +7,7 @@ import 'package:quizzie_thunder/utils/enums/snackbar_status.dart';
 
 
 class EventDetailsController extends GetxController {
-  EventDetailsApi eventDetailsApi = EventDetailsApi();
+  SchoolDetailsApi eventDetailsApi = SchoolDetailsApi();
 
   var isLoading = true.obs;
   var eventId = ''.obs;
