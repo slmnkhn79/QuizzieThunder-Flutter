@@ -11,6 +11,7 @@ import 'package:quizzie_thunder/main.dart';
 import 'package:quizzie_thunder/modules/add_a_school/add_post_controller.dart';
 import 'package:quizzie_thunder/modules/school_details/school_details_controller.dart';
 import 'package:quizzie_thunder/theme/colors_theme.dart';
+import 'package:quizzie_thunder/utils/app_utils.dart';
 // import 'package:file_picker_pro/file_data.dart';
 // import 'package:file_picker_pro/file_picker.dart';
 // import 'package:file_picker_pro/files.dart';
@@ -48,7 +49,7 @@ class SchoolDetails extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                   color: ThemeColor.white),
             )),
-        backgroundColor: Colors.transparent,
+        backgroundColor: ThemeColor.headerOne,
         centerTitle: false,
         elevation: 0,
       ),
@@ -110,6 +111,7 @@ class SchoolDetails extends StatelessWidget {
                                     width: 300,
                                     height: 200,
                                     child: Card(
+                                      color: ThemeColor.facebook_light_4,
                                       child: Row(
                                         mainAxisAlignment:
                                             MainAxisAlignment.spaceEvenly,
@@ -159,14 +161,70 @@ class SchoolDetails extends StatelessWidget {
                             child: GridView.count(
                               crossAxisCount:
                                   MediaQuery.of(context).size.width > 600
-                                      ? 3
+                                      ? 1
                                       : 1,
                               shrinkWrap: true,
                               physics: NeverScrollableScrollPhysics(),
-                              children: List.generate(9, (index) {
+                              children: List.generate(
+                                  schoolController.schoolDetailsModel!.school
+                                      .achivements.length, (index) {
                                 return Card(
+                                  color: ThemeColor.facebook_light_4,
                                   child: Center(
-                                      child: Text('Grid Item ${index + 1}')),
+                                      child: Column(
+                                    children: [
+                                      Expanded(
+                                          flex: 2,
+                                          child: Image.network(
+                                            schoolController
+                                                .schoolDetailsModel!
+                                                .school
+                                                .achivements[index]
+                                                .achiveImageUrl,
+                                            loadingBuilder:
+                                                (BuildContext context,
+                                                    Widget child,
+                                                    ImageChunkEvent?
+                                                        loadingProgress) {
+                                              if (loadingProgress == null) {
+                                                return child; // The image is fully loaded
+                                              } else {
+                                                return Center(
+                                                  child:
+                                                      CircularProgressIndicator(
+                                                    value: loadingProgress
+                                                                .expectedTotalBytes !=
+                                                            null
+                                                        ? loadingProgress
+                                                                .cumulativeBytesLoaded /
+                                                            (loadingProgress
+                                                                    .expectedTotalBytes ??
+                                                                1)
+                                                        : null,
+                                                  ),
+                                                );
+                                              }
+                                            },
+                                          )),
+                                      Expanded(
+                                          flex: 1,
+                                          child: Padding(
+                                            padding: const EdgeInsets.all(24.0),
+                                            child: Text(
+                                                textAlign: TextAlign.center,
+                                                textScaler: TextScaler.linear(
+                                                    AppUtils.textScaleFactor(
+                                                        context,
+                                                        maxTextScaleFactor: 1)),
+                                                overflow: TextOverflow.clip,
+                                                schoolController
+                                                    .schoolDetailsModel!
+                                                    .school
+                                                    .achivements[index]
+                                                    .achiveText),
+                                          )),
+                                    ],
+                                  )),
                                 );
                               }),
                             ),
@@ -175,14 +233,68 @@ class SchoolDetails extends StatelessWidget {
                           // List of 3 cards with some text
                           Padding(
                             padding: const EdgeInsets.all(8.0),
-                            child: Column(
-                              children: List.generate(3, (index) {
-                                return Card(
-                                  margin: EdgeInsets.symmetric(vertical: 5),
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(16.0),
-                                    child: Text(
-                                        'Card ${index + 1} content goes here.'),
+                            child: GridView.count(
+                              crossAxisCount:
+                                  MediaQuery.of(context).size.width > 600
+                                      ? 3
+                                      : 3,
+                              shrinkWrap: true,
+                              physics: NeverScrollableScrollPhysics(),
+                              children: List.generate(
+                                  schoolController.schoolDetailsModel!.school
+                                      .coursesOffered.length, (index) {
+                                return Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Card(
+                                    color: ThemeColor.facebook_light_4,
+                                    margin: EdgeInsets.symmetric(vertical: 5),
+                                    child: Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: Column(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.center,
+                                        children: [
+                                          Text(
+                                              textAlign: TextAlign.center,
+                                              textScaler: TextScaler.linear(
+                                                  AppUtils.textScaleFactor(
+                                                      context,
+                                                      maxTextScaleFactor: 2)),
+                                              overflow: TextOverflow.clip,
+                                              schoolController
+                                                  .schoolDetailsModel!
+                                                  .school
+                                                  .coursesOffered[index]
+                                                  .courseName),
+                                          Text(
+                                              textAlign: TextAlign.center,
+                                              textScaler: TextScaler.linear(
+                                                  AppUtils.textScaleFactor(
+                                                      context,
+                                                      maxTextScaleFactor: 2)),
+                                              overflow: TextOverflow.clip,
+                                              schoolController
+                                                  .schoolDetailsModel!
+                                                  .school
+                                                  .coursesOffered[index]
+                                                  .successPct),
+                                          Text(
+                                              textAlign: TextAlign.center,
+                                              textScaler: TextScaler.linear(
+                                                  AppUtils.textScaleFactor(
+                                                      context,
+                                                      maxTextScaleFactor: 2)),
+                                              overflow: TextOverflow.clip,
+                                              schoolController
+                                                  .schoolDetailsModel!
+                                                  .school
+                                                  .coursesOffered[index]
+                                                  .totalStudents)
+                                        ],
+                                      ),
+                                    ),
                                   ),
                                 );
                               }),
@@ -191,25 +303,59 @@ class SchoolDetails extends StatelessWidget {
 
                           // Text box with header and paragraph
                           Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Header',
-                                  style: TextStyle(
-                                      fontSize: 24,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                                SizedBox(height: 8),
-                                Text(
-                                  'This is a paragraph that provides more detailed information. '
-                                  'It can span multiple lines and is meant to be descriptive.',
-                                  style: TextStyle(fontSize: 16),
-                                ),
-                              ],
+                            padding: const EdgeInsets.all(16.0),
+                            child: Container(
+                              padding: const EdgeInsets.all(16.0),
+                              color: ThemeColor.facebook_light_4,
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    'Why choose us?',
+                                    style: TextStyle(
+                                        fontSize: 24,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                  Divider(),
+                                  SizedBox(height: 8),
+                                  Text(
+                                    textAlign: TextAlign.center,
+                                    'This is a paragraph that provides more detailed information. '
+                                    'It can span multiple lines and is meant to be descriptive.',
+                                    style: TextStyle(fontSize: 16),
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
+                          SizedBox(
+                            height: 16,
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: SizedBox(
+                                width: double.infinity,
+                                height: 44,
+                                child: ElevatedButton(
+                                  onPressed: () {},
+                                  style: TextButton.styleFrom(
+                                    textStyle: TextStyle(
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.w500),
+                                    shape: RoundedRectangleBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(12)),
+                                    backgroundColor: ThemeColor.headerOne,
+                                  ),
+                                  child: Text("Go to gallery",
+                                      style:
+                                          TextStyle(color: ThemeColor.white)),
+                                )),
+                          ),
+                          SizedBox(
+                            height: 16,
+                          )
                         ],
                       ),
                     ),
@@ -261,8 +407,9 @@ class SchoolDetails extends StatelessWidget {
       child: SizedBox(
         height: 150,
         child: Container(
-          padding: EdgeInsets.all(8),
+          padding: EdgeInsets.only(left: 8, right: 8),
           color: color,
+          clipBehavior: Clip.none,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -270,7 +417,6 @@ class SchoolDetails extends StatelessWidget {
               Text(
                 text,
                 overflow: TextOverflow.ellipsis,
-                // softWrap: true,
                 textAlign: TextAlign.center,
                 style: TextStyle(color: Colors.white, fontSize: 36),
               ),

@@ -269,7 +269,7 @@ class HomePage extends StatelessWidget {
                                     ),
                                     homeController.selectedTabIndex.value == 0
                                         ? nearByFeedContainer(feedController)
-                                        : quizFeedContainer(homeController)
+                                        : quizFeedContainer(homeController,context)
                                   ]))
                             ]),
                           ),
@@ -279,181 +279,184 @@ class HomePage extends StatelessWidget {
                   ))));
   }
 
-  Column quizFeedContainer(HomeController homeController) {
-    return Column(children: [
-      InkWell(
-        onTap: () {
-          Get.toNamed(AppRoutes.quizDetailPage, arguments: {
-            ARG_QUIZ_DETAIL: Quiz(
-              id: homeController.homeScreenResponseModel?.mostPlayedQuiz?.id,
-              title:
-                  homeController.homeScreenResponseModel?.mostPlayedQuiz?.title,
-              description: homeController
-                  .homeScreenResponseModel?.mostPlayedQuiz?.description,
-              category: homeController
-                  .homeScreenResponseModel?.mostPlayedQuiz?.category,
-              createdAt: homeController
-                  .homeScreenResponseModel?.mostPlayedQuiz?.createdAt,
-              updatedAt: homeController
-                  .homeScreenResponseModel?.mostPlayedQuiz?.updatedAt,
-            )
-          });
-        },
-        child: Stack(
-          children: [
-            Image.asset(
-              "assets/images/most_played_quiz_bg.png",
-              width: double.infinity,
-              fit: BoxFit.cover,
-            ),
-            Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  SizedBox(
-                    height: 4,
-                  ),
-                  Text("MOST PLAYED QUIZ",
-                      style: TextStyle(
-                          fontSize: 12,
-                          fontWeight: FontWeight.bold,
-                          color: ThemeColor.dustyRose)),
-                  SizedBox(
-                    height: 8,
-                  ),
-                  Text(
-                      "${homeController.homeScreenResponseModel?.mostPlayedQuiz?.title}",
-                      style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
-                          color: ThemeColor.burgundy))
-                ],
+  SizedBox quizFeedContainer(HomeController homeController,BuildContext context) {
+    return SizedBox(
+    height: MediaQuery.of(context).size.height,
+      child: Column(children: [
+        InkWell(
+          onTap: () {
+            Get.toNamed(AppRoutes.quizDetailPage, arguments: {
+              ARG_QUIZ_DETAIL: Quiz(
+                id: homeController.homeScreenResponseModel?.mostPlayedQuiz?.id,
+                title:
+                    homeController.homeScreenResponseModel?.mostPlayedQuiz?.title,
+                description: homeController
+                    .homeScreenResponseModel?.mostPlayedQuiz?.description,
+                category: homeController
+                    .homeScreenResponseModel?.mostPlayedQuiz?.category,
+                createdAt: homeController
+                    .homeScreenResponseModel?.mostPlayedQuiz?.createdAt,
+                updatedAt: homeController
+                    .homeScreenResponseModel?.mostPlayedQuiz?.updatedAt,
+              )
+            });
+          },
+          child: Stack(
+            children: [
+              Image.asset(
+                "assets/images/most_played_quiz_bg.png",
+                width: double.infinity,
+                fit: BoxFit.cover,
               ),
-            )
-          ],
-        ),
-      ),
-      SizedBox(
-        height: 16,
-      ),
-      Stack(children: [
-        Image.asset(
-          "assets/images/featured_bg.png",
-          width: double.infinity,
-          fit: BoxFit.cover,
-        ),
-        Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  SizedBox(
-                    height: 32,
-                  ),
-                  Text("FEATURED",
-                      style: TextStyle(
-                          fontSize: 12,
-                          fontWeight: FontWeight.bold,
-                          color: ThemeColor.white.withOpacity(0.8))),
-                  SizedBox(
-                    height: 16,
-                  ),
-                  Align(
-                    alignment: Alignment.center,
-                    child: Text(
-                        "Take part in the challenges\nwith friends or other\nplayers",
-                        textAlign: TextAlign.center,
+              Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    SizedBox(
+                      height: 4,
+                    ),
+                    Text("MOST PLAYED QUIZ",
+                        style: TextStyle(
+                            fontSize: 12,
+                            fontWeight: FontWeight.bold,
+                            color: ThemeColor.dustyRose)),
+                    SizedBox(
+                      height: 8,
+                    ),
+                    Text(
+                        "${homeController.homeScreenResponseModel?.mostPlayedQuiz?.title}",
                         style: TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.bold,
-                            color: ThemeColor.white)),
-                  ),
-                  SizedBox(
-                    height: 24,
-                  ),
-                  SizedBox(
-                      height: 32,
-                      child: ElevatedButton(
-                        onPressed: () {},
-                        child: Text(
-                          "🤘 Find Friends",
-                          style: TextStyle(color: ThemeColor.primary),
-                        ),
-                        style: TextButton.styleFrom(
-                          textStyle: TextStyle(
-                              fontSize: 14, fontWeight: FontWeight.bold),
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(24)),
-                          backgroundColor: ThemeColor.white,
-                        ),
-                      )),
-                ]))
-      ]),
-      SizedBox(
-        height: 24,
-      ),
-      Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 8),
-          child: Container(
-              width: double.infinity,
-              padding: const EdgeInsets.only(top: 16, left: 16, right: 16),
-              decoration: BoxDecoration(
-                  color: ThemeColor.white,
-                  borderRadius: BorderRadius.circular(20)),
+                            color: ThemeColor.burgundy))
+                  ],
+                ),
+              )
+            ],
+          ),
+        ),
+        SizedBox(
+          height: 16,
+        ),
+        Stack(children: [
+          Image.asset(
+            "assets/images/featured_bg.png",
+            width: double.infinity,
+            fit: BoxFit.cover,
+          ),
+          Padding(
+              padding: const EdgeInsets.all(16.0),
               child: Column(
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        "Quizzes",
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    SizedBox(
+                      height: 32,
+                    ),
+                    Text("FEATURED",
                         style: TextStyle(
-                            fontSize: 16,
+                            fontSize: 12,
                             fontWeight: FontWeight.bold,
-                            color: ThemeColor.black),
-                      ),
-                      InkWell(
-                        onTap: () {
-                          Get.toNamed(AppRoutes.quizzesPage);
-                        },
-                        child: Text(
-                          "See all",
+                            color: ThemeColor.white.withOpacity(0.8))),
+                    SizedBox(
+                      height: 16,
+                    ),
+                    Align(
+                      alignment: Alignment.center,
+                      child: Text(
+                          "Take part in the challenges\nwith friends or other\nplayers",
+                          textAlign: TextAlign.center,
                           style: TextStyle(
-                              fontSize: 12,
+                              fontSize: 18,
                               fontWeight: FontWeight.bold,
-                              color: ThemeColor.primaryDark),
+                              color: ThemeColor.white)),
+                    ),
+                    SizedBox(
+                      height: 24,
+                    ),
+                    SizedBox(
+                        height: 32,
+                        child: ElevatedButton(
+                          onPressed: () {},
+                          child: Text(
+                            "🤘 Find Friends",
+                            style: TextStyle(color: ThemeColor.primary),
+                          ),
+                          style: TextButton.styleFrom(
+                            textStyle: TextStyle(
+                                fontSize: 14, fontWeight: FontWeight.bold),
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(24)),
+                            backgroundColor: ThemeColor.white,
+                          ),
+                        )),
+                  ]))
+        ]),
+        SizedBox(
+          height: 24,
+        ),
+        Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 8),
+            child: Container(
+                width: double.infinity,
+                padding: const EdgeInsets.only(top: 16, left: 16, right: 16),
+                decoration: BoxDecoration(
+                    color: ThemeColor.white,
+                    borderRadius: BorderRadius.circular(20)),
+                child: Column(
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          "Quizzes",
+                          style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                              color: ThemeColor.black),
                         ),
-                      )
-                    ],
-                  ),
-                  ListView.separated(
-                      shrinkWrap: true,
-                      physics: NeverScrollableScrollPhysics(),
-                      separatorBuilder: (BuildContext context, int index) {
-                        return SizedBox(height: 8);
-                      },
-                      scrollDirection: Axis.vertical,
-                      itemCount: homeController
-                              .homeScreenResponseModel?.quizzes?.length ??
-                          0,
-                      itemBuilder: (context, index) {
-                        return InkWell(
-                            onTap: () {
-                              Get.toNamed(AppRoutes.quizDetailPage, arguments: {
-                                ARG_QUIZ_DETAIL: homeController
-                                    .homeScreenResponseModel?.quizzes?[index]
-                              });
-                            },
-                            child: QuizItemContainer(
-                                dataObj: homeController
-                                    .homeScreenResponseModel?.quizzes?[index]));
-                      })
-                ],
-              )))
-    ]);
+                        InkWell(
+                          onTap: () {
+                            Get.toNamed(AppRoutes.quizzesPage);
+                          },
+                          child: Text(
+                            "See all",
+                            style: TextStyle(
+                                fontSize: 12,
+                                fontWeight: FontWeight.bold,
+                                color: ThemeColor.primaryDark),
+                          ),
+                        )
+                      ],
+                    ),
+                    ListView.separated(
+                        shrinkWrap: true,
+                        physics: NeverScrollableScrollPhysics(),
+                        separatorBuilder: (BuildContext context, int index) {
+                          return SizedBox(height: 8);
+                        },
+                        scrollDirection: Axis.vertical,
+                        itemCount: homeController
+                                .homeScreenResponseModel?.quizzes?.length ??
+                            0,
+                        itemBuilder: (context, index) {
+                          return InkWell(
+                              onTap: () {
+                                Get.toNamed(AppRoutes.quizDetailPage, arguments: {
+                                  ARG_QUIZ_DETAIL: homeController
+                                      .homeScreenResponseModel?.quizzes?[index]
+                                });
+                              },
+                              child: QuizItemContainer(
+                                  dataObj: homeController
+                                      .homeScreenResponseModel?.quizzes?[index]));
+                        })
+                  ],
+                )))
+      ]),
+    );
   }
 
   Column nearByFeedContainer(FeedController feedController) {

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:quizzie_thunder/models/school_discover_screen_response_model.dart';
 import 'package:quizzie_thunder/modules/home/post_card/like_animation.dart';
+import 'package:quizzie_thunder/theme/colors_theme.dart';
 
 class EventCard extends StatelessWidget {
   final Event post;
@@ -17,11 +18,11 @@ class EventCard extends StatelessWidget {
     return Container(
       // boundary needed for web
       decoration: BoxDecoration(
-        border: Border.all(
-            // color: width > webScreenSize ? secondaryColor : mobileBackgroundColor,
-            ),
-        borderRadius: BorderRadius.all(Radius.circular(8.0)),
-        color: Colors.white,
+      //   border: Border.all(
+      //       // color: width > webScreenSize ? secondaryColor : mobileBackgroundColor,
+      //       ),
+      //   borderRadius: BorderRadius.all(Radius.circular(8.0)),
+        color: ThemeColor.facebook_light_4,
       ),
       padding: const EdgeInsets.symmetric(
         vertical: 10,

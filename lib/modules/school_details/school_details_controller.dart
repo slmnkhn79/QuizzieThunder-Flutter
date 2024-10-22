@@ -24,7 +24,7 @@ class SchoolController extends GetxController {
   // Uint8List? bytesData;
   // String filename ='';
   // var haveImage =false.obs;
-  var schoolId = "3E3Shs5R2F";
+  var schoolId = "NyEze2ZAwp";
 
   // EventDetailsResponseModel? eventDetailsResponseModel;
 

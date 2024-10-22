@@ -162,7 +162,7 @@ class DiscoverPage extends StatelessWidget {
                               ),
                               discoverController.selectedTabIndex == 0
                                   ? schoolDicover(schoolDiscoverController)
-                                  : quizDiscover(discoverController)
+                                  : quizDiscover(discoverController,context)
                                                   ]),
                             ),
                           ),
@@ -171,7 +171,7 @@ class DiscoverPage extends StatelessWidget {
             )));
   }
 
-  Column quizDiscover(DiscoverController discoverController) {
+  Column quizDiscover(DiscoverController discoverController, BuildContext context) {
     return Column(
       children: [
         Padding(
@@ -252,6 +252,7 @@ class DiscoverPage extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 8),
           child: Container(
               width: double.infinity,
+              height: MediaQuery.of(context).size.height,
               padding: const EdgeInsets.all(16.0),
               decoration: BoxDecoration(
                   color: ThemeColor.white,
@@ -418,8 +419,8 @@ class DiscoverPage extends StatelessWidget {
                                 });
                               },
                               child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                crossAxisAlignment: CrossAxisAlignment.center,
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Icon(
                                     Icons.science_outlined,
