@@ -5,6 +5,7 @@ import 'dart:html' as html;
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:get/get.dart';
 import 'package:quizzie_thunder/main.dart';
 import 'package:quizzie_thunder/modules/add_a_school/add_post_controller.dart';
@@ -35,285 +36,182 @@ class SchoolDetails extends StatelessWidget {
               Icons.arrow_back,
               color: ThemeColor.white,
             )),
-        title:  Obx(()=>
-        Text(
-          schoolController.isLoading.value ? "School Details": schoolController.schoolDetailsModel!.school.name! ,
-          // addPostController.quizCategoryName.isEmpty
-          //     ? "Quizzes"
-          //     : "${quizzesController.quizCategoryName} Quizzes",
-          style: TextStyle(
-              fontSize: 20,
-              fontWeight: FontWeight.bold,
-              color: ThemeColor.white),
-        )),
+        title: Obx(() => Text(
+              schoolController.isLoading.value
+                  ? "School Details"
+                  : schoolController.schoolDetailsModel!.school.name!,
+              // addPostController.quizCategoryName.isEmpty
+              //     ? "Quizzes"
+              //     : "${quizzesController.quizCategoryName} Quizzes",
+              style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                  color: ThemeColor.white),
+            )),
         backgroundColor: Colors.transparent,
         centerTitle: false,
         elevation: 0,
       ),
-      backgroundColor: ThemeColor.primary,
+      backgroundColor: ThemeColor.facebook_light_4,
       body: Obx(
         () => schoolController.isLoading.value
             ? Center(
                 child: CircularProgressIndicator(),
               )
-            : SafeArea(
-                top: true,
-                child: Align(
-                  alignment: AlignmentDirectional(0, -1),
-                  child: SingleChildScrollView(
-                    child: Column(
-                      mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Align(
-                          alignment: AlignmentDirectional(0, -1),
-                          child: Stack(
-                            children: [
-                              Align(
-                                alignment: AlignmentDirectional(0, 0),
-                                child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(8),
-                                  child: Image.network(
-                                    'https://picsum.photos/seed/136/600',
-                                    width: double.infinity,
-                                    height: 200,
-                                    fit: BoxFit.cover,
-                                  ),
-                                ),
-                              ),
-                              Align(
-                                alignment: AlignmentDirectional(0, 0),
-                                child: Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    Align(
-                                      alignment: AlignmentDirectional(0, -1),
-                                      child: Padding(
-                                        padding: EdgeInsets.all(16),
-                                        child: AnimatedDefaultTextStyle(
-                                          style: Theme.of(context)
-                                              .textTheme.displayLarge!
-                                              // .override(
-                                              //   fontFamily: 'Open Sans',
-                                              //   color: Colors.white,
-                                              //   fontSize: 44,
-                                              //   letterSpacing: 0,
-                                              // )
-                                              ,
-                                          duration: Duration(milliseconds: 600),
-                                          curve: Curves.easeIn,
-                                          child: Text(
-                                            'School Name',
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                    Text(
-                                      'Description',
-                                      style: Theme.of(context)
-                                          .textTheme.bodyMedium
-                                          // .override(
-                                          //   fontFamily: 'Readex Pro',
-                                          //   letterSpacing: 0,
-                                          // )
-                                          ,
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(16, 0, 16, 0),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
+            : SingleChildScrollView(
+                child: Center(
+                  child: SizedBox(
+                    width: MediaQuery.of(context).size.width > 600
+                        ? 600
+                        : MediaQuery.of(context).size.width,
+                    child: Container(
+                      color: ThemeColor.headerThree,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          // Header Image
+                          Image.network(schoolController
+                              .schoolDetailsModel!.school.headerImageUrl),
+
+                          // Row with three text widgets with colored background
+                          Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              ClipRRect(
-                                borderRadius: BorderRadius.circular(8),
-                                child: Image.network(
-                                  'https://picsum.photos/seed/253/600',
-                                  width: MediaQuery.sizeOf(context).width * 0.8,
-                                  height: 400,
-                                  fit: BoxFit.cover,
-                                ),
-                              ),
-                              Text(
-                                'Achivement one',
-                                style: Theme.of(context)
-                                    .textTheme.bodyMedium
-                                    // .override(
-                                    //   fontFamily: 'Readex Pro',
-                                    //   letterSpacing: 0,
-                                    // )
-                                    ,
-                              ),
+                              _buildColoredText(
+                                  schoolController
+                                      .schoolDetailsModel!.school.numOfStudents
+                                      .toString(),
+                                  Colors.red),
+                              _buildColoredText(
+                                  schoolController
+                                      .schoolDetailsModel!.school.facultyRatio,
+                                  Colors.green),
+                              _buildColoredText(
+                                  schoolController
+                                      .schoolDetailsModel!.school.schoolType,
+                                  Colors.blue),
                             ],
                           ),
-                        ),
-                        Align(
-                          alignment: AlignmentDirectional(0, 0),
-                          child: Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(6, 0, 16, 0),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(
-                                  'AchivementoTwo',
-                                  style: Theme.of(context)
-                                      .textTheme.bodyMedium
-                                      // .override(
-                                      //   fontFamily: 'Readex Pro',
-                                      //   letterSpacing: 0,
-                                      // )
-                                      ,
-                                ),
-                                Align(
-                                  alignment: AlignmentDirectional(1, 0),
-                                  child: ClipRRect(
-                                    borderRadius: BorderRadius.circular(8),
-                                    child: Image.network(
-                                      'https://picsum.photos/seed/253/600',
-                                      width: MediaQuery.sizeOf(context).width *
-                                          0.8,
-                                      height: 400,
-                                      fit: BoxFit.cover,
+
+                          // List of items with score and rating
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Column(
+                              children: List.generate(
+                                  schoolController.schoolDetailsModel!.school
+                                      .attributes.length, (index) {
+                                return ListTile(
+                                  title: Text(schoolController
+                                      .schoolDetailsModel!
+                                      .school
+                                      .attributes[index]
+                                      .type),
+                                  trailing: SizedBox(
+                                    width: 300,
+                                    height: 200,
+                                    child: Card(
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceEvenly,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.center,
+                                        children: [
+                                          // Text(schoolController
+                                          //     .schoolDetailsModel!
+                                          //     .school
+                                          //     .attributes[index]
+                                          //     .ratings),
+                                          VerticalDivider(),
+                                          Text(schoolController
+                                              .schoolDetailsModel!
+                                              .school
+                                              .attributes[index]
+                                              .score),
+                                          VerticalDivider(),
+                                          RatingBar.builder(
+                                              initialRating: 3,
+                                              minRating: 1,
+                                              direction: Axis.horizontal,
+                                              itemSize: 24,
+                                              ignoreGestures: true,
+                                              allowHalfRating: true,
+                                              itemCount: 5,
+                                              itemPadding: EdgeInsets.symmetric(
+                                                  horizontal: 4.0),
+                                              itemBuilder: (context, _) => Icon(
+                                                    Icons.star,
+                                                    color: Colors.amber,
+                                                  ),
+                                              onRatingUpdate: (value) => {})
+                                        ],
+                                      ),
                                     ),
                                   ),
+                                  // subtitle: ,
+                                );
+                              }),
+                            ),
+                          ),
+
+                          // Grid view with three items in a row or column
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: GridView.count(
+                              crossAxisCount:
+                                  MediaQuery.of(context).size.width > 600
+                                      ? 3
+                                      : 1,
+                              shrinkWrap: true,
+                              physics: NeverScrollableScrollPhysics(),
+                              children: List.generate(9, (index) {
+                                return Card(
+                                  child: Center(
+                                      child: Text('Grid Item ${index + 1}')),
+                                );
+                              }),
+                            ),
+                          ),
+
+                          // List of 3 cards with some text
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Column(
+                              children: List.generate(3, (index) {
+                                return Card(
+                                  margin: EdgeInsets.symmetric(vertical: 5),
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(16.0),
+                                    child: Text(
+                                        'Card ${index + 1} content goes here.'),
+                                  ),
+                                );
+                              }),
+                            ),
+                          ),
+
+                          // Text box with header and paragraph
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'Header',
+                                  style: TextStyle(
+                                      fontSize: 24,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                                SizedBox(height: 8),
+                                Text(
+                                  'This is a paragraph that provides more detailed information. '
+                                  'It can span multiple lines and is meant to be descriptive.',
+                                  style: TextStyle(fontSize: 16),
                                 ),
                               ],
                             ),
                           ),
-                        ),
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(16, 0, 16, 0),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              ClipRRect(
-                                borderRadius: BorderRadius.circular(8),
-                                child: Image.network(
-                                  'https://picsum.photos/seed/253/600',
-                                  width: MediaQuery.sizeOf(context).width * 0.8,
-                                  height: 400,
-                                  fit: BoxFit.cover,
-                                ),
-                              ),
-                              Text(
-                                'Achivement Three',
-                                style: Theme.of(context)
-                                    .textTheme.bodyMedium
-                                    // .override(
-                                    //   fontFamily: 'Readex Pro',
-                                    //   letterSpacing: 0,
-                                    // )
-                                    ,
-                              ),
-                            ],
-                          ),
-                        ),
-                        Divider(
-                          thickness: 1,
-                          color: Color(0xCC000000),
-                        ),
-                        // Align(
-                        //   alignment: AlignmentDirectional(0, 0),
-                        //   child: Padding(
-                        //     padding: EdgeInsets.all(16),
-                        //     child: Checkbox(
-                        //       options: ['Option 1', 'Option 2', 'Option 3'],
-                        //       onChanged: (val) => ()
-                        //       // controller:
-                        //         //   _model.checkboxGroupValueController ??=
-                        //         //       FormFieldController<List<String>>(
-                        //         // [],
-                        //       // )
-                        //       ,
-                        //       activeColor: Theme.of(context).colorScheme.primary,
-                        //       checkColor: Theme.of(context).colorScheme.secondary,
-                        //       checkboxBorderColor:
-                        //           Theme.of(context).textTheme.labelSmall,
-                        //       textStyle: Theme.of(context)
-                        //           .textTheme.bodyMedium
-                        //           // .override(
-                        //           //   fontFamily: 'Readex Pro',
-                        //           //   fontSize: 24,
-                        //           //   letterSpacing: 0,
-                        //           // )
-                        //           ,
-                        //       unselectedTextStyle: Theme.of(context)
-                        //           .textTheme.bodyMedium
-                        //           // .override(
-                        //           //   fontFamily: 'Readex Pro',
-                        //           //   fontSize: 24,
-                        //           //   letterSpacing: 0,
-                        //           // )
-                        //           ,
-                        //       labelPadding:
-                        //           EdgeInsetsDirectional.fromSTEB(16, 0, 0, 0),
-                        //       itemPadding: EdgeInsets.all(4),
-                        //       checkboxBorderRadius: BorderRadius.circular(5),
-                        //       initialized: _model.checkboxGroupValues != null,
-                        //     ),
-                        //   ),
-                        // ),
-                        
-                        Row(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Text(
-                              'District',
-                              style: Theme.of(context)
-                                  .textTheme.bodyMedium
-                                  // .override(
-                                  //   fontFamily: 'Readex Pro',
-                                  //   fontSize: 44,
-                                  //   letterSpacing: 0,
-                                  // )
-                                  ,
-                            ),
-                            Text(
-                              'City',
-                              style: Theme.of(context)
-                                  .textTheme.bodyMedium
-                                  // .override(
-                                  //   fontFamily: 'Readex Pro',
-                                  //   fontSize: 44,
-                                  //   letterSpacing: 0,
-                                  // )
-                                  ,
-                            ),
-                            Text(
-                              'State',
-                              style: Theme.of(context)
-                                  .textTheme.bodyMedium
-                                  // .override(
-                                  //   fontFamily: 'Readex Pro',
-                                  //   fontSize: 44,
-                                  //   letterSpacing: 0,
-                                  // )
-                                  ,
-                            ),
-                          ],
-                        ),
-                        ClipRRect(
-                          borderRadius: BorderRadius.circular(8),
-                          child: Image.network(
-                            'https://picsum.photos/seed/403/600',
-                            width: 300,
-                            height: 200,
-                            fit: BoxFit.cover,
-                          ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ),
                 ),
@@ -322,39 +220,64 @@ class SchoolDetails extends StatelessWidget {
     );
   }
 
-  startWebFilePicker(AddSchoolController addPostController) async {
-    html.InputElement? uploadInput =
-        html.FileUploadInputElement() as html.InputElement?;
-    uploadInput?.multiple = true;
-    uploadInput?.draggable = true;
-    uploadInput?.click();
+  // startWebFilePicker(AddSchoolController addPostController) async {
+  //   html.InputElement? uploadInput =
+  //       html.FileUploadInputElement() as html.InputElement?;
+  //   uploadInput?.multiple = true;
+  //   uploadInput?.draggable = true;
+  //   uploadInput?.click();
 
-    uploadInput?.onChange.listen((e) {
-      final files = uploadInput.files;
-      final file = files?[0];
-      final reader = new html.FileReader();
-      // result = reader.result;
-      reader.onLoadEnd.listen((e) {
-        // _handleResult(addPostController, reader.result);
-        addPostController.haveImage.value = true;
-        addPostController.bytesData =
-            Base64Decoder().convert(reader.result.toString().split(",").last);
-      });
-      reader.readAsDataUrl(file!);
-    });
-  }
+  //   uploadInput?.onChange.listen((e) {
+  //     final files = uploadInput.files;
+  //     final file = files?[0];
+  //     final reader = new html.FileReader();
+  //     // result = reader.result;
+  //     reader.onLoadEnd.listen((e) {
+  //       // _handleResult(addPostController, reader.result);
+  //       addPostController.haveImage.value = true;
+  //       addPostController.bytesData =
+  //           Base64Decoder().convert(reader.result.toString().split(",").last);
+  //     });
+  //     reader.readAsDataUrl(file!);
+  //   });
+  // }
 
-  void _handleResult(AddSchoolController addPostController
-      // , Object? result
-      ) {
-    // addPostController.haveImage.value = true;
-    // // addPostController.filename = result.;
-    // addPostController.bytesData =
-    //     Base64Decoder().convert(result.toString().split(",").last);
-    addPostController.uploadSchoolDetails();
-    // setState(() {
-    //   _bytesData = Base64Decoder().convert(result.toString().split(",").last);
-    //   _selectedFile = _bytesData;
-    // });
+  // void _handleResult(AddSchoolController addPostController
+  // , Object? result
+  // ) {
+  // addPostController.haveImage.value = true;
+  // // addPostController.filename = result.;
+  // addPostController.bytesData =
+  //     Base64Decoder().convert(result.toString().split(",").last);
+  // addPostController.uploadSchoolDetails();
+  // setState(() {
+  //   _bytesData = Base64Decoder().convert(result.toString().split(",").last);
+  //   _selectedFile = _bytesData;
+  // });
+  // }
+
+  Widget _buildColoredText(String text, Color color) {
+    return Expanded(
+      child: SizedBox(
+        height: 150,
+        child: Container(
+          padding: EdgeInsets.all(8),
+          color: color,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Text(
+                text,
+                overflow: TextOverflow.ellipsis,
+                // softWrap: true,
+                textAlign: TextAlign.center,
+                style: TextStyle(color: Colors.white, fontSize: 36),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
   }
 }

@@ -28,19 +28,21 @@ class SchoolDetailsModel {
 }
 
 class School {
-  School({
-    required this.id,
-    required this.name,
-    required this.achivements,
-    required this.city,
-    required this.district,
-    required this.state,
-    required this.footerImageUrl,
-    required this.coursesOffered,
-    required this.type,
-    required this.description,
-    required this.headerImageUrl
-  });
+  School(
+      {required this.id,
+      required this.name,
+      required this.achivements,
+      required this.city,
+      required this.district,
+      required this.state,
+      required this.footerImageUrl,
+      required this.coursesOffered,
+      required this.schoolType,
+      required this.description,
+      required this.headerImageUrl,
+      required this.numOfStudents,
+      required this.facultyRatio,
+      required this.attributes});
 
   final String? id;
   final String? name;
@@ -51,16 +53,19 @@ class School {
   final String state;
   final String footerImageUrl;
   final List<dynamic> coursesOffered;
-  final String type;
+  final String schoolType;
   final String description;
   final String headerImageUrl;
+  final int numOfStudents;
+  final String facultyRatio;
+  final List<Attribute> attributes;
 
   factory School.fromJson(Map<String, dynamic> json) {
     return School(
       id: json["_id"],
       name: json["name"],
       achivements: json["achivements"],
-      
+
       // json["achivements"] == null
       //     ? []
       //     : List<Achievements>.from(
@@ -68,27 +73,35 @@ class School {
       city: json["city"],
       state: json["state"],
       district: json["district"],
-      footerImageUrl:  json["footerImageUrl"],
-      coursesOffered:  json["coursesOffered"],
-      type: json['type'],
+      footerImageUrl: json["footerImageUrl"],
+      coursesOffered: json["coursesOffered"],
+      schoolType: json['type'],
       description: json['description'],
-      headerImageUrl:  json['headerImageUrl']
+      headerImageUrl: json['headerImageUrl'],
+      numOfStudents: json['numOfStudents'],
+      facultyRatio: json['facultyRatio'],
+      attributes: json["attributes"] == null
+          ? []
+          : List<Attribute>.from(
+              json["attributes"]!.map((x) => Attribute.fromJson(x))),
     );
   }
 
   Map<String, dynamic> toJson() => {
-        "_id" : id,
-        "name" : name,
-        "achivements" :  achivements,
+        "_id": id,
+        "name": name,
+        "achivements": achivements,
         // achivements?.map((x) => x.toJson()).toList(),
-        "city" : city,
-        "state" : state,
-        "district" : district,
-        "footerImageUrl" : footerImageUrl,
-        "coursesOffered" : coursesOffered,
-        "type" : type,
-        "description" : description,
-        "headerImageUrl" : headerImageUrl
+        "city": city,
+        "state": state,
+        "district": district,
+        "footerImageUrl": footerImageUrl,
+        "coursesOffered": coursesOffered,
+        "type": schoolType,
+        "description": description,
+        "headerImageUrl": headerImageUrl,
+        "numOfStudents": numOfStudents,
+        "facultyRatio": facultyRatio,
       };
 }
 
@@ -125,5 +138,23 @@ class Achievements {
         "achiveOneImageUrl": achiveImageUrl,
         // "achiveTwoImageUrl" :achiveTwoImageUrl,
         // "achiveThreeImageUrl" :achiveThreeImageUrl,
+      };
+}
+
+class Attribute {
+  final String type;
+  final String score;
+  final String ratings;
+
+  Attribute({required this.type, required this.score, required this.ratings});
+  factory Attribute.fromJson(Map<String, dynamic> json) {
+    return Attribute(
+        type: json['type'], score: json['score'], ratings: json['ratings']);
+  }
+
+  Map<String, dynamic> toJson() => {
+        "type": type,
+        "score": score,
+        "ratings": ratings,
       };
 }

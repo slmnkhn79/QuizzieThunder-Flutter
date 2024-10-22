@@ -29,7 +29,7 @@ class SettingsPage extends StatelessWidget {
                 fontWeight: FontWeight.bold,
                 color: ThemeColor.black),
           ),
-          backgroundColor: Colors.transparent,
+          backgroundColor: ThemeColor.headerOne,
           centerTitle: false,
           elevation: 0,
         ),
