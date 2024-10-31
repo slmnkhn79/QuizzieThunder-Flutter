@@ -17,7 +17,10 @@ class QuizQuestionController extends GetxController {
   var isLoading = false.obs;
   var questionCount = 0.obs;
   var optionSelectedIndex = (-1).obs;
-  var isAnswerCorrect = (-1).obs;
+  var solutionSelected = ''.obs;
+  var isAnswerCorrect = (1).obs;
+  Map<String, String> answerSelected = <String, String>{}.obs;
+  int totalQuestions = 0;
 
   var quizId = "";
   var quizName = "";
@@ -43,6 +46,9 @@ class QuizQuestionController extends GetxController {
     if (response.code == 200) {
       allQuestions.clear();
       allQuestions.addAll(response.questions ?? List.empty());
+      totalQuestions = response.quiz!.totalQuestions!;
+      // print("-------------------------------------------------------------");
+
       isLoading.value = false;
     } else {
       isLoading.value = false;
@@ -50,33 +56,83 @@ class QuizQuestionController extends GetxController {
     }
   }
 
-  void nextQuestion({bool isSkipped = false, int selectedOption = -1}) async {
-    isAnswerCorrect.value = -1;
-    optionSelectedIndex.value = selectedOption;
-    if (isSkipped) {
-      isAnswerCorrect.value = -1;
-      optionSelectedIndex.value = -1;
-      skipQuestionCount++;
-    } else {
-      await Future.delayed(Duration(seconds: 1));
-      if (allQuestions[questionCount.value].correctOptionIndex ==
-          selectedOption) {
-        isAnswerCorrect.value = 1;
-        await Future.delayed(Duration(seconds: 1));
-        correctAnswerCount++;
-      } else {
-        isAnswerCorrect.value = 0;
-        await Future.delayed(Duration(seconds: 1));
-        incorrectAnswerCount++;
-      }
+  void prevQuestion() {
+    print(questionCount);
+    if (questionCount >= 1) {
+      questionCount.value = questionCount.value - 1;
+      print(questionCount);
     }
-    if (questionCount.value == 9) {
-      endQuiz();
-    } else {
-      isAnswerCorrect.value = -1;
-      optionSelectedIndex.value = -1;
+  }
+
+  void nextQuestion(
+      {bool isSkipped = false,
+      int selectedOption = -1,
+      String? prevQuestionId,
+      String? solution}) async {
+    answerSelected.putIfAbsent(prevQuestionId!, () => solution!);
+    print(answerSelected.toString());
+    if (questionCount.value < totalQuestions) {
       questionCount.value += 1;
+      print(questionCount);
+      print(allQuestions.length);
     }
+    // isAnswerCorrect.value = -1;
+    // optionSelectedIndex.value = selectedOption;
+    // if (isSkipped) {
+    //   isAnswerCorrect.value = -1;
+    //   optionSelectedIndex.value = -1;
+    //   skipQuestionCount++;
+    // } else {
+    //   // await Future.delayed(Duration(seconds: 1));
+    //   if (allQuestions[questionCount.value].correctOptionIndex ==
+    //       selectedOption) {
+    //     isAnswerCorrect.value = 1;
+    //     // await Future.delayed(Duration(seconds: 1));
+    //     correctAnswerCount++;
+    //   } else {
+    //     isAnswerCorrect.value = 0;
+    //     // await Future.delayed(Duration(seconds: 1));
+    //     incorrectAnswerCount++;
+    //   }
+    // }
+    if (questionCount.value == totalQuestions - 1) {
+      // endQuiz();
+    } else {
+      // isAnswerCorrect.value = -1;
+      // optionSelectedIndex.value = -1;
+      // questionCount.value += 1;
+    }
+
+    //save the previous result
+    // if (!isSkipped) {
+    //   var response = await quizQuestionApi.postQuizQuestionList(
+    //       quizId: quizId, questionId: prevQuestionId, solution: solution);
+    //   if (response.code == 200) {
+    //   } else {
+    //     isLoading.value = false;
+    //     AppUtils.showSnackBar("Error", status: MessageStatus.ERROR);
+    //   }
+    // }
+
+    //get the next question
+    // if (questionCount <= 10) {
+    //   isLoading.value = true;
+    //   var response = await quizQuestionApi.getQuizQuestionList(quizId: quizId);
+    //   if (response.code == 200) {
+    //     // allQuestions.clear();
+    //     allQuestions.addAll(response.questions ?? List.empty());
+    //     print("-------------------------------------------------------------");
+    //     print("allQuestions ${allQuestions}");
+    //     isLoading.value = false;
+    //   } else {
+    //     isLoading.value = false;
+    //     AppUtils.showSnackBar("Error", status: MessageStatus.ERROR);
+    //   }
+    // }
+    // else
+    // {
+    //   AppUtils.showSnackBar("Warn", status: MessageStatus.NORMAL);
+    // }
   }
 
   void endQuiz() {

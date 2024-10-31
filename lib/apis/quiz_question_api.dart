@@ -7,7 +7,20 @@ class QuizQuestionApi {
     try {
       final response = await DioClient.getDioInstance()
           // .post("question/$quizId/questions");
-          .post("/questions",data: {"quizId":quizId});
+          .post("/getQuizQuestion",data: {"quizId":quizId});
+      return QuizQuestionResponseModel.fromJson(response.data['result']);
+    } catch (e) {
+      rethrow;
+    }
+  }
+  Future<QuizQuestionResponseModel> postQuizQuestionList(
+      {required String? quizId, required String? questionId,String? solution}) async {
+    try {
+      final response = await DioClient.getDioInstance()
+          // .post("question/$quizId/questions");
+          .post("/postQuizAnswer",data: {"quizId":quizId, "questionId":questionId, "sessinoToken":''
+          // , solution:solution
+          });
       return QuizQuestionResponseModel.fromJson(response.data['result']);
     } catch (e) {
       rethrow;

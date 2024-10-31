@@ -77,6 +77,7 @@ class Quiz {
     required this.category,
     required this.createdAt,
     required this.updatedAt,
+    required this.totalQuestions,
   });
 
   final String? id;
@@ -85,6 +86,7 @@ class Quiz {
   final Category? category;
   final DateTime? createdAt;
   final DateTime? updatedAt;
+  final int? totalQuestions;
 
   factory Quiz.fromJson(Map<String, dynamic> json) {
     return Quiz(
@@ -95,6 +97,7 @@ class Quiz {
           json["category"] == null ? null : Category.fromJson(json["category"]),
       createdAt: DateTime.tryParse(json["createdAt"] ?? ""),
       updatedAt: DateTime.tryParse(json["updatedAt"] ?? ""),
+      totalQuestions: json['totalQuestions']
     );
   }
 
@@ -105,6 +108,7 @@ class Quiz {
         "category": category?.toJson(),
         "createdAt": createdAt?.toIso8601String(),
         "updatedAt": updatedAt?.toIso8601String(),
+        "totalQuestions":totalQuestions
       };
 }
 

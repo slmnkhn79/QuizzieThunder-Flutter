@@ -1,7 +1,9 @@
 import 'dart:async';
 
+import 'package:dartx/dartx_io.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:quizzie_thunder/modules/home/home_page.dart';
 
 import '../../theme/colors_theme.dart';
 import 'quiz_question_controller.dart';
@@ -74,7 +76,7 @@ class QuizQuestionPage extends StatelessWidget {
                           height: 32,
                         ),
                         Text(
-                          "QUESTION ${quizQuestionController.questionCount.value + 1} OF 10",
+                          "QUESTION ${quizQuestionController.questionCount.value + 1 } OF ${quizQuestionController.totalQuestions}",
                           style: TextStyle(
                               color: ThemeColor.grey_500,
                               fontSize: 12,
@@ -95,6 +97,47 @@ class QuizQuestionPage extends StatelessWidget {
                         ),
                         optionContainerList(quizQuestionController),
                         Spacer(),
+                        quizQuestionController.questionCount >= 1 ?
+                        SizedBox(
+                            width: double.infinity,
+                            height: 44,
+                            child: ElevatedButton(
+                              onPressed: () {
+                                quizQuestionController.prevQuestion(
+                                    );
+                              },
+                              style: TextButton.styleFrom(
+                                textStyle: TextStyle(
+                                    fontSize: 16, fontWeight: FontWeight.w500),
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(12)),
+                                backgroundColor: ThemeColor.primaryDark,
+                              ),
+                              child: Text("Prev",
+                                  style: TextStyle(color: ThemeColor.white)),
+                            ))
+                            : Container(),
+                            SizedBox(height: 5,),
+                        quizQuestionController.questionCount >= 0 && quizQuestionController.questionCount < quizQuestionController.totalQuestions-1 ? SizedBox(
+                            width: double.infinity,
+                            height: 44,
+                            child: ElevatedButton(
+                              onPressed: () {
+                                quizQuestionController.nextQuestion(
+                                    isSkipped: true);
+                              },
+                              style: TextButton.styleFrom(
+                                textStyle: TextStyle(
+                                    fontSize: 16, fontWeight: FontWeight.w500),
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(12)),
+                                backgroundColor: ThemeColor.primaryDark,
+                              ),
+                              child: Text("Next",
+                                  style: TextStyle(color: ThemeColor.white)),
+                            )): Container(),
+                            SizedBox(height: 5,),
+                        quizQuestionController.questionCount.value == quizQuestionController.totalQuestions -1 ? 
                         SizedBox(
                             width: double.infinity,
                             height: 44,
@@ -103,16 +146,16 @@ class QuizQuestionPage extends StatelessWidget {
                                 quizQuestionController.nextQuestion(
                                     isSkipped: true);
                               },
-                              child: Text("Skip",
-                                  style: TextStyle(color: ThemeColor.white)),
                               style: TextButton.styleFrom(
                                 textStyle: TextStyle(
                                     fontSize: 16, fontWeight: FontWeight.w500),
                                 shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(12)),
-                                backgroundColor: ThemeColor.primaryDark,
+                                backgroundColor: ThemeColor.red,
                               ),
-                            )),
+                              child: Text("Submit",
+                                  style: TextStyle(color: ThemeColor.white)),
+                            )):Container()
                       ],
                     ),
                   ),
@@ -129,39 +172,44 @@ class QuizQuestionPage extends StatelessWidget {
           .asMap()
           .entries
           .map((entry) =>
-              optionContainer(entry.key, entry.value, quizQuestionController))
+              optionContainer(entry.key, entry.value, quizQuestionController, quizQuestionController
+          .allQuestions[quizQuestionController.questionCount.value].id!))
           .toList(),
     );
   }
 
   Column optionContainer(int index, String optionName,
-      QuizQuestionController quizQuestionController) {
+      QuizQuestionController quizQuestionController , String questionId) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         InkWell(
           onTap: () {
-            quizQuestionController.nextQuestion(selectedOption: index);
+            quizQuestionController.nextQuestion(selectedOption: index, prevQuestionId: quizQuestionController.allQuestions[0].id, solution: optionName);
           },
           child: Container(
             width: double.infinity,
             padding: const EdgeInsets.all(16),
             decoration: BoxDecoration(
-                color: (quizQuestionController.optionSelectedIndex.value ==
-                            index &&
-                        quizQuestionController.isAnswerCorrect.value == -1)
-                    ? ThemeColor.lightPrimary.withOpacity(0.4)
-                    : (quizQuestionController.optionSelectedIndex.value ==
-                                index &&
-                            quizQuestionController.isAnswerCorrect.value == 1)
-                        ? ThemeColor.vibrantGreen
-                        : (quizQuestionController.optionSelectedIndex.value ==
-                                    index &&
-                                quizQuestionController.isAnswerCorrect.value ==
-                                    0)
-                            ? ThemeColor.white
-                            : ThemeColor.white,
+                // color: (quizQuestionController.optionSelectedIndex.value ==
+                //             index &&
+                //         quizQuestionController.isAnswerCorrect.value == -1)
+                //     ? ThemeColor.lightPrimary.withOpacity(0.4)
+                //     : (quizQuestionController.optionSelectedIndex.value ==
+                //                 index &&
+                //             quizQuestionController.isAnswerCorrect.value == 1)
+                //         ? ThemeColor.vibrantGreen
+                //         : (quizQuestionController.optionSelectedIndex.value ==
+                //                     index &&
+                //                 quizQuestionController.isAnswerCorrect.value ==
+                //                     0)
+                //             ? ThemeColor.white
+                //             : ThemeColor.white,
+                color: quizQuestionController.answerSelected.containsKey(questionId) 
+                        && quizQuestionController.answerSelected.getOrElse(questionId,()=>'') == optionName
+                ?ThemeColor.vibrantGreen 
+                :  ThemeColor.white,
                 border: Border.all(
                     color: (quizQuestionController.optionSelectedIndex.value ==
                                 index &&
@@ -174,7 +222,7 @@ class QuizQuestionPage extends StatelessWidget {
                     width: 2),
                 borderRadius: BorderRadius.circular(20)),
             child: Text(
-              "$optionName",
+              optionName,
               style: TextStyle(
                   color: (quizQuestionController.optionSelectedIndex.value ==
                               index &&

@@ -298,6 +298,8 @@ class HomePage extends StatelessWidget {
                     .homeScreenResponseModel?.mostPlayedQuiz?.createdAt,
                 updatedAt: homeController
                     .homeScreenResponseModel?.mostPlayedQuiz?.updatedAt,
+                    standard: '',
+                    level: ''
               )
             });
           },

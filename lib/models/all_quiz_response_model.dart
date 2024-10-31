@@ -38,6 +38,8 @@ class Quiz {
     this.category,
     required this.createdAt,
     required this.updatedAt,
+    required this.standard,
+    required this.level
   });
 
   final String? id;
@@ -46,26 +48,33 @@ class Quiz {
   final Category? category;
   final DateTime? createdAt;
   final DateTime? updatedAt;
+  final String? standard;
+  final String ? level;
 
   factory Quiz.fromJson(Map<String, dynamic> json) {
     return Quiz(
-      id: json["_id"],
+      id: json["id"],
       title: json["title"],
       description: json["description"],
       category:
           json["category"] == null ? null : Category.fromJson(json["category"]),
       createdAt: DateTime.tryParse(json["createdAt"] ?? ""),
       updatedAt: DateTime.tryParse(json["updatedAt"] ?? ""),
+      standard: json["standard"],
+      level: json["level"],
+
     );
   }
 
   Map<String, dynamic> toJson() => {
-        "_id": id,
+        "id": id,
         "title": title,
         "description": description,
         "category": category?.toJson(),
         "createdAt": createdAt?.toIso8601String(),
         "updatedAt": updatedAt?.toIso8601String(),
+        "standard": standard,
+        "level": level,
       };
 }
 
@@ -84,7 +93,7 @@ class Category {
 
   factory Category.fromJson(Map<String, dynamic> json) {
     return Category(
-      id: json["_id"],
+      id: json["id"],
       title: json["title"],
       createdAt: DateTime.tryParse(json["createdAt"] ?? ""),
       updatedAt: DateTime.tryParse(json["updatedAt"] ?? ""),
@@ -92,7 +101,7 @@ class Category {
   }
 
   Map<String, dynamic> toJson() => {
-        "_id": id,
+        "id": id,
         "title": title,
         "createdAt": createdAt?.toIso8601String(),
         "updatedAt": updatedAt?.toIso8601String(),

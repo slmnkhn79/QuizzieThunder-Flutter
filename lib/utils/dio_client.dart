@@ -12,7 +12,8 @@ class DioClient {
       receiveTimeout: Duration(minutes: 1),
     ))
       ..options.headers["content-type"] = "application/json"
-      ..options.headers["X-Parse-Application-Id"] = "myappID"
+      ..options.headers["X-Parse-Application-Id"] = "ihzu049k4lkpefeqFXYxwCn6kuo7qph3scKcq1sE"
+      ..options.headers["X-Parse-REST-API-Key"] = "Zhql5mJQna2oJ7ztrmSCFyDtVQ4uxmbMYtMjfe9Q"
 
       // ..options.headers["Authorization"] = GetStorage().read(KEY_USER_DATA) ==
       //         null
@@ -30,7 +31,8 @@ class DioClient {
       receiveTimeout: Duration(minutes: 1),
     ))
       ..options.headers["content-type"] = "multipart/form-data"
-      ..options.headers["X-Parse-Application-Id"] = "myappID"
+      // ..options.headers["X-Parse-Application-Id"] = "myappID"
+      ..options.headers["X-Parse-Application-Id"] = "ihzu049k4lkpefeqFXYxwCn6kuo7qph3scKcq1sE"
       
       // ..options.headers["Authorization"] = GetStorage().read(KEY_USER_DATA) ==
       //         null
@@ -48,7 +50,8 @@ class DioClient {
       receiveTimeout: Duration(minutes: 1),
     ))
       ..options.headers["content-type"] = "application/json"
-      ..options.headers["X-Parse-Application-Id"] = "myappID"
+      // ..options.headers["X-Parse-Application-Id"] = "myappID"
+      ..options.headers["X-Parse-Application-Id"] = "ihzu049k4lkpefeqFXYxwCn6kuo7qph3scKcq1sE"
       
       // ..options.headers["Authorization"] = GetStorage().read(KEY_USER_DATA) ==
       //         null

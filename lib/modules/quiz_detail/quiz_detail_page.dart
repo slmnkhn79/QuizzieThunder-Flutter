@@ -197,8 +197,6 @@ class QuizDetailPage extends StatelessWidget {
                                                     .toUpperCase()
                                           });
                                     },
-                                    child: Text("Start Quiz",
-                                        style: TextStyle(color: ThemeColor.white)),
                                     style: TextButton.styleFrom(
                                       textStyle: TextStyle(
                                           fontSize: 16, fontWeight: FontWeight.w500),
@@ -206,6 +204,8 @@ class QuizDetailPage extends StatelessWidget {
                                           borderRadius: BorderRadius.circular(12)),
                                       backgroundColor: ThemeColor.headerOne,
                                     ),
+                                    child: Text("Start Quiz",
+                                        style: TextStyle(color: ThemeColor.white)),
                                   )),
                             ],
                           ),

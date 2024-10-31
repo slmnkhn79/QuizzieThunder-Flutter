@@ -5,8 +5,8 @@ class QuizzesApi {
   Future<AllQuizResponseModel> getAllQuizList() async {
     try {
       final response =
-          await DioClient.getDioInstance().get("api/quiz/all-quiz");
-      return AllQuizResponseModel.fromJson(response.data);
+          await DioClient.getDioInstance().post("/allQuiz");
+      return AllQuizResponseModel.fromJson(response.data['result']);
     } catch (e) {
       rethrow;
     }
@@ -16,8 +16,8 @@ class QuizzesApi {
       {required String quizCategoryId}) async {
     try {
       final response = await DioClient.getDioInstance()
-          .get("api/quiz/category/$quizCategoryId/quizzes");
-      return AllQuizResponseModel.fromJson(response.data);
+          .post("/quizByCatId",data: {'quizCatId':quizCategoryId});
+      return AllQuizResponseModel.fromJson(response.data['result']);
     } catch (e) {
       rethrow;
     }
