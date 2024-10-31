@@ -6,7 +6,7 @@ import '../utils/dio_client.dart';
 class LeaderboardApi {
   Future<LeaderboardScreenResponseModel> getLeaderboardScreenDetails() async {
     try {
-      final response = await DioClient.getDioInstance().post("/leaderboard", options: Options(headers: {'X-Parse-Application-Id': 'myappID',}));
+      final response = await DioClient.getDioInstance().post("/leaderboard");
       return LeaderboardScreenResponseModel.fromJson(response.data['result']);
     } catch (e) {
       rethrow;

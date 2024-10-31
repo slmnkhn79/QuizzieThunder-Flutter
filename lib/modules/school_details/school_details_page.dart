@@ -96,62 +96,165 @@ class SchoolDetails extends StatelessWidget {
 
                           // List of items with score and rating
                           Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Column(
-                              children: List.generate(
-                                  schoolController.schoolDetailsModel!.school
-                                      .attributes.length, (index) {
-                                return ListTile(
-                                  title: Text(schoolController
-                                      .schoolDetailsModel!
-                                      .school
-                                      .attributes[index]
-                                      .type),
-                                  trailing: SizedBox(
-                                    width: 300,
-                                    height: 200,
-                                    child: Card(
-                                      color: ThemeColor.facebook_light_4,
-                                      child: Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceEvenly,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.center,
-                                        children: [
-                                          // Text(schoolController
-                                          //     .schoolDetailsModel!
-                                          //     .school
-                                          //     .attributes[index]
-                                          //     .ratings),
-                                          VerticalDivider(),
-                                          Text(schoolController
-                                              .schoolDetailsModel!
-                                              .school
-                                              .attributes[index]
-                                              .score),
-                                          VerticalDivider(),
-                                          RatingBar.builder(
-                                              initialRating: 3,
-                                              minRating: 1,
-                                              direction: Axis.horizontal,
-                                              itemSize: 24,
-                                              ignoreGestures: true,
-                                              allowHalfRating: true,
-                                              itemCount: 5,
-                                              itemPadding: EdgeInsets.symmetric(
-                                                  horizontal: 4.0),
-                                              itemBuilder: (context, _) => Icon(
-                                                    Icons.star,
-                                                    color: Colors.amber,
+                            padding: const EdgeInsets.all(12.0),
+                            child: Container(
+                              decoration: BoxDecoration(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(5.0)),
+                                  color: ThemeColor.white),
+                              child: Column(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: List.generate(
+                                    schoolController.schoolDetailsModel!.school
+                                        .attributes.length, (index) {
+                                  return MediaQuery.of(context).size.width > 600
+                                      ? Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.center,
+                                          children: [
+                                            // title:
+                                            Padding(
+                                              padding: EdgeInsets.only(left: 24),
+                                              child: Text(schoolController
+                                                  .schoolDetailsModel!
+                                                  .school
+                                                  .attributes[index]
+                                                  .type),
+                                            ),
+                                            // trailing:
+                                            SizedBox(
+                                              // width: 300,
+                                              height: 50,
+                                              child: Padding(
+                                                padding: EdgeInsets.only(right: 24),
+                                                // padding: const EdgeInsets.all(8.0),
+                                                child: Card(
+                                                  color:
+                                                      ThemeColor.facebook_light_4,
+                                                  child: Row(
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .spaceAround,
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment.center,
+                                                    children: [
+                                                      // Text(schoolController
+                                                      //     .schoolDetailsModel!
+                                                      //     .school
+                                                      //     .attributes[index]
+                                                      //     .ratings),
+                                                      VerticalDivider(),
+                                                      Text(schoolController
+                                                          .schoolDetailsModel!
+                                                          .school
+                                                          .attributes[index]
+                                                          .score),
+                                                      VerticalDivider(),
+                                                      RatingBar.builder(
+                                                          initialRating: 3,
+                                                          minRating: 1,
+                                                          direction: Axis
+                                                              .horizontal,
+                                                          itemSize: 24,
+                                                          ignoreGestures: true,
+                                                          allowHalfRating: true,
+                                                          itemCount: 5,
+                                                          itemPadding: EdgeInsets
+                                                              .symmetric(
+                                                                  horizontal:
+                                                                      4.0),
+                                                          itemBuilder: (context,
+                                                                  _) =>
+                                                              Icon(
+                                                                Icons.star,
+                                                                color:
+                                                                    Colors.amber,
+                                                              ),
+                                                          onRatingUpdate:
+                                                              (value) => {})
+                                                    ],
                                                   ),
-                                              onRatingUpdate: (value) => {})
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                  // subtitle: ,
-                                );
-                              }),
+                                                ),
+                                              ),
+                                            )
+                                          ],
+                                          // subtitle: ,
+                                        )
+                                      : Container(
+                                          child: Column(
+                                            children: [
+                                              // title:
+                                              Text(
+                                                schoolController
+                                                    .schoolDetailsModel!
+                                                    .school
+                                                    .attributes[index]
+                                                    .type,
+                                                style: TextStyle(fontSize: 24),
+                                              ),
+                                              // trailing:
+                                              SizedBox(
+                                                // width: 300,
+                                                height: 50,
+                                                child: Card(
+                                                  color: ThemeColor
+                                                      .facebook_light_4,
+                                                  child: Row(
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .spaceEvenly,
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment
+                                                            .center,
+                                                    children: [
+                                                      // Text(schoolController
+                                                      //     .schoolDetailsModel!
+                                                      //     .school
+                                                      //     .attributes[index]
+                                                      //     .ratings),
+                                                      VerticalDivider(),
+                                                      Text(schoolController
+                                                          .schoolDetailsModel!
+                                                          .school
+                                                          .attributes[index]
+                                                          .score),
+                                                      VerticalDivider(),
+                                                      RatingBar.builder(
+                                                          initialRating: 3,
+                                                          minRating: 1,
+                                                          direction:
+                                                              Axis.horizontal,
+                                                          itemSize: 24,
+                                                          ignoreGestures: true,
+                                                          allowHalfRating: true,
+                                                          itemCount: 5,
+                                                          itemPadding: EdgeInsets
+                                                              .symmetric(
+                                                                  horizontal:
+                                                                      4.0),
+                                                          itemBuilder:
+                                                              (context, _) =>
+                                                                  Icon(
+                                                                    Icons.star,
+                                                                    color: Colors
+                                                                        .amber,
+                                                                  ),
+                                                          onRatingUpdate:
+                                                              (value) => {})
+                                                    ],
+                                                  ),
+                                                ),
+                                              )
+                                            ],
+                                            // subtitle: ,
+                                          ),
+                                        );
+                                }),
+                              ),
                             ),
                           ),
 

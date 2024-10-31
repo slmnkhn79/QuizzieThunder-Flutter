@@ -59,7 +59,6 @@ class SchoolDetailsApi {
       final response =
           await DioClient.getDioInstanceFile().post("/postSchool"
           , data: {}
-          // ,options: dio.Options(headers: {"X-Parse-Session-Token": localStorage.read(KEY_USER_DATA)['result']['token'] })
           );
           return response.toString();
     } catch (e) {
@@ -76,7 +75,6 @@ class SchoolDetailsApi {
       final response =
           await DioClient.getDioInstance().post("/getSchool"
           , data: {'schoolId':schoolId}
-          // ,options: dio.Options(headers: {"X-Parse-Session-Token": localStorage.read(KEY_USER_DATA)['result']['token'] })
           );
           return SchoolDetailsModel.fromJson(response.data['result']);
     } catch (e) {

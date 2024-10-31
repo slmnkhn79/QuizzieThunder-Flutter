@@ -26,8 +26,10 @@ class ErrorHandingInterceptor extends Interceptor {
       _isErrorCodeHandled = false;
     else
       _isErrorCodeHandled = true;
+    print("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
+    print(err);
 
-    if (!_isErrorCodeHandled && err.response?.statusCode == 401) {
+    if ((!_isErrorCodeHandled && err.response?.statusCode == 401) || err.response?.statusCode == 400) {
       _isErrorCodeHandled = true;
       await localStorage.write(KEY_IS_API_ERROR_HANDLE, _isErrorCodeHandled);
       // Redirecting to sign in screen if token expires

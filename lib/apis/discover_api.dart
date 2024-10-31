@@ -6,7 +6,7 @@ import '../utils/dio_client.dart';
 class DiscoverApi {
   Future<DiscoverScreenResponseModel> getDiscoverScreenDetails() async {
     try {
-      final response = await DioClient.getDioInstance().post("/discover",options: Options(headers: {'X-Parse-Application-Id': 'myappID',}));
+      final response = await DioClient.getDioInstance().post("/discover");
       return DiscoverScreenResponseModel.fromJson(response.data['result']);
     } catch (e) {
       rethrow;
