@@ -8,8 +8,7 @@ class QuizItemContainer extends StatelessWidget {
   final String? quizCategoryName;
 
   const QuizItemContainer(
-      {Key? key, required this.dataObj, this.quizCategoryName = ""})
-      : super(key: key);
+      {super.key, required this.dataObj, this.quizCategoryName = ""});
 
   @override
   Widget build(BuildContext context) {

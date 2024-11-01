@@ -26,7 +26,7 @@ class SchoolDetails extends StatelessWidget {
   Widget build(BuildContext context) {
     SchoolController schoolController = Get.find<SchoolController>();
     Uint8List uploadedImage;
-    PlatformFile? objFile = null;
+    PlatformFile? objFile;
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(

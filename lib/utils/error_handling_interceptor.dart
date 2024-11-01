@@ -10,22 +10,15 @@ class ErrorHandingInterceptor extends Interceptor {
   final localStorage = GetStorage();
   var _isErrorCodeHandled = false;
 
-  @override
-  void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
-    return super.onRequest(options, handler);
-  }
 
-  @override
-  void onResponse(Response response, ResponseInterceptorHandler handler) {
-    return super.onResponse(response, handler);
-  }
 
   @override
   void onError(DioException err, ErrorInterceptorHandler handler) async {
-    if (localStorage.read(KEY_IS_API_ERROR_HANDLE) == null)
+    if (localStorage.read(KEY_IS_API_ERROR_HANDLE) == null) {
       _isErrorCodeHandled = false;
-    else
+    } else {
       _isErrorCodeHandled = true;
+    }
     print("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
     print(err);
 

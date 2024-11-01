@@ -8,7 +8,7 @@ import '../../utils/app_utils.dart';
 import 'profile_controller.dart';
 
 class ProfilePage extends StatelessWidget {
-  const ProfilePage({Key? key}) : super(key: key);
+  const ProfilePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -74,7 +74,7 @@ class ProfilePage extends StatelessWidget {
                                                   fit: BoxFit.cover,
                                                   placeholder: (context, url) =>
                                                       Center(
-                                                    child: Container(
+                                                    child: SizedBox(
                                                       width: 20,
                                                       height: 20,
                                                       child:
@@ -339,8 +339,8 @@ class ProfilePage extends StatelessWidget {
             )));
   }
 
-  Container detailSection(ProfileController profileController) {
-    return Container(
+  SizedBox detailSection(ProfileController profileController) {
+    return SizedBox(
       width: double.infinity,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
@@ -387,7 +387,7 @@ class ProfilePage extends StatelessWidget {
             height: 4,
           ),
           Text(
-            "${profileController.profileScreenResponseModel?.userDetail?.about ?? "--"}",
+            profileController.profileScreenResponseModel?.userDetail?.about ?? "--",
             textAlign: TextAlign.left,
             style: TextStyle(color: ThemeColor.black, fontSize: 16),
           ),
@@ -449,7 +449,7 @@ class ProfilePage extends StatelessWidget {
             Stack(
               alignment: Alignment.center,
               children: [
-                Container(
+                SizedBox(
                   width: 120,
                   height: 120,
                   child: CircularProgressIndicator(

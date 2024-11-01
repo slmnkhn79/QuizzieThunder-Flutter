@@ -1,13 +1,9 @@
-import 'dart:io';
 import 'dart:typed_data';
-import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 // import 'package:mime/mime.dart';
-import 'package:path/path.dart' as p;
 import 'package:http_parser/http_parser.dart';
 import 'package:quizzie_thunder/models/event_detail_response_model.dart';
 import 'package:quizzie_thunder/models/school_details_model.dart';
-import 'package:quizzie_thunder/modules/signin/signin_controller.dart';
 import 'package:quizzie_thunder/utils/constants.dart';
 
 import '../utils/dio_client.dart';

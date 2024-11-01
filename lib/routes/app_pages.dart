@@ -1,6 +1,4 @@
 import 'package:get/get.dart';
-import 'package:quizzie_thunder/modules/add_a_school/add_post_binding.dart';
-import 'package:quizzie_thunder/modules/add_a_school/add_post_page.dart';
 import 'package:quizzie_thunder/modules/event_details/event_detail_binding.dart';
 import 'package:quizzie_thunder/modules/event_details/event_details_page.dart';
 import 'package:quizzie_thunder/modules/school_details/school_details_binding.dart';

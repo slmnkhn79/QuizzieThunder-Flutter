@@ -8,7 +8,7 @@ import '../../widgets/choose_avatar_bottom_sheet.dart';
 import 'update_profile_controller.dart';
 
 class UpdateProfilePage extends StatelessWidget {
-  const UpdateProfilePage({Key? key}) : super(key: key);
+  const UpdateProfilePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -84,13 +84,13 @@ class UpdateProfilePage extends StatelessWidget {
                                           child: ClipOval(
                                             child: CachedNetworkImage(
                                               imageUrl:
-                                                  "${updateProfileController.profilePicUrl.value}",
+                                                  updateProfileController.profilePicUrl.value,
                                               width: double.infinity,
                                               height: double.infinity,
                                               fit: BoxFit.cover,
                                               placeholder: (context, url) =>
                                                   Center(
-                                                child: Container(
+                                                child: SizedBox(
                                                   width: 20,
                                                   height: 20,
                                                   child:
@@ -262,9 +262,6 @@ class UpdateProfilePage extends StatelessWidget {
                                   onPressed: () {
                                     updateProfileController.updateUserProfile();
                                   },
-                                  child: Text("Update",
-                                      style:
-                                          TextStyle(color: ThemeColor.white)),
                                   style: TextButton.styleFrom(
                                     textStyle: TextStyle(
                                         fontSize: 16,
@@ -274,6 +271,9 @@ class UpdateProfilePage extends StatelessWidget {
                                             BorderRadius.circular(12)),
                                     backgroundColor: ThemeColor.primaryDark,
                                   ),
+                                  child: Text("Update",
+                                      style:
+                                          TextStyle(color: ThemeColor.white)),
                                 )),
                           ]),
                     )))));

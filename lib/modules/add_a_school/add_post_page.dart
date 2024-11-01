@@ -22,7 +22,7 @@ class AddSchoolDetails extends StatelessWidget {
   Widget build(BuildContext context) {
     AddSchoolController addSchoolController = Get.find<AddSchoolController>();
     Uint8List uploadedImage;
-    PlatformFile? objFile = null;
+    PlatformFile? objFile;
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
@@ -296,7 +296,7 @@ class AddSchoolDetails extends StatelessWidget {
     uploadInput?.onChange.listen((e) {
       final files = uploadInput.files;
       final file = files?[0];
-      final reader = new html.FileReader();
+      final reader = html.FileReader();
       // result = reader.result;
       reader.onLoadEnd.listen((e) {
         // _handleResult(addPostController, reader.result);

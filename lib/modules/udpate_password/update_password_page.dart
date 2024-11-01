@@ -5,7 +5,7 @@ import '../../theme/colors_theme.dart';
 import 'update_password_controller.dart';
 
 class UpdatePasswordPage extends StatelessWidget {
-  const UpdatePasswordPage({Key? key}) : super(key: key);
+  const UpdatePasswordPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -179,8 +179,6 @@ class UpdatePasswordPage extends StatelessWidget {
                               onPressed: () {
                                 updatePasswordController.updatePassword();
                               },
-                              child: Text("Update Password",
-                                  style: TextStyle(color: ThemeColor.white)),
                               style: TextButton.styleFrom(
                                 textStyle: TextStyle(
                                     fontSize: 16, fontWeight: FontWeight.w500),
@@ -188,6 +186,8 @@ class UpdatePasswordPage extends StatelessWidget {
                                     borderRadius: BorderRadius.circular(12)),
                                 backgroundColor: ThemeColor.primaryDark,
                               ),
+                              child: Text("Update Password",
+                                  style: TextStyle(color: ThemeColor.white)),
                             )),
                       ]),
                 ))));

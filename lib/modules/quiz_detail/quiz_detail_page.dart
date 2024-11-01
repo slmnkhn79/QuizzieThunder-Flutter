@@ -7,7 +7,7 @@ import '../../utils/constants.dart';
 import 'quiz_detail_controller.dart';
 
 class QuizDetailPage extends StatelessWidget {
-  const QuizDetailPage({Key? key}) : super(key: key);
+  const QuizDetailPage({super.key});
 
   @override
   Widget build(BuildContext context) {

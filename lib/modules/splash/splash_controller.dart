@@ -17,8 +17,9 @@ class SplashController extends GetxController {
 
   @override
   void onReady() {
-    if (GetStorage().read(KEY_USER_DATA) != null)
+    if (GetStorage().read(KEY_USER_DATA) != null) {
       print("Token = ${AppUtils.loginUserDetail().result?.token}");
+    }
     Future.delayed(
         Duration(seconds: 3),
         () => localStorage.read(KEY_USER_DATA) == null

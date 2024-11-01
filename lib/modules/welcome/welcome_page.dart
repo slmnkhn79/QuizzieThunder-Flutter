@@ -7,7 +7,7 @@ import '../../theme/colors_theme.dart';
 import 'welcome_controller.dart';
 
 class WelcomePage extends StatelessWidget {
-  const WelcomePage({Key? key}) : super(key: key);
+  const WelcomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -72,10 +72,6 @@ class WelcomePage extends StatelessWidget {
                                 onPressed: () {
                                   Get.toNamed(AppRoutes.signUpPage);
                                 },
-                                child: Text(
-                                  "Sign Up",
-                                  style: TextStyle(color: ThemeColor.white),
-                                ),
                                 style: TextButton.styleFrom(
                                   textStyle: TextStyle(
                                       fontSize: 16,
@@ -83,6 +79,10 @@ class WelcomePage extends StatelessWidget {
                                   shape: RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(12)),
                                   backgroundColor: ThemeColor.primaryDark,
+                                ),
+                                child: Text(
+                                  "Sign Up",
+                                  style: TextStyle(color: ThemeColor.white),
                                 ),
                               )),
                           SizedBox(

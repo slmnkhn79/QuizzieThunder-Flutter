@@ -5,7 +5,7 @@ import '../../theme/colors_theme.dart';
 import 'forgot_password_controller.dart';
 
 class ForgotPasswordPage extends StatelessWidget {
-  const ForgotPasswordPage({Key? key}) : super(key: key);
+  const ForgotPasswordPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -100,8 +100,6 @@ class ForgotPasswordPage extends StatelessWidget {
                             onPressed: () {
                               forgotPasswordController.forgotPassword();
                             },
-                            child: Text("Next",
-                                style: TextStyle(color: ThemeColor.white)),
                             style: TextButton.styleFrom(
                               textStyle: TextStyle(
                                   fontSize: 16, fontWeight: FontWeight.w500),
@@ -109,6 +107,8 @@ class ForgotPasswordPage extends StatelessWidget {
                                   borderRadius: BorderRadius.circular(12)),
                               backgroundColor: ThemeColor.primaryDark,
                             ),
+                            child: Text("Next",
+                                style: TextStyle(color: ThemeColor.white)),
                           )),
                     ]))));
   }

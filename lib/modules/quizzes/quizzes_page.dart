@@ -8,7 +8,7 @@ import '../../widgets/quiz_item_container.dart';
 import 'quizzes_controller.dart';
 
 class QuizzesPage extends StatelessWidget {
-  const QuizzesPage({Key? key}) : super(key: key);
+  const QuizzesPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -74,7 +74,7 @@ class QuizzesPage extends StatelessWidget {
                               quizCategoryName:
                                   quizzesController.quizCategoryName.isEmpty
                                       ? ""
-                                      : "${quizzesController.quizCategoryName}",
+                                      : quizzesController.quizCategoryName,
                             ));
                       }),
                 ),

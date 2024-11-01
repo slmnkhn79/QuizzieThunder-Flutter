@@ -11,10 +11,6 @@ class SearchResultsController extends GetxController {
 
   SearchDialogResponseModel? searchDialogResponseModel;
 
-  @override
-  void onInit() {
-    super.onInit();
-  }
 
   Future<void> getSearchResults(String input) async {
     isLoading.value = true;

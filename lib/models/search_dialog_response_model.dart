@@ -27,7 +27,7 @@ class SearchDialogResponseModel {
         "code": code,
         "status": status,
         "message": message,
-        "searchResults": searchResults!.map((x) => x.toJson()).toList()
+        "searchResults": searchResults.map((x) => x.toJson()).toList()
       };
 }
 

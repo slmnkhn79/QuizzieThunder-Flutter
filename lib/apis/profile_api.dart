@@ -1,4 +1,3 @@
-import 'package:dio/dio.dart';
 import 'package:get_storage/get_storage.dart';
 
 import '../models/profile_screen_response_model.dart';

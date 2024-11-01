@@ -13,7 +13,7 @@ import '../../utils/constants.dart';
 import 'discover_controller.dart';
 
 class DiscoverPage extends StatelessWidget {
-  const DiscoverPage({Key? key}) : super(key: key);
+  const DiscoverPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -332,7 +332,7 @@ class DiscoverPage extends StatelessWidget {
                                                 fit: BoxFit.cover,
                                                 placeholder: (context, url) =>
                                                     Center(
-                                                  child: Container(
+                                                  child: SizedBox(
                                                     width: 20,
                                                     height: 20,
                                                     child:
@@ -679,7 +679,7 @@ class DiscoverPage extends StatelessWidget {
                           ),
                           children: [
                           ...searchController
-                              .searchDialogResponseModel!.searchResults!
+                              .searchDialogResponseModel!.searchResults
                               .map((e) {
                             return ElevatedButton(
                                 onPressed: () {}, child: Text(e.displayValue));

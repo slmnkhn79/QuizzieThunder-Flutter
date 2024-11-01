@@ -5,7 +5,7 @@ import '../../theme/colors_theme.dart';
 import 'create_new_password_controller.dart';
 
 class CreateNewPasswordPage extends StatelessWidget {
-  const CreateNewPasswordPage({Key? key}) : super(key: key);
+  const CreateNewPasswordPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -228,10 +228,6 @@ class CreateNewPasswordPage extends StatelessWidget {
                                   createNewPasswordController
                                       .createNewPassword();
                                 },
-                                child: Text(
-                                  "Reset Password",
-                                  style: TextStyle(color: ThemeColor.white),
-                                ),
                                 style: TextButton.styleFrom(
                                   textStyle: TextStyle(
                                       fontSize: 16,
@@ -239,6 +235,10 @@ class CreateNewPasswordPage extends StatelessWidget {
                                   shape: RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(12)),
                                   backgroundColor: ThemeColor.primaryDark,
+                                ),
+                                child: Text(
+                                  "Reset Password",
+                                  style: TextStyle(color: ThemeColor.white),
                                 ),
                               )),
                         ])),

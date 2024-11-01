@@ -5,7 +5,7 @@ import '../../theme/colors_theme.dart';
 import 'quiz_result_controller.dart';
 
 class QuizResultPage extends StatelessWidget {
-  const QuizResultPage({Key? key}) : super(key: key);
+  const QuizResultPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -53,7 +53,7 @@ class QuizResultPage extends StatelessWidget {
                             height: 12,
                           ),
                           Text(
-                            "${quizResultController.quizName}",
+                            quizResultController.quizName,
                             style: TextStyle(
                                 color: ThemeColor.white,
                                 fontSize: 14,
@@ -63,7 +63,7 @@ class QuizResultPage extends StatelessWidget {
                             height: 4,
                           ),
                           Text(
-                            "${quizResultController.quizCategoryName}",
+                            quizResultController.quizCategoryName,
                             style: TextStyle(
                               color: ThemeColor.white,
                               fontSize: 12,

@@ -1,4 +1,3 @@
-import 'package:dio/dio.dart';
 import 'package:quizzie_thunder/models/school_leaderboard_screen_response_model.dart';
 
 import '../utils/dio_client.dart';

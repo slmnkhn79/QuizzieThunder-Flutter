@@ -9,7 +9,7 @@ import '../../theme/colors_theme.dart';
 import 'quiz_question_controller.dart';
 
 class QuizQuestionPage extends StatelessWidget {
-  const QuizQuestionPage({Key? key}) : super(key: key);
+  const QuizQuestionPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +34,7 @@ class QuizQuestionPage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Text(
-                  "${quizQuestionController.quizName}",
+                  quizQuestionController.quizName,
                   style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
@@ -44,7 +44,7 @@ class QuizQuestionPage extends StatelessWidget {
                   height: 4,
                 ),
                 Text(
-                  "${quizQuestionController.quizCategoryName}",
+                  quizQuestionController.quizCategoryName,
                   style: TextStyle(fontSize: 12, color: ThemeColor.white),
                 ),
               ],

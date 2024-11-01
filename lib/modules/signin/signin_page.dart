@@ -7,7 +7,7 @@ import '../../theme/colors_theme.dart';
 import 'signin_controller.dart';
 
 class SigninPage extends StatelessWidget {
-  const SigninPage({Key? key}) : super(key: key);
+  const SigninPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -187,8 +187,6 @@ class SigninPage extends StatelessWidget {
                             onPressed: () {
                               signinController.login();
                             },
-                            child: Text("Login",
-                                style: TextStyle(color: ThemeColor.white)),
                             style: TextButton.styleFrom(
                               textStyle: TextStyle(
                                   fontSize: 16, fontWeight: FontWeight.w500),
@@ -196,6 +194,8 @@ class SigninPage extends StatelessWidget {
                                   borderRadius: BorderRadius.circular(12)),
                               backgroundColor: ThemeColor.primaryDark,
                             ),
+                            child: Text("Login",
+                                style: TextStyle(color: ThemeColor.white)),
                           )),
                       SizedBox(
                         height: 20,

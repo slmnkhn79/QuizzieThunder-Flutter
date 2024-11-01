@@ -1,4 +1,3 @@
-import 'package:dio/dio.dart';
 import 'package:quizzie_thunder/models/school_discover_screen_response_model.dart';
 
 import '../utils/dio_client.dart';

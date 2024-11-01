@@ -11,7 +11,7 @@ import '../../utils/app_utils.dart';
 import 'student_leaderboard_controller.dart';
 
 class LeaderboardPage extends StatelessWidget {
-  const LeaderboardPage({Key? key}) : super(key: key);
+  const LeaderboardPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -258,7 +258,7 @@ class LeaderboardPage extends StatelessWidget {
               height: double.infinity,
               fit: BoxFit.cover,
               placeholder: (context, url) => Center(
-                child: Container(
+                child: SizedBox(
                   width: 20,
                   height: 20,
                   child: CircularProgressIndicator(
@@ -280,9 +280,8 @@ class LeaderboardPage extends StatelessWidget {
           "${leaderboard?.user?.firstname} ${leaderboard?.user?.lastname}"
                       .length >
                   10
-              ? "${leaderboard?.user?.firstname} ${leaderboard?.user?.lastname}"
-                      .substring(0, 10) +
-                  "..."
+              ? "${"${leaderboard?.user?.firstname} ${leaderboard?.user?.lastname}"
+                      .substring(0, 10)}..."
               : "${leaderboard?.user?.firstname} ${leaderboard?.user?.lastname}",
           style: TextStyle(
               color: ThemeColor.facebook_light_4,
@@ -407,7 +406,7 @@ class LeaderboardPage extends StatelessWidget {
                       height: double.infinity,
                       fit: BoxFit.cover,
                       placeholder: (context, url) => Center(
-                        child: Container(
+                        child: SizedBox(
                           width: 20,
                           height: 20,
                           child: CircularProgressIndicator(
@@ -526,7 +525,7 @@ class LeaderboardPage extends StatelessWidget {
                           height: double.infinity,
                           fit: BoxFit.cover,
                           placeholder: (context, url) => Center(
-                            child: Container(
+                            child: SizedBox(
                               width: 20,
                               height: 20,
                               child: CircularProgressIndicator(

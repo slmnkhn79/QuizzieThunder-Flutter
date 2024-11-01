@@ -23,10 +23,11 @@ class QuizzesController extends GetxController {
       quizCategoryId = arguments[ARG_QUIZ_CATEGORY_ID] ?? "";
       quizCategoryName = arguments[ARG_QUIZ_CATEGORY_NAME] ?? "";
     }
-    if (quizCategoryId.isEmpty)
+    if (quizCategoryId.isEmpty) {
       getAllQuizList();
-    else
+    } else {
       getAllQuizOfSpeacificCategory();
+    }
     super.onInit();
   }
 

@@ -15,7 +15,7 @@ import '../profile/profile_controller.dart';
 import 'home_controller.dart';
 
 class HomePage extends StatelessWidget {
-  HomePage({Key? key}) : super(key: key);
+  const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -77,7 +77,7 @@ class HomePage extends StatelessWidget {
                                               CrossAxisAlignment.start,
                                           children: [
                                             Text(
-                                              "${AppUtils.getGreeting()}",
+                                              AppUtils.getGreeting(),
                                               style: TextStyle(
                                                   fontSize: 12,
                                                   fontWeight: FontWeight.bold,
@@ -116,7 +116,7 @@ class HomePage extends StatelessWidget {
                                                 fit: BoxFit.cover,
                                                 placeholder: (context, url) =>
                                                     Center(
-                                                  child: Container(
+                                                  child: SizedBox(
                                                     width: 20,
                                                     height: 20,
                                                     child:
@@ -382,16 +382,16 @@ class HomePage extends StatelessWidget {
                         height: 32,
                         child: ElevatedButton(
                           onPressed: () {},
-                          child: Text(
-                            "🤘 Find Friends",
-                            style: TextStyle(color: ThemeColor.primary),
-                          ),
                           style: TextButton.styleFrom(
                             textStyle: TextStyle(
                                 fontSize: 14, fontWeight: FontWeight.bold),
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(24)),
                             backgroundColor: ThemeColor.white,
+                          ),
+                          child: Text(
+                            "🤘 Find Friends",
+                            style: TextStyle(color: ThemeColor.primary),
                           ),
                         )),
                   ]))

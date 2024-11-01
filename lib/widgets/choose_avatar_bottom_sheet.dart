@@ -12,8 +12,7 @@ class ChooseAvatarBottomSheet extends StatelessWidget {
   final Function(String val) onTap;
 
   const ChooseAvatarBottomSheet(
-      {Key? key, required this.allAvatars, required this.onTap})
-      : super(key: key);
+      {super.key, required this.allAvatars, required this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -67,7 +66,7 @@ class ChooseAvatarBottomSheet extends StatelessWidget {
                           height: double.infinity,
                           fit: BoxFit.cover,
                           placeholder: (context, url) => Center(
-                            child: Container(
+                            child: SizedBox(
                               width: 20,
                               height: 20,
                               child: CircularProgressIndicator(

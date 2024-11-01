@@ -5,7 +5,7 @@ import 'package:quizzie_thunder/modules/home/post_card/like_animation.dart';
 class PostCard extends StatelessWidget {
   final PostCardModel post;
 
-  const PostCard({Key? key, required this.post});
+  const PostCard({super.key,  required this.post});
   @override
   Widget build(BuildContext context) {
     return getPostCardView(post, context);
