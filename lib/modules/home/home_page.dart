@@ -174,7 +174,7 @@ class HomePage extends StatelessWidget {
                                                           horizontal: 16,
                                                           vertical: 8),
                                                       child: Text(
-                                                        "Nearby",
+                                                        "Events",
                                                         textAlign:
                                                             TextAlign.center,
                                                         style: TextStyle(
@@ -191,7 +191,7 @@ class HomePage extends StatelessWidget {
                                                           horizontal: 16,
                                                           vertical: 8),
                                                       child: Text(
-                                                        "Nearby",
+                                                        "Events",
                                                         textAlign:
                                                             TextAlign.center,
                                                         style: TextStyle(
@@ -229,7 +229,7 @@ class HomePage extends StatelessWidget {
                                                           horizontal: 16,
                                                           vertical: 8),
                                                       child: Text(
-                                                        "Weekly",
+                                                        "Quiz",
                                                         textAlign:
                                                             TextAlign.center,
                                                         style: TextStyle(
@@ -246,7 +246,7 @@ class HomePage extends StatelessWidget {
                                                           horizontal: 16,
                                                           vertical: 8),
                                                       child: Text(
-                                                        "Weekly",
+                                                        "Quiz",
                                                         textAlign:
                                                             TextAlign.center,
                                                         style: TextStyle(
@@ -279,9 +279,9 @@ class HomePage extends StatelessWidget {
                   ))));
   }
 
-  SizedBox quizFeedContainer(HomeController homeController,BuildContext context) {
-    return SizedBox(
-    height: MediaQuery.of(context).size.height,
+  Container quizFeedContainer(HomeController homeController,BuildContext context) {
+    return Container(
+    // height: MediaQuery.of(context).size.height,
       child: Column(children: [
         InkWell(
           onTap: () {

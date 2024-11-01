@@ -36,7 +36,7 @@ class QuizItemContainer extends StatelessWidget {
                     height: 4,
                   ),
                   Text(
-                      quizCategoryName?.isEmpty == false
+                      quizCategoryName?.isEmpty == true
                           ? "${dataObj?.category?.title}- ${dataObj?.standard} - ${dataObj?.level},${dataObj?.id}"
                           : "$quizCategoryName - ",
                       style: TextStyle(fontSize: 12, color: ThemeColor.grey))

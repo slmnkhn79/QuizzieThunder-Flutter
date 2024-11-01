@@ -253,6 +253,7 @@ class DiscoverPage extends StatelessWidget {
               ],
             ),
           ),
+          
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 8),
             child: Container(

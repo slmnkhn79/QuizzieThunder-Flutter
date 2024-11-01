@@ -162,7 +162,16 @@ class LeaderboardPage extends StatelessWidget {
     return Expanded(
       child: SingleChildScrollView(
         
-        child: SizedBox(
+        child: leaderboardController.leaderboardScreenResponseModel?.allTimeLeaderboard == null ?
+        Container(
+          child: Column(
+            children: [
+              Text("Be the first to apper here!")
+            ],
+          )
+        )
+        :
+        SizedBox(
           width: MediaQuery.of(context).size.width > 600 ? 600 : MediaQuery.of(context).size.width,
           child: Column(
             children: [

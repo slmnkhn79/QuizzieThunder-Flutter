@@ -25,8 +25,9 @@ class QuizzesController extends GetxController {
     }
     if (quizCategoryId.isEmpty) {
       getAllQuizList();
+    
     } else {
-      getAllQuizOfSpeacificCategory();
+      getAllQuizOfSpecificCategory();
     }
     super.onInit();
   }
@@ -44,7 +45,7 @@ class QuizzesController extends GetxController {
     }
   }
 
-  void getAllQuizOfSpeacificCategory() async {
+  void getAllQuizOfSpecificCategory() async {
     isLoading.value = true;
     var response = await quizzesApi.getAllQuizOfSpeacificCategory(
         quizCategoryId: quizCategoryId);
