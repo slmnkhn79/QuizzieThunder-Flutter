@@ -56,7 +56,6 @@ class HomePage extends StatelessWidget {
                             ? 600
                             : MediaQuery.of(context).size.width,
                         child: Container(
-                          
                           color: ThemeColor.headerThree,
                           child: SizedBox(
                             child: Column(children: [
@@ -88,24 +87,27 @@ class HomePage extends StatelessWidget {
                                               height: 8,
                                             ),
                                             Visibility(
-                                              visible: profileController.fullName
-                                                  .value.isNotNullOrEmpty,
+                                              visible: profileController
+                                                  .fullName
+                                                  .value
+                                                  .isNotNullOrEmpty,
                                               child: Text(
                                                 "${profileController.fullName}",
                                                 style: TextStyle(
                                                     fontSize: 20,
                                                     fontWeight: FontWeight.bold,
-                                                    color: ThemeColor.headerOne),
+                                                    color:
+                                                        ThemeColor.headerOne),
                                               ),
                                             ),
                                           ],
                                         ),
                                         Visibility(
-                                          visible: profileController
-                                              .profilePic.value.isNotNullOrEmpty,
+                                          visible: profileController.profilePic
+                                              .value.isNotNullOrEmpty,
                                           child: CircleAvatar(
-                                            backgroundColor:
-                                                AppUtils.getRandomAvatarBgColor(),
+                                            backgroundColor: AppUtils
+                                                .getRandomAvatarBgColor(),
                                             radius: 24,
                                             child: ClipOval(
                                               child: CachedNetworkImage(
@@ -126,7 +128,8 @@ class HomePage extends StatelessWidget {
                                                   ),
                                                 ),
                                                 errorWidget:
-                                                    (context, url, error) => Icon(
+                                                    (context, url, error) =>
+                                                        Icon(
                                                   Icons.error,
                                                   color: ThemeColor.red,
                                                 ),
@@ -196,8 +199,7 @@ class HomePage extends StatelessWidget {
                                                             TextAlign.center,
                                                         style: TextStyle(
                                                             color: ThemeColor
-                                                                .facebook_light_4
-                                                                ,
+                                                                .facebook_light_4,
                                                             fontSize: 14,
                                                             fontWeight:
                                                                 FontWeight
@@ -251,8 +253,7 @@ class HomePage extends StatelessWidget {
                                                             TextAlign.center,
                                                         style: TextStyle(
                                                             color: ThemeColor
-                                                                .facebook_light_4                                                                                                                                                                                                      
-                                                                ,
+                                                                .facebook_light_4,
                                                             fontSize: 14,
                                                             fontWeight:
                                                                 FontWeight
@@ -269,7 +270,8 @@ class HomePage extends StatelessWidget {
                                     ),
                                     homeController.selectedTabIndex.value == 0
                                         ? nearByFeedContainer(feedController)
-                                        : quizFeedContainer(homeController,context)
+                                        : quizFeedContainer(
+                                            homeController, context)
                                   ]))
                             ]),
                           ),
@@ -279,28 +281,29 @@ class HomePage extends StatelessWidget {
                   ))));
   }
 
-  Container quizFeedContainer(HomeController homeController,BuildContext context) {
+  Container quizFeedContainer(
+      HomeController homeController, BuildContext context) {
     return Container(
-    // height: MediaQuery.of(context).size.height,
+      // height: MediaQuery.of(context).size.height,
       child: Column(children: [
         InkWell(
           onTap: () {
             Get.toNamed(AppRoutes.quizDetailPage, arguments: {
               ARG_QUIZ_DETAIL: Quiz(
-                id: homeController.homeScreenResponseModel?.mostPlayedQuiz?.id,
-                title:
-                    homeController.homeScreenResponseModel?.mostPlayedQuiz?.title,
-                description: homeController
-                    .homeScreenResponseModel?.mostPlayedQuiz?.description,
-                category: homeController
-                    .homeScreenResponseModel?.mostPlayedQuiz?.category,
-                createdAt: homeController
-                    .homeScreenResponseModel?.mostPlayedQuiz?.createdAt,
-                updatedAt: homeController
-                    .homeScreenResponseModel?.mostPlayedQuiz?.updatedAt,
-                    standard: '',
-                    level: ''
-              )
+                  id: homeController
+                      .homeScreenResponseModel?.mostPlayedQuiz?.id,
+                  title: homeController
+                      .homeScreenResponseModel?.mostPlayedQuiz?.title,
+                  description: homeController
+                      .homeScreenResponseModel?.mostPlayedQuiz?.description,
+                  category: homeController
+                      .homeScreenResponseModel?.mostPlayedQuiz?.category,
+                  createdAt: homeController
+                      .homeScreenResponseModel?.mostPlayedQuiz?.createdAt,
+                  updatedAt: homeController
+                      .homeScreenResponseModel?.mostPlayedQuiz?.updatedAt,
+                  standard: '',
+                  level: '')
             });
           },
           child: Stack(
@@ -342,60 +345,176 @@ class HomePage extends StatelessWidget {
         SizedBox(
           height: 16,
         ),
-        Stack(children: [
-          Image.asset(
-            "assets/images/featured_bg.png",
-            width: double.infinity,
-            fit: BoxFit.cover,
+        // Stack(children: [
+        //   Image.asset(
+        //     "assets/images/featured_bg.png",
+        //     width: double.infinity,
+        //     fit: BoxFit.cover,
+        //   ),
+        //   Padding(
+        //       padding: const EdgeInsets.all(16.0),
+        //       child: Column(
+        //           mainAxisAlignment: MainAxisAlignment.center,
+        //           crossAxisAlignment: CrossAxisAlignment.center,
+        //           children: [
+        //             SizedBox(
+        //               height: 32,
+        //             ),
+        //             Text("FEATURED",
+        //                 style: TextStyle(
+        //                     fontSize: 12,
+        //                     fontWeight: FontWeight.bold,
+        //                     color: ThemeColor.white.withOpacity(0.8))),
+        //             SizedBox(
+        //               height: 16,
+        //             ),
+        //             Align(
+        //               alignment: Alignment.center,
+        //               child: Text(
+        //                   "Take part in the challenges\nwith friends or other\nplayers",
+        //                   textAlign: TextAlign.center,
+        //                   style: TextStyle(
+        //                       fontSize: 18,
+        //                       fontWeight: FontWeight.bold,
+        //                       color: ThemeColor.white)),
+        //             ),
+        //             SizedBox(
+        //               height: 24,
+        //             ),
+        //             SizedBox(
+        //                 height: 32,
+        //                 child: ElevatedButton(
+        //                   onPressed: () {},
+        //                   style: TextButton.styleFrom(
+        //                     textStyle: TextStyle(
+        //                         fontSize: 14, fontWeight: FontWeight.bold),
+        //                     shape: RoundedRectangleBorder(
+        //                         borderRadius: BorderRadius.circular(24)),
+        //                     backgroundColor: ThemeColor.white,
+        //                   ),
+        //                   child: Text(
+        //                     "🤘 Find Friends",
+        //                     style: TextStyle(color: ThemeColor.primary),
+        //                   ),
+        //                 )),
+        //           ]))
+        // ]),
+
+        Visibility(
+          visible:
+              homeController.homeScreenResponseModel?.weekTopRank !=
+                  null,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                "Top rank of the week",
+                style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                    color: ThemeColor.black),
+              ),
+              SizedBox(
+                height: 8,
+              ),
+              Stack(children: [
+                Image.asset(
+                  "assets/images/top_rank_bg.png",
+                  width: double.infinity,
+                  fit: BoxFit.cover,
+                ),
+                Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: Column(
+                      children: [
+                        SizedBox(
+                          height: 24,
+                        ),
+                        Row(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Container(
+                              padding: const EdgeInsets.all(8),
+                              decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  border: Border.all(
+                                    color: ThemeColor.white,
+                                  )),
+                              child: Text(
+                                "1",
+                                style: TextStyle(
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.bold,
+                                    color: ThemeColor.white),
+                              ),
+                            ),
+                            SizedBox(
+                              width: 16,
+                            ),
+                            CircleAvatar(
+                              backgroundColor:
+                                  AppUtils.getRandomAvatarBgColor(),
+                              radius: 24,
+                              child: ClipOval(
+                                child: CachedNetworkImage(
+                                  imageUrl:
+                                      "${homeController.homeScreenResponseModel?.weekTopRank?.user?.profilePic}",
+                                  width: double.infinity,
+                                  height: double.infinity,
+                                  fit: BoxFit.cover,
+                                  placeholder: (context, url) => Center(
+                                    child: SizedBox(
+                                      width: 20,
+                                      height: 20,
+                                      child: CircularProgressIndicator(
+                                        color: ThemeColor.accent,
+                                      ),
+                                    ),
+                                  ),
+                                  errorWidget: (context, url, error) => Icon(
+                                    Icons.error,
+                                    color: ThemeColor.red,
+                                  ),
+                                ),
+                              ),
+                            ),
+                            SizedBox(
+                              width: 12,
+                            ),
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  "${homeController.homeScreenResponseModel?.weekTopRank?.user?.firstname} ${homeController.homeScreenResponseModel?.weekTopRank?.user?.lastname}",
+                                  style: TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.bold,
+                                      color: ThemeColor.white),
+                                ),
+                                SizedBox(
+                                  height: 4,
+                                ),
+                                Text(
+                                  "${homeController.homeScreenResponseModel?.weekTopRank?.points} points",
+                                  style: TextStyle(
+                                      fontSize: 14, color: ThemeColor.white),
+                                ),
+                              ],
+                            )
+                          ],
+                        ),
+                      ],
+                    ))
+              ]),
+              SizedBox(
+                height: 16,
+              ),
+            ],
           ),
-          Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    SizedBox(
-                      height: 32,
-                    ),
-                    Text("FEATURED",
-                        style: TextStyle(
-                            fontSize: 12,
-                            fontWeight: FontWeight.bold,
-                            color: ThemeColor.white.withOpacity(0.8))),
-                    SizedBox(
-                      height: 16,
-                    ),
-                    Align(
-                      alignment: Alignment.center,
-                      child: Text(
-                          "Take part in the challenges\nwith friends or other\nplayers",
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
-                              color: ThemeColor.white)),
-                    ),
-                    SizedBox(
-                      height: 24,
-                    ),
-                    SizedBox(
-                        height: 32,
-                        child: ElevatedButton(
-                          onPressed: () {},
-                          style: TextButton.styleFrom(
-                            textStyle: TextStyle(
-                                fontSize: 14, fontWeight: FontWeight.bold),
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(24)),
-                            backgroundColor: ThemeColor.white,
-                          ),
-                          child: Text(
-                            "🤘 Find Friends",
-                            style: TextStyle(color: ThemeColor.primary),
-                          ),
-                        )),
-                  ]))
-        ]),
+        ),
+
         SizedBox(
           height: 24,
         ),
@@ -446,15 +565,92 @@ class HomePage extends StatelessWidget {
                         itemBuilder: (context, index) {
                           return InkWell(
                               onTap: () {
-                                Get.toNamed(AppRoutes.quizDetailPage, arguments: {
-                                  ARG_QUIZ_DETAIL: homeController
-                                      .homeScreenResponseModel?.quizzes?[index]
-                                });
+                                Get.toNamed(AppRoutes.quizDetailPage,
+                                    arguments: {
+                                      ARG_QUIZ_DETAIL: homeController
+                                          .homeScreenResponseModel
+                                          ?.quizzes?[index]
+                                    });
                               },
                               child: QuizItemContainer(
                                   dataObj: homeController
-                                      .homeScreenResponseModel?.quizzes?[index]));
-                        })
+                                      .homeScreenResponseModel
+                                      ?.quizzes?[index]));
+                        }),
+                    Text(
+                      "Categories",
+                      style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                          color: ThemeColor.black),
+                    ),
+                    SizedBox(
+                      height: 8,
+                    ),
+                    GridView.builder(
+                      itemCount: homeController
+                          .homeScreenResponseModel?.quizCategories?.length,
+                      physics: NeverScrollableScrollPhysics(),
+                      shrinkWrap: true,
+                      itemBuilder: (context, index) {
+                        final cardBgColor = AppUtils.getRandomCardBgColor();
+                        return Card(
+                            color: cardBgColor,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(8.0),
+                            ),
+                            elevation: 2,
+                            child: InkWell(
+                              onTap: () {
+                                Get.toNamed(AppRoutes.quizzesPage, arguments: {
+                                  ARG_QUIZ_CATEGORY_ID: homeController
+                                      .homeScreenResponseModel
+                                      ?.quizCategories?[index]
+                                      .id,
+                                  ARG_QUIZ_CATEGORY_NAME: homeController
+                                      .homeScreenResponseModel
+                                      ?.quizCategories?[index]
+                                      .title
+                                });
+                              },
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Icon(
+                                    Icons.science_outlined,
+                                    size: 36,
+                                    color: ThemeColor.white,
+                                  ),
+                                  SizedBox(
+                                    height: 16,
+                                  ),
+                                  Text(
+                                    "${homeController.homeScreenResponseModel?.quizCategories?[index].title}",
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                        fontSize: 16,
+                                        color: ThemeColor.white,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                  SizedBox(
+                                    height: 4,
+                                  ),
+                                  Text(
+                                    "${homeController.homeScreenResponseModel?.quizCategories?[index].quizCount} Quizzes",
+                                    style: TextStyle(
+                                      fontSize: 12,
+                                      color: ThemeColor.white,
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ));
+                      },
+                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 2,
+                      ),
+                    )
                   ],
                 )))
       ]),
