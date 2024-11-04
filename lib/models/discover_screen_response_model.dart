@@ -3,33 +3,26 @@ class DiscoverScreenResponseModel {
     required this.code,
     required this.status,
     required this.message,
-    required this.topPicQuiz,
-    required this.weekTopRank,
-    required this.quizCategories,
+    required this.topSchool,
+    required this.schools,
   });
 
   final int? code;
   final bool? status;
   final String? message;
-  final TopPicQuiz? topPicQuiz;
-  final WeekTopRank? weekTopRank;
-  final List<Category>? quizCategories;
+  final School topSchool;
+  final List<School>? schools;
 
   factory DiscoverScreenResponseModel.fromJson(Map<String, dynamic> json) {
     return DiscoverScreenResponseModel(
       code: json["code"],
       status: json["status"],
       message: json["message"],
-      topPicQuiz: json["top_pic_quiz"] == null
-          ? null
-          : TopPicQuiz.fromJson(json["top_pic_quiz"]),
-      weekTopRank: json["week_top_rank"] == null
-          ? null
-          : WeekTopRank.fromJson(json["week_top_rank"]),
-      quizCategories: json["quiz_categories"] == null
+      topSchool: School.fromJson(json['topSchool']),
+      schools: json["schools"] == null
           ? []
-          : List<Category>.from(
-              json["quiz_categories"]!.map((x) => Category.fromJson(x))),
+          : List<School>.from(
+              json["schools"]!.map((x) => School.fromJson(x))),
     );
   }
 
@@ -37,160 +30,160 @@ class DiscoverScreenResponseModel {
         "code": code,
         "status": status,
         "message": message,
-        "top_pic_quiz": topPicQuiz?.toJson(),
-        "week_top_rank": weekTopRank?.toJson(),
-        "quiz_categories": quizCategories?.map((x) => x.toJson()).toList(),
+        "topSchool": topSchool.toJson(),
+        "schools": schools?.map((x) => x.toJson()).toList(),
       };
 }
 
-class Category {
-  Category({
-    required this.id,
-    required this.title,
-    required this.createdAt,
-    required this.updatedAt,
-    required this.quizCount,
-    required this.v,
-  });
+class School {
+  School(
+      {required this.id,
+      required this.name,
+      // required this.achivements,
+      required this.city,
+      required this.district,
+      required this.state,
+      // required this.footerImageUrl,
+      // required this.coursesOffered,
+      required this.schoolType,
+      required this.description,
+      required this.headerImageUrl,
+      required this.numOfStudents,
+      required this.facultyRatio,
+      // required this.attributes
+      });
 
   final String? id;
-  final String? title;
-  final DateTime? createdAt;
-  final DateTime? updatedAt;
-  final int? quizCount;
-  final int? v;
+  final String? name;
+  // final List<Achievements> achivements;
+  final String city;
+  final String district;
+  final String state;
+  // final String footerImageUrl;
+  // final List<Course> coursesOffered;
+  final String schoolType;
+  final String description;
+  final String headerImageUrl;
+  final int numOfStudents;
+  final String facultyRatio;
+  // final List<Attribute> attributes;
 
-  factory Category.fromJson(Map<String, dynamic> json) {
-    return Category(
+  factory School.fromJson(Map<String, dynamic> json) {
+    return School(
       id: json["_id"],
-      title: json["title"],
-      createdAt: DateTime.tryParse(json["createdAt"] ?? ""),
-      updatedAt: DateTime.tryParse(json["updatedAt"] ?? ""),
-      quizCount: json["quizCount"],
-      v: json["__v"],
+      name: json["name"],
+      // achivements: 
+      // json["achivements"],
+
+      // json["achivements"] == null
+      //     ? []
+      //     : List<Achievements>.from(
+      //         json["achivements"]!.map((x) => Achievements.fromJson(x))),
+      city: json["city"],
+      state: json["state"],
+      district: json["district"],
+      // footerImageUrl: json["footerImageUrl"],
+      // coursesOffered: json["coursesOffered"] == null ? [] : List<Course>.from(json["coursesOffered"]!.map((x) => Course.fromJson(x))),
+      schoolType: json['type'],
+      description: json['description'],
+      headerImageUrl: json['headerImageUrl'],
+      numOfStudents: json['numOfStudents'],
+      facultyRatio: json['facultyRatio'],
+      // attributes: json["attributes"] == null
+          // ? []
+          // : List<Attribute>.from(
+          //     json["attributes"]!.map((x) => Attribute.fromJson(x))),
     );
   }
 
   Map<String, dynamic> toJson() => {
         "_id": id,
-        "title": title,
-        "createdAt": createdAt?.toIso8601String(),
-        "updatedAt": updatedAt?.toIso8601String(),
-        "quizCount": quizCount,
-        "__v": v,
-      };
-}
-
-class TopPicQuiz {
-  TopPicQuiz({
-    required this.id,
-    required this.title,
-    required this.description,
-    required this.category,
-    required this.createdAt,
-    required this.updatedAt,
-    required this.v,
-  });
-
-  final String? id;
-  final String? title;
-  final String? description;
-  final Category? category;
-  final DateTime? createdAt;
-  final DateTime? updatedAt;
-  final int? v;
-
-  factory TopPicQuiz.fromJson(Map<String, dynamic> json) {
-    return TopPicQuiz(
-      id: json["_id"],
-      title: json["title"],
-      description: json["description"],
-      category:
-          json["category"] == null ? null : Category.fromJson(json["category"]),
-      createdAt: DateTime.tryParse(json["createdAt"] ?? ""),
-      updatedAt: DateTime.tryParse(json["updatedAt"] ?? ""),
-      v: json["__v"],
-    );
-  }
-
-  Map<String, dynamic> toJson() => {
-        "_id": id,
-        "title": title,
+        "name": name,
+        // "achivements": achivements,
+        // achivements?.map((x) => x.toJson()).toList(),
+        "city": city,
+        "state": state,
+        "district": district,
+        // "footerImageUrl": footerImageUrl,
+        // "coursesOffered": coursesOffered,
+        "type": schoolType,
         "description": description,
-        "category": category?.toJson(),
-        "createdAt": createdAt?.toIso8601String(),
-        "updatedAt": updatedAt?.toIso8601String(),
-        "__v": v,
+        "headerImageUrl": headerImageUrl,
+        "numOfStudents": numOfStudents,
+        "facultyRatio": facultyRatio,
       };
 }
 
-class WeekTopRank {
-  WeekTopRank({
-    required this.quizWon,
-    required this.id,
-    required this.user,
-    required this.points,
-    required this.quizPlayed,
-    required this.createdAt,
-    required this.updatedAt,
+class Achievements {
+  final String achiveText;
+  // final String achiveTwo;
+  // final String achiveThree;
+  final String achiveImageUrl;
+  // final String achiveTwoImageUrl;
+  // final String achiveThreeImageUrl;
+
+  Achievements({
+    required this.achiveText,
+    //  required this.achiveTwo, required this.achiveThree,
+    required this.achiveImageUrl,
+    // required this.achiveTwoImageUrl, required this.achiveThreeImageUrl
   });
 
-  final int? quizWon;
-  final String? id;
-  final User? user;
-  final int? points;
-  final int? quizPlayed;
-  final DateTime? createdAt;
-  final DateTime? updatedAt;
-
-  factory WeekTopRank.fromJson(Map<String, dynamic> json) {
-    return WeekTopRank(
-      quizWon: json["quizWon"],
-      id: json["_id"],
-      user: json["user"] == null ? null : User.fromJson(json["user"]),
-      points: json["points"],
-      quizPlayed: json["quizPlayed"],
-      createdAt: DateTime.tryParse(json["createdAt"] ?? ""),
-      updatedAt: DateTime.tryParse(json["updatedAt"] ?? ""),
+  factory Achievements.fromJson(Map<String, dynamic> json) {
+    return Achievements(
+      achiveText: json['achivement_text'],
+      // achiveTwo : json['achiveTwo'],
+      // achiveThree : json['achiveThree'],
+      achiveImageUrl: json['achivement_image'],
+      // achiveTwoImageUrl : json['achiveTwoImageUrl'],
+      // achiveThreeImageUrl : json['achiveThreeImageUrl']
     );
   }
 
   Map<String, dynamic> toJson() => {
-        "quizWon": quizWon,
-        "_id": id,
-        "user": user?.toJson(),
-        "points": points,
-        "quizPlayed": quizPlayed,
-        "createdAt": createdAt?.toIso8601String(),
-        "updatedAt": updatedAt?.toIso8601String(),
+        "achivement_text": achiveText,
+        // "achiveTwo" :achiveTwo,
+        // "achiveThree" :achiveThree,
+        "achivement_image": achiveImageUrl,
+        // "achiveTwoImageUrl" :achiveTwoImageUrl,
+        // "achiveThreeImageUrl" :achiveThreeImageUrl,
       };
 }
 
-class User {
-  User({
-    required this.id,
-    required this.firstname,
-    required this.lastname,
-    required this.profilePic,
-  });
+class Attribute {
+  final String type;
+  final String score;
+  final String ratings;
 
-  final String? id;
-  final String? firstname;
-  final String? lastname;
-  final String? profilePic;
-
-  factory User.fromJson(Map<String, dynamic> json) {
-    return User(
-        id: json["_id"],
-        firstname: json["firstname"],
-        lastname: json["lastname"],
-        profilePic: json["profilePic"]);
+  Attribute({required this.type, required this.score, required this.ratings});
+  factory Attribute.fromJson(Map<String, dynamic> json) {
+    return Attribute(
+        type: json['type'], score: json['score'], ratings: json['ratings']);
   }
 
   Map<String, dynamic> toJson() => {
-        "_id": id,
-        "firstname": firstname,
-        "lastname": lastname,
-        "profilePic": profilePic
+        "type": type,
+        "score": score,
+        "ratings": ratings,
+      };
+}
+
+
+class Course
+{
+  final String courseName;
+  final String successPct;
+  final String totalStudents;
+
+  Course({required this.courseName, required this.successPct, required this.totalStudents});
+  factory Course.fromJson(Map<String, dynamic> json) {
+    return Course(
+        courseName: json['courseName'], successPct: json['successPct'], totalStudents: json['totalStudents']);
+  }
+
+  Map<String, dynamic> toJson() => {
+        "courseName": courseName,
+        "successPct": successPct,
+        "totalStudents": totalStudents,
       };
 }
