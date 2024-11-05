@@ -33,6 +33,7 @@ class QuizQuestionController extends GetxController {
   void onInit() {
     if (arguments != null) {
       quizId = arguments[ARG_QUIZ_ID];
+      print(quizId);
       quizName = arguments[ARG_QUIZ_NAME] ?? "";
       quizCategoryName = arguments[ARG_QUIZ_CATEGORY_NAME] ?? "";
     }
@@ -69,12 +70,16 @@ class QuizQuestionController extends GetxController {
       int selectedOption = -1,
       String? prevQuestionId,
       String? solution}) async {
-    answerSelected.putIfAbsent(prevQuestionId!, () => solution!);
-    print(answerSelected.toString());
-    if (questionCount.value < totalQuestions) {
-      questionCount.value += 1;
-      print(questionCount);
-      print(allQuestions.length);
+    if (isSkipped) {
+      if (questionCount.value < totalQuestions-1) {
+        questionCount.value += 1;
+      }
+    } else {
+      answerSelected.putIfAbsent(prevQuestionId!, () => solution!);
+      print(answerSelected.toString());
+      if (questionCount.value < totalQuestions-1) {
+        questionCount.value += 1;
+      }
     }
     // isAnswerCorrect.value = -1;
     // optionSelectedIndex.value = selectedOption;
@@ -137,11 +142,13 @@ class QuizQuestionController extends GetxController {
 
   void endQuiz() {
     Get.offAndToNamed(AppRoutes.quizResultPage, arguments: {
-      ARG_QUIZ_NAME: quizName,
-      ARG_QUIZ_CATEGORY_NAME: quizCategoryName,
-      ARG_SKIPPED_QUESTIONS_COUNT: skipQuestionCount,
-      ARG_CORRECT_ANSWER_COUNT: correctAnswerCount,
-      ARG_INCORRECT_ANSWER_COUNT: incorrectAnswerCount
+      ARG_QUIZ_ID : quizId,
+      // ARG_QUIZ_NAME: quizName,
+      // ARG_QUIZ_CATEGORY_NAME: quizCategoryName,
+      // ARG_SKIPPED_QUESTIONS_COUNT: skipQuestionCount,
+      // ARG_CORRECT_ANSWER_COUNT: correctAnswerCount,
+      // ARG_INCORRECT_ANSWER_COUNT: incorrectAnswerCount,
+      ARG_ANS_MAP: answerSelected
     });
   }
 }

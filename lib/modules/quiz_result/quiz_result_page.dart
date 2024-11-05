@@ -62,13 +62,13 @@ class QuizResultPage extends StatelessWidget {
                           SizedBox(
                             height: 4,
                           ),
-                          Text(
-                            quizResultController.quizCategoryName,
-                            style: TextStyle(
-                              color: ThemeColor.white,
-                              fontSize: 12,
-                            ),
-                          ),
+                          // Text(
+                          //   quizResultController.quizCategoryName,
+                          //   style: TextStyle(
+                          //     color: ThemeColor.white,
+                          //     fontSize: 12,
+                          //   ),
+                          // ),
                           Image.asset(
                             "assets/images/prize.png",
                             width: 200,
@@ -77,13 +77,13 @@ class QuizResultPage extends StatelessWidget {
                           SizedBox(
                             height: 16,
                           ),
-                          Text(
-                            "You get +${quizResultController.correctAnswerCount * 10} Quiz Points",
-                            style: TextStyle(
-                                color: ThemeColor.white,
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold),
-                          ),
+                          // Text(
+                          //   "You get +${quizResultController.correctAnswerCount * 10} Quiz Points",
+                          //   style: TextStyle(
+                          //       color: ThemeColor.white,
+                          //       fontSize: 16,
+                          //       fontWeight: FontWeight.bold),
+                          // ),
                           SizedBox(
                             height: 16,
                           ),
@@ -108,12 +108,12 @@ class QuizResultPage extends StatelessWidget {
                             SizedBox(
                               height: 8,
                             ),
-                            Text(
-                                "${quizResultController.correctAnswerCount} questions",
-                                style: TextStyle(
-                                    color: ThemeColor.black,
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.bold)),
+                            // Text(
+                            //     "${quizResultController.correctAnswerCount} questions",
+                            //     style: TextStyle(
+                            //         color: ThemeColor.black,
+                            //         fontSize: 18,
+                            //         fontWeight: FontWeight.bold)),
                           ],
                         )),
                         SizedBox(
@@ -132,12 +132,12 @@ class QuizResultPage extends StatelessWidget {
                             SizedBox(
                               height: 8,
                             ),
-                            Text(
-                                "${quizResultController.completionPercentage}%",
-                                style: TextStyle(
-                                    color: ThemeColor.black,
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.bold)),
+                            // Text(
+                            //     "${quizResultController.completionPercentage}%",
+                            //     style: TextStyle(
+                            //         color: ThemeColor.black,
+                            //         fontSize: 18,
+                            //         fontWeight: FontWeight.bold)),
                           ],
                         ))
                       ],
@@ -160,11 +160,11 @@ class QuizResultPage extends StatelessWidget {
                             SizedBox(
                               height: 8,
                             ),
-                            Text("${quizResultController.skipQuestionCount}",
-                                style: TextStyle(
-                                    color: ThemeColor.black,
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.bold)),
+                            // Text("${quizResultController.skipQuestionCount}",
+                            //     style: TextStyle(
+                            //         color: ThemeColor.black,
+                            //         fontSize: 18,
+                            //         fontWeight: FontWeight.bold)),
                           ],
                         )),
                         SizedBox(
@@ -183,11 +183,11 @@ class QuizResultPage extends StatelessWidget {
                             SizedBox(
                               height: 8,
                             ),
-                            Text("${quizResultController.incorrectAnswerCount}",
-                                style: TextStyle(
-                                    color: ThemeColor.black,
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.bold)),
+                            // Text("${quizResultController.incorrectAnswerCount}",
+                            //     style: TextStyle(
+                            //         color: ThemeColor.black,
+                            //         fontSize: 18,
+                            //         fontWeight: FontWeight.bold)),
                           ],
                         ))
                       ],

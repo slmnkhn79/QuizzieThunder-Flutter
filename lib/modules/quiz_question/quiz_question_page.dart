@@ -143,7 +143,8 @@ class QuizQuestionPage extends StatelessWidget {
                             child: ElevatedButton(
                               onPressed: () {
                                 quizQuestionController.nextQuestion(
-                                    isSkipped: true);
+                                    isSkipped: true
+                                    );
                               },
                               style: TextButton.styleFrom(
                                 textStyle: TextStyle(
@@ -185,7 +186,7 @@ class QuizQuestionPage extends StatelessWidget {
       children: [
         InkWell(
           onTap: () {
-            quizQuestionController.nextQuestion(selectedOption: index, prevQuestionId: quizQuestionController.allQuestions[0].id, solution: optionName);
+            quizQuestionController.nextQuestion(selectedOption: index, prevQuestionId: quizQuestionController.allQuestions[quizQuestionController.questionCount.value].id, solution: optionName);
           },
           child: Container(
             width: double.infinity,

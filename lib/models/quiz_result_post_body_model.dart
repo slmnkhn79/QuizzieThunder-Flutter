@@ -1,17 +1,25 @@
 class QuizResultPostBodyModel {
   QuizResultPostBodyModel({
-    required this.points,
+    required this.ansMap,
+    required this.quizId,
+    required this.userId,
   });
 
-  final int? points;
+  final Map<String,String> ansMap;
+  final String quizId;
+  final String userId;
 
   factory QuizResultPostBodyModel.fromJson(Map<String, dynamic> json) {
     return QuizResultPostBodyModel(
-      points: json["points"],
+      ansMap: json['ansMap'],
+      quizId: json['quizId'],
+      userId: json['userId']
     );
   }
 
   Map<String, dynamic> toJson() => {
-        "points": points,
+        "ansMap": ansMap,
+        "userId": userId,
+        'quizId':quizId
       };
 }

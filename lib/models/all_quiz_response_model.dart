@@ -53,7 +53,7 @@ class Quiz {
 
   factory Quiz.fromJson(Map<String, dynamic> json) {
     return Quiz(
-      id: json["id"],
+      id: json["_id"],
       title: json["title"],
       description: json["description"],
       category:
