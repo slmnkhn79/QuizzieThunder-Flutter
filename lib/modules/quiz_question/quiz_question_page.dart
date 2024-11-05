@@ -142,9 +142,7 @@ class QuizQuestionPage extends StatelessWidget {
                             height: 44,
                             child: ElevatedButton(
                               onPressed: () {
-                                quizQuestionController.nextQuestion(
-                                    isSkipped: true
-                                    );
+                                quizQuestionController.endQuiz();
                               },
                               style: TextButton.styleFrom(
                                 textStyle: TextStyle(
