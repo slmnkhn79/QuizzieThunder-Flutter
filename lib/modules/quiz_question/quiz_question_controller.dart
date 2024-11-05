@@ -143,8 +143,8 @@ class QuizQuestionController extends GetxController {
   void endQuiz() {
     Get.offAndToNamed(AppRoutes.quizResultPage, arguments: {
       ARG_QUIZ_ID : quizId,
-      // ARG_QUIZ_NAME: quizName,
-      // ARG_QUIZ_CATEGORY_NAME: quizCategoryName,
+      ARG_QUIZ_NAME: quizName,
+      ARG_QUIZ_CATEGORY_NAME: quizCategoryName,
       // ARG_SKIPPED_QUESTIONS_COUNT: skipQuestionCount,
       // ARG_CORRECT_ANSWER_COUNT: correctAnswerCount,
       // ARG_INCORRECT_ANSWER_COUNT: incorrectAnswerCount,
