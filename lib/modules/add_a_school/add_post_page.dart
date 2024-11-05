@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:io';
 import 'dart:html' as html;
 
 import 'package:file_picker/file_picker.dart';

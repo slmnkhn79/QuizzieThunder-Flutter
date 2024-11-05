@@ -1,14 +1,9 @@
-import 'dart:convert';
-import 'dart:io';
-import 'dart:html' as html;
 
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:get/get.dart';
-import 'package:quizzie_thunder/main.dart';
-import 'package:quizzie_thunder/modules/add_a_school/add_post_controller.dart';
 import 'package:quizzie_thunder/modules/school_details/school_details_controller.dart';
 import 'package:quizzie_thunder/theme/colors_theme.dart';
 import 'package:quizzie_thunder/utils/app_utils.dart';

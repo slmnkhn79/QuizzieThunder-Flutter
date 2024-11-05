@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:dartx/dartx_io.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:quizzie_thunder/modules/home/home_page.dart';
 
 import '../../theme/colors_theme.dart';
 import 'quiz_question_controller.dart';

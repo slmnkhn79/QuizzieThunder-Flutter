@@ -35,8 +35,9 @@ class DiscoverPage extends StatelessWidget {
           elevation: 0,
         ),
         //fiters the current feed for the applied filted
-        floatingActionButton: Obx(() => Visibility(
-            visible: discoverController.selectedTabIndex == 0,
+        floatingActionButton: Obx(() => 
+        Visibility(
+            visible: discoverController.selectedTabIndex.value == 0 || discoverController.selectedTabIndex.value == 1 ,
             child: Padding(
               padding: EdgeInsets.only(bottom: 44.0),
               child: FloatingActionButton(
@@ -47,7 +48,8 @@ class DiscoverPage extends StatelessWidget {
                 },
                 child: Icon(Icons.filter_alt_outlined),
               ),
-            ))),
+            ))
+            ),
         backgroundColor: ThemeColor.facebook_light_4,
         body: Obx(() => RefreshIndicator(
               onRefresh: () async {
@@ -204,43 +206,11 @@ class DiscoverPage extends StatelessWidget {
               children: [
                 InkWell(
                   onTap: () {
-                    Get.toNamed(AppRoutes.quizDetailPage, arguments: {
-                      // ARG_QUIZ_DETAIL: Quiz(
-                      //     id: discoverController
-                      //         .discoverScreenResponseModel?.topSchool?.id,
-                      //     title: discoverController
-                      //         .discoverScreenResponseModel?.topSchool?.title,
-                      //     description: discoverController
-                      //         .discoverScreenResponseModel
-                      //         ?.topPicQuiz
-                      //         ?.description,
-                      //     category: Category(
-                      //         id: discoverController.discoverScreenResponseModel
-                      //             ?.topPicQuiz?.category?.id,
-                      //         title: discoverController
-                      //             .discoverScreenResponseModel
-                      //             ?.topPicQuiz
-                      //             ?.category
-                      //             ?.title,
-                      //         createdAt: discoverController
-                      //             .discoverScreenResponseModel
-                      //             ?.topPicQuiz
-                      //             ?.category
-                      //             ?.createdAt,
-                      //         updatedAt: discoverController
-                      //             .discoverScreenResponseModel
-                      //             ?.topPicQuiz
-                      //             ?.category
-                      //             ?.updatedAt),
-                      //     createdAt: discoverController
-                      //         .discoverScreenResponseModel?.topPicQuiz?.createdAt,
-                      //     updatedAt:
-                      //         discoverController.discoverScreenResponseModel?.topPicQuiz?.updatedAt,
-                      //     standard:   '',
-                      //     level: ''
-
-                      // )
-                    });
+                    Get.toNamed('/schoolDetails', arguments: {
+                                    ARG_SCHOOL_DETAIL: discoverController
+                                        .discoverScreenResponseModel!
+                                        .topSchool.id
+                                  });
                   },
                   child: Stack(children: [
                     Image.network(
@@ -250,7 +220,7 @@ class DiscoverPage extends StatelessWidget {
                       fit: BoxFit.cover,
                     ),
                     Positioned.fill(
-                      top: 250,
+                      top: 200,
                       child: Padding(
                           padding: const EdgeInsets.all(16.0),
                           child: Container(
@@ -264,7 +234,7 @@ class DiscoverPage extends StatelessWidget {
                                   //   height: 84,
                                   // ),
                                   Text(
-                                      "${discoverController.discoverScreenResponseModel?.topSchool?.name}",
+                                      "${discoverController.discoverScreenResponseModel?.topSchool.name}",
                                       style: TextStyle(
                                           fontSize: 16,
                                           fontWeight: FontWeight.bold,
@@ -273,11 +243,11 @@ class DiscoverPage extends StatelessWidget {
                                     height: 8,
                                   ),
                                   Text(
-                                      "${discoverController.discoverScreenResponseModel?.topSchool?.schoolType} ",
+                                      "${discoverController.discoverScreenResponseModel?.topSchool.schoolType} ",
                                       style: TextStyle(
                                           fontSize: 12,
-                                          color: ThemeColor.burgundy))
-                                  ,SizedBox(
+                                          color: ThemeColor.burgundy)),
+                                  SizedBox(
                                     height: 8,
                                   ),
                                 ]),
@@ -447,29 +417,28 @@ class DiscoverPage extends StatelessWidget {
                               elevation: 2,
                               child: InkWell(
                                 onTap: () {
-                                  // Get.toNamed(AppRoutes.quizzesPage, arguments: {
-                                  //   ARG_QUIZ_CATEGORY_ID: discoverController
-                                  //       .discoverScreenResponseModel
-                                  //       ?.schools?[index]
-                                  //       .id,
-                                  //   ARG_QUIZ_CATEGORY_NAME: discoverController
-                                  //       .discoverScreenResponseModel
-                                  //       ?.schools?[index]
-                                  //       .title
-                                  // });
+                                  Get.toNamed('/schoolDetails', arguments: {
+                                    ARG_SCHOOL_DETAIL: discoverController
+                                        .discoverScreenResponseModel!
+                                        .schools![index].id
+                                  });
                                 },
                                 child: Column(
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    Icon(
-                                      Icons.science_outlined,
-                                      size: 36,
-                                      color: ThemeColor.white,
-                                    ),
-                                    SizedBox(
-                                      height: 16,
-                                    ),
+                                    Image.network(discoverController
+                                        .discoverScreenResponseModel!
+                                        .schools![index]
+                                        .headerImageUrl),
+                                    // Icon(
+                                    //   Icons.science_outlined,
+                                    //   size: 36,
+                                    //   color: ThemeColor.white,
+                                    // ),
+                                    // SizedBox(
+                                    //   height: 16,
+                                    // ),
                                     Text(
                                       "${discoverController.discoverScreenResponseModel?.schools?[index].name}",
                                       textAlign: TextAlign.center,
@@ -478,9 +447,9 @@ class DiscoverPage extends StatelessWidget {
                                           color: ThemeColor.white,
                                           fontWeight: FontWeight.bold),
                                     ),
-                                    SizedBox(
-                                      height: 4,
-                                    ),
+                                    // SizedBox(
+                                    //   height: 4,
+                                    // ),
                                     Text(
                                       "${discoverController.discoverScreenResponseModel?.schools?[index].schoolType}",
                                       style: TextStyle(
