@@ -12,27 +12,31 @@ class QuizDetailController extends GetxController {
   QuizDetailApi quizDetailApi = QuizDetailApi();
   QuizDetailResponseModel? quizDetailResponseModel;
   final arguments = Get.arguments;
-  var startQuizFlag = false.obs;
+
   var isLoading = false.obs;
 
 
   Quiz? quizDetail;
+
+  String quizId ='';
+
   var quizCategoryName = "";
 
   @override
   void onInit() {
     if (arguments != null) {
-      quizDetail = arguments[ARG_QUIZ_DETAIL];
-      quizCategoryName = arguments[ARG_QUIZ_CATEGORY_NAME] ?? "";
-
+      // quizDetail = arguments[ARG_QUIZ_DETAIL];
+      quizId = arguments[ARG_QUIZ_ID];
+      // quizCategoryName = arguments[ARG_QUIZ_CATEGORY_NAME] ?? "";
+      getQuizDetail(quizId);
     }
     super.onInit();
   }
-void getQuizDetail() async {
+void getQuizDetail(String quizId) async {
     isLoading.value = true;
     // QuizDetailResponseModel quizResultPostBodyModel =
     //     QuizDetailResponseModel(quizId:  quizId, userId: GetStorage().read(KEY_USER_DATA)['result']['_id']);
-    var response = await quizDetailApi.getQuizDetail(quizId: quizDetail!.id, userId: GetStorage().read(KEY_USER_DATA)['result']['_id']);
+    var response = await quizDetailApi.getQuizDetail(quizId: quizId, userId: GetStorage().read(KEY_USER_DATA)['result']['_id']);
     if (response.code == 200) {
       quizDetailResponseModel = response;
       isLoading.value = false;

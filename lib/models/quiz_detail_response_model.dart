@@ -15,7 +15,7 @@ class QuizDetailResponseModel {
       code: json["code"],
       status: json["status"],
       message: json["message"],
-      quizDetail: json["quizDetail"],
+      quizDetail: QuizDetail.fromJson(json["quizDetail"]),
     );
   }
 

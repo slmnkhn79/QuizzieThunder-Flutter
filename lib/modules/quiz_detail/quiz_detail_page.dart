@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:quizzie_thunder/apis/profile_api.dart';
 
 import '../../routes/app_routes.dart';
 import '../../theme/colors_theme.dart';
@@ -28,195 +29,225 @@ class QuizDetailPage extends StatelessWidget {
           elevation: 0,
         ),
         backgroundColor: ThemeColor.headerThree,
-        body: SingleChildScrollView(
-          child: Center(
-            child: SizedBox(
-              height: MediaQuery.of(context).size.height < 600 ? 600 : MediaQuery.of(context).size.height-50,
-               width: MediaQuery.of(context).size.width > 600 ? 600 : MediaQuery.of(context).size.width,
-              child: Stack(
-                children: [
-                  Image.asset(
-                    "assets/images/quiz_detail_bg.png",
-                    width: double.infinity,
-                    height: 200,
-                    fit: BoxFit.cover,
-                  ),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.end,
+        body: Obx(() => RefreshIndicator(
+            onRefresh: () async {
+              quizDetailController.getQuizDetail(quizDetailController.quizId);
+            },
+            child:
+            quizDetailController.isLoading.value ? const Center(
+                    child: CircularProgressIndicator(
+                    color: ThemeColor.headerOne,
+                  )) :
+             SingleChildScrollView(
+              child: Center(
+                child: SizedBox(
+                  height: MediaQuery.of(context).size.height < 600
+                      ? 600
+                      : MediaQuery.of(context).size.height - 50,
+                  width: MediaQuery.of(context).size.width > 600
+                      ? 600
+                      : MediaQuery.of(context).size.width,
+                  child: Stack(
                     children: [
-                      Padding(
-                        padding: const EdgeInsets.all(8),
-                        child: Container(
-                          width: double.infinity,
-                          padding: const EdgeInsets.all(16),
-                          decoration: BoxDecoration(
-                              color: ThemeColor.white,
-                              borderRadius: BorderRadius.circular(20)),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                quizDetailController.quizCategoryName.isEmpty
-                                    ? "${quizDetailController.quizDetail?.category?.title.toString().toUpperCase()}"
-                                    : quizDetailController.quizCategoryName
-                                        .toString()
-                                        .toUpperCase(),
-                                style: TextStyle(
-                                    color: ThemeColor.grey_500,
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.bold),
-                              ),
-                              SizedBox(
-                                height: 8,
-                              ),
-                              Text(
-                                "${quizDetailController.quizDetail?.title}",
-                                style: TextStyle(
-                                    color: ThemeColor.black,
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.bold),
-                              ),
-                              SizedBox(
-                                height: 24,
-                              ),
-                              Container(
-                                  width: double.infinity,
-                                  padding: const EdgeInsets.symmetric(
-                                      horizontal: 16, vertical: 12),
-                                  decoration: BoxDecoration(
-                                      color: ThemeColor.candyPink,
-                                      borderRadius: BorderRadius.circular(16)),
-                                  child: Text(
-                                    "The more you answer correctly, higher is the score. Higher the score, better is the rank. All the best!",
+                      Image.asset(
+                        "assets/images/quiz_detail_bg.png",
+                        width: double.infinity,
+                        height: 200,
+                        fit: BoxFit.cover,
+                      ),
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.all(8),
+                            child: Container(
+                              width: double.infinity,
+                              padding: const EdgeInsets.all(16),
+                              decoration: BoxDecoration(
+                                  color: ThemeColor.white,
+                                  borderRadius: BorderRadius.circular(20)),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    // quizDetailController
+                                    //         .quizCategoryName.isEmpty
+                                    //     ? "${quizDetailController.quizDetail?.category?.title.toString().toUpperCase()}"
+                                    //     : quizDetailController.quizCategoryName
+                                    quizDetailController.quizDetailResponseModel!.quizDetail.categoryName
+                                            .toString()
+                                            .toUpperCase(),
                                     style: TextStyle(
-                                        color: ThemeColor.black, fontSize: 12),
-                                  )),
-                              SizedBox(
-                                height: 12,
-                              ),
-                              Container(
-                                width: double.infinity,
-                                padding: const EdgeInsets.symmetric(
-                                    horizontal: 16, vertical: 12),
-                                decoration: BoxDecoration(
-                                    color: ThemeColor.lighterPrimary,
-                                    borderRadius: BorderRadius.circular(16)),
-                                child: Row(
-                                  children: [
-                                    Expanded(
-                                        child: Row(
+                                        color: ThemeColor.grey_500,
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                  SizedBox(
+                                    height: 8,
+                                  ),
+                                  Text(
+                                    "${quizDetailController.quizDetailResponseModel!.quizDetail.quizName}",
+                                    style: TextStyle(
+                                        color: ThemeColor.black,
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                  SizedBox(
+                                    height: 24,
+                                  ),
+                                  Container(
+                                      width: double.infinity,
+                                      padding: const EdgeInsets.symmetric(
+                                          horizontal: 16, vertical: 12),
+                                      decoration: BoxDecoration(
+                                          color: ThemeColor.candyPink,
+                                          borderRadius:
+                                              BorderRadius.circular(16)),
+                                      child: Text(
+                                        "The more you answer correctly, higher is the score. Higher the score, better is the rank. All the best!",
+                                        style: TextStyle(
+                                            color: ThemeColor.black,
+                                            fontSize: 12),
+                                      )),
+                                  SizedBox(
+                                    height: 12,
+                                  ),
+                                  Container(
+                                    width: double.infinity,
+                                    padding: const EdgeInsets.symmetric(
+                                        horizontal: 16, vertical: 12),
+                                    decoration: BoxDecoration(
+                                        color: ThemeColor.lighterPrimary,
+                                        borderRadius:
+                                            BorderRadius.circular(16)),
+                                    child: Row(
                                       children: [
-                                        CircleAvatar(
-                                          backgroundColor: ThemeColor.accent,
-                                          radius: 14,
-                                          child: Icon(
-                                            Icons.question_mark_rounded,
-                                            color: ThemeColor.white,
-                                            size: 18,
-                                          ),
-                                        ),
+                                        Expanded(
+                                            child: Row(
+                                          children: [
+                                            CircleAvatar(
+                                              backgroundColor:
+                                                  ThemeColor.accent,
+                                              radius: 14,
+                                              child: Icon(
+                                                Icons.question_mark_rounded,
+                                                color: ThemeColor.white,
+                                                size: 18,
+                                              ),
+                                            ),
+                                            SizedBox(
+                                              width: 12,
+                                            ),
+                                            Text(quizDetailController.quizDetailResponseModel!.quizDetail.numQuestions.toString(),
+                                                style: TextStyle(
+                                                    color: ThemeColor.black,
+                                                    fontSize: 14,
+                                                    fontWeight:
+                                                        FontWeight.bold)),
+                                          ],
+                                        )),
                                         SizedBox(
-                                          width: 12,
+                                          width: 16,
                                         ),
-                                        Text("10 questions",
-                                            style: TextStyle(
-                                                color: ThemeColor.black,
-                                                fontSize: 14,
-                                                fontWeight: FontWeight.bold)),
+                                        Expanded(
+                                            child: Row(
+                                          children: [
+                                            CircleAvatar(
+                                              backgroundColor:
+                                                  ThemeColor.lightPink,
+                                              radius: 14,
+                                              child: Icon(
+                                                Icons.extension_rounded,
+                                                color: ThemeColor.white,
+                                                size: 18,
+                                              ),
+                                            ),
+                                            SizedBox(
+                                              width: 12,
+                                            ),
+                                            Text("+${quizDetailController.quizDetailResponseModel!.quizDetail.points} points",
+                                                style: TextStyle(
+                                                    color: ThemeColor.black,
+                                                    fontSize: 14,
+                                                    fontWeight:
+                                                        FontWeight.bold)),
+                                          ],
+                                        ))
                                       ],
-                                    )),
-                                    SizedBox(
-                                      width: 16,
                                     ),
-                                    Expanded(
-                                        child: Row(
-                                      children: [
-                                        CircleAvatar(
-                                          backgroundColor: ThemeColor.lightPink,
-                                          radius: 14,
-                                          child: Icon(
-                                            Icons.extension_rounded,
-                                            color: ThemeColor.white,
-                                            size: 18,
-                                          ),
+                                  ),
+                                  SizedBox(
+                                    height: 24,
+                                  ),
+                                  Text(
+                                    "DESCRIPTION",
+                                    style: TextStyle(
+                                        color: ThemeColor.grey_500,
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                  SizedBox(
+                                    height: 8,
+                                  ),
+                                  Text(
+                                    "${quizDetailController.quizDetailResponseModel!.quizDetail.quizDescription}",
+                                    style: TextStyle(
+                                      color: ThemeColor.black,
+                                      fontSize: 16,
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    height: 44,
+                                  ),
+                                  SizedBox(
+                                      width: double.infinity,
+                                      height: 44,
+                                      child: ElevatedButton(
+                                        onPressed: () {
+                                          Get.toNamed(
+                                              AppRoutes.quizQuestionPage,
+                                              arguments: {
+                                                ARG_QUIZ_ID:
+                                                    quizDetailController
+                                                        .quizDetail?.id,
+                                                ARG_QUIZ_NAME:
+                                                    quizDetailController
+                                                        .quizDetail?.title,
+                                                ARG_QUIZ_CATEGORY_NAME:
+                                                    quizDetailController
+                                                            .quizCategoryName
+                                                            .isEmpty
+                                                        ? "${quizDetailController.quizDetail?.category?.title.toString().toUpperCase()}"
+                                                        : quizDetailController
+                                                            .quizCategoryName
+                                                            .toString()
+                                                            .toUpperCase()
+                                              });
+                                        },
+                                        style: TextButton.styleFrom(
+                                          textStyle: TextStyle(
+                                              fontSize: 16,
+                                              fontWeight: FontWeight.w500),
+                                          shape: RoundedRectangleBorder(
+                                              borderRadius:
+                                                  BorderRadius.circular(12)),
+                                          backgroundColor: ThemeColor.headerOne,
                                         ),
-                                        SizedBox(
-                                          width: 12,
-                                        ),
-                                        Text("+100 points",
+                                        child: Text("Start Quiz",
                                             style: TextStyle(
-                                                color: ThemeColor.black,
-                                                fontSize: 14,
-                                                fontWeight: FontWeight.bold)),
-                                      ],
-                                    ))
-                                  ],
-                                ),
+                                                color: ThemeColor.white)),
+                                      )),
+                                ],
                               ),
-                              SizedBox(
-                                height: 24,
-                              ),
-                              Text(
-                                "DESCRIPTION",
-                                style: TextStyle(
-                                    color: ThemeColor.grey_500,
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.bold),
-                              ),
-                              SizedBox(
-                                height: 8,
-                              ),
-                              Text(
-                                "${quizDetailController.quizDetail?.description}",
-                                style: TextStyle(
-                                  color: ThemeColor.black,
-                                  fontSize: 16,
-                                ),
-                              ),
-                              SizedBox(
-                                height: 44,
-                              ),
-                              SizedBox(
-                                  width: double.infinity,
-                                  height: 44,
-                                  child: ElevatedButton(
-                                    onPressed: () {
-                                      Get.toNamed(AppRoutes.quizQuestionPage,
-                                          arguments: {
-                                            ARG_QUIZ_ID:
-                                                quizDetailController.quizDetail?.id,
-                                            ARG_QUIZ_NAME: quizDetailController
-                                                .quizDetail?.title,
-                                            ARG_QUIZ_CATEGORY_NAME: quizDetailController
-                                                    .quizCategoryName.isEmpty
-                                                ? "${quizDetailController.quizDetail?.category?.title.toString().toUpperCase()}"
-                                                : quizDetailController
-                                                    .quizCategoryName
-                                                    .toString()
-                                                    .toUpperCase()
-                                          });
-                                    },
-                                    style: TextButton.styleFrom(
-                                      textStyle: TextStyle(
-                                          fontSize: 16, fontWeight: FontWeight.w500),
-                                      shape: RoundedRectangleBorder(
-                                          borderRadius: BorderRadius.circular(12)),
-                                      backgroundColor: ThemeColor.headerOne,
-                                    ),
-                                    child: Text("Start Quiz",
-                                        style: TextStyle(color: ThemeColor.white)),
-                                  )),
-                            ],
-                          ),
-                        ),
+                            ),
+                          )
+                        ],
                       )
                     ],
-                  )
-                ],
+                  ),
+                ),
               ),
-            ),
-          ),
-        ));
+            ))));
   }
 }

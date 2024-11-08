@@ -567,9 +567,12 @@ class HomePage extends StatelessWidget {
                               onTap: () {
                                 Get.toNamed(AppRoutes.quizDetailPage,
                                     arguments: {
-                                      ARG_QUIZ_DETAIL: homeController
+                                      // ARG_QUIZ_DETAIL: homeController
+                                      //     .homeScreenResponseModel
+                                      //     ?.quizzes?[index],
+                                      ARG_QUIZ_ID: homeController
                                           .homeScreenResponseModel
-                                          ?.quizzes?[index]
+                                          ?.quizzes?[index].id
                                     });
                               },
                               child: QuizItemContainer(

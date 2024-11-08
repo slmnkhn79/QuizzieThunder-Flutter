@@ -63,10 +63,11 @@ class QuizzesPage extends StatelessWidget {
                         return InkWell(
                             onTap: () {
                               Get.toNamed(AppRoutes.quizDetailPage, arguments: {
-                                ARG_QUIZ_DETAIL:
-                                    quizzesController.allQuizzes[index],
-                                ARG_QUIZ_CATEGORY_NAME:
-                                    quizzesController.quizCategoryName
+                                // ARG_QUIZ_DETAIL:
+                                //     quizzesController.allQuizzes[index],
+                                // ARG_QUIZ_CATEGORY_NAME:
+                                //     quizzesController.quizCategoryName
+                                ARG_QUIZ_ID:  quizzesController.allQuizzes[index].id
                               });
                             },
                             child: QuizItemContainer(
