@@ -288,23 +288,34 @@ class HomePage extends StatelessWidget {
       child: Column(children: [
         InkWell(
           onTap: () {
-            Get.toNamed(AppRoutes.quizDetailPage, arguments: {
-              ARG_QUIZ_DETAIL: Quiz(
-                  id: homeController
-                      .homeScreenResponseModel?.mostPlayedQuiz?.id,
-                  title: homeController
-                      .homeScreenResponseModel?.mostPlayedQuiz?.title,
-                  description: homeController
-                      .homeScreenResponseModel?.mostPlayedQuiz?.description,
-                  category: homeController
-                      .homeScreenResponseModel?.mostPlayedQuiz?.category,
-                  createdAt: homeController
-                      .homeScreenResponseModel?.mostPlayedQuiz?.createdAt,
-                  updatedAt: homeController
-                      .homeScreenResponseModel?.mostPlayedQuiz?.updatedAt,
-                  standard: '',
-                  level: '')
-            });
+            // Get.toNamed(AppRoutes.quizDetailPage, arguments: {
+            //   ARG_QUIZ_DETAIL: Quiz(
+            //       id: homeController
+            //           .homeScreenResponseModel?.mostPlayedQuiz?.id,
+            //       title: homeController
+            //           .homeScreenResponseModel?.mostPlayedQuiz?.title,
+            //       description: homeController
+            //           .homeScreenResponseModel?.mostPlayedQuiz?.description,
+            //       category: homeController
+            //           .homeScreenResponseModel?.mostPlayedQuiz?.category,
+            //       createdAt: homeController
+            //           .homeScreenResponseModel?.mostPlayedQuiz?.createdAt,
+            //       updatedAt: homeController
+            //           .homeScreenResponseModel?.mostPlayedQuiz?.updatedAt,
+            //       standard: '',
+            //       level: '')
+            // });
+
+            Get.toNamed(AppRoutes.quizDetailPage,
+                                    arguments: {
+                                      // ARG_QUIZ_DETAIL: homeController
+                                      //     .homeScreenResponseModel
+                                      //     ?.quizzes?[index],
+                                      ARG_QUIZ_ID: homeController
+                                          .homeScreenResponseModel
+                                          ?.mostPlayedQuiz!.id
+                                    });
+
           },
           child: Stack(
             children: [
