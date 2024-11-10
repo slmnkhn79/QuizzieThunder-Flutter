@@ -1,5 +1,5 @@
 
-import 'package:file_picker/file_picker.dart';
+// import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
@@ -21,7 +21,7 @@ class SchoolDetails extends StatelessWidget {
   Widget build(BuildContext context) {
     SchoolController schoolController = Get.find<SchoolController>();
     Uint8List uploadedImage;
-    PlatformFile? objFile;
+    // PlatformFile? objFile;
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(

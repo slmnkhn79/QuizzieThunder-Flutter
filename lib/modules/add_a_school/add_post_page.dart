@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'dart:html' as html;
 
-import 'package:file_picker/file_picker.dart';
+// import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
@@ -21,7 +21,7 @@ class AddSchoolDetails extends StatelessWidget {
   Widget build(BuildContext context) {
     AddSchoolController addSchoolController = Get.find<AddSchoolController>();
     Uint8List uploadedImage;
-    PlatformFile? objFile;
+    // PlatformFile? objFile;
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
