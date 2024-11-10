@@ -5,7 +5,7 @@ publish_to: "none" # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: "3.7.0"
+  sdk: ">=3.5.0 <4.0.0"
 
 dependencies:
   cached_network_image: ^3.4.1
@@ -16,8 +16,8 @@ dependencies:
     sdk: flutter
   get: ^4.6.6
   get_storage: ^2.1.1
-  # package_info_plus: ^8.1.1
-  package_info_plus: ^5.0.1 
+  package_info_plus: ^8.1.1
+  # package_info_plus: ^5.0.1 
   http: ^1.2.2
   share_plus: ^10.1.2
   flutter_file_dialog: ^3.0.2
@@ -29,7 +29,7 @@ dependencies:
   http_parser: ^4.0.2
   flutter_rating_bar: ^4.0.1
   google_fonts: ^6.2.1
-  parse_server_sdk_flutter: ^9.0.0
+  # parse_server_sdk_flutter: ^9.0.0
 
 
 dev_dependencies:
