@@ -65,7 +65,7 @@ class SigninPage extends StatelessWidget {
                                 TextFormField(
                                   controller:
                                       signinController.phoneNumberController,
-                                  keyboardType: TextInputType.phone,
+                                  keyboardType: TextInputType.text ,
                                   style: TextStyle(
                                       color: ThemeColor.black, fontSize: 14),
                                   maxLength: 10,

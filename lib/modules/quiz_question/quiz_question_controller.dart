@@ -25,9 +25,11 @@ class QuizQuestionController extends GetxController {
   var quizId = "";
   var quizName = "";
   var quizCategoryName = "";
+
   var skipQuestionCount = 0;
   var correctAnswerCount = 0;
   var incorrectAnswerCount = 0;
+  
 
   @override
   void onInit() {
@@ -70,13 +72,16 @@ class QuizQuestionController extends GetxController {
       int selectedOption = -1,
       String? prevQuestionId,
       String? solution}) async {
+
     if (isSkipped) {
+
       if (questionCount.value < totalQuestions-1) {
         questionCount.value += 1;
+        skipQuestionCount += 1;
+        print(skipQuestionCount);
       }
     } else {
-      answerSelected.putIfAbsent(prevQuestionId!, () => solution!);
-      print(answerSelected.toString());
+      answerSelected.update(prevQuestionId!, (value) => solution! , ifAbsent: () => solution!);
       if (questionCount.value < totalQuestions-1) {
         questionCount.value += 1;
       }

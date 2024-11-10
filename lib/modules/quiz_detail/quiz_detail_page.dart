@@ -256,15 +256,16 @@ class QuizDetailPage extends StatelessWidget {
                                                               .quizQuestionPage,
                                                           arguments: {
                                                             ARG_QUIZ_ID:
-                                                                quizDetailController
+                                                                quizDetailController.quizDetailResponseModel!
                                                                     .quizDetail
                                                                     ?.id,
                                                             ARG_QUIZ_NAME:
-                                                                quizDetailController
+                                                                quizDetailController.quizDetailResponseModel!
                                                                     .quizDetail
-                                                                    ?.title,
-                                                            ARG_QUIZ_CATEGORY_NAME: quizDetailController
-                                                                    .quizCategoryName
+                                                                    ?.quizName,
+                                                            ARG_QUIZ_CATEGORY_NAME: quizDetailController.quizDetailResponseModel!
+                                                                    .quizDetail
+                                                                    .categoryName
                                                                     .isEmpty
                                                                 ? "${quizDetailController.quizDetail?.category?.title.toString().toUpperCase()}"
                                                                 : quizDetailController

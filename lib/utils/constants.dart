@@ -25,6 +25,11 @@ const BASE_URL = "https://parseapi.back4app.com/parse/functions";
 const BASE_URL_DEFAULT= "https://parseapi.back4app.com/parse/";
 
 
+const keyApplicationId = 'ihzu049k4lkpefeqFXYxwCn6kuo7qph3scKcq1sE';
+const keyClientKey = 'jEHJzzQ2jf1rvAfGxc6xWFRTVuhLB0p16dp4KQQG';
+
+
+
 // Date and Time
 const API_DATE_FORMAT_1 = "yyyy-MM-dd HH:mm:ss";
 const API_DATE_FORMAT_2 = "yyyy-MM-dd";
