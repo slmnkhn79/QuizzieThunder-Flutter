@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:get/get.dart';
 import 'package:quizzie_thunder/modules/school_details/school_details_controller.dart';
+import 'package:quizzie_thunder/routes/app_routes.dart';
 import 'package:quizzie_thunder/theme/colors_theme.dart';
 import 'package:quizzie_thunder/utils/app_utils.dart';
 // import 'package:file_picker_pro/file_data.dart';
@@ -436,7 +437,11 @@ class SchoolDetails extends StatelessWidget {
                                 width: double.infinity,
                                 height: 44,
                                 child: ElevatedButton(
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    Get.toNamed(AppRoutes.galleryDateView,arguments: {
+
+                                    });
+                                  },
                                   style: TextButton.styleFrom(
                                     textStyle: TextStyle(
                                         fontSize: 16,

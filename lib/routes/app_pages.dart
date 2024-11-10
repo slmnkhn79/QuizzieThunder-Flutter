@@ -1,6 +1,8 @@
 import 'package:get/get.dart';
 import 'package:quizzie_thunder/modules/event_details/event_detail_binding.dart';
 import 'package:quizzie_thunder/modules/event_details/event_details_page.dart';
+import 'package:quizzie_thunder/modules/gallery/gallery_header_binding.dart';
+import 'package:quizzie_thunder/modules/gallery/gallery_header_page.dart';
 import 'package:quizzie_thunder/modules/school_details/school_details_binding.dart';
 import 'package:quizzie_thunder/modules/school_details/school_details_page.dart';
 
@@ -127,6 +129,11 @@ class AppPages {
       name: AppRoutes.schoolDetailsPage,
       page: () => SchoolDetails(),
       binding: SchoolBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.galleryDateView,
+      page: () => GalleryHeader(),
+      binding: GalleryHeaderBinding(),
     ),
   ];
 
