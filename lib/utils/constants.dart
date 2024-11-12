@@ -10,6 +10,7 @@ const ARG_ANS_MAP = "arg_answer_map";
 const ARG_QUIZ_CATEGORY_ID = "arg_quiz_category_id";
 const ARG_QUIZ_CATEGORY_NAME = "arg_quiz_category_name";
 const ARG_QUIZ_NAME = "arg_quiz_name";
+const ARG_SCHOOL_ID = 'arg_school_detail';
 
 // Local Storage Keys
 const KEY_USER_DATA = "key_user_data";

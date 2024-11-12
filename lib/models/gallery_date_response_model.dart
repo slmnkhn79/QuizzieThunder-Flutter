@@ -28,12 +28,13 @@ class GalleryDatesResponseModel {
 
 class DatePair {
   final int year;
-  final List<String> month;
+  final String month;
+  final int monthNum;
 
-  DatePair({required this.year, required this.month});
+  DatePair({required this.year, required this.month, required this.monthNum});
 
   factory DatePair.fromJson(Map<String, dynamic> json) {
-    return DatePair(year: json["year"], month: json['month']);
+    return DatePair(year: json["year"], month: json['month'], monthNum: json['monthNum']);
   }
-  Map<String, dynamic> toJson() => {"year": year, "month": month.toList()};
+  Map<String, dynamic> toJson() => {"year": year, "month": month, 'monthNum':monthNum};
 }

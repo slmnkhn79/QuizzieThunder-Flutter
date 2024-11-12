@@ -8,6 +8,7 @@ import 'package:quizzie_thunder/modules/school_details/school_details_controller
 import 'package:quizzie_thunder/routes/app_routes.dart';
 import 'package:quizzie_thunder/theme/colors_theme.dart';
 import 'package:quizzie_thunder/utils/app_utils.dart';
+import 'package:quizzie_thunder/utils/constants.dart';
 // import 'package:file_picker_pro/file_data.dart';
 // import 'package:file_picker_pro/file_picker.dart';
 // import 'package:file_picker_pro/files.dart';
@@ -439,7 +440,9 @@ class SchoolDetails extends StatelessWidget {
                                 child: ElevatedButton(
                                   onPressed: () {
                                     Get.toNamed(AppRoutes.galleryDateView,arguments: {
-
+                                          ARG_SCHOOL_ID :schoolController
+                                                  .schoolDetailsModel!
+                                                  .school.id
                                     });
                                   },
                                   style: TextButton.styleFrom(
