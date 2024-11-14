@@ -1,3 +1,4 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
@@ -47,32 +48,75 @@ class GalleryHeader extends StatelessWidget {
                       color: ThemeColor.headerOne,
                     ))
                   : SingleChildScrollView(
-                      child: Center(
-                          child: SizedBox(
-                              width: MediaQuery.of(context).size.width > 600
-                                  ? 600
-                                  : MediaQuery.of(context).size.width,
-                              child: Container(
-                                  color: ThemeColor.headerThree,
-                                  child: ListView.builder(
-                                      // scrollDirection: Axis.horizontal,
-                                      itemCount: galleryHeaderController
-                                          .galleryDatesResponse!
-                                          .dates
-                                          .length,
-                                      itemBuilder: (context, index) {
-                                        return InkWell(
-                                            child: SizedBox(
-                                              height: double.infinity,
-                                              width: 100,
-                                              child: ListTile(
-                                                  title: Text( galleryHeaderController
-                                                      .galleryDatesResponse!
-                                                      .dates[index]
-                                                      .year
-                                                      .toString())),
-                                            ));
-                                      }))))),
+                      child: Column(
+                        children: [
+                          SizedBox(
+                            height: 80.0,
+                            child: ScrollConfiguration(
+                              behavior: MyCustomScrollBehavior(),
+                              child: ListView.builder(
+                                scrollDirection: Axis.horizontal,
+                                itemCount: 10,
+                                itemBuilder: (context, index) {
+                                  return Container(
+                                    width: 100.0,
+                                    // margin: EdgeInsets.all(5.0),
+                                    // color: Colors.green,
+                                    child: Center(child: InkWell(
+                                      onTap: (){},
+                                      child: Card( child : ListTile( title: Text(textAlign: TextAlign.center ,galleryHeaderController.galleryDatesResponse!.dates[index].year.toString())))
+                                    )),
+                                  );
+                                },
+                              ),
+                            ),
+                          ),
+                          SizedBox(
+                            height: 80.0,
+                            child: ScrollConfiguration(
+                              behavior: MyCustomScrollBehavior(),
+                              child: ListView.builder(
+                                scrollDirection: Axis.horizontal,
+                                itemCount: 10,
+                                itemBuilder: (context, index) {
+                                  return Container(
+                                    width: 100.0,
+                                    child: Center(child: InkWell(
+                                      onTap: (){},
+                                      child: Card( child : ListTile( title: Text(textAlign: TextAlign.center ,galleryHeaderController.galleryDatesResponse!.dates[index].month.toString())))
+                                    )),
+                                  );
+                                },
+                              ),
+                            ),
+                          ),
+                          ListView.builder(
+                            physics: NeverScrollableScrollPhysics(),
+                            shrinkWrap: true,
+                            itemCount: 100,
+                            itemBuilder: (context, index) {
+                              return Card(
+                                margin: EdgeInsets.all(10.0),
+                                child: ListTile(
+                                  leading: Icon(Icons.timeline),
+                                  title: Text('Timeline Event $index'),
+                                  subtitle: Text('Details about the event.'),
+                                ),
+                              );
+                            },
+                          ),
+                        ],
+                      ),
+                    ),
             )));
   }
 }
+ class MyCustomScrollBehavior extends MaterialScrollBehavior {
+      // Override behavior methods and getters like dragDevices
+      @override
+      Set<PointerDeviceKind> get dragDevices => { 
+        PointerDeviceKind.touch,
+        PointerDeviceKind.mouse,
+        // etc.
+      };
+    }
