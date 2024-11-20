@@ -8,7 +8,7 @@ class GalleryDatesResponseModel {
   final int? code;
   final bool? status;
   final String? message;
-  final List<DatePair> dates;
+  final List<Dates> dates;
 
   factory GalleryDatesResponseModel.fromJson(Map<String, dynamic> json) {
     return GalleryDatesResponseModel(
@@ -17,8 +17,8 @@ class GalleryDatesResponseModel {
       message: json["message"],
       dates: json["dates"] == null
           ? []
-          : List<DatePair>.from(
-              json["dates"]!.map((x) => DatePair.fromJson(x))),
+          : List<Dates>.from(
+              json["dates"]!.map((x) => Dates.fromJson(x))),
     );
   }
 
@@ -26,15 +26,14 @@ class GalleryDatesResponseModel {
       {"code": code, "status": status, "message": message};
 }
 
-class DatePair {
+class Dates {
   final int year;
-  final String month;
-  final int monthNum;
+  final List<dynamic> month;
 
-  DatePair({required this.year, required this.month, required this.monthNum});
+  Dates({required this.year, required this.month});
 
-  factory DatePair.fromJson(Map<String, dynamic> json) {
-    return DatePair(year: json["year"], month: json['month'], monthNum: json['monthNum']);
+  factory Dates.fromJson(Map<String, dynamic> json) {
+    return Dates(year: json["year"], month: json['month_arr']);
   }
-  Map<String, dynamic> toJson() => {"year": year, "month": month, 'monthNum':monthNum};
+  Map<String, dynamic> toJson() => {"year": year, "month_arr": month};
 }
