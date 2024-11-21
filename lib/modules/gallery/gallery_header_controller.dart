@@ -48,14 +48,14 @@ class GalleryHeaderController extends GetxController {
     }
     super.onInit();
   }
-
-  void updateMonth(int month) {
-    selectedMonth.value = month;
+   @override
+  void onReady() {
+    getEventByDate(eventSelectedDay.value);
+    super.onReady();
   }
 
-  void updateYear(int year) {
-    selectedYear.value = year;
-  }
+
+  
 
   void getEventByDate(DateTime selectedDay) async {
     eventSelectedDay.value = selectedDay;
