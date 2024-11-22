@@ -41,6 +41,10 @@ class GalleryHeaderController extends GetxController {
     {"month_name": "Dec", "month": 12}
   ];
 
+  List<String> year =[
+    '2022','2023','2024','2025'
+  ];
+
   @override
   void onInit() {
     if (arguments != null) {
@@ -59,7 +63,7 @@ class GalleryHeaderController extends GetxController {
 
   void getEventByDate(DateTime selectedDay) async {
     eventSelectedDay.value = selectedDay;
-    print(eventSelectedDay.value);
+
     isLoadingGallery.value = true;
     var response = await datepairApi.getEventsByDate(eventSelectedDay.value,schoolId);
     if (response.code == 200) {

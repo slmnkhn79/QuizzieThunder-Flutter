@@ -5,6 +5,7 @@ import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:month_year_picker/month_year_picker.dart';
 import 'package:quizzie_thunder/modules/gallery/gallery_header_controller.dart';
+import 'package:quizzie_thunder/modules/quiz_question/quiz_question_page.dart';
 import 'package:quizzie_thunder/theme/colors_theme.dart';
 import 'package:table_calendar/table_calendar.dart';
 import 'package:timelines/timelines.dart';
@@ -54,11 +55,40 @@ class GalleryHeader extends StatelessWidget {
                   : SingleChildScrollView(
                       child: Center(
                         child: SizedBox(
-                          width:  MediaQuery.of(context).size.width > 600
+                          width: MediaQuery.of(context).size.width > 600
                               ? 600
                               : MediaQuery.of(context).size.width,
                           child: Column(
                             children: [
+                              SizedBox(
+                                width: MediaQuery.of(context).size.width > 600
+                                    ? 600
+                                    : MediaQuery.of(context).size.width,
+                                child: ListView.builder(
+                                  itemBuilder: (context, index) {
+                                    return ListTile(
+                                      title: Text(
+                                          galleryHeaderController.year[index]),
+                                      onTap: () {
+                                        galleryHeaderController
+                                                .selectedYear.value =
+                                            int.parse(galleryHeaderController
+                                                .year[index]);
+                                      },
+                                    );
+                                  },
+                                  itemCount:
+                                      galleryHeaderController.year.length,
+                                ),
+                              ),
+                              // ListView.builder(itemBuilder: (context ,index){
+                              //   return ListTile(title: Text(galleryHeaderController.months[index]['month_name'])
+                              //   ,
+                              //   onTap: (){
+                              //      galleryHeaderController.selectedMonth.value = int.parse(galleryHeaderController.months[index]['month']);
+                              //   });
+                              // },
+                              // itemCount: galleryHeaderController.months.length,),
                               TableCalendar(
                                 daysOfWeekVisible: false,
                                 headerStyle: HeaderStyle(
@@ -70,8 +100,8 @@ class GalleryHeader extends StatelessWidget {
                                 calendarStyle: CalendarStyle(
                                   outsideDaysVisible: false,
                                 ),
-                                focusedDay:
-                                    galleryHeaderController.eventSelectedDay.value,
+                                focusedDay: galleryHeaderController
+                                    .eventSelectedDay.value,
                                 calendarFormat: CalendarFormat.twoWeeks,
                                 onDaySelected: (selectedDay, focusedDay) {
                                   galleryHeaderController
@@ -86,15 +116,14 @@ class GalleryHeader extends StatelessWidget {
                               ),
                               galleryHeaderController.isLoadingGallery.value
                                   ? Container()
-                                  :
-                          
-                                  Padding(
+                                  : Padding(
                                       padding: const EdgeInsets.all(8.0),
                                       child: SizedBox(
                                         width: double.infinity,
-                                        height: MediaQuery.of(context).size.height,
+                                        // height: MediaQuery.of(context).size.height +200,
                                         child: FixedTimeline.tileBuilder(
-                                          theme: TimelineTheme.of(context).copyWith(
+                                          theme: TimelineTheme.of(context)
+                                              .copyWith(
                                             nodePosition: 0,
                                             connectorTheme:
                                                 TimelineTheme.of(context)
@@ -110,50 +139,49 @@ class GalleryHeader extends StatelessWidget {
                                                       position: 0.5,
                                                     ),
                                           ),
-                                          builder: TimelineTileBuilder.fromStyle(
+                                          builder:
+                                              TimelineTileBuilder.fromStyle(
                                             contentsAlign: ContentsAlign.basic,
                                             contentsBuilder: (context, index) =>
                                                 Padding(
-                                              padding: const EdgeInsets.all(8.0),
+                                              padding:
+                                                  const EdgeInsets.all(8.0),
                                               child: InkWell(
-                                                onTap: (){
-
-                                                },
+                                                onTap: () {},
                                                 child: Card(
                                                   child: Column(
-                                                    mainAxisAlignment: MainAxisAlignment.start,
-                                                    mainAxisSize: MainAxisSize.min,
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment.start,
+                                                    mainAxisSize:
+                                                        MainAxisSize.min,
                                                     children: [
                                                       Padding(
-                                                        padding: EdgeInsets.all(20.0),
+                                                        padding: EdgeInsets.all(
+                                                            20.0),
                                                         child: Text(
-                                                          '${galleryHeaderController
-                                                                  .galleryResponseModel!
-                                                                  .gallery[index]
-                                                                  .date.day}/${galleryHeaderController
-                                                                  .galleryResponseModel!
-                                                                  .gallery[index].date.month}/${galleryHeaderController
-                                                                  .galleryResponseModel!
-                                                                  .gallery[index].date.year}',
+                                                          '${galleryHeaderController.galleryResponseModel!.gallery[index].date.day}/${galleryHeaderController.galleryResponseModel!.gallery[index].date.month}/${galleryHeaderController.galleryResponseModel!.gallery[index].date.year}',
                                                           style: TextStyle(
-                                                            color: Color(0xffb6b2b2),
+                                                            color: Color(
+                                                                0xffb6b2b2),
                                                           ),
                                                         ),
                                                       ),
                                                       Divider(height: 1.0),
                                                       CachedNetworkImage(
-                                                          imageUrl:
-                                                              galleryHeaderController
-                                                                  .galleryResponseModel!
-                                                                  .gallery[index]
-                                                                  .headerImageUrl),
-                                                                  Divider(),
+                                                          imageUrl: galleryHeaderController
+                                                              .galleryResponseModel!
+                                                              .gallery[index]
+                                                              .headerImageUrl),
+                                                      Divider(),
                                                       Padding(
-                                                        padding: const EdgeInsets.all(8.0),
-                                                        child: Text(galleryHeaderController
-                                                            .galleryResponseModel!
-                                                            .gallery[index]
-                                                            .eventName),
+                                                        padding:
+                                                            const EdgeInsets
+                                                                .all(8.0),
+                                                        child: Text(
+                                                            galleryHeaderController
+                                                                .galleryResponseModel!
+                                                                .gallery[index]
+                                                                .eventName),
                                                       ),
                                                     ],
                                                   ),
