@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:quizzie_thunder/models/post_card_item_model.dart';
 import 'package:quizzie_thunder/modules/home/post_card/like_animation.dart';
@@ -5,7 +6,7 @@ import 'package:quizzie_thunder/modules/home/post_card/like_animation.dart';
 class PostCard extends StatelessWidget {
   final PostCardModel post;
 
-  const PostCard({super.key,  required this.post});
+  const PostCard({super.key, required this.post});
   @override
   Widget build(BuildContext context) {
     return getPostCardView(post, context);
@@ -14,7 +15,6 @@ class PostCard extends StatelessWidget {
   Container getPostCardView(PostCardModel post, BuildContext context) {
     final width = MediaQuery.of(context).size.width;
     return Container(
-      
       // boundary needed for web
       decoration: BoxDecoration(
         // border: Border(
@@ -29,7 +29,7 @@ class PostCard extends StatelessWidget {
       child: Column(
         children: [
           // HEADER SECTION OF THE POST
-          Container(              
+          Container(
             padding: const EdgeInsets.symmetric(
               vertical: 4,
               horizontal: 16,
@@ -109,25 +109,31 @@ class PostCard extends StatelessWidget {
           // IMAGE SECTION OF THE POST
           GestureDetector(
             onDoubleTap: () {
-          // FireStoreMethods().likePost(
-          //   widget.snap['postId'].toString(),
-          //   user.uid,
-          //   widget.snap['likes'],
-          // );
-          // setState(() {
-          //   isLikeAnimating = true;
-          // });
+              // FireStoreMethods().likePost(
+              //   widget.snap['postId'].toString(),
+              //   user.uid,
+              //   widget.snap['likes'],
+              // );
+              // setState(() {
+              //   isLikeAnimating = true;
+              // });
             },
             child: Stack(
               alignment: Alignment.center,
               children: [
                 SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.35,
+                  height: 400,
                   width: double.infinity,
-                  child: Image.network(
-                    post.photoUrl.toString(),
-                    fit: BoxFit.cover,
-                  ),
+                  child: CachedNetworkImage(
+                      imageUrl: post.photoUrl.toString(),
+                      fit: BoxFit.cover,
+                      fadeInDuration: Duration(milliseconds: 0),
+                      fadeOutDuration: Duration(milliseconds: 0),
+                      progressIndicatorBuilder:
+                          (context, url, downloadProgress) =>
+                              Image.asset("assets/images/placeholder.png"),
+                      // ),
+                      errorWidget: (context, url, error) => Icon(Icons.error)),
                 ),
                 // AnimatedOpacity(
                 //   duration: const Duration(milliseconds: 200),
@@ -156,39 +162,39 @@ class PostCard extends StatelessWidget {
           Row(
             children: <Widget>[
               LikeAnimation(
-                isAnimating: 1==1,
+                isAnimating: 1 == 1,
                 smallLike: true,
                 child: IconButton(
-                  icon: 
-                  // widget.snap['likes'].contains(user.uid)
-                  1==1
-                      ? const Icon(
-                          Icons.favorite,
-                          color: Colors.red,
-                        )
-                      : const Icon(
-                          Icons.favorite_border,
-                        ),
-                  onPressed: () => {}
-                  // FireStoreMethods().likePost(
-                  //   widget.snap['postId'].toString(),
-                  //   user.uid,
-                  //   widget.snap['likes'],
-                  // ),
-                ),
+                    icon:
+                        // widget.snap['likes'].contains(user.uid)
+                        1 == 1
+                            ? const Icon(
+                                Icons.favorite,
+                                color: Colors.red,
+                              )
+                            : const Icon(
+                                Icons.favorite_border,
+                              ),
+                    onPressed: () => {}
+                    // FireStoreMethods().likePost(
+                    //   widget.snap['postId'].toString(),
+                    //   user.uid,
+                    //   widget.snap['likes'],
+                    // ),
+                    ),
               ),
               IconButton(
-                icon: const Icon(
-                  Icons.comment_outlined,
-                ),
-                onPressed: () => {}
-                // Navigator.of(context).push(
+                  icon: const Icon(
+                    Icons.comment_outlined,
+                  ),
+                  onPressed: () => {}
+                  // Navigator.of(context).push(
                   // MaterialPageRoute(
                   //   builder: (context) => CommentsScreen(
                   //     postId: widget.snap['postId'].toString(),
                   //   ),
                   // ),
-                ),
+                  ),
               IconButton(
                   icon: const Icon(
                     Icons.send,
@@ -265,7 +271,7 @@ class PostCard extends StatelessWidget {
                     // DateFormat.yMMMd()
                     //     .format(widget.snap['datePublished'].toDate()),
                     post.createdAt.toString(),
-      
+
                     // style: const TextStyle(
                     //   color: secondaryColor,
                     // ),

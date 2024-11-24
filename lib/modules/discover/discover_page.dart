@@ -35,9 +35,9 @@ class DiscoverPage extends StatelessWidget {
           elevation: 0,
         ),
         //fiters the current feed for the applied filted
-        floatingActionButton: Obx(() => 
-        Visibility(
-            visible: discoverController.selectedTabIndex.value == 0 || discoverController.selectedTabIndex.value == 1 ,
+        floatingActionButton: Obx(() => Visibility(
+            visible: discoverController.selectedTabIndex.value == 0 ||
+                discoverController.selectedTabIndex.value == 1,
             child: Padding(
               padding: EdgeInsets.only(bottom: 44.0),
               child: FloatingActionButton(
@@ -48,14 +48,13 @@ class DiscoverPage extends StatelessWidget {
                 },
                 child: Icon(Icons.filter_alt_outlined),
               ),
-            ))
-            ),
+            ))),
         backgroundColor: ThemeColor.facebook_light_4,
         body: Obx(() => RefreshIndicator(
               onRefresh: () async {
                 discoverController.getDiscoverScreenDetails();
               },
-              child: discoverController.isLoading.value
+              child: discoverController.isLoading.value && schoolDiscoverController.isLoading.value
                   ? const Center(
                       child: CircularProgressIndicator(
                       color: ThemeColor.white,
@@ -207,10 +206,9 @@ class DiscoverPage extends StatelessWidget {
                 InkWell(
                   onTap: () {
                     Get.toNamed('/schoolDetails', arguments: {
-                                    ARG_SCHOOL_DETAIL: discoverController
-                                        .discoverScreenResponseModel!
-                                        .topSchool.id
-                                  });
+                      ARG_SCHOOL_DETAIL: discoverController
+                          .discoverScreenResponseModel!.topSchool.id
+                    });
                   },
                   child: Stack(children: [
                     Image.network(
@@ -420,7 +418,8 @@ class DiscoverPage extends StatelessWidget {
                                   Get.toNamed('/schoolDetails', arguments: {
                                     ARG_SCHOOL_DETAIL: discoverController
                                         .discoverScreenResponseModel!
-                                        .schools![index].id
+                                        .schools![index]
+                                        .id
                                   });
                                 },
                                 child: Column(
@@ -487,12 +486,18 @@ class DiscoverPage extends StatelessWidget {
               InkWell(
                 onTap: () {},
                 child: Stack(children: [
-                  Image.network(
-                    schoolDiscoverController
-                        .schoolDiscoverScreenResponseModel!.mostLiked!.imageUrl,
-                    width: double.infinity,
-                    fit: BoxFit.cover,
-                  ),
+                  schoolDiscoverController
+                              .schoolDiscoverScreenResponseModel!.mostLiked ==
+                          null
+                      ? Container()
+                      : Image.network(
+                          schoolDiscoverController
+                              .schoolDiscoverScreenResponseModel!
+                              .mostLiked!
+                              .imageUrl!,
+                          width: double.infinity,
+                          fit: BoxFit.cover,
+                        ),
                   Padding(
                       padding: const EdgeInsets.all(16.0),
                       child: Column(

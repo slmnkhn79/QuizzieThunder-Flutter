@@ -9,7 +9,7 @@ class HomeController extends GetxController {
   HomeApi homeApi = HomeApi();
 
   var isLoading = false.obs;
-  var selectedTabIndex = 1.obs;
+  var selectedTabIndex = 0.obs;
 
   HomeScreenResponseModel? homeScreenResponseModel;
 

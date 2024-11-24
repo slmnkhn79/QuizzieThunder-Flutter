@@ -116,23 +116,23 @@ class HomePage extends StatelessWidget {
                                                 width: double.infinity,
                                                 height: double.infinity,
                                                 fit: BoxFit.cover,
-                                                placeholder: (context, url) =>
-                                                    Center(
-                                                  child: SizedBox(
-                                                    width: 20,
-                                                    height: 20,
-                                                    child:
-                                                        CircularProgressIndicator(
-                                                      color: ThemeColor.accent,
+                                                progressIndicatorBuilder: (context,
+                                                        url,
+                                                        downloadProgress) =>
+                                                    // SizedBox(
+                                                    //     width: 50,
+                                                    //     height: 50,
+                                                    //     child: CircularProgressIndicator(
+                                                    //         value:
+                                                    //             downloadProgress
+                                                    //                 .progress)
+                                                    Image.asset(
+                                                        "assets/images/placeholder.png"
                                                     ),
-                                                  ),
-                                                ),
+                                                                    // ),
                                                 errorWidget:
                                                     (context, url, error) =>
-                                                        Icon(
-                                                  Icons.error,
-                                                  color: ThemeColor.red,
-                                                ),
+                                                        Icon(Icons.error),
                                               ),
                                             ),
                                           ),
@@ -306,16 +306,13 @@ class HomePage extends StatelessWidget {
             //       level: '')
             // });
 
-            Get.toNamed(AppRoutes.quizDetailPage,
-                                    arguments: {
-                                      // ARG_QUIZ_DETAIL: homeController
-                                      //     .homeScreenResponseModel
-                                      //     ?.quizzes?[index],
-                                      ARG_QUIZ_ID: homeController
-                                          .homeScreenResponseModel
-                                          ?.mostPlayedQuiz!.id
-                                    });
-
+            Get.toNamed(AppRoutes.quizDetailPage, arguments: {
+              // ARG_QUIZ_DETAIL: homeController
+              //     .homeScreenResponseModel
+              //     ?.quizzes?[index],
+              ARG_QUIZ_ID:
+                  homeController.homeScreenResponseModel?.mostPlayedQuiz!.id
+            });
           },
           child: Stack(
             children: [
@@ -412,9 +409,7 @@ class HomePage extends StatelessWidget {
         // ]),
 
         Visibility(
-          visible:
-              homeController.homeScreenResponseModel?.weekTopRank !=
-                  null,
+          visible: homeController.homeScreenResponseModel?.weekTopRank != null,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -583,7 +578,8 @@ class HomePage extends StatelessWidget {
                                       //     ?.quizzes?[index],
                                       ARG_QUIZ_ID: homeController
                                           .homeScreenResponseModel
-                                          ?.quizzes?[index].id
+                                          ?.quizzes?[index]
+                                          .id
                                     });
                               },
                               child: QuizItemContainer(

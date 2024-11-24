@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:quizzie_thunder/apis/datepair_api.dart';
-import 'package:quizzie_thunder/models/gallery_date_response_model.dart';
+import 'package:quizzie_thunder/models/gallery_details_response_model.dart';
 import 'package:quizzie_thunder/models/gallery_response_model.dart';
 import 'package:quizzie_thunder/utils/app_utils.dart';
 import 'package:quizzie_thunder/utils/constants.dart';
@@ -17,14 +17,17 @@ class GalleryHeaderController extends GetxController {
   DatepairApi datepairApi = DatepairApi();
 
   GalleryResponseModel? galleryResponseModel;
+  GalleryDetailsResponseModel? galleryDetailsResponseModel;
 
   var eventSelectedDay = DateTime.now().obs;
 
   var selectedMonth = DateTime.now().month.obs;
   var selectedYear = DateTime.now().year.obs;
+  var selectedEventId = ''.obs;
 
   var isLoading = false.obs;
   var isLoadingGallery = true.obs;
+  var isLoadingEventGallery = true.obs;
 
   List<dynamic> months = [
     {"month_name": "Jan", "month": 1},
@@ -54,15 +57,15 @@ class GalleryHeaderController extends GetxController {
   }
    @override
   void onReady() {
-    getEventByDate(eventSelectedDay.value);
+    getEventByDate();
     super.onReady();
   }
 
 
   
 
-  void getEventByDate(DateTime selectedDay) async {
-    eventSelectedDay.value = selectedDay;
+  void getEventByDate() async {
+    eventSelectedDay.value = DateTime(selectedYear.value, selectedMonth.value,1);
 
     isLoadingGallery.value = true;
     var response = await datepairApi.getEventsByDate(eventSelectedDay.value,schoolId);
@@ -71,6 +74,18 @@ class GalleryHeaderController extends GetxController {
       isLoadingGallery.value = false;
     } else {
       isLoadingGallery.value = false;
+      AppUtils.showSnackBar("Error", status: MessageStatus.ERROR);
+    }
+  }
+  Future<void> getEventById() async {
+
+    isLoadingEventGallery.value = true;
+    var response = await datepairApi.getEventsById(selectedEventId.value);
+    if (response.code == 200) {
+      galleryDetailsResponseModel = response;
+      isLoadingEventGallery.value = false;
+    } else {
+      isLoadingEventGallery.value = false;
       AppUtils.showSnackBar("Error", status: MessageStatus.ERROR);
     }
   }

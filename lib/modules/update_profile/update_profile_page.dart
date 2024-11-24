@@ -83,28 +83,29 @@ class UpdateProfilePage extends StatelessWidget {
                                               AppUtils.getRandomAvatarBgColor(),
                                           child: ClipOval(
                                             child: CachedNetworkImage(
-                                              imageUrl:
-                                                  updateProfileController.profilePicUrl.value,
-                                              width: double.infinity,
-                                              height: double.infinity,
-                                              fit: BoxFit.cover,
-                                              placeholder: (context, url) =>
-                                                  Center(
-                                                child: SizedBox(
-                                                  width: 20,
-                                                  height: 20,
-                                                  child:
-                                                      CircularProgressIndicator(
-                                                    color: ThemeColor.accent,
-                                                  ),
-                                                ),
-                                              ),
-                                              errorWidget:
-                                                  (context, url, error) => Icon(
-                                                Icons.error,
-                                                color: ThemeColor.red,
-                                              ),
-                                            ),
+                                                imageUrl:
+                                                    updateProfileController
+                                                        .profilePicUrl.value,
+                                                width: double.infinity,
+                                                height: double.infinity,
+                                                fit: BoxFit.cover,
+                                                fadeInDuration: Duration(milliseconds: 0),
+                                                progressIndicatorBuilder: (context,
+                                                        url,
+                                                        downloadProgress) =>
+                                                    // SizedBox(
+                                                    //     width: 50,
+                                                    //     height: 50,
+                                                    //     child: CircularProgressIndicator(
+                                                    //         value:
+                                                    //             downloadProgress
+                                                    //                 .progress)
+                                                    Image.asset(
+                                                        "assets/images/placeholder.png"),
+                                                // ),
+                                                errorWidget:
+                                                    (context, url, error) =>
+                                                        Icon(Icons.error)),
                                           ),
                                         ),
                                         Positioned(

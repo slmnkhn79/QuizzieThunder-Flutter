@@ -99,7 +99,7 @@ class Event {
   final String? title;
   final String? caption;
   final School? school;
-  final String imageUrl;
+  final String? imageUrl;
   final DateTime? createdAt;
   final DateTime? updatedAt;
 
@@ -108,7 +108,7 @@ class Event {
       id: json["id"],
       title: json["title"],
       caption: json["caption"],
-      imageUrl: json['imageUrl'],
+      imageUrl: json['imageUrl'] ?? "https://placehold.co/600x400.png",
       school: School.fromJson(json["school"]),
       createdAt: DateTime.tryParse(json["createdAt"] ?? ""),
       updatedAt: DateTime.tryParse(json["updatedAt"] ?? ""),

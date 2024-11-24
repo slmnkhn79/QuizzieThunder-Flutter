@@ -1,10 +1,11 @@
-
 // import 'package:file_picker/file_picker.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:get/get.dart';
 import 'package:quizzie_thunder/modules/school_details/school_details_controller.dart';
+import 'package:quizzie_thunder/modules/wonderous/ui/photo_gallery/photo_gallery.dart';
 import 'package:quizzie_thunder/routes/app_routes.dart';
 import 'package:quizzie_thunder/theme/colors_theme.dart';
 import 'package:quizzie_thunder/utils/app_utils.dart';
@@ -68,8 +69,26 @@ class SchoolDetails extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
                           // Header Image
-                          Image.network(schoolController
-                              .schoolDetailsModel!.school.headerImageUrl),
+                          CachedNetworkImage(
+                              // width: 600,
+                              // height: 400,
+                              fadeInDuration: Duration(milliseconds: 0),
+                              fadeOutDuration: Duration(milliseconds: 0),
+                              imageUrl: schoolController
+                                  .schoolDetailsModel!.school.headerImageUrl,
+                              progressIndicatorBuilder: (context, url,
+                                      downloadProgress) =>
+                                  // SizedBox(
+                                  //     width: 50,
+                                  //     height: 50,
+                                  //     child: CircularProgressIndicator(
+                                  //         value:
+                                  //             downloadProgress
+                                  //                 .progress)
+                                  Image.asset("assets/images/placeholder.png"),
+                              // ),
+                              errorWidget: (context, url, error) =>
+                                  Icon(Icons.error)),
 
                           // Row with three text widgets with colored background
                           Row(
@@ -115,7 +134,8 @@ class SchoolDetails extends StatelessWidget {
                                           children: [
                                             // title:
                                             Padding(
-                                              padding: EdgeInsets.only(left: 24),
+                                              padding:
+                                                  EdgeInsets.only(left: 24),
                                               child: Text(schoolController
                                                   .schoolDetailsModel!
                                                   .school
@@ -127,17 +147,19 @@ class SchoolDetails extends StatelessWidget {
                                               // width: 300,
                                               height: 50,
                                               child: Padding(
-                                                padding: EdgeInsets.only(right: 24),
+                                                padding:
+                                                    EdgeInsets.only(right: 24),
                                                 // padding: const EdgeInsets.all(8.0),
                                                 child: Card(
-                                                  color:
-                                                      ThemeColor.facebook_light_4,
+                                                  color: ThemeColor
+                                                      .facebook_light_4,
                                                   child: Row(
                                                     mainAxisAlignment:
                                                         MainAxisAlignment
                                                             .spaceAround,
                                                     crossAxisAlignment:
-                                                        CrossAxisAlignment.center,
+                                                        CrossAxisAlignment
+                                                            .center,
                                                     children: [
                                                       // Text(schoolController
                                                       //     .schoolDetailsModel!
@@ -154,8 +176,8 @@ class SchoolDetails extends StatelessWidget {
                                                       RatingBar.builder(
                                                           initialRating: 3,
                                                           minRating: 1,
-                                                          direction: Axis
-                                                              .horizontal,
+                                                          direction:
+                                                              Axis.horizontal,
                                                           itemSize: 24,
                                                           ignoreGestures: true,
                                                           allowHalfRating: true,
@@ -164,13 +186,13 @@ class SchoolDetails extends StatelessWidget {
                                                               .symmetric(
                                                                   horizontal:
                                                                       4.0),
-                                                          itemBuilder: (context,
-                                                                  _) =>
-                                                              Icon(
-                                                                Icons.star,
-                                                                color:
-                                                                    Colors.amber,
-                                                              ),
+                                                          itemBuilder:
+                                                              (context, _) =>
+                                                                  Icon(
+                                                                    Icons.star,
+                                                                    color: Colors
+                                                                        .amber,
+                                                                  ),
                                                           onRatingUpdate:
                                                               (value) => {})
                                                     ],
@@ -275,37 +297,29 @@ class SchoolDetails extends StatelessWidget {
                                     children: [
                                       Expanded(
                                           flex: 2,
-                                          child: Image.network(
-                                            schoolController
-                                                .schoolDetailsModel!
-                                                .school
-                                                .achivements[index]
-                                                .achiveImageUrl,
-                                            loadingBuilder:
-                                                (BuildContext context,
-                                                    Widget child,
-                                                    ImageChunkEvent?
-                                                        loadingProgress) {
-                                              if (loadingProgress == null) {
-                                                return child; // The image is fully loaded
-                                              } else {
-                                                return Center(
-                                                  child:
-                                                      CircularProgressIndicator(
-                                                    value: loadingProgress
-                                                                .expectedTotalBytes !=
-                                                            null
-                                                        ? loadingProgress
-                                                                .cumulativeBytesLoaded /
-                                                            (loadingProgress
-                                                                    .expectedTotalBytes ??
-                                                                1)
-                                                        : null,
-                                                  ),
-                                                );
-                                              }
-                                            },
-                                          )),
+                                          child: CachedNetworkImage(
+                                            fadeInDuration: Duration(milliseconds: 0),
+                      fadeOutDuration: Duration(milliseconds: 0),
+                                              imageUrl: schoolController
+                                                  .schoolDetailsModel!
+                                                  .school
+                                                  .achivements[index]
+                                                  .achiveImageUrl,
+                                              progressIndicatorBuilder: (context,
+                                                      url, downloadProgress) =>
+                                                  // SizedBox(
+                                                  //     width: 50,
+                                                  //     height: 50,
+                                                  //     child: CircularProgressIndicator(
+                                                  //         value:
+                                                  //             downloadProgress
+                                                  //                 .progress)
+                                                  Image.asset(
+                                                      "assets/images/placeholder.png"),
+                                              // ),
+                                              errorWidget:
+                                                  (context, url, error) =>
+                                                      Icon(Icons.error))),
                                       Expanded(
                                           flex: 1,
                                           child: Padding(
@@ -439,11 +453,12 @@ class SchoolDetails extends StatelessWidget {
                                 height: 44,
                                 child: ElevatedButton(
                                   onPressed: () {
-                                    Get.toNamed(AppRoutes.galleryDateView,arguments: {
-                                          ARG_SCHOOL_ID :schoolController
-                                                  .schoolDetailsModel!
-                                                  .school.id
-                                    });
+                                    Get.toNamed(AppRoutes.galleryDateView,
+                                        arguments: {
+                                          ARG_SCHOOL_ID: schoolController
+                                              .schoolDetailsModel!.school.id
+                                        });
+                                    // Get.to(PhotoGallery());
                                   },
                                   style: TextButton.styleFrom(
                                     textStyle: TextStyle(

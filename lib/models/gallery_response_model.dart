@@ -61,3 +61,4 @@ class Gallery {
         "id": id
       };
 }
+

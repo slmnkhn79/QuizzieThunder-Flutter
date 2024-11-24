@@ -1,4 +1,5 @@
 import 'package:quizzie_thunder/models/gallery_date_response_model.dart';
+import 'package:quizzie_thunder/models/gallery_details_response_model.dart';
 import 'package:quizzie_thunder/models/gallery_response_model.dart';
 import '../utils/dio_client.dart';
 
@@ -18,6 +19,17 @@ class DatepairApi {
         "eventDate":selectedDay.toString(), "schoolId":schoolId
       });
       return GalleryResponseModel.fromJson(response.data['result']);
+    } catch (e) {
+      rethrow;
+    }
+  }
+  Future<GalleryDetailsResponseModel> getEventsById(String eventId) async {
+    try {
+      final response = await DioClient.getDioInstance().post("/eventById",
+      data: {
+        "eventId":eventId
+      });
+      return GalleryDetailsResponseModel.fromJson(response.data['result']);
     } catch (e) {
       rethrow;
     }
