@@ -15,7 +15,7 @@ class AppRoutes {
   static const quizDetailPage = '/quizDetailPage';
   static const quizResultPage = '/quizResultPage';
   static const quizQuestionPage = '/quizQuestionPage';
-  static const eventDetailsPage = '/eventsDetails';
+  static const postDetailsPage = '/postDetailsPage';
   static const addPostPage = '/addPost';
   static const schoolDetailsPage = '/schoolDetails';
   static const galleryDateView = '/galleryView';

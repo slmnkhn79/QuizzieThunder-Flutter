@@ -13,6 +13,8 @@ class FeedController extends GetxController {
 
   var isLoading = false.obs;
   var skip = 0;
+  
+  var selectedPostIndex = '';
   // var selectedTabIndex = 0.obs;
 
   FeedScreenResponseModel? feedScreenResponseModel;
@@ -43,5 +45,8 @@ class FeedController extends GetxController {
       isLoading.value = false;
       AppUtils.showSnackBar("Error", status: MessageStatus.ERROR);
     }
+  }
+  void getFeedScreenComments() async{
+
   }
 }

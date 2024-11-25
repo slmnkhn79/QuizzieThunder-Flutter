@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
 import 'package:quizzie_thunder/modules/discover/school_discover_controller.dart';
 import 'package:quizzie_thunder/modules/discover/search_controller.dart';
-import 'package:quizzie_thunder/modules/home/post_card/feed_controller.dart';
+import 'package:quizzie_thunder/modules/home/feed_controller.dart';
 import 'package:quizzie_thunder/modules/leaderboard/school_leaderboard_controller.dart';
 
 import '../discover/discover_controller.dart';

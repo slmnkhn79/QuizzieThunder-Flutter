@@ -2,7 +2,7 @@ import 'dart:typed_data';
 import 'package:get_storage/get_storage.dart';
 // import 'package:mime/mime.dart';
 import 'package:http_parser/http_parser.dart';
-import 'package:quizzie_thunder/models/event_detail_response_model.dart';
+import 'package:quizzie_thunder/models/post_response_model.dart';
 import 'package:quizzie_thunder/models/school_details_model.dart';
 import 'package:quizzie_thunder/utils/constants.dart';
 
@@ -10,18 +10,18 @@ import '../utils/dio_client.dart';
 import 'package:dio/dio.dart' as dio;
 
 class SchoolDetailsApi {
-  Future<EventDetailsResponseModel> getEventDetails(
-      {required String eventId}) async {
-    try {
-      // final response = await DioClient.getDioInstance().get("api/home");
-      final response = await DioClient.getDioInstance()
-          .post("/eventDetails", data: {'eventId': eventId});
+  // Future<EventDetailsResponseModel> getEventDetails(
+  //     {required String eventId}) async {
+  //   try {
+  //     // final response = await DioClient.getDioInstance().get("api/home");
+  //     final response = await DioClient.getDioInstance()
+  //         .post("/eventDetails", data: {'eventId': eventId});
 
-      return EventDetailsResponseModel.fromJson(response.data['result']);
-    } catch (e) {
-      rethrow;
-    }
-  }
+  //     return EventDetailsResponseModel.fromJson(response.data['result']);
+  //   } catch (e) {
+  //     rethrow;
+  //   }
+  // }
 
   Future<String> postEventDetails(Uint8List fileData, String fileName) async {
     try {

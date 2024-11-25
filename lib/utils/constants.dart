@@ -11,6 +11,7 @@ const ARG_QUIZ_CATEGORY_ID = "arg_quiz_category_id";
 const ARG_QUIZ_CATEGORY_NAME = "arg_quiz_category_name";
 const ARG_QUIZ_NAME = "arg_quiz_name";
 const ARG_SCHOOL_ID = 'arg_school_detail';
+const ARG_POST_ID = 'arg_post_id';
 
 // Local Storage Keys
 const KEY_USER_DATA = "key_user_data";

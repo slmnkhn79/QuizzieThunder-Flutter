@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
-import 'package:quizzie_thunder/modules/event_details/event_detail_binding.dart';
-import 'package:quizzie_thunder/modules/event_details/event_details_page.dart';
+import 'package:quizzie_thunder/modules/event_details/post_detail_binding.dart';
+import 'package:quizzie_thunder/modules/event_details/post_details_page.dart';
 import 'package:quizzie_thunder/modules/gallery/gallery_header_binding.dart';
 import 'package:quizzie_thunder/modules/gallery/gallery_header_page.dart';
 import 'package:quizzie_thunder/modules/school_details/school_details_binding.dart';
@@ -116,9 +116,9 @@ class AppPages {
       binding: QuizQuestionBinding(),
     ),
     GetPage(
-      name: AppRoutes.eventDetailsPage,
-      page: () => EventDetailsPage(eventId: ''),
-      binding: EventDetailsBinding(),
+      name: AppRoutes.postDetailsPage,
+      page: () => PostDetailsPage(eventId: ''),
+      binding: PostDetailsBinding(),
     ),
     // GetPage(
     //   name: AppRoutes.addPostPage,

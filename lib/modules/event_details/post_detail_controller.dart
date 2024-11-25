@@ -1,38 +1,36 @@
-
 import 'package:get/get.dart';
-import 'package:quizzie_thunder/apis/school_details_api.dart';
-import 'package:quizzie_thunder/models/school_details_model.dart';
+import 'package:quizzie_thunder/apis/post_details_api.dart';
+import 'package:quizzie_thunder/models/post_response_model.dart';
 import 'package:quizzie_thunder/utils/app_utils.dart';
 import 'package:quizzie_thunder/utils/constants.dart';
 import 'package:quizzie_thunder/utils/enums/snackbar_status.dart';
 
-class SchoolController extends GetxController {
 
-  SchoolDetailsApi schoolDetailsApi = SchoolDetailsApi();
-  SchoolDetailsModel? schoolDetailsModel ;
 
+class PostDetailController extends GetxController {
+  PostDetailsApi postDetailsApi = PostDetailsApi();
   final arguments = Get.arguments;
-
   var isLoading = true.obs;
-  var schoolId = "NyEze2ZAwp";
+  var postId = '';
+
+  PostDetailsResponseModel? postDetailsResponseModel;
+
 
 
   @override
   void onInit() {
     if (arguments != null) {
-      // print(arguments);
-      schoolId = arguments[ARG_SCHOOL_DETAIL]  ?? "";
+      postId = arguments[ARG_POST_ID];
+      getPostDetails();
     }
-    getSchoolDetails();
     super.onInit();
   }
 
-  void getSchoolDetails() async {
+  void getPostDetails() async {
     isLoading.value = true;
-    var response = await schoolDetailsApi.getSchoolDetails(schoolId);
-    
+    var response = await postDetailsApi.getPostById(postId:postId);
     if (response.code == 200) {
-      schoolDetailsModel = response;
+      postDetailsResponseModel = response;
       isLoading.value = false;
     } else {
       isLoading.value = false;

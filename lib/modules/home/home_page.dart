@@ -1,8 +1,9 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:dartx/dartx.dart';
+import 'package:exprollable_page_view/exprollable_page_view.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:quizzie_thunder/modules/home/post_card/feed_controller.dart';
+import 'package:quizzie_thunder/modules/home/feed_controller.dart';
 import 'package:quizzie_thunder/modules/home/post_card/post_card.dart';
 
 import '../../models/all_quiz_response_model.dart';
@@ -127,9 +128,8 @@ class HomePage extends StatelessWidget {
                                                     //             downloadProgress
                                                     //                 .progress)
                                                     Image.asset(
-                                                        "assets/images/placeholder.png"
-                                                    ),
-                                                                    // ),
+                                                        "assets/images/placeholder.png"),
+                                                // ),
                                                 errorWidget:
                                                     (context, url, error) =>
                                                         Icon(Icons.error),
@@ -685,15 +685,13 @@ class HomePage extends StatelessWidget {
             itemBuilder: (context, index) {
               return InkWell(
                   onTap: () {
-                    Get.toNamed(AppRoutes.eventDetailsPage, arguments: {
-                      ARG_QUIZ_DETAIL:
-                          // feedController.feedScreenResponseModel?.posts?[index]
-                          feedController.posts[index]
+                    feedController.selectedPostIndex =
+                        feedController.posts[index].id;
+                    Get.toNamed(AppRoutes.postDetailsPage, arguments: {
+                      ARG_POST_ID: feedController.posts[index].id
                     });
                   },
-                  child: PostCard(
-                      // post: feedController.feedScreenResponseModel!.posts[index])
-                      post: feedController.posts[index]));
+                  child: PostCard(post: feedController.posts[index]));
             }),
         SizedBox(
             width: double.infinity,
@@ -719,3 +717,4 @@ class HomePage extends StatelessWidget {
     );
   }
 }
+

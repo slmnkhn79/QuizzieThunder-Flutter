@@ -1,39 +1,38 @@
-class EventDetailsResponseModel {
-  EventDetailsResponseModel({
+class PostDetailsResponseModel {
+  PostDetailsResponseModel({
     required this.code,
     required this.status,
-    required this.count,
-    required this.images,
+    required this.message,
+    required this.post,
   });
 
   final int? code;
   final bool? status;
-  final int? count;
-  final List<ImageDetail>? images;
+  final String? message;
+  final Post post;
 
-  factory EventDetailsResponseModel.fromJson(Map<String, dynamic> json) {
-    return EventDetailsResponseModel(
+  factory PostDetailsResponseModel.fromJson(Map<String, dynamic> json) {
+    return PostDetailsResponseModel(
       code: json["code"],
       status: json["status"],
-      count: json["count"],
-      images: json["images"] == null
-          ? []
-          : List<ImageDetail>.from(json["images"]!.map((x) => ImageDetail.fromJson(x))),
+      message: json["message"],
+      post: Post.fromJson(json["post"])
     );
   }
 
   Map<String, dynamic> toJson() => {
         "code": code,
         "status": status,
-        "count": count,
-        "images": images?.map((x) => x.toJson()).toList(),
+        "message": message,
+        "post":  post.toJson()
       };
 }
 
-class ImageDetail {
-  ImageDetail({
+class Post {
+  Post({
     required this.id,
     required this.title,
+    required this.imageUrl,
     required this.caption,
     required this.createdAt,
     required this.updatedAt,
@@ -44,12 +43,14 @@ class ImageDetail {
   final String? caption;
   final DateTime? createdAt;
   final DateTime? updatedAt;
+  final String? imageUrl;
 
-  factory ImageDetail.fromJson(Map<String, dynamic> json) {
-    return ImageDetail(
+  factory Post.fromJson(Map<String, dynamic> json) {
+    return Post(
       id: json["id"],
       title: json["title"],
       caption: json["caption"],
+      imageUrl: json["image_url"],
       createdAt: DateTime.tryParse(json["createdAt"] ?? ""),
       updatedAt: DateTime.tryParse(json["updatedAt"] ?? ""),
     );
@@ -61,6 +62,7 @@ class ImageDetail {
         "caption": caption,
         "createdAt": createdAt?.toIso8601String(),
         "updatedAt": updatedAt?.toIso8601String(),
+        "image_url":imageUrl
       };
 }
 

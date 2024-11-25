@@ -1,3 +1,20 @@
+class PostCardItemModel {
+  final int code;
+  final String  message;
+  final String status;
+  final PostCardModel post;
+
+  PostCardItemModel({required this.code, required this.message, required this.status, required this.post});
+  factory PostCardItemModel.fromJson(Map<String, dynamic> json) {
+    return PostCardItemModel(
+      code: json['code'],
+      status:json['status'],
+      message: json['message'],
+      post: PostCardModel.fromJson(json['post'])
+    );
+  }
+}
+
 class PostCardModel {
   final String id;
   final String photoUrl;
