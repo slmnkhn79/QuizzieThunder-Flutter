@@ -277,6 +277,7 @@ class PostCard extends StatelessWidget {
                     // ),
                   ),
                 ),
+                Divider(),
               ],
             ),
           )
