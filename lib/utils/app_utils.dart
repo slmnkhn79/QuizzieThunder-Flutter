@@ -181,4 +181,28 @@ class AppUtils {
           title: "Error", status: MessageStatus.ERROR);
     }
   }
+
+  static String timeAgo(DateTime dateTime) {
+    final Duration diff = DateTime.now().difference(dateTime);
+    final int seconds = diff.inSeconds;
+    final int minutes = diff.inMinutes;
+    final int hours = diff.inHours;
+    final int days = diff.inDays;
+    final int months = (days / 30).floor(); // Approximate month length
+    final int years = (days / 365).floor(); // Approximate year length
+
+    if (years >= 1) {
+      return '$years y ago';
+    } else if (months >= 1) {
+      return '$months mo ago';
+    } else if (days >= 1) {
+      return '$days d ago';
+    } else if (hours >= 1) {
+      return '$hours h ago';
+    } else if (minutes >= 1) {
+      return '$minutes m ago';
+    } else {
+      return 'Just now';
+    }
+  }
 }

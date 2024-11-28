@@ -2,6 +2,8 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:quizzie_thunder/models/post_card_item_model.dart';
 import 'package:quizzie_thunder/modules/home/post_card/like_animation.dart';
+import 'package:quizzie_thunder/theme/colors_theme.dart';
+import 'package:quizzie_thunder/utils/app_utils.dart';
 
 class PostCard extends StatelessWidget {
   final PostCardModel post;
@@ -270,11 +272,11 @@ class PostCard extends StatelessWidget {
                   child: Text(
                     // DateFormat.yMMMd()
                     //     .format(widget.snap['datePublished'].toDate()),
-                    post.createdAt.toString(),
+                    AppUtils.timeAgo(post.createdAt!),
 
-                    // style: const TextStyle(
-                    //   color: secondaryColor,
-                    // ),
+                    style: const TextStyle(
+                      color: ThemeColor.headerOne,
+                    ),
                   ),
                 ),
                 Divider(),
