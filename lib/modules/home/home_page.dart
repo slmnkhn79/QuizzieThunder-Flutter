@@ -692,10 +692,11 @@ class HomePage extends StatelessWidget {
             itemBuilder: (context, index) {
               return InkWell(
                   onTap: () {
-                    feedController.selectedPostIndex =
+                    feedController.selectedPostId =
                         feedController.posts[index].id;
                     Get.toNamed(AppRoutes.postDetailsPage, arguments: {
-                      ARG_POST_ID: feedController.posts[index].id
+                      ARG_POST_ID: feedController.posts[index].id,
+                      // ARG_POST_CONTROLLER: feedController,
                     });
                   },
                   child: PostCard(post: feedController.posts[index],feedController: feedController,));

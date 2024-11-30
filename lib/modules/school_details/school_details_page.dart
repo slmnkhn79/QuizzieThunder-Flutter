@@ -10,6 +10,7 @@ import 'package:quizzie_thunder/routes/app_routes.dart';
 import 'package:quizzie_thunder/theme/colors_theme.dart';
 import 'package:quizzie_thunder/utils/app_utils.dart';
 import 'package:quizzie_thunder/utils/constants.dart';
+import 'package:shimmer/shimmer.dart';
 // import 'package:file_picker_pro/file_data.dart';
 // import 'package:file_picker_pro/file_picker.dart';
 // import 'package:file_picker_pro/files.dart';
@@ -85,8 +86,12 @@ class SchoolDetails extends StatelessWidget {
                                   //         value:
                                   //             downloadProgress
                                   //                 .progress)
-                                  Image.asset("assets/images/placeholder.png"),
-                              // ),
+                                  // Image.asset("assets/images/placeholder.png"),
+                                  Shimmer.fromColors(
+                                      baseColor: Colors.grey[300]!,
+                                      highlightColor: Colors.white,
+                                      child: Image.asset(
+                                          "assets/images/placeholder.png")),
                               errorWidget: (context, url, error) =>
                                   Icon(Icons.error)),
 
@@ -298,8 +303,10 @@ class SchoolDetails extends StatelessWidget {
                                       Expanded(
                                           flex: 2,
                                           child: CachedNetworkImage(
-                                            fadeInDuration: Duration(milliseconds: 0),
-                      fadeOutDuration: Duration(milliseconds: 0),
+                                              fadeInDuration:
+                                                  Duration(milliseconds: 0),
+                                              fadeOutDuration:
+                                                  Duration(milliseconds: 0),
                                               imageUrl: schoolController
                                                   .schoolDetailsModel!
                                                   .school

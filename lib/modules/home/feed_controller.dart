@@ -3,7 +3,9 @@ import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 import 'package:quizzie_thunder/apis/feed_api.dart';
 import 'package:quizzie_thunder/apis/post_details_api.dart';
 import 'package:quizzie_thunder/models/feed_screen_response_model.dart';
+import 'package:quizzie_thunder/models/like_unlike_response_model.dart';
 import 'package:quizzie_thunder/models/post_card_item_model.dart';
+import 'package:quizzie_thunder/models/post_response_model.dart';
 import 'package:quizzie_thunder/modules/wonderous/ui/common_libs.dart';
 import 'package:quizzie_thunder/utils/app_utils.dart';
 import 'package:quizzie_thunder/utils/enums/snackbar_status.dart';
@@ -11,9 +13,10 @@ import 'package:quizzie_thunder/utils/enums/snackbar_status.dart';
 class FeedController extends GetxController {
   FeedApi feedApi = FeedApi();
 
-
   var posts = <PostCardModel>[].obs;
   int pageKey = 0;
+
+  var selectedPostId = '';
 
   // ScrollControllerroller;
   var postLen = 0;
@@ -34,7 +37,16 @@ class FeedController extends GetxController {
   void onInit() {
     super.onInit();
     getFeedScreenDetails();
-    
+  }
+
+  bool updateCurrentPostId() {
+    return true;
+  }
+
+  void updatePostLikeState(String postId, bool isLiked) {
+    var card = posts.firstWhere((item) => item.id == postId);
+    card.isLiked = isLiked;
+    posts.refresh();
   }
 
   void getFeedScreenDetails() async {
@@ -43,17 +55,14 @@ class FeedController extends GetxController {
 
     if (response.code == 200) {
       feedScreenResponseModel = response;
-      if(feedScreenResponseModel!.posts.isEmpty)
-      {
+      if (feedScreenResponseModel!.posts.isEmpty) {
         endReached.value = true;
+      } else {
+        posts.addAll(feedScreenResponseModel!.posts);
+        pageKey = pageKey + 5;
       }
-      else{
-      posts.addAll(feedScreenResponseModel!.posts);
-      pageKey = pageKey + 5;
-      }
-      
+
       // print("Page Key : ${pageKey}");
-      
 
       isLoading.value = false;
     } else {
@@ -62,18 +71,44 @@ class FeedController extends GetxController {
     }
   }
 
-  Future<bool> likePostById(bool isLiked,String postId) async{
-    var response = await feedApi.likePostById(
-      postId:""
-      // postId 
-      );
-    if (response['code'] == 200 || response['code'] == 300) {
-      // var newPost = posts.where((post)=> post.id == postId);
-      // print( posts.where((post)=> post.id == postId));
-      // posts.where((post)=> post.id == postId).first.isLiked = true;
-      return true;
-    }else{
-      return false;
+  void likePostById(String? postId, bool isLiked) async {
+    if (!isLiked) {
+      //like
+      var response =
+          await feedApi.likePostById(postId: postId ?? selectedPostId);
+      if (response.code == 200 || response.code == 300) {
+        PostDetailsResponseModel updatedPost = response;
+        var card = posts.firstWhere((item) => item.id == postId);
+        card.isLiked = true;
+        card.likes= updatedPost.post.likes;
+        posts.refresh(); // Refresh the list to update the UI
+      }
+    } else {
+      // unlike
+      var response =
+          await feedApi.dislikePostById(postId: postId ?? selectedPostId);
+
+      if (response.code == 200 || response.code == 300) {
+        PostDetailsResponseModel updatedPost = response;
+        var card = posts.firstWhere((item) => item.id == postId);
+        card.isLiked = false;
+        card.likes= updatedPost.post.likes;
+        posts.refresh();
+      }
     }
+  }
+
+  void updateIsLikedAnimatingToTrue(String postId) {
+    var card = posts.firstWhere((item) => item.id == postId);
+    card.isLikedAnimating.value = true;
+
+    posts.refresh();
+  }
+
+  void updateIsLikedAnimatingToFalse(String postId) {
+    var card = posts.firstWhere((item) => item.id == postId);
+    card.isLikedAnimating.value = false;
+
+    posts.refresh();
   }
 }

@@ -1,3 +1,4 @@
+import 'package:get/get.dart';
 class PostDetailsResponseModel {
   PostDetailsResponseModel({
     required this.code,
@@ -38,9 +39,10 @@ class Post {
     required this.likes,
     required this.createdAt,
     required this.updatedAt,
+    required this.isLiked
   });
 
-  final String? id;
+  final String id;
   final String? title;
   final String? caption;
   final School school;
@@ -48,6 +50,7 @@ class Post {
   final DateTime? createdAt;
   final DateTime? updatedAt;
   final String? imageUrl;
+  bool isLiked ;
 
   factory Post.fromJson(Map<String, dynamic> json) {
     return Post(
@@ -56,6 +59,7 @@ class Post {
       caption: json["caption"],
       imageUrl: json["image_url"],
       likes: json['likes'],
+      isLiked : json['isLiked'],
       school: School.fromJson(json['school']),
       createdAt: DateTime.tryParse(json["createdAt"] ?? ""),
       updatedAt: DateTime.tryParse(json["updatedAt"] ?? ""),
@@ -67,6 +71,7 @@ class Post {
         "title": title,
         "caption": caption,
         "likes": likes,
+        "isLiked": isLiked,
         "createdAt": createdAt?.toIso8601String(),
         "updatedAt": updatedAt?.toIso8601String(),
         "image_url":imageUrl

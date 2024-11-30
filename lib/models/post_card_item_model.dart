@@ -1,3 +1,5 @@
+import 'package:get/get.dart';
+
 class PostCardItemModel {
   final int code;
   final String  message;
@@ -23,8 +25,10 @@ class PostCardModel {
   // // final String? postUrl;
   final School school;
   final List<Comments> comments;
-  final int likes;
+  var likes;
   bool isLiked;
+  var isLikedAnimating = false.obs;
+  final String title;
 
   final DateTime? createdAt;
   final DateTime? updatedAt;
@@ -38,6 +42,7 @@ class PostCardModel {
     // // required this.profImage,
     required this.likes,
     required this.isLiked,
+    required this.title,
 
     // // required this.postUrl,
     
@@ -57,8 +62,9 @@ class PostCardModel {
           ? []
           : List<Comments>.from(
               json["comments"]!.map((x) => Comments.fromJson(x))),
-      likes: json["likes"],
+      likes : json["likes"],
       isLiked : json['isLiked'],
+      title: json['title'],
       // // postUrl: json["postUrl"] == null ? '' : json['postUrl'],
       
      
@@ -76,6 +82,7 @@ class PostCardModel {
         "comments": comments.map((x) => x.toJson()).toList(),
         // "likes": likes,
         // // "postUrl": postUrl!,
+        "title":title
         
         
         // "createdAt": createdAt?.toIso8601String(),

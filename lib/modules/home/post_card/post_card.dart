@@ -2,19 +2,24 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:like_button/like_button.dart';
+import 'package:quizzie_thunder/apis/feed_api.dart';
 import 'package:quizzie_thunder/models/post_card_item_model.dart';
 import 'package:quizzie_thunder/modules/home/feed_controller.dart';
 import 'package:quizzie_thunder/modules/home/post_card/like_animation.dart';
 import 'package:quizzie_thunder/theme/colors_theme.dart';
 import 'package:quizzie_thunder/utils/app_utils.dart';
+import 'package:shimmer/shimmer.dart';
 
 class PostCard extends StatelessWidget {
   final PostCardModel post;
   final FeedController feedController;
+  
 
   const PostCard({super.key, required this.post, required this.feedController});
+
   @override
   Widget build(BuildContext context) {
+    // final PostCardContoller = Get.put()
     return getPostCardView(post, context);
   }
 
@@ -58,7 +63,7 @@ class PostCard extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
                         Text(
-                          post.school.schoolName.toString(),
+                          post.title.toString(),
                           style: const TextStyle(
                             fontWeight: FontWeight.bold,
                           ),
@@ -115,14 +120,8 @@ class PostCard extends StatelessWidget {
           // IMAGE SECTION OF THE POST
           GestureDetector(
             onDoubleTap: () {
-              // FireStoreMethods().likePost(
-              //   widget.snap['postId'].toString(),
-              //   user.uid,
-              //   widget.snap['likes'],
-              // );
-              // setState(() {
-              //   isLikeAnimating = true;
-              // });
+              feedController.likePostById(post.id, false);
+              feedController.updateIsLikedAnimatingToTrue(post.id);
             },
             child: Stack(
               alignment: Alignment.center,
@@ -135,71 +134,59 @@ class PostCard extends StatelessWidget {
                       fit: BoxFit.cover,
                       fadeInDuration: Duration(milliseconds: 0),
                       fadeOutDuration: Duration(milliseconds: 0),
-                      progressIndicatorBuilder:
-                          (context, url, downloadProgress) =>
-                              Image.asset("assets/images/placeholder.png"),
+                      progressIndicatorBuilder: (context, url,
+                              downloadProgress) =>
+                          // Image.asset("assets/images/placeholder.png")
+                          Shimmer.fromColors(
+                              baseColor: Colors.grey[300]!,
+                              highlightColor: Colors.white,
+                              child:
+                                  Image.asset("assets/images/placeholder.png")),
                       // ),
                       errorWidget: (context, url, error) => Icon(Icons.error)),
                 ),
-                // AnimatedOpacity(
-                //   duration: const Duration(milliseconds: 200),
-                //   opacity: isLikeAnimating ? 1 : 0,
-                //   child: LikeAnimation(
-                //     isAnimating: isLikeAnimating,
-                //     duration: const Duration(
-                //       milliseconds: 400,
-                //     ),
-                //     onEnd: () {
-                //       setState(() {
-                //         isLikeAnimating = false;
-                //       });
-                //     },
-                //     child: const Icon(
-                //       Icons.favorite,
-                //       color: Colors.white,
-                //       size: 100,
-                //     ),
-                //   ),
-                // ),
+                AnimatedOpacity(
+                  duration: const Duration(milliseconds: 200),
+                  opacity: post.isLikedAnimating.value ? 1 : 0,
+                  child: LikeAnimation(
+                    isAnimating: post.isLikedAnimating.value,
+                    duration: const Duration(
+                      milliseconds: 200,
+                    ),
+                    onEnd: () {
+                      feedController.updateIsLikedAnimatingToFalse(post.id);
+                    },
+                    child: const Icon(
+                      Icons.favorite,
+                      color: Colors.red,
+                      size: 100,
+                    ),
+                  ),
+                ),
               ],
             ),
           ),
           // LIKE, COMMENT SECTION OF THE POST
           Row(
             children: <Widget>[
-              // LikeAnimation(
-              //   isAnimating: true,
-              //   // post.isLiked || feedController.isLiked.value,
-              //   smallLike: false,
-              //   child: IconButton(
-              //       icon:
-              //           // widget.snap['likes'].contains(user.uid)
-              //           post.isLiked || feedController.isLiked.value
-              //               ? const Icon(
-              //                   Icons.favorite,
-              //                   color: Colors.red,
-              //                 )
-              //               : const Icon(
-              //                   Icons.favorite_border,
-              //                 ),
-              //       onPressed: () => feedController.likePostById(post.id)),
-              // ),
-              LikeButton(
-                onTap: feedController.likePostById,
-                // size: buttonSize,
-                circleColor: CircleColor(
-                    start: Color(0xff00ddff), end: Color(0xff0099cc)),
-                bubblesColor: BubblesColor(
-                  dotPrimaryColor: Color(0xff33b5e5),
-                  dotSecondaryColor: Color(0xff0099cc),
+              AnimatedOpacity(
+                duration: const Duration(milliseconds: 200),
+                opacity: post.isLiked ? 1 : 0.5,
+                child: LikeAnimation(
+                  isAnimating: post.isLiked,
+                  smallLike: false,
+                  child: IconButton(
+                      icon: post.isLiked
+                          ? const Icon(
+                              Icons.favorite,
+                              color: Colors.red,
+                            )
+                          : const Icon(
+                              Icons.favorite_border,
+                            ),
+                      onPressed: () =>
+                          feedController.likePostById(post.id, post.isLiked)),
                 ),
-                likeBuilder: (bool isLiked) {
-                  return Icon(
-                    Icons.favorite,
-                    color: post.isLiked ? Colors.deepPurpleAccent : Colors.grey,
-                    // size: buttonSize,
-                  );
-                },
               ),
               IconButton(
                   icon: const Icon(
@@ -240,7 +227,10 @@ class PostCard extends StatelessWidget {
                         .copyWith(fontWeight: FontWeight.w800),
                     child: Text(
                       '${post.likes.toString()} likes',
-                      style: Theme.of(context).textTheme.bodyMedium,
+                      style: Theme.of(context)
+                          .textTheme
+                          .bodyMedium!
+                          .copyWith(color: ThemeColor.headerOne),
                     )),
                 Container(
                   width: double.infinity,
@@ -254,11 +244,14 @@ class PostCard extends StatelessWidget {
                         TextSpan(
                           text: post.school.schoolName.toString(),
                           style: const TextStyle(
-                            fontWeight: FontWeight.bold,
-                          ),
+                              fontWeight: FontWeight.bold,
+                              color: ThemeColor.black),
                         ),
                         TextSpan(
                           text: ' ${post.caption}',
+                          style: const TextStyle(
+                              fontWeight: FontWeight.bold,
+                              color: ThemeColor.headerOne),
                         ),
                       ],
                     ),
@@ -295,7 +288,6 @@ class PostCard extends StatelessWidget {
                     ),
                   ),
                 ),
-                Divider(),
               ],
             ),
           )

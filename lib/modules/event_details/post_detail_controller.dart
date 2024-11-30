@@ -3,6 +3,7 @@ import 'package:quizzie_thunder/apis/post_details_api.dart';
 import 'package:quizzie_thunder/models/post_card_item_model.dart';
 import 'package:quizzie_thunder/models/post_comment_response_model.dart';
 import 'package:quizzie_thunder/models/post_response_model.dart';
+import 'package:quizzie_thunder/modules/home/feed_controller.dart';
 import 'package:quizzie_thunder/modules/wonderous/ui/common_libs.dart';
 import 'package:quizzie_thunder/utils/app_utils.dart';
 import 'package:quizzie_thunder/utils/constants.dart';
@@ -10,6 +11,7 @@ import 'package:quizzie_thunder/utils/enums/snackbar_status.dart';
 
 class PostDetailController extends GetxController {
   PostDetailsApi postDetailsApi = PostDetailsApi();
+  final FeedController feedController = Get.find();
   final arguments = Get.arguments;
   var isLoading = true.obs;
   late String postId;
@@ -20,9 +22,14 @@ class PostDetailController extends GetxController {
   var limit = 5;
   var comments = [].obs;
   final commentController = TextEditingController();
+  var isLiked = false.obs;
+  var isLikeAnimating = false.obs;
+
   // final scrollController = ScrollController();
 
   PostDetailsResponseModel? postDetailsResponseModel;
+  // var postDetailsResponseModel =<PostDetailsResponseModel>.obs;
+
   PostCommentResponseModel? postCommentResponseModel;
 
   @override
@@ -99,6 +106,31 @@ class PostDetailController extends GetxController {
     } else {
       isCommentsLoading.value = false;
       AppUtils.showSnackBar("Error", status: MessageStatus.ERROR);
+    }
+  }
+
+  void likePostById(bool isLikedParam) async {
+    if (!isLikedParam) {
+      //like
+      var response = await postDetailsApi.likePostById(
+          postId: postDetailsResponseModel!.post.id);
+      if (response.code == 200 || response.code == 300) {
+
+        postDetailsResponseModel = response;
+        isLiked.value = postDetailsResponseModel!.post.isLiked;
+        feedController.updatePostLikeState(
+            postDetailsResponseModel!.post.id, true);
+      }
+    } else {
+      // unlike
+      var response = await postDetailsApi.dislikePostById(
+          postId: postDetailsResponseModel!.post.id);
+      if (response.code == 200 || response.code == 300) {
+        postDetailsResponseModel = response;
+        isLiked.value = postDetailsResponseModel!.post.isLiked;
+        feedController.updatePostLikeState(
+            postDetailsResponseModel!.post.id, false);
+      }
     }
   }
 }

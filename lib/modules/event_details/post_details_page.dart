@@ -15,7 +15,6 @@ class PostDetailsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     PostDetailController postDetailsController =
         Get.find<PostDetailController>();
-    // postDetailsController.postId = eventId;
     return Scaffold(
         appBar: AppBar(
           leading: IconButton(
@@ -183,14 +182,14 @@ class PostDetailsPage extends StatelessWidget {
                                         // IMAGE SECTION OF THE POST
                                         GestureDetector(
                                           onDoubleTap: () {
-                                            // FireStoreMethods().likePost(
-                                            //   widget.snap['postId'].toString(),
-                                            //   user.uid,
-                                            //   widget.snap['likes'],
-                                            // );
-                                            // setState(() {
-                                            //   isLikeAnimating = true;
-                                            // });
+                                            postDetailsController.likePostById(
+                                                // postDetailsController
+                                                //     .postDetailsResponseModel!
+                                                //     .post
+                                                //     .isLiked
+                                                    false);
+                                            postDetailsController
+                                                .isLikeAnimating.value = true;
                                           },
                                           child: Stack(
                                             alignment: Alignment.center,
@@ -219,55 +218,88 @@ class PostDetailsPage extends StatelessWidget {
                                                         (context, url, error) =>
                                                             Icon(Icons.error)),
                                               ),
-                                              // AnimatedOpacity(
-                                              //   duration: const Duration(milliseconds: 200),
-                                              //   opacity: isLikeAnimating ? 1 : 0,
-                                              //   child: LikeAnimation(
-                                              //     isAnimating: isLikeAnimating,
-                                              //     duration: const Duration(
-                                              //       milliseconds: 400,
-                                              //     ),
-                                              //     onEnd: () {
-                                              //       setState(() {
-                                              //         isLikeAnimating = false;
-                                              //       });
-                                              //     },
-                                              //     child: const Icon(
-                                              //       Icons.favorite,
-                                              //       color: Colors.white,
-                                              //       size: 100,
-                                              //     ),
-                                              //   ),
-                                              // ),
+                                              AnimatedOpacity(
+                                                duration: const Duration(
+                                                    milliseconds: 200),
+                                                opacity: postDetailsController
+                                                        .isLikeAnimating.value
+                                                    ? 1
+                                                    : 0,
+                                                child: LikeAnimation(
+                                                  isAnimating:
+                                                      postDetailsController
+                                                          .isLikeAnimating
+                                                          .value,
+                                                  duration: const Duration(
+                                                    milliseconds: 400,
+                                                  ),
+                                                  onEnd: () {
+                                                    postDetailsController
+                                                        .isLikeAnimating
+                                                        .value = false;
+                                                  },
+                                                  child: const Icon(
+                                                    Icons.favorite,
+                                                    color: Colors.white,
+                                                    size: 100,
+                                                  ),
+                                                ),
+                                              ),
                                             ],
                                           ),
                                         ),
                                         // LIKE, COMMENT SECTION OF THE POST
                                         Row(
                                           children: <Widget>[
-                                            LikeAnimation(
-                                              isAnimating: 1 == 1,
-                                              smallLike: true,
-                                              child: IconButton(
-                                                  icon:
-                                                      // widget.snap['likes'].contains(user.uid)
-                                                      1 == 1
-                                                          ? const Icon(
-                                                              Icons.favorite,
-                                                              color: Colors.red,
-                                                            )
-                                                          : const Icon(
-                                                              Icons
-                                                                  .favorite_border,
-                                                            ),
-                                                  onPressed: () => {}
-                                                  // FireStoreMethods().likePost(
-                                                  //   widget.snap['postId'].toString(),
-                                                  //   user.uid,
-                                                  //   widget.snap['likes'],
-                                                  // ),
-                                                  ),
+                                            Text(
+                                              postDetailsController
+                                                  .isLiked.value
+                                                  .toString(),
+                                              style: TextStyle(
+                                                  fontSize: 1,
+                                                  color: ThemeColor.white),
                                             ),
+
+                                            LikeAnimation(
+                                              isAnimating: postDetailsController
+                                                  .postDetailsResponseModel!
+                                                  .post
+                                                  .isLiked,
+                                              smallLike: false,
+                                              child: IconButton(
+                                                  icon: postDetailsController
+                                                          .postDetailsResponseModel!
+                                                          .post
+                                                          .isLiked
+                                                      ? const Icon(
+                                                          Icons.favorite,
+                                                          color: Colors.red,
+                                                        )
+                                                      : const Icon(
+                                                          Icons.favorite_border,
+                                                        ),
+                                                  onPressed: () => {
+                                                        postDetailsController
+                                                            .likePostById(
+                                                                postDetailsController
+                                                                    .postDetailsResponseModel!
+                                                                    .post
+                                                                    .isLiked)
+                                                      }),
+                                            ),
+                                            DefaultTextStyle(
+                                                style: Theme.of(context)
+                                                    .textTheme
+                                                    .titleSmall!
+                                                    .copyWith(
+                                                        fontWeight:
+                                                            FontWeight.w800),
+                                                child: Text(
+                                                  '${postDetailsController.postDetailsResponseModel!.post.likes.toString()} likes',
+                                                  style: Theme.of(context)
+                                                      .textTheme
+                                                      .bodyMedium,
+                                                )),
                                             // IconButton(
                                             //     icon: const Icon(
                                             //       Icons.comment_outlined,
@@ -304,19 +336,6 @@ class PostDetailsPage extends StatelessWidget {
                                             crossAxisAlignment:
                                                 CrossAxisAlignment.start,
                                             children: <Widget>[
-                                              DefaultTextStyle(
-                                                  style: Theme.of(context)
-                                                      .textTheme
-                                                      .titleSmall!
-                                                      .copyWith(
-                                                          fontWeight:
-                                                              FontWeight.w800),
-                                                  child: Text(
-                                                    '${postDetailsController.postDetailsResponseModel!.post.likes.toString()} likes',
-                                                    style: Theme.of(context)
-                                                        .textTheme
-                                                        .bodyMedium,
-                                                  )),
                                               Container(
                                                 width: double.infinity,
                                                 padding: const EdgeInsets.only(
@@ -334,13 +353,19 @@ class PostDetailsPage extends StatelessWidget {
                                                             .schoolName
                                                             .toString(),
                                                         style: const TextStyle(
-                                                          fontWeight:
-                                                              FontWeight.bold,
-                                                        ),
+                                                            fontWeight:
+                                                                FontWeight.bold,
+                                                            color: ThemeColor
+                                                                .black),
                                                       ),
                                                       TextSpan(
                                                         text:
                                                             ' ${postDetailsController.postDetailsResponseModel!.post.caption}',
+                                                        style: const TextStyle(
+                                                            fontWeight:
+                                                                FontWeight.bold,
+                                                            color: ThemeColor
+                                                                .headerOne),
                                                       ),
                                                     ],
                                                   ),
@@ -509,9 +534,9 @@ class PostDetailsPage extends StatelessWidget {
                 postDetailController.isCommentsLoading.value
                     ? CircularProgressIndicator()
                     : Container(),
-                TextButton(
-                    onPressed: postDetailController.getComments,
-                    child: Text("Load More"))
+                // TextButton(
+                //     onPressed: postDetailController.getComments,
+                //     child: Text("Load More"))
               ],
             ),
     );

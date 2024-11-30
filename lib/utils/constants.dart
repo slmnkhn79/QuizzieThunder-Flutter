@@ -20,8 +20,8 @@ const KEY_IS_API_ERROR_HANDLE = "key_is_api_error_handle";
 // Commonly used constants
 const PAGE_LIMIT = "50";
 // const BASE_URL = "https://quizzie-thunder-apis.onrender.com/";
-const BASE_URL = "http://192.168.1.40:1337/parse/functions";
-// const BASE_URL = "https://parseapi.back4app.com/parse/functions";
+// const BASE_URL = "http://192.168.1.40:1337/parse/functions";
+const BASE_URL = "https://parseapi.back4app.com/parse/functions";
 // 
 
 const BASE_URL_DEFAULT= "https://parseapi.back4app.com/parse/";
