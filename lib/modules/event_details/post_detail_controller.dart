@@ -3,6 +3,7 @@ import 'package:quizzie_thunder/apis/post_details_api.dart';
 import 'package:quizzie_thunder/models/post_card_item_model.dart';
 import 'package:quizzie_thunder/models/post_comment_response_model.dart';
 import 'package:quizzie_thunder/models/post_response_model.dart';
+import 'package:quizzie_thunder/modules/wonderous/ui/common_libs.dart';
 import 'package:quizzie_thunder/utils/app_utils.dart';
 import 'package:quizzie_thunder/utils/constants.dart';
 import 'package:quizzie_thunder/utils/enums/snackbar_status.dart';
@@ -18,6 +19,8 @@ class PostDetailController extends GetxController {
   var skip = 0;
   var limit = 5;
   var comments = [].obs;
+  final commentController = TextEditingController();
+  // final scrollController = ScrollController();
 
   PostDetailsResponseModel? postDetailsResponseModel;
   PostCommentResponseModel? postCommentResponseModel;
@@ -30,6 +33,13 @@ class PostDetailController extends GetxController {
       getComments();
     }
     super.onInit();
+  }
+
+  @override
+  void onClose() {
+    // Dispose the TextEditingController when the controller is being disposed
+    commentController.dispose();
+    super.onClose();
   }
 
   void updateComment(String value) {
@@ -50,14 +60,23 @@ class PostDetailController extends GetxController {
 
   void addComment() async {
     isCommentPosted.value = false;
+    if (commentText.value.isEmpty) {
+      isCommentPosted.value = true;
+      AppUtils.showSnackBar("Please Enter some Text",
+          status: MessageStatus.ERROR);
+    }
+
     var response = await postDetailsApi.addCommentToPost(
         postId: postId, content: commentText.value);
-    if (response['code']== 200) {
+    if (response['code'] == 200) {
       // postDetailsResponseModel = response;
       isCommentPosted.value = true;
-      commentText.value ='';
+      commentText.value = '';
       skip = 0;
       limit = 5;
+      updateComment('');
+      commentController.clear();
+      // comments.add(res)
       getComments();
     } else {
       isCommentPosted.value = true;
@@ -68,14 +87,15 @@ class PostDetailController extends GetxController {
   void getComments() async {
     isCommentsLoading.value = true;
     var response = await postDetailsApi.getCommentForPost(
-        postId: postId, skip:  skip, limit: limit);
+        postId: postId, skip: skip, limit: limit);
     if (response.code == 200) {
       postCommentResponseModel = response;
-      if(skip == 0) comments.value = []; 
+      if (skip == 0) comments.value = [];
       comments.addAll(postCommentResponseModel!.comments);
-
+      if (postCommentResponseModel!.comments.isNotEmpty) {
+        skip = skip + comments.length;
+      }
       isCommentsLoading.value = false;
-      skip = skip + comments.length;
     } else {
       isCommentsLoading.value = false;
       AppUtils.showSnackBar("Error", status: MessageStatus.ERROR);

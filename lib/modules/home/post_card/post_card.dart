@@ -1,14 +1,18 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:like_button/like_button.dart';
 import 'package:quizzie_thunder/models/post_card_item_model.dart';
+import 'package:quizzie_thunder/modules/home/feed_controller.dart';
 import 'package:quizzie_thunder/modules/home/post_card/like_animation.dart';
 import 'package:quizzie_thunder/theme/colors_theme.dart';
 import 'package:quizzie_thunder/utils/app_utils.dart';
 
 class PostCard extends StatelessWidget {
   final PostCardModel post;
+  final FeedController feedController;
 
-  const PostCard({super.key, required this.post});
+  const PostCard({super.key, required this.post, required this.feedController});
   @override
   Widget build(BuildContext context) {
     return getPostCardView(post, context);
@@ -64,7 +68,7 @@ class PostCard extends StatelessWidget {
                   ),
                 ),
                 // widget.snap['uid'].toString() == user.uid
-                1 == 1
+                post.isLiked
                     ? IconButton(
                         onPressed: () {
                           showDialog(
@@ -163,27 +167,39 @@ class PostCard extends StatelessWidget {
           // LIKE, COMMENT SECTION OF THE POST
           Row(
             children: <Widget>[
-              LikeAnimation(
-                isAnimating: 1 == 1,
-                smallLike: true,
-                child: IconButton(
-                    icon:
-                        // widget.snap['likes'].contains(user.uid)
-                        1 == 1
-                            ? const Icon(
-                                Icons.favorite,
-                                color: Colors.red,
-                              )
-                            : const Icon(
-                                Icons.favorite_border,
-                              ),
-                    onPressed: () => {}
-                    // FireStoreMethods().likePost(
-                    //   widget.snap['postId'].toString(),
-                    //   user.uid,
-                    //   widget.snap['likes'],
-                    // ),
-                    ),
+              // LikeAnimation(
+              //   isAnimating: true,
+              //   // post.isLiked || feedController.isLiked.value,
+              //   smallLike: false,
+              //   child: IconButton(
+              //       icon:
+              //           // widget.snap['likes'].contains(user.uid)
+              //           post.isLiked || feedController.isLiked.value
+              //               ? const Icon(
+              //                   Icons.favorite,
+              //                   color: Colors.red,
+              //                 )
+              //               : const Icon(
+              //                   Icons.favorite_border,
+              //                 ),
+              //       onPressed: () => feedController.likePostById(post.id)),
+              // ),
+              LikeButton(
+                onTap: feedController.likePostById,
+                // size: buttonSize,
+                circleColor: CircleColor(
+                    start: Color(0xff00ddff), end: Color(0xff0099cc)),
+                bubblesColor: BubblesColor(
+                  dotPrimaryColor: Color(0xff33b5e5),
+                  dotSecondaryColor: Color(0xff0099cc),
+                ),
+                likeBuilder: (bool isLiked) {
+                  return Icon(
+                    Icons.favorite,
+                    color: post.isLiked ? Colors.deepPurpleAccent : Colors.grey,
+                    // size: buttonSize,
+                  );
+                },
               ),
               IconButton(
                   icon: const Icon(

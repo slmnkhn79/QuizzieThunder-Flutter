@@ -44,4 +44,15 @@ class PostDetailsApi {
       rethrow;
     }
   }
+  Future<dynamic> likePostById(
+      {required String postId}) async {
+    try {
+      final response = await DioClient.getDioInstance().post(
+          "/likePostById",
+          data: {'postId':postId,'userId':GetStorage().read(KEY_USER_DATA)['result']['_id']});
+      return response.data['result'];
+    } catch (e) {
+      rethrow;
+    }
+  }
 }

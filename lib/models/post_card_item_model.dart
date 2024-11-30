@@ -24,6 +24,7 @@ class PostCardModel {
   final School school;
   final List<Comments> comments;
   final int likes;
+  bool isLiked;
 
   final DateTime? createdAt;
   final DateTime? updatedAt;
@@ -36,6 +37,8 @@ class PostCardModel {
     required this.comments,
     // // required this.profImage,
     required this.likes,
+    required this.isLiked,
+
     // // required this.postUrl,
     
     required this.createdAt,
@@ -55,6 +58,7 @@ class PostCardModel {
           : List<Comments>.from(
               json["comments"]!.map((x) => Comments.fromJson(x))),
       likes: json["likes"],
+      isLiked : json['isLiked'],
       // // postUrl: json["postUrl"] == null ? '' : json['postUrl'],
       
      

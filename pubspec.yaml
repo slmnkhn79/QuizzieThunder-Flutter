@@ -49,6 +49,7 @@ dependencies:
   flutter_card_swiper: ^7.0.2
   card_swiper: ^3.0.1
   infinite_scroll_pagination: ^4.1.0
+  like_button: ^2.0.5
   # parse_server_sdk_flutter: ^9.0.0
 
 

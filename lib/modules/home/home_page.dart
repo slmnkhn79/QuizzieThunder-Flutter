@@ -1,18 +1,12 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:card_swiper/card_swiper.dart';
 import 'package:dartx/dartx.dart';
-import 'package:expandable_page_view/expandable_page_view.dart';
-import 'package:exprollable_page_view/exprollable_page_view.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
-import 'package:quizzie_thunder/models/post_card_item_model.dart';
 import 'package:quizzie_thunder/modules/home/feed_controller.dart';
 import 'package:quizzie_thunder/modules/home/post_card/post_card.dart';
-import 'package:swipe_cards/swipe_cards.dart';
 
-import '../../models/all_quiz_response_model.dart';
 import '../../routes/app_routes.dart';
 import '../../theme/colors_theme.dart';
 import '../../utils/app_utils.dart';
@@ -704,7 +698,7 @@ class HomePage extends StatelessWidget {
                       ARG_POST_ID: feedController.posts[index].id
                     });
                   },
-                  child: PostCard(post: feedController.posts[index]));
+                  child: PostCard(post: feedController.posts[index],feedController: feedController,));
             }),
         SizedBox(
             width: double.infinity,
@@ -887,7 +881,7 @@ class HomePage extends StatelessWidget {
                   Get.toNamed(AppRoutes.postDetailsPage,
                       arguments: {ARG_POST_ID: feedController.posts[index].id});
                 },
-                child: PostCard(post: feedController.posts[index]));
+                child: PostCard(post: feedController.posts[index], feedController: feedController, ));
           },
           separatorBuilder: (context, index) => const Divider(),
         ),
