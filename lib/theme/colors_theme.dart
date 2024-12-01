@@ -55,4 +55,11 @@ class ThemeColor {
   static const Color headerOne = Color(0xff3b5998);
   static const Color headerTwo = Color(0xff8b9dc3);
   static const Color headerThree = Color(0xffdfe3ee);
+  static Color accent1 = Color(0xFFE4935D);
+  static Color accent2 = Color(0xFFBEABA1);
+  static Color offWhite = Color(0xFFF8ECE5);
+  static Color caption = const Color(0xFF7D7873);
+  static Color body = const Color(0xFF514F4D);
+  static Color greyStrong = const Color(0xFF272625);
+  static Color greyMedium = const Color(0xFF9D9995);
 }

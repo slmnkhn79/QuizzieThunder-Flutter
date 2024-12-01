@@ -35,6 +35,7 @@ class FeedApi {
       rethrow;
     }
   }
+
   Future<dynamic> dislikePostById(
       {required String postId}) async {
     try {
