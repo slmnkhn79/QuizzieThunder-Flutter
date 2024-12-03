@@ -1,3 +1,4 @@
+import 'package:quizzie_thunder/logic/data/wonder_data.dart';
 import 'package:quizzie_thunder/modules/wonderous/ui/common_libs.dart';
 import 'package:quizzie_thunder/modules/wonderous/ui/wonder_illustration/common/wonder_illustration_config.dart';
 import 'package:quizzie_thunder/styles/styles.dart';

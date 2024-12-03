@@ -22,7 +22,8 @@ class _TitleText extends StatelessWidget {
 
                   /// Sub-title row
                   SeparatedRow(
-                    padding: EdgeInsets.symmetric(horizontal: AppStyle().insets.sm),
+                    padding:
+                        EdgeInsets.symmetric(horizontal: AppStyle().insets.sm),
                     separatorBuilder: () => Gap(AppStyle().insets.sm),
                     children: [
                       Expanded(
@@ -53,10 +54,11 @@ class _TitleText extends StatelessWidget {
                     child: AnimatedBuilder(
                         animation: scroller,
                         builder: (_, __) {
-                          final yPos = ContextUtils.getGlobalPos(context)?.dy ?? 0;
+                          final yPos =
+                              ContextUtils.getGlobalPos(context)?.dy ?? 0;
                           bool enableHero = yPos > -100;
-                          // return WonderTitleText(data, enableHero: enableHero);
-                          return Text("Wonder Title Text");
+                          return WonderTitleText(data, enableHero: enableHero);
+                          // return Text("Wonder Title Text");
                         }),
                   ),
                   Gap(AppStyle().insets.xs),
@@ -72,7 +74,8 @@ class _TitleText extends StatelessWidget {
                   /// Compass divider
                   ExcludeSemantics(
                     child: Padding(
-                      padding: EdgeInsets.symmetric(horizontal: AppStyle().insets.sm),
+                      padding: EdgeInsets.symmetric(
+                          horizontal: AppStyle().insets.sm),
                       child: AnimatedBuilder(
                         animation: scroller,
                         builder: (_, __) => CompassDivider(
@@ -87,8 +90,9 @@ class _TitleText extends StatelessWidget {
 
                   /// Date
                   Text(
-                    // $strings.titleLabelDate(StringUtils.formatYr(data.startYr), StringUtils.formatYr(data.endYr)),
-                    "title Label Date",
+                    // AppStrings().titleLabelDatefromDate: StringUtils.formatYr(data.startYr), endDate: StringUtils.formatYr(data.endYr)),
+                    "${StringUtils.formatYr(data.startYr)} ${StringUtils.formatYr(data.endYr)}",
+                    // "title Label Date",
                     style: AppStyle().text.h4,
                     textAlign: TextAlign.center,
                   ),

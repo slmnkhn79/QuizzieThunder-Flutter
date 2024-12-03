@@ -3,8 +3,8 @@ part of '../editorial_screen.dart';
 class _CollapsingPullQuoteImage extends StatelessWidget {
   const _CollapsingPullQuoteImage({super.key, required this.scrollPos, required this.data});
   final ValueNotifier<double> scrollPos;
-  // final WonderData data;
-  final dynamic data;
+  final WonderData data;
+  // final dynamic data;
 
   @override
   Widget build(BuildContext context) {
@@ -116,14 +116,38 @@ class _CollapsingPullQuoteImage extends StatelessWidget {
     );
   }
 
+  // Widget _buildImage(double collapseAmt) {
+  //   return Stack(
+  //     fit: StackFit.expand,
+  //     children: [
+  //       ScalingListItem(
+  //         scrollPos: scrollPos,
+  //         child: Image.asset(
+  //           data.type.photo2,
+  //           fit: BoxFit.cover,
+  //           opacity: AlwaysStoppedAnimation(1 - collapseAmt * .7),
+  //         ),
+  //       ),
+  //       GradientContainer(
+  //         [
+  //           Color(0xFFBEABA1).withOpacity(1),
+  //           Color(0xFFA6958C).withOpacity(1),
+  //         ],
+  //         const [0.0, 1.0],
+  //         blendMode: BlendMode.colorBurn,
+  //       ),
+  //     ],
+  //   );
+  // }
+
   Widget _buildImage(double collapseAmt) {
     return Stack(
       fit: StackFit.expand,
       children: [
         ScalingListItem(
           scrollPos: scrollPos,
-          child: Image.asset(
-            data.type.photo2,
+          child: Image.network(
+            data.photo2,
             fit: BoxFit.cover,
             opacity: AlwaysStoppedAnimation(1 - collapseAmt * .7),
           ),

@@ -1,5 +1,5 @@
 import 'dart:ui' as ui;
-
+import 'package:http/http.dart' as http;
 import 'package:quizzie_thunder/assets.dart';
 import 'package:quizzie_thunder/modules/wonderous/ui/common_libs.dart';
 import 'package:quizzie_thunder/modules/wonderous/ui/wonder_illustration/common/wonder_illustration_builder.dart';
@@ -7,24 +7,25 @@ import 'package:quizzie_thunder/modules/wonderous/ui/wonder_illustration/common/
 /// Combines [Align], [FractionalBoxWithMinSize], [Image] and [Transform.translate]
 /// to standardize behavior across the various wonder illustrations
 class IllustrationPiece extends StatefulWidget {
-  const IllustrationPiece({
-    super.key,
-    required this.fileName,
-    required this.heightFactor,
-    this.alignment = Alignment.center,
-    this.minHeight,
-    this.offset = Offset.zero,
-    this.fractionalOffset,
-    this.zoomAmt = 0,
-    this.initialOffset = Offset.zero,
-    this.enableHero = false,
-    this.initialScale = 1,
-    this.dynamicHzOffset = 0,
-    this.top,
-    this.bottom,
-  });
+  const IllustrationPiece(
+      {super.key,
+      required this.fileName,
+      required this.heightFactor,
+      this.alignment = Alignment.center,
+      this.minHeight,
+      this.offset = Offset.zero,
+      this.fractionalOffset,
+      this.zoomAmt = 0,
+      this.initialOffset = Offset.zero,
+      this.enableHero = false,
+      this.initialScale = 1,
+      this.dynamicHzOffset = 0,
+      this.top,
+      this.bottom,
+      });
 
   final String fileName;
+
 
   final Alignment alignment;
 
@@ -70,14 +71,26 @@ class _IllustrationPieceState extends State<IllustrationPiece> {
     final wonderBuilder = context.watch<WonderIllustrationBuilderState>();
     final type = wonderBuilder.widget.wonderType;
     final imgPath = '${type.assetPath}/${widget.fileName}';
+    // final imageUrl = widget.imageUrl;
     // Dynamically determine the aspect ratio of the image, so we can more easily position it
     if (aspectRatio == null) {
       aspectRatio == 0; // indicates load has started, so we don't run twice
-      rootBundle.load(imgPath).then((img) async {
-        uiImage = await decodeImageFromList(img.buffer.asUint8List());
-        if (!mounted) return;
-        setState(() => aspectRatio = uiImage!.width / uiImage!.height);
-      });
+      // rootBundle.load(imgPath)
+      // http.get(Uri.parse(imageUrl))
+      // .then((response) async {
+      //   final uiImage = await decodeImageFromList(response.bodyBytes);
+      //   // uiImage = await decodeImageFromList(img.asUint8List());
+      //   if (!mounted) return;
+      //   setState(() => aspectRatio = uiImage!.width / uiImage!.height);
+      // });
+      if (aspectRatio == null) {
+        aspectRatio == 0; // indicates load has started, so we don't run twice
+        rootBundle.load(imgPath).then((img) async {
+          uiImage = await decodeImageFromList(img.buffer.asUint8List());
+          if (!mounted) return;
+          setState(() => aspectRatio = uiImage!.width / uiImage!.height);
+        });
+      }
     }
     return Align(
       alignment: widget.alignment,
@@ -87,14 +100,18 @@ class _IllustrationPieceState extends State<IllustrationPiece> {
             final anim = wonderBuilder.anim;
             final curvedAnim = Curves.easeOut.transform(anim.value);
             final config = wonderBuilder.widget.config;
-            Widget img = Image.asset(imgPath, opacity: anim, fit: BoxFit.fitHeight);
+            Widget img =
+                Image.asset(imgPath, opacity: anim, fit: BoxFit.fitHeight);
+                // Image.network(imageUrl, opacity: anim, fit: BoxFit.fitHeight)
             // Add overflow box so image doesn't get clipped as we translate it around
             img = OverflowBox(maxWidth: 2500, child: img);
 
-            final double introZoom = (widget.initialScale - 1) * (1 - curvedAnim);
+            final double introZoom =
+                (widget.initialScale - 1) * (1 - curvedAnim);
 
             /// Determine target height
-            final double height = max(widget.minHeight ?? 0, constraints.maxHeight * widget.heightFactor);
+            final double height = max(widget.minHeight ?? 0,
+                constraints.maxHeight * widget.heightFactor);
 
             /// Combine all the translations, initial + offset + dynamicHzOffset + fractionalOffset
             Offset finalTranslation = widget.offset;
@@ -103,8 +120,10 @@ class _IllustrationPieceState extends State<IllustrationPiece> {
               finalTranslation += widget.initialOffset * (1 - curvedAnim);
             }
             // Dynamic
-            final dynamicOffsetAmt = ((context.widthPx - 400) / 1100).clamp(0, 1);
-            finalTranslation += Offset(dynamicOffsetAmt * widget.dynamicHzOffset, 0);
+            final dynamicOffsetAmt =
+                ((context.widthPx - 400) / 1100).clamp(0, 1);
+            finalTranslation +=
+                Offset(dynamicOffsetAmt * widget.dynamicHzOffset, 0);
             // Fractional
             final width = height * (aspectRatio ?? 0);
             if (widget.fractionalOffset != null) {
@@ -130,11 +149,15 @@ class _IllustrationPieceState extends State<IllustrationPiece> {
 
             return Stack(
               children: [
-                if (widget.bottom != null) Positioned.fill(child: widget.bottom!.call(context)),
+                if (widget.bottom != null)
+                  Positioned.fill(child: widget.bottom!.call(context)),
                 if (uiImage != null) ...[
-                  widget.enableHero ? Hero(tag: '$type-${widget.fileName}', child: content!) : content!,
+                  widget.enableHero
+                      ? Hero(tag: '$type-${widget.fileName}', child: content!)
+                      : content!,
                 ],
-                if (widget.top != null) Positioned.fill(child: widget.top!.call(context)),
+                if (widget.top != null)
+                  Positioned.fill(child: widget.top!.call(context)),
               ],
             );
           }),

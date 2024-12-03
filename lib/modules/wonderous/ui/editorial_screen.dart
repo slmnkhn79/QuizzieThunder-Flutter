@@ -9,8 +9,8 @@ import 'package:quizzie_thunder/assets.dart';
 import 'package:quizzie_thunder/logic/common/platform_info.dart';
 import 'package:quizzie_thunder/logic/common/string_utils.dart';
 import 'package:quizzie_thunder/logic/data/wonder_data.dart';
-import 'package:quizzie_thunder/models/school_details_model.dart';
 import 'package:quizzie_thunder/modules/wonderous/ui/common/app_icons.dart';
+
 import 'package:quizzie_thunder/modules/wonderous/ui/common/blend_mask.dart';
 import 'package:quizzie_thunder/modules/wonderous/ui/common/centered_box.dart';
 import 'package:quizzie_thunder/modules/wonderous/ui/common/comapss_divider.dart';
@@ -26,11 +26,15 @@ import 'package:quizzie_thunder/modules/wonderous/ui/common_libs.dart';
 import 'package:quizzie_thunder/modules/wonderous/ui/controls/app_image.dart';
 import 'package:quizzie_thunder/modules/wonderous/ui/controls/button.dart';
 import 'package:quizzie_thunder/modules/wonderous/ui/controls/circle_buttons.dart';
+
 import 'package:quizzie_thunder/modules/wonderous/ui/utils/context_utils.dart';
+import 'package:quizzie_thunder/modules/wonderous/ui/wonder_illustration/common/wonder_illustration.dart';
+import 'package:quizzie_thunder/modules/wonderous/ui/wonder_illustration/common/wonder_illustration_config.dart';
+import 'package:quizzie_thunder/modules/wonderous/ui/wonder_illustration/common/wonder_title_text.dart';
 import 'package:quizzie_thunder/routes/app_routes.dart';
 import 'package:quizzie_thunder/styles/styles.dart';
 import 'package:quizzie_thunder/styles/wonders_color_extensions.dart';
-
+import 'package:quizzie_thunder/utils/wonder_app_strings.dart';
 
 part 'widgets/_app_bar.dart';
 part 'widgets/_callout.dart';
@@ -43,10 +47,9 @@ part 'widgets/_sliding_image_stack.dart';
 part 'widgets/_title_text.dart';
 part 'widgets/_top_illustration.dart';
 
-
-
 class WonderEditorialScreen extends StatefulWidget {
-  const WonderEditorialScreen(this.data, {super.key, required this.contentPadding});
+  const WonderEditorialScreen(this.data,
+      {super.key, required this.contentPadding});
   final WonderData data;
   // final SchoolDetailsModel data;
   //final void Function(double scrollPos) onScroll;
@@ -57,7 +60,8 @@ class WonderEditorialScreen extends StatefulWidget {
 }
 
 class _WonderEditorialScreenState extends State<WonderEditorialScreen> {
-  late final ScrollController _scroller = ScrollController()..addListener(_handleScrollChanged);
+  late final ScrollController _scroller = ScrollController()
+    ..addListener(_handleScrollChanged);
   final _scrollPos = ValueNotifier(0.0);
   final _sectionIndex = ValueNotifier(0);
 
@@ -83,7 +87,8 @@ class _WonderEditorialScreenState extends State<WonderEditorialScreen> {
       double minAppBarHeight = shortMode ? 80 : 150;
 
       /// Attempt to maintain a similar aspect ratio for the image within the app-bar
-      double maxAppBarHeight = min(context.widthPx, AppStyle().sizes.maxContentWidth1) * 1.2;
+      double maxAppBarHeight =
+          min(context.widthPx, AppStyle().sizes.maxContentWidth1) * 1.2;
       // final backBtnAlign = appLogic.shouldUseNavRail() ? Alignment.topRight : Alignment.topLeft;
       final backBtnAlign = Alignment.topLeft;
       return PopRouterOnOverScroll(
@@ -109,50 +114,62 @@ class _WonderEditorialScreenState extends State<WonderEditorialScreen> {
                   },
                   // This is due to a bug: https://github.com/flutter/flutter/issues/101872
                   child: RepaintBoundary(
-                      child: _TopIllustration(
-                    // widget.data.type,
-                    "tajMahal",
-                    // Polish: Inject the content padding into the illustration as an offset, so it can center itself relative to the content
-                    // this allows the background to extend underneath the vertical side nav when it has rounded corners.
-                    fgOffset: Offset(widget.contentPadding.left / 2, 0),
-                  )),
+                      child:
+                          //      _TopIllustration(
+                          //   widget.data.type,
+                          //   widget.data,
+                          //   // "tajMahal",
+                          //   // Polish: Inject the content padding into the illustration as an offset, so it can center itself relative to the content
+                          //   // this allows the background to extend underneath the vertical side nav when it has rounded corners.
+                          //   fgOffset: Offset(widget.contentPadding.left / 2, 0),
+                          // )
+                          
+                            AdaptiveImage(imageUrl: widget.data.headerPhoto, width: 600, height: 500)
+                            ),
                 ),
               ),
 
-              /// Scrolling content - Includes an invisible gap at the top, and then scrolls over the illustration
+              // Scrolling content - Includes an invisible gap at the top, and then scrolls over the illustration
               TopCenter(
+                // heightFactor: 1.0,
                 child: Padding(
                   padding: widget.contentPadding,
                   child: SizedBox(
+                    height: MediaQuery.of(context).size.height,
+                    // height: double.infinity,
                     child: FocusTraversalGroup(
                       child: FullscreenKeyboardListScroller(
                         scrollController: _scroller,
                         child: CustomScrollView(
                           controller: _scroller,
-                          scrollBehavior: ScrollConfiguration.of(context).copyWith(),
+                          scrollBehavior:
+                              ScrollConfiguration.of(context).copyWith(),
                           key: PageStorageKey('editorial'),
                           slivers: [
                             /// Invisible padding at the top of the list, so the illustration shows through the btm
                             SliverToBoxAdapter(
                               child: SizedBox(height: illustrationHeight),
                             ),
-
+                    
                             /// Text content, animates itself to hide behind the app bar as it scrolls up
                             SliverToBoxAdapter(
                               child: ValueListenableBuilder<double>(
                                 valueListenable: _scrollPos,
                                 builder: (_, value, child) {
                                   double offsetAmt = max(0, value * .3);
-                                  double opacity = (1 - offsetAmt / 150).clamp(0, 1);
+                                  double opacity =
+                                      (1 - offsetAmt / 150).clamp(0, 1);
                                   return Transform.translate(
                                     offset: Offset(0, offsetAmt),
-                                    child: Opacity(opacity: opacity, child: child),
+                                    child:
+                                        Opacity(opacity: opacity, child: child),
                                   );
                                 },
-                                child: _TitleText(widget.data, scroller: _scroller),
+                                child: _TitleText(widget.data,
+                                    scroller: _scroller),
                               ),
                             ),
-
+                    
                             /// Collapsing App bar, pins to the top of the list
                             SliverAppBar(
                               pinned: true,
@@ -165,14 +182,17 @@ class _WonderEditorialScreenState extends State<WonderEditorialScreen> {
                               flexibleSpace: SizedBox.expand(
                                 child: _AppBar(
                                   widget.data.type,
+                                  widget.data,
                                   scrollPos: _scrollPos,
                                   sectionIndex: _sectionIndex,
                                 ),
                               ),
                             ),
-
+                    
                             /// Editorial content (text and images)
-                            _ScrollingContent(widget.data, scrollPos: _scrollPos, sectionNotifier: _sectionIndex),
+                            _ScrollingContent(widget.data,
+                                scrollPos: _scrollPos,
+                                sectionNotifier: _sectionIndex),
                           ],
                         ),
                       ),
@@ -181,28 +201,84 @@ class _WonderEditorialScreenState extends State<WonderEditorialScreen> {
                 ),
               ),
 
-              /// Home Btn
-              AnimatedBuilder(
-                animation: _scroller,
-                builder: (_, child) {
-                  return AnimatedOpacity(
-                    opacity: _scrollPos.value > 0 ? 0 : 1,
-                    duration: AppStyle().times.med,
-                    child: child,
-                  );
-                },
-                child: Align(
-                  alignment: backBtnAlign,
-                  child: Padding(
-                    padding: EdgeInsets.all(AppStyle().insets.sm),
-                    child: BackBtn(icon: AppIcons.north, onPressed: _handleBackPressed),
-                  ),
-                ),
-              )
+              // Home Btn
+              // AnimatedBuilder(
+              //   animation: _scroller,
+              //   builder: (_, child) {
+              //     return AnimatedOpacity(
+              //       opacity: _scrollPos.value > 0 ? 0 : 1,
+              //       duration: AppStyle().times.med,
+              //       child: child,
+              //     );
+              //   },
+              //   child: Align(
+              //     alignment: backBtnAlign,
+              //     child: Padding(
+              //       padding: EdgeInsets.all(AppStyle().insets.sm),
+              //       child: BackBtn(icon: AppIcons.north, onPressed: _handleBackPressed),
+              //     ),
+              //   ),
+              // )
             ],
           ),
         ),
       );
     });
+  }
+}
+class AdaptiveImage extends StatelessWidget {
+  final String imageUrl;
+  final double width;
+  final double height;
+
+  AdaptiveImage({
+    required this.imageUrl,
+    required this.width,
+    required this.height,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return FutureBuilder<Image>(
+      future: _getImageWithAspectRatio(),
+      builder: (BuildContext context, AsyncSnapshot<Image> snapshot) {
+        if (snapshot.connectionState == ConnectionState.done && snapshot.hasData) {
+          return snapshot.data!;
+        } else {
+          return SizedBox(
+            width: width,
+            height: height,
+            child: Center(
+              child: CircularProgressIndicator(),
+            ),
+          );
+        }
+      },
+    );
+  }
+  Future<Image> _getImageWithAspectRatio() async {
+    final Image image = Image.network(imageUrl);
+
+    final Completer<Size> completer = Completer<Size>();
+    image.image.resolve(ImageConfiguration()).addListener(
+      ImageStreamListener(
+        (ImageInfo info, bool _) {
+          completer.complete(Size(
+            info.image.width.toDouble(),
+            info.image.height.toDouble(),
+          ));
+        },
+      ),
+    );
+    final Size size = await completer.future;
+    final double aspectRatio = size.width / size.height;
+
+    return Image.network(
+      imageUrl,
+      fit: BoxFit.cover,
+      width: width,
+      height: height,
+      alignment: Alignment.center,
+    );
   }
 }

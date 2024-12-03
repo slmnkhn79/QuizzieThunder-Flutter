@@ -1,11 +1,12 @@
 part of '../editorial_screen.dart';
 
 class _SlidingImageStack extends StatelessWidget {
-  const _SlidingImageStack({super.key, required this.scrollPos, required this.type});
+  const _SlidingImageStack({super.key, required this.scrollPos, required this.data});
 
   final ValueNotifier<double> scrollPos;
   // final WonderType type;
-  final dynamic type;
+  final WonderData data;
+  // final dynamic type;
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +20,10 @@ class _SlidingImageStack extends StatelessWidget {
             top: Radius.circular(top ? totalSize.width / 2 : 0),
             bottom: Radius.circular(top ? 0 : totalSize.width / 2),
           ),
-          image: DecorationImage(image: AssetImage(url), fit: BoxFit.fitWidth, alignment: align),
+          image: DecorationImage(image:
+          //  AssetImage(url)
+          NetworkImage(url)
+           , fit: BoxFit.fitHeight, alignment: align),
         ),
       );
     }
@@ -46,7 +50,7 @@ class _SlidingImageStack extends StatelessWidget {
                     translation: Offset(0, -.1 + .2 * pctVisible),
                     child: buildPhoto(
                       .73,
-                      type.photo3,
+                      data.photo2,
                       Alignment(0, -.3 + .6 * pctVisible),
                     ),
                   ),
@@ -56,7 +60,7 @@ class _SlidingImageStack extends StatelessWidget {
                     translation: Offset(0, -.14 * pctVisible),
                     child: buildPhoto(
                       .45,
-                      type.photo4,
+                      data.photo3,
                       Alignment(0, .3 - .6 * pctVisible),
                       top: false,
                     ),

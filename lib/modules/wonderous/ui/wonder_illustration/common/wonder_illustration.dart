@@ -1,4 +1,5 @@
 
+import 'package:quizzie_thunder/logic/data/wonder_data.dart';
 import 'package:quizzie_thunder/modules/wonderous/ui/common_libs.dart';
 import 'package:quizzie_thunder/modules/wonderous/ui/wonder_illustration/chichen_itza_illustration.dart';
 import 'package:quizzie_thunder/modules/wonderous/ui/wonder_illustration/christ_redeemer_illustration.dart';
@@ -14,9 +15,13 @@ import 'package:quizzie_thunder/modules/wonderous/ui/wonder_illustration/taj_mah
 
 /// Convenience class for showing an illustration when all you have is the type.
 class WonderIllustration extends StatelessWidget {
-  const WonderIllustration(this.type, {super.key, required this.config});
+  const WonderIllustration(
+    this.type,
+    this.data,
+     {super.key, required this.config});
   final WonderIllustrationConfig config;
   final WonderType type;
+  final WonderData data;
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +33,7 @@ class WonderIllustration extends StatelessWidget {
       WonderType.machuPicchu => MachuPicchuIllustration(config: config),
       WonderType.petra => PetraIllustration(config: config),
       WonderType.pyramidsGiza => PyramidsGizaIllustration(config: config),
-      WonderType.tajMahal => TajMahalIllustration(config: config)
+      WonderType.tajMahal => TajMahalIllustration(config: config, wdata: data)
     };
   }
 }

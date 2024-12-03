@@ -41,6 +41,11 @@ class WonderData extends Equatable {
     this.hiddenArtifacts = const [],
     this.searchData = const [],
     this.searchSuggestions = const [],
+    this.photo1 ='',
+    this.photo2= '',
+    this.photo3 = '',
+    this.photo4 = '',
+    this.headerPhoto = ''
   });
 
   final WonderType type;
@@ -79,6 +84,11 @@ class WonderData extends Equatable {
   final Map<int, String> events;
   final List<SearchData> searchData;
   final List<String> searchSuggestions;
+  final String photo1;
+  final String photo2;
+  final String photo3;
+  final String photo4;
+  final String headerPhoto;
 
   String get titleWithBreaks => title.replaceFirst(' ', '\n');
 

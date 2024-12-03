@@ -1,4 +1,5 @@
 import 'package:quizzie_thunder/assets.dart';
+import 'package:quizzie_thunder/logic/data/wonder_data.dart';
 import 'package:quizzie_thunder/modules/wonderous/ui/common/fade_color_transition.dart';
 import 'package:quizzie_thunder/modules/wonderous/ui/common_libs.dart';
 import 'package:quizzie_thunder/modules/wonderous/ui/wonder_illustration/common/illustration_piece.dart';
@@ -8,9 +9,8 @@ import 'package:quizzie_thunder/modules/wonderous/ui/wonder_illustration/common/
 import 'package:quizzie_thunder/styles/wonders_color_extensions.dart';
 
 class TajMahalIllustration extends StatelessWidget {
-  TajMahalIllustration({super.key, required this.config});
+  TajMahalIllustration({super.key, required this.config, required WonderData wdata});
   final WonderIllustrationConfig config;
-
   final fgColor = WonderType.tajMahal.fgColor;
   final bgColor = WonderType.tajMahal.bgColor;
   final assetPath = WonderType.tajMahal.assetPath;
@@ -71,6 +71,7 @@ class TajMahalIllustration extends StatelessWidget {
                         translation: Offset(0, heightFactor),
                         child: IllustrationPiece(
                           fileName: 'pool.png',
+
                           heightFactor: heightFactor * poolScale,
                           minHeight: minHeight * poolScale,
                           zoomAmt: .05,
@@ -89,6 +90,7 @@ class TajMahalIllustration extends StatelessWidget {
     return [
       IllustrationPiece(
         fileName: 'foreground-right.png',
+
         alignment: Alignment.bottomRight,
         initialOffset: Offset(20, 40),
         initialScale: .85,
@@ -98,6 +100,7 @@ class TajMahalIllustration extends StatelessWidget {
       ),
       IllustrationPiece(
         fileName: 'foreground-left.png',
+
         alignment: Alignment.bottomLeft,
         initialScale: .9,
         initialOffset: Offset(-40, 60),

@@ -2,8 +2,8 @@ part of '../editorial_screen.dart';
 
 class _ScrollingContent extends StatelessWidget {
   const _ScrollingContent(this.data, {super.key, required this.scrollPos, required this.sectionNotifier});
-  // final WonderData data;
-  final dynamic data;
+  final WonderData data;
+  // final dynamic data;
   final ValueNotifier<double> scrollPos;
   final ValueNotifier<int> sectionNotifier;
 
@@ -66,13 +66,13 @@ class _ScrollingContent extends StatelessWidget {
       List<
       // WonderType
       dynamic> getTypesForSlot(slot) {
-        return ["getTypesForSlot"];
-        // return switch (slot) {
-          // 0 => [WonderType.chichenItza, WonderType.colosseum],
-          // 1 => [WonderType.pyramidsGiza, WonderType.petra],
-          // 2 => [WonderType.machuPicchu, WonderType.christRedeemer],
-          // _ => [WonderType.tajMahal, WonderType.greatWall]
-        // };
+        // return ["getTypesForSlot"];
+        return switch (slot) {
+          0 => [WonderType.chichenItza, WonderType.colosseum],
+          1 => [WonderType.pyramidsGiza, WonderType.petra],
+          2 => [WonderType.machuPicchu, WonderType.christRedeemer],
+          _ => [WonderType.tajMahal, WonderType.greatWall]
+        };
       }
 
       // return HiddenCollectible(
@@ -95,37 +95,37 @@ class _ScrollingContent extends StatelessWidget {
                 width:AppStyle().sizes.maxContentWidth1,
                 child: Column(children: [
                   ..._contentSection([
-                    Center(child: buildHiddenCollectible(slot: 0)),
+                    // Center(child: buildHiddenCollectible(slot: 0)),
 
-                    /// History 1
-                    buildDropCapText(data.historyInfo1),
+                    // /// History 1
+                    buildDropCapText(data.historyInfo1), //done
 
-                    /// Quote1
-                    _CollapsingPullQuoteImage(data: data, scrollPos: scrollPos),
-                    Center(child: buildHiddenCollectible(slot: 1)),
+                    // /// Quote1
+                    _CollapsingPullQuoteImage(data: data, scrollPos: scrollPos), //done
+                    // Center(child: buildHiddenCollectible(slot: 1)),
 
-                    /// Callout1
-                    _Callout(text: data.callout1),
+                    // /// Callout1
+                    _Callout(text: data.pullQuote2), //done
 
-                    /// History 2
+                    // /// History 2
                     buildText(data.historyInfo2),
                     _SectionDivider(scrollPos, sectionNotifier, index: 1),
 
-                    /// Construction 1
+                    // /// Construction 1
                     buildDropCapText(data.constructionInfo1),
-                    Center(child: buildHiddenCollectible(slot: 2)),
+                    // Center(child: buildHiddenCollectible(slot: 2)),
                   ]),
-                  Gap(AppStyle().insets.md),
+                  // Gap(AppStyle().insets.md),
                   _YouTubeThumbnail(id: data.videoId, caption: data.videoCaption),
                   Gap(AppStyle().insets.md),
                   ..._contentSection([
-                    /// Callout2
+                  //   /// Callout2
                     Gap(AppStyle().insets.xs),
                     _Callout(text: data.callout2),
 
                     /// Construction 2
                     buildText(data.constructionInfo2),
-                    _SlidingImageStack(scrollPos: scrollPos, type: data.type),
+                    _SlidingImageStack(scrollPos: scrollPos, data: data),
                     _SectionDivider(scrollPos, sectionNotifier, index: 2),
 
                     /// Location
@@ -135,9 +135,9 @@ class _ScrollingContent extends StatelessWidget {
                   ]),
                   Gap(AppStyle().insets.md),
                   _MapsThumbnail(data),
-                  Gap(AppStyle().insets.md),
-                  ..._contentSection([Center(child: buildHiddenCollectible(slot: 3))]),
-                  Gap(150),
+                  // Gap(AppStyle().insets.md),
+                  // ..._contentSection([Center(child: buildHiddenCollectible(slot: 3))]),
+                  // Gap(150),
                 ]),
               ),
             ),
@@ -220,8 +220,8 @@ class _YouTubeThumbnail extends StatelessWidget {
 
 class _MapsThumbnail extends StatefulWidget {
   const _MapsThumbnail(this.data, {super.key});
-  // final WonderData data;
-  final dynamic data;
+  final WonderData data;
+  // final dynamic data;
 
   @override
   State<_MapsThumbnail> createState() => _MapsThumbnailState();
@@ -244,8 +244,8 @@ class _MapsThumbnailState extends State<_MapsThumbnail> {
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(AppStyle().corners.md),
                 child: AppBtn.basic(
-                  // semanticLabel: $strings.scrollingContentSemanticOpen,
-                  semanticLabel: "scrollingContentSemanticOpen",
+                  semanticLabel: AppStrings().scrollingContentSemanticOpen,
+                  // semanticLabel: "scrollingContentSemanticOpen",
                   onPressed: handlePressed,
 
                   /// To prevent the map widget from absorbing the onPressed action, use a Stack + IgnorePointer + a transparent Container

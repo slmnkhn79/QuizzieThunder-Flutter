@@ -42,7 +42,20 @@ class School {
       required this.headerImageUrl,
       required this.numOfStudents,
       required this.facultyRatio,
-      required this.attributes});
+      required this.attributes,
+      required this.photo1,
+      required this.photo2,
+      required this.photo3,
+      required this.pullQuote1Top,
+      required this.pullQuote1Bottom,
+      required this.pullQuote2,
+      required this.historyInfo2,
+      required this.constructionInfo1,
+      required this.callout2,
+      required this.constructionInfo2,
+      required this.locationInfo1,
+      required this.locationInfo2,
+      });
 
   final String? id;
   final String? name;
@@ -59,6 +72,19 @@ class School {
   final int numOfStudents;
   final String facultyRatio;
   final List<Attribute> attributes;
+  final String photo1;
+  final String photo2;
+  final String photo3;
+  final String pullQuote1Top;
+  final String pullQuote1Bottom;
+  final String pullQuote2;
+  final String historyInfo2;
+  final String constructionInfo1;
+  final String callout2;
+  final String constructionInfo2;
+  final String locationInfo1;
+  final String locationInfo2;
+
 
   factory School.fromJson(Map<String, dynamic> json) {
     return School(
@@ -85,6 +111,20 @@ class School {
           ? []
           : List<Attribute>.from(
               json["attributes"]!.map((x) => Attribute.fromJson(x))),
+      photo1: json["photo1"],
+      photo2: json["photo2"],
+      photo3: json["photo3"],
+      pullQuote1Top: json['pullQuote1Top'],
+      pullQuote1Bottom: json['pullQuote1Bottom'],
+      pullQuote2: json['pullQuote2'],
+      historyInfo2: json['historyInfo2'],
+      constructionInfo1 : json['constructionInfo1'] ,
+      callout2 : json['callout2'] ,
+      constructionInfo2 : json['constructionInfo2'] ,
+      locationInfo1 : json['locationInfo1'] ,
+      locationInfo2 : json['locationInfo2'] ,
+
+
     );
   }
 

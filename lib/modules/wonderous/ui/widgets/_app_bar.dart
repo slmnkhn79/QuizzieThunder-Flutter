@@ -1,17 +1,18 @@
 part of '../editorial_screen.dart';
 
-
 class _AppBar extends StatelessWidget {
-  _AppBar(this.wonderType, {super.key, required this.sectionIndex, required this.scrollPos});
-  // final WonderType wonderType;
-  final dynamic wonderType;
+  _AppBar(this.wonderType, this.wonderData,
+      {super.key, required this.sectionIndex, required this.scrollPos});
+  final WonderType wonderType;
+  // final dynamic wonderType;
+  final WonderData wonderData;
   final ValueNotifier<int> sectionIndex;
   final ValueNotifier<double> scrollPos;
   final _titleValues = [
     // $strings.appBarTitleFactsHistory,
     // $strings.appBarTitleConstruction,
     // $strings.appBarTitleLocation,
-    "History",
+    "Overview",
     "Construction",
     "Location"
   ];
@@ -23,19 +24,19 @@ class _AppBar extends StatelessWidget {
   ];
 
   dynamic _getArchType() {
-    return 'Test';
-  // ArchType _getArchType() {
-
-    // return switch (wonderType) {
-      // WonderType.chichenItza => ArchType.flatPyramid,
-      // WonderType.christRedeemer => ArchType.wideArch,
-      // WonderType.colosseum => ArchType.arch,
-      // WonderType.greatWall => ArchType.arch,
-      // WonderType.machuPicchu => ArchType.pyramid,
-      // WonderType.petra => ArchType.wideArch,
-      // WonderType.pyramidsGiza => ArchType.pyramid,
-      // WonderType.tajMahal => ArchType.spade
-    // };
+    // return 'Test';
+    ArchType _getArchType() {
+      return switch (wonderType) {
+        WonderType.chichenItza => ArchType.flatPyramid,
+        WonderType.christRedeemer => ArchType.wideArch,
+        WonderType.colosseum => ArchType.arch,
+        WonderType.greatWall => ArchType.arch,
+        WonderType.machuPicchu => ArchType.pyramid,
+        WonderType.petra => ArchType.wideArch,
+        WonderType.pyramidsGiza => ArchType.pyramid,
+        WonderType.tajMahal => ArchType.spade
+      };
+    }
   }
 
   @override
@@ -55,13 +56,16 @@ class _AppBar extends StatelessWidget {
                 /// Masked image
                 BottomCenter(
                   child: SizedBox(
-                    width: showOverlay ? double.infinity : AppStyle().sizes.maxContentWidth1,
+                    width: showOverlay
+                        ? double.infinity
+                        : AppStyle().sizes.maxContentWidth1,
                     child: Padding(
                       padding: const EdgeInsets.only(bottom: 50),
                       child: ClipPath(
                         // Switch arch type to Rect if we are showing the title bar
                         // clipper: showOverlay ? null : ArchClipper(arch),
-                         clipper: showOverlay ? null : ArchClipper(ArchType.spade),
+                        clipper:
+                            showOverlay ? null : ArchClipper(ArchType.pyramid),
 
                         child: ValueListenableBuilder<double>(
                           valueListenable: scrollPos,
@@ -69,15 +73,18 @@ class _AppBar extends StatelessWidget {
                             double opacity = (.4 + (value / 1500)).clamp(0, 1);
                             return ScalingListItem(
                               scrollPos: scrollPos,
-                              child: Image.asset(
-                                wonderType.photo1,
+                              child: Image.network(
+                                wonderData.photo1,
                                 fit: BoxFit.cover,
                                 opacity: AlwaysStoppedAnimation(opacity),
                               ),
                             );
                           },
                         ),
-                      ).animate(delay: AppStyle().times.pageTransition + 500.ms).fadeIn(duration: AppStyle().times.slow),
+                      )
+                          .animate(
+                              delay: AppStyle().times.pageTransition + 500.ms)
+                          .fadeIn(duration: AppStyle().times.slow),
                     ),
                   ),
                 ),
