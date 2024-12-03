@@ -46,11 +46,12 @@ class StringUtils {
   }
 
   static String formatYr(int yr) {
-    if (yr == 0) yr = 1;
-    return "${yr.abs().toString()} ${getYrSuffix(yr)}";
+    if (yr == 0) yr = 0;
+    return yr.abs().toString();
+    // ${getYrSuffix(yr)}";
   }
 
-  static String getYrSuffix(int yr) => yr < 0 ? "BCE" : "CE";
+  static String getYrSuffix(int yr) => yr < 0 ? "" : "";
 
   static String getEra(int yr) {
     if (yr <= -600) return "Prehistory";

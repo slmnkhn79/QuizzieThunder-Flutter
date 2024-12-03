@@ -91,7 +91,7 @@ class _TitleText extends StatelessWidget {
                   /// Date
                   Text(
                     // AppStrings().titleLabelDatefromDate: StringUtils.formatYr(data.startYr), endDate: StringUtils.formatYr(data.endYr)),
-                    "${StringUtils.formatYr(data.startYr)} ${StringUtils.formatYr(data.endYr)}",
+                    "${StringUtils.formatYr(data.startYr)} - ${StringUtils.formatYr(data.endYr) == '0' ? "Present" : StringUtils.formatYr(data.endYr)}",
                     // "title Label Date",
                     style: AppStyle().text.h4,
                     textAlign: TextAlign.center,

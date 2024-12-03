@@ -55,6 +55,10 @@ class School {
       required this.constructionInfo2,
       required this.locationInfo1,
       required this.locationInfo2,
+      required this.startYear,
+      required this.endYear,
+      required this.videoCaption,
+      required this.videoId
       });
 
   final String? id;
@@ -84,6 +88,10 @@ class School {
   final String constructionInfo2;
   final String locationInfo1;
   final String locationInfo2;
+  final int startYear;
+  final int endYear;
+  final String videoCaption;
+  final String videoId;
 
 
   factory School.fromJson(Map<String, dynamic> json) {
@@ -123,6 +131,10 @@ class School {
       constructionInfo2 : json['constructionInfo2'] ,
       locationInfo1 : json['locationInfo1'] ,
       locationInfo2 : json['locationInfo2'] ,
+      startYear : json['startYear'] ,
+      endYear : json['endYear'] ,
+      videoCaption : json['videoCaption'] ,
+      videoId : json['videoId'] ,
 
 
     );

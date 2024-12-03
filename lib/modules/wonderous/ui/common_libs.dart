@@ -15,9 +15,8 @@ export 'package:go_router/go_router.dart';
 export 'package:provider/provider.dart';
 export 'package:rnd/rnd.dart';
 export 'package:sized_context/sized_context.dart';
-import 'package:quizzie_thunder/theme/colors_theme.dart';
 // export 'package:wonders/assets.dart';
-// import 'package:quizzie_thunder/logic/data/app_logic.dart';
+// import 'package:quizzie_thunder/modules/wonderous/ui/
 export 'package:quizzie_thunder/logic/data/wonder_type.dart';
 // export 'package:quizzie_thunder/logic/settings_logic.dart';
 // export 'package:wonders/main.dart';
@@ -28,4 +27,3 @@ export 'package:quizzie_thunder/logic/data/wonder_type.dart';
 // export 'package:wonders/ui/common/controls/buttons.dart';
 // export 'package:wonders/ui/common/controls/circle_buttons.dart';
 // export 'package:quizzie_thunder/modules/wonderous/ui/common/controls/scroll_decorator.dart';
-import 'package:quizzie_thunder/logic/data/wonder_type.dart';
