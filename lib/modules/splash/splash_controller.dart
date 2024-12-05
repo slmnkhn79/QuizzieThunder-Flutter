@@ -21,7 +21,7 @@ class SplashController extends GetxController {
       print("Token = ${AppUtils.loginUserDetail().result?.token}");
     }
     Future.delayed(
-        Duration(seconds: 3),
+        Duration(seconds: 1),
         () => localStorage.read(KEY_USER_DATA) == null
             ? Get.offNamed(AppRoutes.welcomePage)
             // ? Get.offNamed(AppRoutes.dashboardPage)
