@@ -5,13 +5,15 @@ import '../../models/discover_screen_response_model.dart';
 import '../../utils/app_utils.dart';
 import '../../utils/enums/snackbar_status.dart';
 
-class DiscoverController extends GetxController {
-  DiscoverApi discoverApi = DiscoverApi();
+class LearningController extends GetxController {
+  LearningApi discoverApi = LearningApi();
 
   var isLoading = false.obs;
   var selectedTabIndex = 0.obs;
 
   DiscoverScreenResponseModel? discoverScreenResponseModel;
+
+  
 
   @override
   void onInit() {

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:quizzie_thunder/modules/quiz_detail/quiz_detail_controller.dart';
 
 import '../../theme/colors_theme.dart';
 import 'quiz_result_controller.dart';

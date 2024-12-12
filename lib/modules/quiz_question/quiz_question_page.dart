@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:dartx/dartx_io.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:quizzie_thunder/modules/quiz_detail/quiz_detail_controller.dart';
 
 import '../../theme/colors_theme.dart';
 import 'quiz_question_controller.dart';
@@ -75,6 +76,16 @@ class QuizQuestionPage extends StatelessWidget {
                           height: 32,
                         ),
                         Text(
+                          "${quizQuestionController.time.value }",
+                          style: TextStyle(
+                              color: ThemeColor.grey_500,
+                              fontSize: 12,
+                              fontWeight: FontWeight.bold),
+                        ),
+                        SizedBox(
+                          height: 32,
+                        ),
+                        Text(
                           "QUESTION ${quizQuestionController.questionCount.value + 1 } OF ${quizQuestionController.totalQuestions}",
                           style: TextStyle(
                               color: ThemeColor.grey_500,
@@ -96,26 +107,26 @@ class QuizQuestionPage extends StatelessWidget {
                         ),
                         optionContainerList(quizQuestionController),
                         Spacer(),
-                        quizQuestionController.questionCount >= 1 ?
-                        SizedBox(
-                            width: double.infinity,
-                            height: 44,
-                            child: ElevatedButton(
-                              onPressed: () {
-                                quizQuestionController.prevQuestion(
-                                    );
-                              },
-                              style: TextButton.styleFrom(
-                                textStyle: TextStyle(
-                                    fontSize: 16, fontWeight: FontWeight.w500),
-                                shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(12)),
-                                backgroundColor: ThemeColor.primaryDark,
-                              ),
-                              child: Text("Prev",
-                                  style: TextStyle(color: ThemeColor.white)),
-                            ))
-                            : Container(),
+                        // quizQuestionController.questionCount >= 1 ?
+                        // SizedBox(
+                        //     width: double.infinity,
+                        //     height: 44,
+                        //     child: ElevatedButton(
+                        //       onPressed: () {
+                        //         quizQuestionController.prevQuestion(
+                        //             );
+                        //       },
+                        //       style: TextButton.styleFrom(
+                        //         textStyle: TextStyle(
+                        //             fontSize: 16, fontWeight: FontWeight.w500),
+                        //         shape: RoundedRectangleBorder(
+                        //             borderRadius: BorderRadius.circular(12)),
+                        //         backgroundColor: ThemeColor.primaryDark,
+                        //       ),
+                        //       child: Text("Prev",
+                        //           style: TextStyle(color: ThemeColor.white)),
+                        //     ))
+                        //     : Container(),
                             SizedBox(height: 5,),
                         quizQuestionController.questionCount >= 0 && quizQuestionController.questionCount < quizQuestionController.totalQuestions-1 ? SizedBox(
                             width: double.infinity,
@@ -261,7 +272,7 @@ class QuizQuestionPage extends StatelessWidget {
         actions: [
           ElevatedButton.icon(
             onPressed: () {
-              Get.back();
+              Get.back(result: true);
             },
             icon: Icon(
               Icons.close,
@@ -284,8 +295,9 @@ class QuizQuestionPage extends StatelessWidget {
           ),
           ElevatedButton.icon(
             onPressed: () {
-              Get.back();
+              Get.back(result: true);
               quizQuestionController.endQuiz();
+              
             },
             icon: Icon(
               Icons.check,

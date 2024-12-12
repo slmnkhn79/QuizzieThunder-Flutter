@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:get/get.dart';
 
 import '../../apis/quiz_question_api.dart';
@@ -9,6 +11,10 @@ import '../../utils/enums/snackbar_status.dart';
 
 class QuizQuestionController extends GetxController {
   QuizQuestionApi quizQuestionApi = QuizQuestionApi();
+
+  Timer? _timer;
+  int remainingSeconds = 1;
+  final time = '00.00'.obs;
 
   final arguments = Get.arguments;
 
@@ -29,7 +35,6 @@ class QuizQuestionController extends GetxController {
   var skipQuestionCount = 0;
   var correctAnswerCount = 0;
   var incorrectAnswerCount = 0;
-  
 
   @override
   void onInit() {
@@ -43,6 +48,20 @@ class QuizQuestionController extends GetxController {
     super.onInit();
   }
 
+  @override
+  void onReady() {
+    _startQuizTimer(10);
+    super.onReady();
+  }
+
+  @override
+  void onClose() {
+    if (_timer != null) {
+      _timer!.cancel();
+    }
+    super.onClose();
+  }
+
   void getAllQuizList() async {
     isLoading.value = true;
     var response = await quizQuestionApi.getQuizQuestionList(quizId: quizId);
@@ -51,7 +70,7 @@ class QuizQuestionController extends GetxController {
       allQuestions.addAll(response.questions ?? List.empty());
       totalQuestions = response.quiz!.totalQuestions!;
       // print("-------------------------------------------------------------");
-
+      // _startQuizTimer();
       isLoading.value = false;
     } else {
       isLoading.value = false;
@@ -72,17 +91,18 @@ class QuizQuestionController extends GetxController {
       int selectedOption = -1,
       String? prevQuestionId,
       String? solution}) async {
-
+    _timer!.cancel();
+    _startQuizTimer(10);
     if (isSkipped) {
-
-      if (questionCount.value < totalQuestions-1) {
+      if (questionCount.value < totalQuestions - 1) {
         questionCount.value += 1;
         skipQuestionCount += 1;
         print(skipQuestionCount);
       }
     } else {
-      answerSelected.update(prevQuestionId!, (value) => solution! , ifAbsent: () => solution!);
-      if (questionCount.value < totalQuestions-1) {
+      answerSelected.update(prevQuestionId!, (value) => solution!,
+          ifAbsent: () => solution!);
+      if (questionCount.value < totalQuestions - 1) {
         questionCount.value += 1;
       }
     }
@@ -146,8 +166,9 @@ class QuizQuestionController extends GetxController {
   }
 
   void endQuiz() {
+    _timer!.cancel();
     Get.offAndToNamed(AppRoutes.quizResultPage, arguments: {
-      ARG_QUIZ_ID : quizId,
+      ARG_QUIZ_ID: quizId,
       ARG_QUIZ_NAME: quizName,
       ARG_QUIZ_CATEGORY_NAME: quizCategoryName,
       // ARG_SKIPPED_QUESTIONS_COUNT: skipQuestionCount,
@@ -156,4 +177,28 @@ class QuizQuestionController extends GetxController {
       ARG_ANS_MAP: answerSelected
     });
   }
+
+  void _startQuizTimer(int seconds) {
+    const duration = Duration(seconds: 1);
+    remainingSeconds = seconds;
+    _timer = Timer.periodic(duration, (Timer timer) {
+      if (remainingSeconds == 0) {
+        if(questionCount.value == totalQuestions - 1){
+          endQuiz();
+        }else{
+        nextQuestion(isSkipped: true);
+        timer.cancel();
+        }
+      } else {
+        int minutes = remainingSeconds ~/ 60;
+        int seconds = remainingSeconds % 60;
+        time.value = minutes.toString().padLeft(2, "0") +
+            ":" +
+            seconds.toString().padLeft(2, "0");
+        remainingSeconds--;
+      }
+    });
+  }
+
+  void _startQuestionTimer(int seconds) {}
 }

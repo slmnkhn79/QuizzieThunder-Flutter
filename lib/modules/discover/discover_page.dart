@@ -10,16 +10,17 @@ import '../../routes/app_routes.dart';
 import '../../theme/colors_theme.dart';
 import '../../utils/app_utils.dart';
 import '../../utils/constants.dart';
-import 'discover_controller.dart';
+import 'learning_controller.dart';
 
 class DiscoverPage extends StatelessWidget {
   const DiscoverPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    DiscoverController discoverController = Get.find<DiscoverController>();
-    SchoolDiscoverController schoolDiscoverController =
-        Get.find<SchoolDiscoverController>();
+
+    LearningController learningController = Get.find<LearningController>();
+
+    SchoolDiscoverController schoolDiscoverController = Get.find<SchoolDiscoverController>();
 
     return Scaffold(
         appBar: AppBar(
@@ -36,15 +37,15 @@ class DiscoverPage extends StatelessWidget {
         ),
         //fiters the current feed for the applied filted
         floatingActionButton: Obx(() => Visibility(
-            visible: discoverController.selectedTabIndex.value == 0 ||
-                discoverController.selectedTabIndex.value == 1,
+            visible: learningController.selectedTabIndex.value == 0 ||
+                learningController.selectedTabIndex.value == 1,
             child: Padding(
               padding: EdgeInsets.only(bottom: 44.0),
               child: FloatingActionButton(
                 backgroundColor: ThemeColor.headerOne,
                 foregroundColor: ThemeColor.headerThree,
                 onPressed: () {
-                  openDialog();
+                  // openDialog();
                 },
                 child: Icon(Icons.filter_alt_outlined),
               ),
@@ -52,9 +53,9 @@ class DiscoverPage extends StatelessWidget {
         backgroundColor: ThemeColor.facebook_light_4,
         body: Obx(() => RefreshIndicator(
               onRefresh: () async {
-                discoverController.getDiscoverScreenDetails();
+                learningController.getDiscoverScreenDetails();
               },
-              child: discoverController.isLoading.value && schoolDiscoverController.isLoading.value
+              child: learningController.isLoading.value && schoolDiscoverController.isLoading.value
                   ? const Center(
                       child: CircularProgressIndicator(
                       color: ThemeColor.white,
@@ -86,10 +87,10 @@ class DiscoverPage extends StatelessWidget {
                                       Expanded(
                                         child: InkWell(
                                           onTap: () {
-                                            discoverController
+                                            learningController
                                                 .selectedTabIndex.value = 0;
                                           },
-                                          child: discoverController
+                                          child: learningController
                                                       .selectedTabIndex.value ==
                                                   0
                                               ? Container(
@@ -104,7 +105,7 @@ class DiscoverPage extends StatelessWidget {
                                                       horizontal: 16,
                                                       vertical: 8),
                                                   child: Text(
-                                                    "Recent",
+                                                    "Learning",
                                                     textAlign: TextAlign.center,
                                                     style: TextStyle(
                                                         color: ThemeColor
@@ -119,7 +120,7 @@ class DiscoverPage extends StatelessWidget {
                                                       horizontal: 16,
                                                       vertical: 8),
                                                   child: Text(
-                                                    "Recent",
+                                                    "Learning",
                                                     textAlign: TextAlign.center,
                                                     style: TextStyle(
                                                         color: ThemeColor
@@ -134,10 +135,10 @@ class DiscoverPage extends StatelessWidget {
                                       Expanded(
                                         child: InkWell(
                                           onTap: () {
-                                            discoverController
+                                            learningController
                                                 .selectedTabIndex.value = 1;
                                           },
-                                          child: discoverController
+                                          child: learningController
                                                       .selectedTabIndex.value ==
                                                   1
                                               ? Container(
@@ -183,9 +184,9 @@ class DiscoverPage extends StatelessWidget {
                                   ),
                                 ),
                               ),
-                              discoverController.selectedTabIndex == 0
-                                  ? schoolDicover(schoolDiscoverController)
-                                  : schoolFilter(discoverController, context)
+                              learningController.selectedTabIndex.value == 0
+                                  ? learningPath()
+                                  : schoolFilter(learningController, context)
                             ]),
                           ),
                         ),
@@ -195,7 +196,7 @@ class DiscoverPage extends StatelessWidget {
   }
 
   Container schoolFilter(
-      DiscoverController discoverController, BuildContext context) {
+      LearningController learningController, BuildContext context) {
     return Container(
       child: Column(
         children: [
@@ -206,13 +207,13 @@ class DiscoverPage extends StatelessWidget {
                 InkWell(
                   onTap: () {
                     Get.toNamed('/schoolDetails', arguments: {
-                      ARG_SCHOOL_DETAIL: discoverController
+                      ARG_SCHOOL_DETAIL: learningController
                           .discoverScreenResponseModel!.topSchool.id
                     });
                   },
                   child: Stack(children: [
                     Image.network(
-                      discoverController.discoverScreenResponseModel!.topSchool
+                      learningController.discoverScreenResponseModel!.topSchool
                           .headerImageUrl,
                       width: double.infinity,
                       fit: BoxFit.cover,
@@ -232,7 +233,7 @@ class DiscoverPage extends StatelessWidget {
                                   //   height: 84,
                                   // ),
                                   Text(
-                                      "${discoverController.discoverScreenResponseModel?.topSchool.name}",
+                                      "${learningController.discoverScreenResponseModel?.topSchool.name}",
                                       style: TextStyle(
                                           fontSize: 16,
                                           fontWeight: FontWeight.bold,
@@ -241,7 +242,7 @@ class DiscoverPage extends StatelessWidget {
                                     height: 8,
                                   ),
                                   Text(
-                                      "${discoverController.discoverScreenResponseModel?.topSchool.schoolType} ",
+                                      "${learningController.discoverScreenResponseModel?.topSchool.schoolType} ",
                                       style: TextStyle(
                                           fontSize: 12,
                                           color: ThemeColor.burgundy)),
@@ -269,139 +270,8 @@ class DiscoverPage extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      // Visibility(
-                      //   visible: discoverController
-                      //           .discoverScreenResponseModel?.weekTopRank !=
-                      //       null,
-                      //   child: Column(
-                      //     mainAxisAlignment: MainAxisAlignment.start,
-                      //     crossAxisAlignment: CrossAxisAlignment.start,
-                      //     children: [
-                      //       Text(
-                      //         "Top rank of the week",
-                      //         style: TextStyle(
-                      //             fontSize: 16,
-                      //             fontWeight: FontWeight.bold,
-                      //             color: ThemeColor.black),
-                      //       ),
-                      //       SizedBox(
-                      //         height: 8,
-                      //       ),
-                      //       Stack(children: [
-                      //         Image.asset(
-                      //           "assets/images/top_rank_bg.png",
-                      //           width: double.infinity,
-                      //           fit: BoxFit.cover,
-                      //         ),
-                      //         Padding(
-                      //             padding: const EdgeInsets.all(16.0),
-                      //             child: Column(
-                      //               children: [
-                      //                 SizedBox(
-                      //                   height: 24,
-                      //                 ),
-                      //                 Row(
-                      //                   crossAxisAlignment:
-                      //                       CrossAxisAlignment.center,
-                      //                   children: [
-                      //                     Container(
-                      //                       padding: const EdgeInsets.all(8),
-                      //                       decoration: BoxDecoration(
-                      //                           shape: BoxShape.circle,
-                      //                           border: Border.all(
-                      //                             color: ThemeColor.white,
-                      //                           )),
-                      //                       child: Text(
-                      //                         "1",
-                      //                         style: TextStyle(
-                      //                             fontSize: 12,
-                      //                             fontWeight: FontWeight.bold,
-                      //                             color: ThemeColor.white),
-                      //                       ),
-                      //                     ),
-                      //                     SizedBox(
-                      //                       width: 16,
-                      //                     ),
-                      //                     CircleAvatar(
-                      //                       backgroundColor:
-                      //                           AppUtils.getRandomAvatarBgColor(),
-                      //                       radius: 24,
-                      //                       child: ClipOval(
-                      //                         child: CachedNetworkImage(
-                      //                           imageUrl:
-                      //                               "${discoverController.discoverScreenResponseModel?.weekTopRank?.user?.profilePic}",
-                      //                           width: double.infinity,
-                      //                           height: double.infinity,
-                      //                           fit: BoxFit.cover,
-                      //                           placeholder: (context, url) =>
-                      //                               Center(
-                      //                             child: SizedBox(
-                      //                               width: 20,
-                      //                               height: 20,
-                      //                               child:
-                      //                                   CircularProgressIndicator(
-                      //                                 color: ThemeColor.accent,
-                      //                               ),
-                      //                             ),
-                      //                           ),
-                      //                           errorWidget:
-                      //                               (context, url, error) => Icon(
-                      //                             Icons.error,
-                      //                             color: ThemeColor.red,
-                      //                           ),
-                      //                         ),
-                      //                       ),
-                      //                     ),
-                      //                     SizedBox(
-                      //                       width: 12,
-                      //                     ),
-                      //                     Column(
-                      //                       mainAxisAlignment:
-                      //                           MainAxisAlignment.start,
-                      //                       crossAxisAlignment:
-                      //                           CrossAxisAlignment.start,
-                      //                       children: [
-                      //                         Text(
-                      //                           "${discoverController.discoverScreenResponseModel?.weekTopRank?.user?.firstname} ${discoverController.discoverScreenResponseModel?.weekTopRank?.user?.lastname}",
-                      //                           style: TextStyle(
-                      //                               fontSize: 16,
-                      //                               fontWeight: FontWeight.bold,
-                      //                               color: ThemeColor.white),
-                      //                         ),
-                      //                         SizedBox(
-                      //                           height: 4,
-                      //                         ),
-                      //                         Text(
-                      //                           "${discoverController.discoverScreenResponseModel?.weekTopRank?.points} points",
-                      //                           style: TextStyle(
-                      //                               fontSize: 14,
-                      //                               color: ThemeColor.white),
-                      //                         ),
-                      //                       ],
-                      //                     )
-                      //                   ],
-                      //                 ),
-                      //               ],
-                      //             ))
-                      //       ]),
-                      //       SizedBox(
-                      //         height: 16,
-                      //       ),
-                      //     ],
-                      //   ),
-                      // ),
-                      // Text(
-                      //   "Categories",
-                      //   style: TextStyle(
-                      //       fontSize: 16,
-                      //       fontWeight: FontWeight.bold,
-                      //       color: ThemeColor.black),
-                      // ),
-                      // SizedBox(
-                      //   height: 8,
-                      // ),
                       GridView.builder(
-                        itemCount: discoverController
+                        itemCount: learningController
                             .discoverScreenResponseModel?.schools?.length,
                         physics: NeverScrollableScrollPhysics(),
                         shrinkWrap: true,
@@ -416,7 +286,7 @@ class DiscoverPage extends StatelessWidget {
                               child: InkWell(
                                 onTap: () {
                                   Get.toNamed('/schoolDetails', arguments: {
-                                    ARG_SCHOOL_DETAIL: discoverController
+                                    ARG_SCHOOL_DETAIL: learningController
                                         .discoverScreenResponseModel!
                                         .schools![index]
                                         .id
@@ -426,7 +296,7 @@ class DiscoverPage extends StatelessWidget {
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    Image.network(discoverController
+                                    Image.network(learningController
                                         .discoverScreenResponseModel!
                                         .schools![index]
                                         .headerImageUrl),
@@ -439,7 +309,7 @@ class DiscoverPage extends StatelessWidget {
                                     //   height: 16,
                                     // ),
                                     Text(
-                                      "${discoverController.discoverScreenResponseModel?.schools?[index].name}",
+                                      "${learningController.discoverScreenResponseModel?.schools?[index].name}",
                                       textAlign: TextAlign.center,
                                       style: TextStyle(
                                           fontSize: 16,
@@ -450,7 +320,7 @@ class DiscoverPage extends StatelessWidget {
                                     //   height: 4,
                                     // ),
                                     Text(
-                                      "${discoverController.discoverScreenResponseModel?.schools?[index].schoolType}",
+                                      "${learningController.discoverScreenResponseModel?.schools?[index].schoolType}",
                                       style: TextStyle(
                                         fontSize: 12,
                                         color: ThemeColor.white,
@@ -484,7 +354,13 @@ class DiscoverPage extends StatelessWidget {
           child: Column(
             children: [
               InkWell(
-                onTap: () {},
+                onTap: () {
+                  Get.toNamed(AppRoutes.postDetailsPage,arguments: {
+                      ARG_POST_ID: schoolDiscoverController
+                              .schoolDiscoverScreenResponseModel!.mostLiked!.id,
+                      // ARG_POST_CONTROLLER: feedController,
+                    });
+                },
                 child: Stack(children: [
                   schoolDiscoverController
                               .schoolDiscoverScreenResponseModel!.mostLiked ==
@@ -538,20 +414,30 @@ class DiscoverPage extends StatelessWidget {
             },
             scrollDirection: Axis.vertical,
             itemBuilder: (context, index) {
-              return Padding(
-                padding:
-                    const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
-                child: EventCard(
-                    // post: feedController.feedScreenResponseModel!.posts[index])
-                    post: schoolDiscoverController
-                        .schoolDiscoverScreenResponseModel!
-                        .recentActivity![index]),
+              return InkWell(
+                onTap: (){
+                  Get.toNamed(AppRoutes.postDetailsPage,arguments: {
+                      ARG_POST_ID: schoolDiscoverController
+                          .schoolDiscoverScreenResponseModel!
+                          .recentActivity![index].id,
+                      // ARG_POST_CONTROLLER: feedController,
+                    });
+                },
+                child: Padding(
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
+                  child: EventCard(
+                      // post: feedController.feedScreenResponseModel!.posts[index])
+                      post: schoolDiscoverController
+                          .schoolDiscoverScreenResponseModel!
+                          .recentActivity![index] ,schoolDiscoverController: schoolDiscoverController,),
+                ),
               );
             },
             itemCount: schoolDiscoverController
                 .schoolDiscoverScreenResponseModel!.recentActivity!.length),
         //upcoming events of nearby school or filtered schools
-        upComingEventsDicover(schoolDiscoverController)
+        // upComingEventsDicover(schoollearningController)
       ],
     );
   }
@@ -612,124 +498,125 @@ class DiscoverPage extends StatelessWidget {
     ]);
   }
 
-  Column upComingEventsDicover(
-      SchoolDiscoverController schoolDiscoverController) {
-    return Column(
-      children: [
-        //top liked event of nearby school or filtered schools
-        AddSpacer("Upcoming Event"),
+  // Column upComingEventsDicover(
+  //     SchoollearningController schoollearningController) {
+  //   return Column(
+  //     children: [
+  //       //top liked event of nearby school or filtered schools
+  //       AddSpacer("Upcoming Event"),
 
-        ListView.separated(
-            shrinkWrap: true,
-            physics: NeverScrollableScrollPhysics(),
-            separatorBuilder: (BuildContext context, int index) {
-              return SizedBox(height: 8);
-            },
-            scrollDirection: Axis.vertical,
-            itemBuilder: (context, index) {
-              return Padding(
-                padding:
-                    const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
-                child: EventCard(
-                    // post: feedController.feedScreenResponseModel!.posts[index])
-                    post: schoolDiscoverController
-                        .schoolDiscoverScreenResponseModel!
-                        .recentActivity![index]),
-              );
-            },
-            itemCount: schoolDiscoverController
-                .schoolDiscoverScreenResponseModel!.recentActivity!.length),
-        //upcoming events of nearby school or filtered schools
-      ],
-    );
-  }
+  //       // ListView.separated(
+  //       //     shrinkWrap: true,
+  //       //     physics: NeverScrollableScrollPhysics(),
+  //       //     separatorBuilder: (BuildContext context, int index) {
+  //       //       return SizedBox(height: 8);
+  //       //     },
+  //       //     scrollDirection: Axis.vertical,
+  //       //     itemBuilder: (context, index) {
+  //       //       return Padding(
+  //       //         padding:
+  //       //             const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
+  //       //         child: EventCard(
+  //       //             // post: feedController.feedScreenResponseModel!.posts[index])
+  //       //             post: schoollearningController
+  //       //                 .schoolDiscoverScreenResponseModel!
+  //       //                 .recentActivity![index]),
+  //       //       );
+  //       //     },
+  //       //     itemCount: schoollearningController
+  //       //         .schoolDiscoverScreenResponseModel!.recentActivity!.length
+  //       //         ),
+  //       //upcoming events of nearby school or filtered schools
+  //     ],
+  //   );
+  // }
 
-  void openDialog() {
-    SearchResultsController searchController =
-        Get.find<SearchResultsController>();
-    Get.dialog(Dialog(
-      child: SizedBox(
-        height: 600,
-        width: 600,
-        child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              //filter input
-              Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: TextField(
-                  // controller:  searchController,
-                  decoration: InputDecoration(
-                    hintText: 'Start typing!',
-                    border: OutlineInputBorder(),
-                  ),
-                  onChanged: (value) async {
-                    if (value.length >= 3) {
-                      await searchController.getSearchResults(value);
-                      // print(value);
-                    }
-                  },
-                ),
-              ),
+  // void openDialog() {
+  //   SearchResultsController searchController =
+  //       Get.find<SearchResultsController>();
+  //   Get.dialog(Dialog(
+  //     child: SizedBox(
+  //       height: 600,
+  //       width: 600,
+  //       child: Column(
+  //           mainAxisAlignment: MainAxisAlignment.spaceBetween,
+  //           crossAxisAlignment: CrossAxisAlignment.center,
+  //           children: [
+  //             //filter input
+  //             Padding(
+  //               padding: const EdgeInsets.all(16.0),
+  //               child: TextField(
+  //                 // controller:  searchController,
+  //                 decoration: InputDecoration(
+  //                   hintText: 'Start typing!',
+  //                   border: OutlineInputBorder(),
+  //                 ),
+  //                 onChanged: (value) async {
+  //                   if (value.length >= 3) {
+  //                     await searchController.getSearchResults(value);
+  //                     // print(value);
+  //                   }
+  //                 },
+  //               ),
+  //             ),
 
-              Obx(() => searchController.isLoading.value == false &&
-                      searchController
-                          .searchDialogResponseModel!.searchResults.isNotEmpty
-                  ? Expanded(
-                      child: GridView(
-                          gridDelegate:
-                              SliverGridDelegateWithFixedCrossAxisCount(
-                            mainAxisExtent: 44,
-                            mainAxisSpacing: 10.0,
-                            crossAxisCount: 4,
-                            crossAxisSpacing: 10.0,
-                            childAspectRatio: 1.0,
-                          ),
-                          children: [
-                          ...searchController
-                              .searchDialogResponseModel!.searchResults
-                              .map((e) {
-                            return ElevatedButton(
-                                onPressed: () {}, child: Text(e.displayValue));
-                          })
-                        ]))
-                  : SizedBox(
-                      height: 60,
-                      width: double.infinity,
-                      // child: Container(color: Colors.red)
-                    )),
+  //             Obx(() => searchController.isLoading.value == false &&
+  //                     searchController
+  //                         .searchDialogResponseModel!.searchResults.isNotEmpty
+  //                 ? Expanded(
+  //                     child: GridView(
+  //                         gridDelegate:
+  //                             SliverGridDelegateWithFixedCrossAxisCount(
+  //                           mainAxisExtent: 44,
+  //                           mainAxisSpacing: 10.0,
+  //                           crossAxisCount: 4,
+  //                           crossAxisSpacing: 10.0,
+  //                           childAspectRatio: 1.0,
+  //                         ),
+  //                         children: [
+  //                         ...searchController
+  //                             .searchDialogResponseModel!.searchResults
+  //                             .map((e) {
+  //                           return ElevatedButton(
+  //                               onPressed: () {}, child: Text(e.displayValue));
+  //                         })
+  //                       ]))
+  //                 : SizedBox(
+  //                     height: 60,
+  //                     width: double.infinity,
+  //                     // child: Container(color: Colors.red)
+  //                   )),
 
-              // selection
-              Padding(
-                  padding: const EdgeInsets.symmetric(
-                      vertical: 8.0, horizontal: 16.0),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      Divider(),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: <Widget>[
-                          ElevatedButton(
-                            onPressed: () {
-                              Get.back();
-                            },
-                            child: Text('Close'),
-                          ),
-                          ElevatedButton(
-                            onPressed: () {
-                              // Apply filter logic here
-                            },
-                            child: Text('Apply'),
-                          ),
-                        ],
-                      )
-                    ],
-                  ))
-            ]),
-      ),
-    )
+  //             // selection
+  //             Padding(
+  //                 padding: const EdgeInsets.symmetric(
+  //                     vertical: 8.0, horizontal: 16.0),
+  //                 child: Column(
+  //                   mainAxisAlignment: MainAxisAlignment.end,
+  //                   children: [
+  //                     Divider(),
+  //                     Row(
+  //                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+  //                       children: <Widget>[
+  //                         ElevatedButton(
+  //                           onPressed: () {
+  //                             Get.back();
+  //                           },
+  //                           child: Text('Close'),
+  //                         ),
+  //                         ElevatedButton(
+  //                           onPressed: () {
+  //                             // Apply filter logic here
+  //                           },
+  //                           child: Text('Apply'),
+  //                         ),
+  //                       ],
+  //                     )
+  //                   ],
+  //                 ))
+  //           ]),
+  //     ),
+  //   )
 
         // AlertDialog(
         //   title: const Text('Dialog'),
@@ -741,6 +628,22 @@ class DiscoverPage extends StatelessWidget {
         // ),
         //   ],
         // ),
-        );
+        // );
+  // }
+  Column learningPath(){
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        //card horiontal list view
+        // ListView.separated(itemBuilder: (context, index){
+
+        // }, separatorBuilder: (){
+        //   return VerticalDivider()
+        // }, itemCount: 10);
+        //card grid view of 6 elements
+        //Pages list view 
+      ],
+    );
   }
 }

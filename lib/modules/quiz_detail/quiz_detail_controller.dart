@@ -22,6 +22,9 @@ class QuizDetailController extends GetxController {
 
   var quizCategoryName = "";
 
+
+ 
+
   @override
   void onInit() {
     if (arguments != null) {

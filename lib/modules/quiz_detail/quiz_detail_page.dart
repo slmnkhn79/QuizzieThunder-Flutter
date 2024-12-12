@@ -8,8 +8,10 @@ import '../../utils/constants.dart';
 import 'quiz_detail_controller.dart';
 
 class QuizDetailPage extends StatelessWidget {
-  const QuizDetailPage({super.key});
 
+
+  const QuizDetailPage({super.key});
+  
   @override
   Widget build(BuildContext context) {
     QuizDetailController quizDetailController =
@@ -273,6 +275,7 @@ class QuizDetailPage extends StatelessWidget {
                                                                     .toString()
                                                                     .toUpperCase()
                                                           });
+                                                          quizDetailController.dispose();
                                                     },
                                               style: TextButton.styleFrom(
                                                 textStyle: TextStyle(

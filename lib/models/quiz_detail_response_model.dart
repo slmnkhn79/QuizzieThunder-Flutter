@@ -34,7 +34,7 @@ class QuizDetail {
   final List<dynamic?> quizPrizeDetails;
   final int numQuestions;
   final int? points;
-  final bool isPlayed;
+  bool isPlayed;
   final String quizType;
   final String categoryName;
   final String? timeLimit;
