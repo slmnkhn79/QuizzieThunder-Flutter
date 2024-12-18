@@ -13,6 +13,11 @@ const ARG_QUIZ_NAME = "arg_quiz_name";
 const ARG_SCHOOL_ID = 'arg_school_detail';
 const ARG_POST_ID = 'arg_post_id';
 
+const ARG_IS_LEARNING_PATH = 'arg_is_learning_path';
+const ARG_LEARNING_PATH_ID = 'arg_learning_path_id';
+
+const ARG_STUDY_PLAN_ID = 'arg_study_plan_id';
+
 // Local Storage Keys
 const KEY_USER_DATA = "key_user_data";
 const KEY_IS_API_ERROR_HANDLE = "key_is_api_error_handle";

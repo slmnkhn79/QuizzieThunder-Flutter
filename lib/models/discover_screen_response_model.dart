@@ -10,7 +10,7 @@ class DiscoverScreenResponseModel {
   final int? code;
   final bool? status;
   final String? message;
-  final School topSchool;
+  final School? topSchool;
   final List<School>? schools;
 
   factory DiscoverScreenResponseModel.fromJson(Map<String, dynamic> json) {
@@ -18,7 +18,7 @@ class DiscoverScreenResponseModel {
       code: json["code"],
       status: json["status"],
       message: json["message"],
-      topSchool: School.fromJson(json['topSchool']),
+      topSchool: json["topSchool"] == null ? null : School.fromJson(json['topSchool']),
       schools: json["schools"] == null
           ? []
           : List<School>.from(
@@ -30,7 +30,7 @@ class DiscoverScreenResponseModel {
         "code": code,
         "status": status,
         "message": message,
-        "topSchool": topSchool.toJson(),
+        "topSchool": topSchool,
         "schools": schools?.map((x) => x.toJson()).toList(),
       };
 }

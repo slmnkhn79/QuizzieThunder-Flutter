@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:quizzie_thunder/models/school_discover_screen_response_model.dart';
 import 'package:quizzie_thunder/modules/discover/school_discover_controller.dart';
+import 'package:quizzie_thunder/modules/discover/learning_discover_controller.dart';
 import 'package:quizzie_thunder/modules/home/post_card/like_animation.dart';
 import 'package:quizzie_thunder/theme/colors_theme.dart';
 
 class EventCard extends StatelessWidget {
   final Event post;
-  final SchoolDiscoverController schoolDiscoverController ;
+  final DiscoverController schoolDiscoverController ;
 
   const EventCard({super.key, required this.post, required this.schoolDiscoverController});
 

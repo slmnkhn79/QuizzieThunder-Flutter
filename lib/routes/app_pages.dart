@@ -1,10 +1,20 @@
 import 'package:get/get.dart';
+import 'package:quizzie_thunder/models/discover_learning_model.dart';
 import 'package:quizzie_thunder/modules/event_details/post_detail_binding.dart';
 import 'package:quizzie_thunder/modules/event_details/post_details_page.dart';
 import 'package:quizzie_thunder/modules/gallery/gallery_header_binding.dart';
 import 'package:quizzie_thunder/modules/gallery/gallery_header_page.dart';
+import 'package:quizzie_thunder/modules/learning_path/learning_binding.dart';
+import 'package:quizzie_thunder/modules/learning_path/learning_page.dart';
+import 'package:quizzie_thunder/modules/learning_path/learning_path_by_id/learning_by_id_binding.dart';
+import 'package:quizzie_thunder/modules/learning_path/learning_path_by_id/learning_page_by_id.dart';
+import 'package:quizzie_thunder/modules/learning_path/learning_path_controller.dart';
 import 'package:quizzie_thunder/modules/school_details/school_details_binding.dart';
 import 'package:quizzie_thunder/modules/school_details/school_details_page.dart';
+import 'package:quizzie_thunder/modules/study_plans/all_study_plans_page.dart';
+import 'package:quizzie_thunder/modules/study_plans/study_plan_binding.dart';
+import 'package:quizzie_thunder/modules/study_plans/study_plans_by_id/study_paln_by_id_binding.dart';
+import 'package:quizzie_thunder/modules/study_plans/study_plans_by_id/study_plan_by_id_page.dart';
 
 import '../modules/create_new_password/create_new_password_binding.dart';
 import '../modules/create_new_password/create_new_password_page.dart';
@@ -135,6 +145,25 @@ class AppPages {
       page: () => GalleryHeader(),
       binding: GalleryHeaderBinding(),
     ),
+    GetPage(
+      name: AppRoutes.learningView,
+      page: () => LearningPage(),
+      binding: LearningBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.learningPathById,
+      page: () => LearningPageById(),
+      binding: LearningPathByIdBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.allStudyPlans,
+      page: () => AllStudyPlans(),
+      binding: StudyPlanBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.studyPlansById,
+      page: () => StudyPlanByIdPage(),
+      binding: StudyPlanByIdBinding(),
+    ),
   ];
-
 }

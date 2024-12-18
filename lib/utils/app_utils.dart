@@ -104,6 +104,24 @@ class AppUtils {
     return randomColors[random.nextInt(randomColors.length)];
   }
 
+  static List<Color> getRandomGradient(int? randomValue) {
+    final List<List<Color>> randomColors = [
+      [Color(0xFF3A86FF), Color(0xFF7FDBFF), Color(0xFFF4F4F9)],
+      [Color(0xFF367588), Color(0xFFCAD2C5), Color(0xFFF4F4F9)],
+      // [Color(0xFF367588),
+      // Color(0xFF264653),
+      // Color(0xFFE9C46A)
+      // ],
+      [Color(0xFF5E60CE), Color(0xFF48BFE3), Color(0xFFD9F2EB)],
+      [Color(0xFF6C757D), Color(0xFF95D5B2), Color(0xFFE9ECEF)],
+      [Color(0xFF08B0AB), Color(0xFFFF6854), Color(0xFFE9C46A)],
+      [Color(0xFF3A86FF), Color(0xFF7FDBFF), Color(0xFFF4F4F9)]
+    ];
+    final random = Random();
+    return randomColors[
+        randomValue! % 6 ?? random.nextInt(randomColors.length)];
+  }
+
   static void logout() async {
     await GetStorage().remove(KEY_USER_DATA);
     Get.offAllNamed(AppRoutes.signInPage);
@@ -118,6 +136,15 @@ class AppUtils {
     } else {
       return "GOOD EVENING";
     }
+  }
+
+  static Color getRandomShadeOfBlack() {
+    final Random random = Random();
+
+    // Generates shades of black by using RGB values close to 0.
+    int shade = random.nextInt(56); // Value between 0 and 55
+
+    return Color.fromARGB(255, shade, shade, shade);
   }
 
   static Future<void> shareImageFromApi({
@@ -144,6 +171,100 @@ class AppUtils {
 
     // Delete the temporary image file.
     await tempFile.delete();
+  }
+
+  static Color getGradientFirstColor() {
+    final Random random = Random();
+    List<Color> materialColors = [
+      Colors.red,
+      Colors.pink,
+      Colors.purple,
+      Colors.deepPurple,
+      Colors.indigo,
+      Colors.blue,
+      Colors.lightBlue,
+      Colors.cyan,
+      Colors.teal,
+      Colors.green,
+      Colors.lightGreen,
+      Colors.lime,
+      Colors.yellow,
+      Colors.amber,
+      Colors.orange,
+      Colors.deepOrange,
+      Colors.brown,
+      Colors.grey,
+      Colors.blueGrey,
+    ];
+
+    // Select a random color from the list
+    return materialColors[random.nextInt(materialColors.length)];
+  }
+
+  static Color getRandomColor() {
+    final Random random = Random();
+
+    // Ensure green and blue are dominant for a cooler color.
+    int green = random.nextInt(156) + 100; // random between 100 and 255
+    int blue = random.nextInt(156) + 100; // random between 100 and 255
+    int red = random.nextInt(100); // random between 0 and 99
+
+    return Color.fromARGB(
+      255, // Fully opaque
+      red,
+      green,
+      blue,
+    );
+  }
+
+  static Color getRandomShadeOfWhite() {
+    final Random random = Random();
+
+    // Generates shades of white by using RGB values close to 255.
+    int shade = random.nextInt(56) + 200; // Value between 200 and 255
+
+    return Color.fromARGB(255, shade, shade, shade);
+  }
+
+  static Color getRandomMaterialColor() {
+    final Random random = Random();
+
+    // List of Material colors (you can add more if needed)
+    List<Color> materialColors = [
+      Colors.red,
+      Colors.pink,
+      Colors.purple,
+      Colors.deepPurple,
+      Colors.indigo,
+      Colors.blue,
+      Colors.lightBlue,
+      Colors.cyan,
+      Colors.teal,
+      Colors.green,
+      Colors.lightGreen,
+      Colors.lime,
+      Colors.yellow,
+      Colors.amber,
+      Colors.orange,
+      Colors.deepOrange,
+      Colors.brown,
+      Colors.grey,
+      Colors.blueGrey,
+    ];
+
+    // Select a random color from the list
+    return materialColors[random.nextInt(materialColors.length)];
+  }
+
+  static LinearGradient getRandomLightGradient() {
+    return LinearGradient(
+      colors: [
+        getRandomColor(),
+        getRandomColor(),
+      ],
+      begin: Alignment.topLeft,
+      end: Alignment.bottomRight,
+    );
   }
 
   static double textScaleFactor(BuildContext context,

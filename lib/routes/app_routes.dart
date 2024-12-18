@@ -19,4 +19,12 @@ class AppRoutes {
   static const addPostPage = '/addPost';
   static const schoolDetailsPage = '/schoolDetails';
   static const galleryDateView = '/galleryView';
+  static const learningView = '/learnings';
+  static const learningPathById = '/learningsPathById';
+  static const allStudyPlans = '/allStudyPlans';
+  static const studyPlansById = '/studyPlansById';
+
+
+
+
 }
