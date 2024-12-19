@@ -1,5 +1,9 @@
 import 'package:get/get.dart';
 import 'package:quizzie_thunder/models/discover_learning_model.dart';
+import 'package:quizzie_thunder/modules/books/all_books_binding.dart';
+import 'package:quizzie_thunder/modules/books/all_books_page.dart';
+import 'package:quizzie_thunder/modules/books/books_view/book_binding.dart';
+import 'package:quizzie_thunder/modules/books/books_view/book_page.dart';
 import 'package:quizzie_thunder/modules/event_details/post_detail_binding.dart';
 import 'package:quizzie_thunder/modules/event_details/post_details_page.dart';
 import 'package:quizzie_thunder/modules/gallery/gallery_header_binding.dart';
@@ -178,6 +182,16 @@ class AppPages {
       name: AppRoutes.videoById,
       page: () => PlayVideoPage(),
       binding: PlayVideoBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.allBooks,
+      page: () => AllBooksPage(),
+      binding: AllBooksBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.bookById,
+      page: () => BookPage(),
+      binding: BookBinding(),
     ),
   ];
 }

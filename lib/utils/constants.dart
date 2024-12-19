@@ -18,6 +18,8 @@ const ARG_LEARNING_PATH_ID = 'arg_learning_path_id';
 
 const ARG_STUDY_PLAN_ID = 'arg_study_plan_id';
 const ARG_VIDEO_ID = 'arg_video_id';
+const ARG_BOOK_ID = 'arg_book_id';
+
 
 
 // Local Storage Keys

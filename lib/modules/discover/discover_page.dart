@@ -202,6 +202,13 @@ class DiscoverPage extends StatelessWidget {
 
   Container schoolFilter(
       DiscoverController discoverController, BuildContext context) {
+    int columns = (MediaQuery.of(context).size.width > 600
+            ? 600
+            : MediaQuery.of(context).size.width) ~/
+        180; // 200px per card (adjust as needed)
+    if (columns == 0) {
+      columns = 1; // Ensure at least 1 column
+    }
     return Container(
       child: Column(
         children: [
@@ -276,6 +283,10 @@ class DiscoverPage extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       GridView.builder(
+                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: columns,
+                             childAspectRatio: 0.9
+                             ),
                         itemCount: discoverController
                             .discoverScreenResponseModel?.schools?.length,
                         physics: NeverScrollableScrollPhysics(),
@@ -299,12 +310,14 @@ class DiscoverPage extends StatelessWidget {
                                 },
                                 child: Column(
                                   mainAxisAlignment: MainAxisAlignment.start,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
-                                    Image.network(discoverController
+                                    CachedNetworkImage(
+                                      imageUrl:  discoverController
                                         .discoverScreenResponseModel!
                                         .schools![index]
-                                        .headerImageUrl),
+                                        .headerImageUrl
+                                        ),
                                     // Icon(
                                     //   Icons.science_outlined,
                                     //   size: 36,
@@ -335,9 +348,6 @@ class DiscoverPage extends StatelessWidget {
                                 ),
                               ));
                         },
-                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 2,
-                        ),
                       )
                     ])),
           ),
@@ -754,6 +764,13 @@ class DiscoverPage extends StatelessWidget {
 
   Container studyPlan(LearningDiscoverController learningDiscoverController,
       BuildContext context) {
+    int columns = (MediaQuery.of(context).size.width > 600
+            ? 600
+            : MediaQuery.of(context).size.width) ~/
+        180; // 200px per card (adjust as needed)
+    if (columns == 0) {
+      columns = 1; // Ensure at least 1 column
+    }
     return Container(
       child: Column(
         children: [
@@ -797,11 +814,8 @@ class DiscoverPage extends StatelessWidget {
                       shrinkWrap: true,
                       physics: NeverScrollableScrollPhysics(),
                       // scrollDirection: Axis.vertical,
-                      gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-                          maxCrossAxisExtent: 300,
-                          childAspectRatio: 1,
-                          crossAxisSpacing: 1,
-                          mainAxisSpacing: 1),
+                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: columns, childAspectRatio: 2),
                       itemCount: learningDiscoverController
                           .discoverLearningResponseModel!
                           .data
@@ -827,15 +841,19 @@ class DiscoverPage extends StatelessWidget {
                               colors: AppUtils.getRandomGradient(index),
                               child: Center(
                                 child: ListTile(
-                                  title: Text(item.planName,
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                        fontSize: 12.0,
-                                        fontWeight: FontWeight.w700,
-                                      )),
-                                  leading: Text(item.standard),
-                                  trailing: Icon(Icons.not_started_outlined),
-                                ),
+                                    title: Text(item.planName,
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 12.0,
+                                          fontWeight: FontWeight.w700,
+                                        )),
+                                    leading: Text(item.standard),
+                                    trailing:
+                                        // MediaQuery.of(context).size.width > 600
+                                        //         ?
+                                        Icon(Icons.not_started_outlined)
+                                    //         : null,
+                                    ),
                               ),
                             ),
                           ),
@@ -853,7 +871,7 @@ class DiscoverPage extends StatelessWidget {
     return SizedBox(
         width: MediaQuery.of(context).size.width > 600
             ? 600
-            : MediaQuery.of(context).size.width-10,
+            : MediaQuery.of(context).size.width - 10,
         // height: 500.0,
         child: Column(
           children: [
@@ -966,7 +984,9 @@ class DiscoverPage extends StatelessWidget {
                       ),
                     ),
                     InkWell(
-                        onTap: () {},
+                        onTap: () {
+                          Get.toNamed('/allBooks');
+                        },
                         child: Text("See all",
                             style: TextStyle(color: Colors.blue[400])))
                   ],
@@ -987,7 +1007,7 @@ class DiscoverPage extends StatelessWidget {
                       .discoverLearningResponseModel!.data.books[index];
                   return InkWell(
                     onTap: () {
-                      //
+                      Get.toNamed('/bookById',arguments: {ARG_BOOK_ID:item.id});
                     },
                     child: Container(
                       height: 80.0,

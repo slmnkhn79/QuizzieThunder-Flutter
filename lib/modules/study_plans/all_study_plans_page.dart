@@ -42,6 +42,12 @@ class AllStudyPlans extends StatelessWidget {
 
   Center studyPlans(
       BuildContext context, StudyPlansAllController studyPlansAllController) {
+        int columns = (MediaQuery.of(context).size.width > 600
+            ? 600
+            : MediaQuery.of(context).size.width) ~/ 180; // 200px per card (adjust as needed)
+    if (columns == 0) {
+      columns = 1; // Ensure at least 1 column
+    }
     return Center(
       child: Container(
         padding: const EdgeInsets.only(left: 16.0, right: 16.0, top: 16.0),
@@ -58,11 +64,11 @@ class AllStudyPlans extends StatelessWidget {
             SizedBox(
               height: MediaQuery.of(context).size.height *0.8,
               child: GridView.builder(
-                  gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-                      maxCrossAxisExtent: 300,
-                      childAspectRatio: 3,
-                      crossAxisSpacing: 2,
-                      mainAxisSpacing: 2),
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: columns,
+                      // childAspectRatio: 3,
+                      // crossAxisSpacing: 2,
+                      childAspectRatio: 2),
                   itemCount: studyPlansAllController
                       .studyPlanResponseModel!.plans.length,
                   itemBuilder: (context, index) {

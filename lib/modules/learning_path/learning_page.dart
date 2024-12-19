@@ -57,6 +57,12 @@ class LearningPage extends StatelessWidget {
 
   Container getLearningPaths(
       LearningController learningController, BuildContext context) {
+        int columns = (MediaQuery.of(context).size.width > 600
+            ? 600
+            : MediaQuery.of(context).size.width) ~/ 180; // 200px per card (adjust as needed)
+    if (columns == 0) {
+      columns = 1; // Ensure at least 1 column
+    }
     return Container(
       height: MediaQuery.of(context).size.height,
       child: learningController.isLoadingLearningPaths.value
@@ -74,11 +80,12 @@ class LearningPage extends StatelessWidget {
                   SizedBox(
                     height: MediaQuery.of(context).size.height - 16,
                     child: GridView.builder(
-                        gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-                            maxCrossAxisExtent: 300,
-                            childAspectRatio: 3,
-                            crossAxisSpacing: 2,
-                            mainAxisSpacing: 2),
+                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                           crossAxisCount: columns,
+                            // childAspectRatio: 3,
+                            // crossAxisSpacing: 2,
+                            mainAxisSpacing: 2
+                            ),
                         itemCount:
                             learningController.learningPaths!.paths.length,
                         itemBuilder: (context, index) {
