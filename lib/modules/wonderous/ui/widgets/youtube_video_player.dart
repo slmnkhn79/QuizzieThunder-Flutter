@@ -16,13 +16,6 @@ class _YouTubeVideoPlayerState extends State<YouTubeVideoPlayer> {
   @override
   void initState() {
     super.initState();
-    // _controller = YoutubePlayerController(
-    //   params: YoutubePlayerParams(
-    //     showControls: true,
-    //     showFullscreenButton: true,
-    //   ),
-    // );
-    // _controller.cueVideoById(videoId: widget.videoId);
     _controller = YoutubePlayerController.fromVideoId(
       videoId: widget.videoId,
       autoPlay: false,

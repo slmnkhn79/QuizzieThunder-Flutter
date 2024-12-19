@@ -23,6 +23,8 @@ class AppRoutes {
   static const learningPathById = '/learningsPathById';
   static const allStudyPlans = '/allStudyPlans';
   static const studyPlansById = '/studyPlansById';
+  static const allVideos = '/allVideos';
+  static const videoById = '/videoById';
 
 
 

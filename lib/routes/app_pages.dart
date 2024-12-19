@@ -15,6 +15,10 @@ import 'package:quizzie_thunder/modules/study_plans/all_study_plans_page.dart';
 import 'package:quizzie_thunder/modules/study_plans/study_plan_binding.dart';
 import 'package:quizzie_thunder/modules/study_plans/study_plans_by_id/study_paln_by_id_binding.dart';
 import 'package:quizzie_thunder/modules/study_plans/study_plans_by_id/study_plan_by_id_page.dart';
+import 'package:quizzie_thunder/modules/videos/all_videos_binding.dart';
+import 'package:quizzie_thunder/modules/videos/all_videos_page.dart';
+import 'package:quizzie_thunder/modules/videos/play_video/play_video_binding.dart';
+import 'package:quizzie_thunder/modules/videos/play_video/play_video_page.dart';
 
 import '../modules/create_new_password/create_new_password_binding.dart';
 import '../modules/create_new_password/create_new_password_page.dart';
@@ -164,6 +168,16 @@ class AppPages {
       name: AppRoutes.studyPlansById,
       page: () => StudyPlanByIdPage(),
       binding: StudyPlanByIdBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.allVideos,
+      page: () => AllVideosPage(),
+      binding: AllVideosBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.videoById,
+      page: () => PlayVideoPage(),
+      binding: PlayVideoBinding(),
     ),
   ];
 }

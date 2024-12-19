@@ -799,9 +799,9 @@ class DiscoverPage extends StatelessWidget {
                       // scrollDirection: Axis.vertical,
                       gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
                           maxCrossAxisExtent: 300,
-                          childAspectRatio: 3,
-                          crossAxisSpacing: 2,
-                          mainAxisSpacing: 2),
+                          childAspectRatio: 1,
+                          crossAxisSpacing: 1,
+                          mainAxisSpacing: 1),
                       itemCount: learningDiscoverController
                           .discoverLearningResponseModel!
                           .data
@@ -853,11 +853,10 @@ class DiscoverPage extends StatelessWidget {
     return SizedBox(
         width: MediaQuery.of(context).size.width > 600
             ? 600
-            : MediaQuery.of(context).size.width,
+            : MediaQuery.of(context).size.width-10,
         // height: 500.0,
         child: Column(
           children: [
-            
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: SizedBox(
@@ -873,6 +872,7 @@ class DiscoverPage extends StatelessWidget {
                     InkWell(
                         onTap: () {
                           //open all the learning paths
+                          Get.toNamed('/allVideos');
                         },
                         child: Text(
                           "See all",
@@ -902,6 +902,8 @@ class DiscoverPage extends StatelessWidget {
                     child: InkWell(
                       onTap: () {
                         //play the video in next page
+                        Get.toNamed('/videoById',
+                            arguments: {ARG_VIDEO_ID: item.id});
                       },
                       child: Card(
                         shape: RoundedRectangleBorder(
@@ -919,7 +921,7 @@ class DiscoverPage extends StatelessWidget {
                             subtitle: Text(" Duration : ${item.duration}"),
                             trailing: SizedBox(
                                 height: 100,
-                                width: 120,
+                                width: 140,
                                 child: Row(
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceAround,
@@ -943,10 +945,10 @@ class DiscoverPage extends StatelessWidget {
   SizedBox booksContainer(LearningDiscoverController learningDiscoverController,
       BuildContext context) {
     return SizedBox(
-        width: MediaQuery.of(context).size.width > 500
-            ? 500
+        width: MediaQuery.of(context).size.width > 600
+            ? 600
             : MediaQuery.of(context).size.width,
-        height: 500.0,
+        height: 600.0,
         child: Column(
           children: [
             Padding(
@@ -988,7 +990,7 @@ class DiscoverPage extends StatelessWidget {
                       //
                     },
                     child: Container(
-                      height: 70.0,
+                      height: 80.0,
                       child: Padding(
                         padding: const EdgeInsets.only(left: 16.0, right: 16.0),
                         child: Column(

@@ -17,6 +17,8 @@ const ARG_IS_LEARNING_PATH = 'arg_is_learning_path';
 const ARG_LEARNING_PATH_ID = 'arg_learning_path_id';
 
 const ARG_STUDY_PLAN_ID = 'arg_study_plan_id';
+const ARG_VIDEO_ID = 'arg_video_id';
+
 
 // Local Storage Keys
 const KEY_USER_DATA = "key_user_data";
