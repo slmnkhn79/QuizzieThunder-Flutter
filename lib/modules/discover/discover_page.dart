@@ -284,9 +284,7 @@ class DiscoverPage extends StatelessWidget {
                     children: [
                       GridView.builder(
                         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                            crossAxisCount: columns,
-                             childAspectRatio: 0.9
-                             ),
+                            crossAxisCount: columns, childAspectRatio: 0.9),
                         itemCount: discoverController
                             .discoverScreenResponseModel?.schools?.length,
                         physics: NeverScrollableScrollPhysics(),
@@ -313,11 +311,10 @@ class DiscoverPage extends StatelessWidget {
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
                                     CachedNetworkImage(
-                                      imageUrl:  discoverController
-                                        .discoverScreenResponseModel!
-                                        .schools![index]
-                                        .headerImageUrl
-                                        ),
+                                        imageUrl: discoverController
+                                            .discoverScreenResponseModel!
+                                            .schools![index]
+                                            .headerImageUrl),
                                     // Icon(
                                     //   Icons.science_outlined,
                                     //   size: 36,
@@ -650,20 +647,29 @@ class DiscoverPage extends StatelessWidget {
   // }
   Column learningPath(LearningDiscoverController learningDiscoverController,
       BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        Divider(),
-        learningPathCards(learningDiscoverController, context),
-        Divider(),
-        studyPlan(learningDiscoverController, context),
-        Divider(),
-        mentorVideos(learningDiscoverController, context),
-        Divider(),
-        booksContainer(learningDiscoverController, context)
-      ],
-    );
+    return learningDiscoverController.isLoading.value
+        ? Column(
+            children: [
+              const Center(
+                  child: CircularProgressIndicator(
+                color: ThemeColor.white,
+              )),
+            ],
+          )
+        : Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Divider(),
+              learningPathCards(learningDiscoverController, context),
+              Divider(),
+              studyPlan(learningDiscoverController, context),
+              Divider(),
+              mentorVideos(learningDiscoverController, context),
+              Divider(),
+              booksContainer(learningDiscoverController, context)
+            ],
+          );
   }
 
   Column learningPathCards(
@@ -1007,7 +1013,8 @@ class DiscoverPage extends StatelessWidget {
                       .discoverLearningResponseModel!.data.books[index];
                   return InkWell(
                     onTap: () {
-                      Get.toNamed('/bookById',arguments: {ARG_BOOK_ID:item.id});
+                      Get.toNamed('/bookById',
+                          arguments: {ARG_BOOK_ID: item.id});
                     },
                     child: Container(
                       height: 80.0,

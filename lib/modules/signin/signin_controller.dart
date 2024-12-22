@@ -41,29 +41,36 @@ class SigninController extends GetxController {
   }
 
   void login() async {
-    if (_loginFormValidation()) {
-      SignInPostBodyModel signInPostBodyModel = SignInPostBodyModel(
-          username: phoneNumberController.text,
-          password: passwordController.text);
-      isLoading.value = true;
-      var response =
-          await signInApi.signIn(signInPostBodyModel: signInPostBodyModel);
-      if (response.code == 200) {
-        GetStorage().remove(KEY_IS_API_ERROR_HANDLE);
-        localStorage.write(KEY_USER_DATA, response.toJson());
-        isLoading.value = false;
-        Get.offAllNamed(AppRoutes.dashboardPage);
-      } else if (response.code == 210) {
-        isLoading.value = false;
-        Get.toNamed(AppRoutes.verifyOtpPage,
-            arguments: {ARG_PHONE_NUMBER: phoneNumberController.text});
+    try {
+      if (_loginFormValidation()) {
+        SignInPostBodyModel signInPostBodyModel = SignInPostBodyModel(
+            username: phoneNumberController.text,
+            password: passwordController.text);
+        isLoading.value = true;
+        var response =
+            await signInApi.signIn(signInPostBodyModel: signInPostBodyModel);
+        print(response);
+        if (response.code == 200) {
+          GetStorage().remove(KEY_IS_API_ERROR_HANDLE);
+          localStorage.write(KEY_USER_DATA, response.toJson());
+          isLoading.value = false;
+          Get.offAllNamed(AppRoutes.dashboardPage);
+        } else if (response.code == 210) {
+          isLoading.value = false;
+          Get.toNamed(AppRoutes.verifyOtpPage,
+              arguments: {ARG_PHONE_NUMBER: phoneNumberController.text});
+        } else {
+          isLoading.value = false;
+          AppUtils.showSnackBar(response.message ?? "Error",
+              status: MessageStatus.ERROR);
+        }
       } else {
-        isLoading.value = false;
-        AppUtils.showSnackBar(response.message ?? "Error",
-            status: MessageStatus.ERROR);
+        AppUtils.showSnackBar(errorMessage, status: MessageStatus.ERROR);
       }
-    } else {
-      AppUtils.showSnackBar(errorMessage, status: MessageStatus.ERROR);
+    } catch (error) {
+      isLoading.value = false;
+      AppUtils.showSnackBar("Error" ?? "Error",
+          status: MessageStatus.ERROR);
     }
   }
 }

@@ -6,7 +6,7 @@ import 'package:quizzie_thunder/models/school_leaderboard_screen_response_model.
 class SchoolLeaderboardController extends GetxController {
   SchoolLeaderboardApi leaderboardApi = SchoolLeaderboardApi();
 
-  var selectedTabIndex = 0.obs;
+  // var selectedTabIndex = 0.obs;
   var isLoading = false.obs;
 
   SchoolLeaderboardScreenResponseModel? schoolLeaderboardScreenResponseModel;

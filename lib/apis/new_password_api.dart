@@ -9,10 +9,10 @@ class ResetPasswordApi {
       {required UpdatePasswordPostBodyModel
           updatePasswordPostBodyModel}) async {
     try {
-      final response = await DioClient.getDioInstance().put(
-          "api/user/update-password",
+      final response = await DioClient.getDioInstance().post(
+          "/changePassword",
           data: updatePasswordPostBodyModel.toJson());
-      return UpdatePasswordResponseModel.fromJson(response.data);
+      return UpdatePasswordResponseModel.fromJson(response.data['result']);
     } catch (e) {
       rethrow;
     }

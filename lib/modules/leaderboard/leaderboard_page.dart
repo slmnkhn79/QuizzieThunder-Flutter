@@ -1,8 +1,10 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:quizzie_thunder/main.dart';
 import 'package:quizzie_thunder/models/school_leaderboard_screen_response_model.dart';
 import 'package:quizzie_thunder/modules/leaderboard/school_leaderboard_controller.dart';
+import 'package:quizzie_thunder/modules/videos/play_video/play_video_page.dart';
 import 'package:quizzie_thunder/utils/constants.dart';
 
 import '../../models/leaderboard_screen_response_model.dart';
@@ -17,7 +19,8 @@ class LeaderboardPage extends StatelessWidget {
   Widget build(BuildContext context) {
     LeaderboardController leaderboardController =
         Get.find<LeaderboardController>();
-    SchoolLeaderboardController schoolLeaderboardController = Get.find<SchoolLeaderboardController>();
+    SchoolLeaderboardController schoolLeaderboardController =
+        Get.find<SchoolLeaderboardController>();
     return Scaffold(
         appBar: AppBar(
           title: Text(
@@ -36,17 +39,20 @@ class LeaderboardPage extends StatelessWidget {
               onRefresh: () async {
                 leaderboardController.getLeaderboardScreenDetails();
               },
-              child: leaderboardController.isLoading.value
+              child: leaderboardController.isLoading.value &&
+                      schoolLeaderboardController.isLoading.value
                   ? const Center(
                       child: CircularProgressIndicator(
                       color: ThemeColor.white,
                     ))
                   : Center(
-                    child: SizedBox(
-                      width: MediaQuery.of(context).size.width > 600 ? 600 : MediaQuery.of(context).size.width,
-                      child: Container(
-                        color: ThemeColor.headerThree,
-                        child: Column(
+                      child: SizedBox(
+                        width: MediaQuery.of(context).size.width > 600
+                            ? 600
+                            : MediaQuery.of(context).size.width,
+                        child: Container(
+                          color: ThemeColor.headerThree,
+                          child: Column(
                             children: [
                               SizedBox(
                                 height: 16,
@@ -60,7 +66,8 @@ class LeaderboardPage extends StatelessWidget {
                                       borderRadius: BorderRadius.circular(16)),
                                   // padding: const EdgeInsets.all(4),
                                   child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
                                     children: [
                                       Expanded(
                                         child: InkWell(
@@ -73,30 +80,39 @@ class LeaderboardPage extends StatelessWidget {
                                                   0
                                               ? Container(
                                                   decoration: BoxDecoration(
-                                                      color: ThemeColor.headerTwo,
+                                                      color:
+                                                          ThemeColor.headerTwo,
                                                       borderRadius:
-                                                          BorderRadius.circular(16)),
-                                                  padding: const EdgeInsets.symmetric(
-                                                      horizontal: 16, vertical: 8),
+                                                          BorderRadius.circular(
+                                                              16)),
+                                                  padding: const EdgeInsets
+                                                      .symmetric(
+                                                      horizontal: 16,
+                                                      vertical: 8),
                                                   child: Text(
                                                     "Schools",
                                                     textAlign: TextAlign.center,
                                                     style: TextStyle(
-                                                        color: ThemeColor.facebook_light_4,
+                                                        color: ThemeColor
+                                                            .facebook_light_4,
                                                         fontSize: 14,
-                                                        fontWeight: FontWeight.bold),
+                                                        fontWeight:
+                                                            FontWeight.bold),
                                                   ))
                                               : Container(
-                                                  padding: const EdgeInsets.symmetric(
-                                                      horizontal: 16, vertical: 8),
+                                                  padding: const EdgeInsets
+                                                      .symmetric(
+                                                      horizontal: 16,
+                                                      vertical: 8),
                                                   child: Text(
                                                     "Schools",
                                                     textAlign: TextAlign.center,
                                                     style: TextStyle(
-                                                        color: ThemeColor.facebook_light_4
-                                                            ,
+                                                        color: ThemeColor
+                                                            .facebook_light_4,
                                                         fontSize: 14,
-                                                        fontWeight: FontWeight.bold),
+                                                        fontWeight:
+                                                            FontWeight.bold),
                                                   ),
                                                 ),
                                         ),
@@ -112,30 +128,39 @@ class LeaderboardPage extends StatelessWidget {
                                                   1
                                               ? Container(
                                                   decoration: BoxDecoration(
-                                                      color: ThemeColor.headerTwo,
+                                                      color:
+                                                          ThemeColor.headerTwo,
                                                       borderRadius:
-                                                          BorderRadius.circular(16)),
-                                                  padding: const EdgeInsets.symmetric(
-                                                      horizontal: 16, vertical: 8),
+                                                          BorderRadius.circular(
+                                                              16)),
+                                                  padding: const EdgeInsets
+                                                      .symmetric(
+                                                      horizontal: 16,
+                                                      vertical: 8),
                                                   child: Text(
                                                     "Students",
                                                     textAlign: TextAlign.center,
                                                     style: TextStyle(
-                                                        color: ThemeColor.facebook_light_4,
+                                                        color: ThemeColor
+                                                            .facebook_light_4,
                                                         fontSize: 14,
-                                                        fontWeight: FontWeight.bold),
+                                                        fontWeight:
+                                                            FontWeight.bold),
                                                   ))
                                               : Container(
-                                                  padding: const EdgeInsets.symmetric(
-                                                      horizontal: 16, vertical: 8),
+                                                  padding: const EdgeInsets
+                                                      .symmetric(
+                                                      horizontal: 16,
+                                                      vertical: 8),
                                                   child: Text(
                                                     "Students",
                                                     textAlign: TextAlign.center,
                                                     style: TextStyle(
-                                                        color: ThemeColor.facebook_light_4
-                                                            ,
+                                                        color: ThemeColor
+                                                            .facebook_light_4,
                                                         fontSize: 14,
-                                                        fontWeight: FontWeight.bold),
+                                                        fontWeight:
+                                                            FontWeight.bold),
                                                   ),
                                                 ),
                                         ),
@@ -148,108 +173,134 @@ class LeaderboardPage extends StatelessWidget {
                                 height: 16,
                               ),
                               leaderboardController.selectedTabIndex.value == 0
-                                  ? schoolLeaderboard(schoolLeaderboardController, context) //schools
-                                  : allTimeLeaderboard(leaderboardController,context) //students
+                                  ? schoolLeaderboard(
+                                      schoolLeaderboardController,
+                                      context) //schools
+                                  : allTimeLeaderboard(
+                                      leaderboardController, context) //students
                             ],
                           ),
+                        ),
                       ),
                     ),
-                  ),
             )));
   }
 
-  Expanded allTimeLeaderboard(LeaderboardController leaderboardController,context) {
+  Expanded allTimeLeaderboard(
+      LeaderboardController leaderboardController, context) {
     return Expanded(
       child: SingleChildScrollView(
-        
-        child: leaderboardController.leaderboardScreenResponseModel?.allTimeLeaderboard == null ?
-        Container(
-          child: Column(
-            children: [
-              Text("Be the first to apper here!")
-            ],
-          )
-        )
-        :
-        SizedBox(
-          width: MediaQuery.of(context).size.width > 600 ? 600 : MediaQuery.of(context).size.width,
-          child: Column(
-            children: [
-              Stack(
-                children: [
-                  Image.asset(
-                    "assets/images/all_time_leaderboard_bg.png",
-                    width: double.infinity,
-                    fit: BoxFit.cover,
-                  ),
-                  Column(
-                    children: [
-                      SizedBox(
-                        height: 40,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Column(
-                            children: [
-                              SizedBox(
-                                height: 32,
-                              ),
-                              allTimeWinnerInfo(leaderboardController
-                                  .leaderboardScreenResponseModel
-                                  ?.allTimeLeaderboard?[1]),
-                            ],
-                          ),
-                          allTimeWinnerInfo(leaderboardController
-                              .leaderboardScreenResponseModel
-                              ?.allTimeLeaderboard?[0]),
-                          Column(
-                            children: [
-                              SizedBox(
-                                height: 64,
-                              ),
-                              allTimeWinnerInfo(leaderboardController
-                                  .leaderboardScreenResponseModel
-                                  ?.allTimeLeaderboard?[2]),
-                            ],
-                          ),
-                        ],
-                      ),
-                    ],
-                  )
-                ],
+        child: leaderboardController
+                    .leaderboardScreenResponseModel?.allTimeLeaderboard ==
+                null
+            ? Container(
+                child: Column(
+                children: [Text("Be the first to apper here!")],
+              ))
+            : SizedBox(
+                width: MediaQuery.of(context).size.width > 600
+                    ? 600
+                    : MediaQuery.of(context).size.width,
+                child: Column(
+                  children: [
+                    Stack(
+                      children: [
+                        Image.asset(
+                          "assets/images/all_time_leaderboard_bg.png",
+                          width: double.infinity,
+                          fit: BoxFit.cover,
+                        ),
+                        Column(
+                          children: [
+                            SizedBox(
+                              height: 40,
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Column(
+                                  children: [
+                                    SizedBox(
+                                      height: 32,
+                                    ),
+                                    leaderboardController
+                                                .leaderboardScreenResponseModel!
+                                                .allTimeLeaderboard!
+                                                .length! >
+                                            0
+                                        ? allTimeWinnerInfo(
+                                            leaderboardController
+                                                .leaderboardScreenResponseModel
+                                                ?.allTimeLeaderboard?[1])
+                                        : Container(),
+                                  ],
+                                ),
+                                leaderboardController
+                                            .leaderboardScreenResponseModel
+                                            ?.allTimeLeaderboard?[0] !=
+                                        null
+                                    ? allTimeWinnerInfo(leaderboardController
+                                        .leaderboardScreenResponseModel
+                                        ?.allTimeLeaderboard?[0])
+                                    : Container(),
+                                Column(
+                                  children: [
+                                    SizedBox(
+                                      height: 64,
+                                    ),
+                                    leaderboardController
+                                                .leaderboardScreenResponseModel!
+                                                .allTimeLeaderboard!
+                                                .length! >
+                                            1
+                                        ? allTimeWinnerInfo(
+                                            leaderboardController
+                                                .leaderboardScreenResponseModel
+                                                ?.allTimeLeaderboard?[2])
+                                        : Container(),
+                                  ],
+                                ),
+                              ],
+                            ),
+                          ],
+                        )
+                      ],
+                    ),
+                    Padding(
+                        padding: const EdgeInsets.only(
+                            left: 8, right: 8, bottom: 24),
+                        child: Container(
+                          width: double.infinity,
+                          padding: const EdgeInsets.only(
+                              left: 12, right: 12, top: 12),
+                          decoration: BoxDecoration(
+                              color: ThemeColor.facebook_light_3,
+                              borderRadius: BorderRadius.circular(20)),
+                          child: ListView.separated(
+                              separatorBuilder:
+                                  (BuildContext context, int index) {
+                                return SizedBox(height: 12);
+                              },
+                              scrollDirection: Axis.vertical,
+                              shrinkWrap: true,
+                              physics: NeverScrollableScrollPhysics(),
+                              itemCount: leaderboardController
+                                      .leaderboardScreenResponseModel
+                                      ?.allTimeLeaderboard
+                                      ?.length ??
+                                  0,
+                              itemBuilder: (context, index) {
+                                return userQuizPointsInfoContainter(
+                                    index,
+                                    leaderboardController
+                                        .leaderboardScreenResponseModel
+                                        ?.allTimeLeaderboard?[index]);
+                              }),
+                        )),
+                  ],
+                ),
               ),
-              Padding(
-                  padding: const EdgeInsets.only(left: 8, right: 8, bottom: 24),
-                  child: Container(
-                    width: double.infinity,
-                    padding: const EdgeInsets.only(left: 12, right: 12, top: 12),
-                    decoration: BoxDecoration(
-                        color: ThemeColor.facebook_light_3,
-                        borderRadius: BorderRadius.circular(20)),
-                    child: ListView.separated(
-                        separatorBuilder: (BuildContext context, int index) {
-                          return SizedBox(height: 12);
-                        },
-                        scrollDirection: Axis.vertical,
-                        shrinkWrap: true,
-                        physics: NeverScrollableScrollPhysics(),
-                        itemCount: leaderboardController
-                                .leaderboardScreenResponseModel
-                                ?.allTimeLeaderboard
-                                ?.length ??
-                            0,
-                        itemBuilder: (context, index) {
-                          return userQuizPointsInfoContainter(
-                              index,
-                              leaderboardController.leaderboardScreenResponseModel
-                                  ?.allTimeLeaderboard?[index]);
-                        }),
-                  )),
-            ],
-          ),
-        ),
       ),
     );
   }
@@ -289,8 +340,7 @@ class LeaderboardPage extends StatelessWidget {
           "${leaderboard?.user?.firstname} ${leaderboard?.user?.lastname}"
                       .length >
                   10
-              ? "${"${leaderboard?.user?.firstname} ${leaderboard?.user?.lastname}"
-                      .substring(0, 10)}..."
+              ? "${"${leaderboard?.user?.firstname} ${leaderboard?.user?.lastname}".substring(0, 10)}..."
               : "${leaderboard?.user?.firstname} ${leaderboard?.user?.lastname}",
           style: TextStyle(
               color: ThemeColor.facebook_light_4,
@@ -317,58 +367,85 @@ class LeaderboardPage extends StatelessWidget {
     );
   }
 
-  Expanded schoolLeaderboard(SchoolLeaderboardController schoolLeaderBoardController,BuildContext context) {
-    return Expanded(
-      child: SizedBox(
-        width: MediaQuery.of(context).size.width > 600 ? 600 : MediaQuery.of(context).size.width,
-        child: Padding(
-            padding: const EdgeInsets.only(left: 8, right: 8, bottom: 24),
-            child: schoolLeaderBoardController.schoolLeaderboardScreenResponseModel
-                        ?.schoolLeaderboard?.isEmpty ==
-                    true
-                ? Container(
-                    width: double.infinity,
-                    padding: const EdgeInsets.only(left: 12, right: 12, top: 12),
-                    decoration: BoxDecoration(
-                        color: ThemeColor.headerThree,
-                        borderRadius: BorderRadius.circular(20)),
-                    child: Center(
-                      child: Text(
-                        "No data available for this week",
-                        style: TextStyle(color: ThemeColor.textPrimary),
-                      ),
-                    ))
-                : SizedBox(
-                width: MediaQuery.of(context).size.width > 600 ? 600 : MediaQuery.of(context).size.width,
-                  child: Container(
-                      width: double.infinity,
-                      padding: const EdgeInsets.only(left: 12, right: 12, top: 12),
-                      decoration: BoxDecoration(
-                          color: ThemeColor.headerTwo,
-                          borderRadius: BorderRadius.circular(20)),
-                      child: ListView.separated(
-                          // physics: NeverScrollableScrollPhysics(),
-                          separatorBuilder: (BuildContext context, int index) {
-                            return SizedBox(height: 12);
-                          },
-                          scrollDirection: Axis.vertical,
-                          itemCount: schoolLeaderBoardController
-                                  .schoolLeaderboardScreenResponseModel
-                                  ?.schoolLeaderboard
-                                  ?.length ??
-                              0,
-                          itemBuilder: (context, index) {
-                            //  return Container(color: Colors.red);
-                            // return userQuizPointsInfoContainter(
-                            //     index,
-                            //     leaderboardController.leaderboardScreenResponseModel
-                            //         ?.weeklyLeaderboard?[index]);
-                                    return schoolLeaderBoardContainer( index, schoolLeaderBoardController.schoolLeaderboardScreenResponseModel?.schoolLeaderboard?[index]);
-                          }),
-                    ),
-                )),
-      ),
-    );
+  Expanded schoolLeaderboard(
+      SchoolLeaderboardController schoolLeaderBoardController,
+      BuildContext context) {
+    return schoolLeaderBoardController.isLoading.value
+        ? Expanded(
+            child: SizedBox(
+                width: MediaQuery.of(context).size.width > 600
+                    ? 600
+                    : MediaQuery.of(context).size.width,
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 8, right: 8, bottom: 24),
+                  child: Center(
+                    child: const CircularProgressIndicator(),
+                  ),
+                )))
+        : Expanded(
+            child: SizedBox(
+              width: MediaQuery.of(context).size.width > 600
+                  ? 600
+                  : MediaQuery.of(context).size.width,
+              child: Padding(
+                  padding: const EdgeInsets.only(left: 8, right: 8, bottom: 24),
+                  child: schoolLeaderBoardController
+                              .schoolLeaderboardScreenResponseModel
+                              ?.schoolLeaderboard
+                              ?.isEmpty ==
+                          true
+                      ? Container(
+                          width: double.infinity,
+                          padding: const EdgeInsets.only(
+                              left: 12, right: 12, top: 12),
+                          decoration: BoxDecoration(
+                              color: ThemeColor.headerThree,
+                              borderRadius: BorderRadius.circular(20)),
+                          child: Center(
+                            child: Text(
+                              "No data available for this week",
+                              style: TextStyle(color: ThemeColor.textPrimary),
+                            ),
+                          ))
+                      : SizedBox(
+                          width: MediaQuery.of(context).size.width > 600
+                              ? 600
+                              : MediaQuery.of(context).size.width,
+                          child: Container(
+                            width: double.infinity,
+                            padding: const EdgeInsets.only(
+                                left: 12, right: 12, top: 12),
+                            decoration: BoxDecoration(
+                                color: ThemeColor.headerTwo,
+                                borderRadius: BorderRadius.circular(20)),
+                            child: ListView.separated(
+                                // physics: NeverScrollableScrollPhysics(),
+                                separatorBuilder:
+                                    (BuildContext context, int index) {
+                                  return SizedBox(height: 12);
+                                },
+                                scrollDirection: Axis.vertical,
+                                itemCount: schoolLeaderBoardController
+                                        .schoolLeaderboardScreenResponseModel
+                                        ?.schoolLeaderboard
+                                        ?.length ??
+                                    0,
+                                itemBuilder: (context, index) {
+                                  //  return Container(color: Colors.red);
+                                  // return userQuizPointsInfoContainter(
+                                  //     index,
+                                  //     leaderboardController.leaderboardScreenResponseModel
+                                  //         ?.weeklyLeaderboard?[index]);
+                                  return schoolLeaderBoardContainer(
+                                      index,
+                                      schoolLeaderBoardController
+                                          .schoolLeaderboardScreenResponseModel
+                                          ?.schoolLeaderboard?[index]);
+                                }),
+                          ),
+                        )),
+            ),
+          );
   }
 
   Container userQuizPointsInfoContainter(int index, Leaderboard? leaderboard) {
@@ -477,17 +554,14 @@ class LeaderboardPage extends StatelessWidget {
         ],
       ),
     );
-
   }
-  InkWell schoolLeaderBoardContainer(int index, SchoolLeaderboard? schoolLeaderboard)
-  {
-    return InkWell(
-      onTap: (){
 
-        Get.toNamed('/schoolDetails',arguments: {
-          ARG_SCHOOL_DETAIL: schoolLeaderboard!.school.id
-        }
-        );
+  InkWell schoolLeaderBoardContainer(
+      int index, SchoolLeaderboard? schoolLeaderboard) {
+    return InkWell(
+      onTap: () {
+        Get.toNamed('/schoolDetails',
+            arguments: {ARG_SCHOOL_DETAIL: schoolLeaderboard!.school.id});
       },
       child: Container(
         padding: const EdgeInsets.all(16),
@@ -572,8 +646,8 @@ class LeaderboardPage extends StatelessWidget {
                           ),
                           Text(
                             "${schoolLeaderboard?.points} points",
-                            style:
-                                TextStyle(fontSize: 14, color: ThemeColor.grey_500),
+                            style: TextStyle(
+                                fontSize: 14, color: ThemeColor.grey_500),
                           ),
                         ],
                       ),

@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
 import '../models/api_error_response_model.dart';
@@ -10,8 +11,6 @@ class ErrorHandingInterceptor extends Interceptor {
   final localStorage = GetStorage();
   var _isErrorCodeHandled = false;
 
-
-
   @override
   void onError(DioException err, ErrorInterceptorHandler handler) async {
     if (localStorage.read(KEY_IS_API_ERROR_HANDLE) == null) {
@@ -22,19 +21,23 @@ class ErrorHandingInterceptor extends Interceptor {
     print("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
     print(err);
 
-    if ((!_isErrorCodeHandled && err.response?.statusCode == 401) || err.response?.statusCode == 400) {
+    if ((!_isErrorCodeHandled && err.response?.statusCode == 401) ||
+        err.response?.statusCode == 400) {
       _isErrorCodeHandled = true;
       await localStorage.write(KEY_IS_API_ERROR_HANDLE, _isErrorCodeHandled);
       // Redirecting to sign in screen if token expires
       AppUtils.showSnackBar("Session Expired! Please login again",
           status: MessageStatus.ERROR);
+          Get.closeAllSnackbars();
       AppUtils.logout();
     } else {
       if (!_isErrorCodeHandled) {
         print(
-            "Error = ${ApiErrorResponseModel.fromJson(err.response?.data).message}");
+            // "Error = ${ApiErrorResponseModel.fromJson(err.response?.data).message}");
+            "Error = ${ApiErrorResponseModel.fromJson(err.response?.data).error}");
+
         AppUtils.showSnackBar(
-            "${ApiErrorResponseModel.fromJson(err.response?.data).message}",
+            "${ApiErrorResponseModel.fromJson(err.response?.data).error}",
             status: MessageStatus.ERROR);
       }
     }
