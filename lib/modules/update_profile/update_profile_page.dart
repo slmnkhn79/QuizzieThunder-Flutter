@@ -145,7 +145,9 @@ class UpdateProfilePage extends StatelessWidget {
                               controller:
                                   updateProfileController.firstNameController,
                               keyboardType: TextInputType.text,
+                              enabled: false,
                               style: TextStyle(
+                                
                                   color: ThemeColor.black, fontSize: 14),
                               decoration: InputDecoration(
                                 prefixIcon: Icon(
@@ -176,6 +178,7 @@ class UpdateProfilePage extends StatelessWidget {
                             ),
                             Text(
                               "Last Name",
+                              
                               style: TextStyle(
                                   fontSize: 14,
                                   color: ThemeColor.textPrimary,
@@ -199,6 +202,7 @@ class UpdateProfilePage extends StatelessWidget {
                                 floatingLabelBehavior:
                                     FloatingLabelBehavior.never,
                                 hintText: "Last Name",
+                                enabled: false,
                                 hintStyle: TextStyle(
                                     fontSize: 14, color: ThemeColor.grey_500),
                                 border: OutlineInputBorder(

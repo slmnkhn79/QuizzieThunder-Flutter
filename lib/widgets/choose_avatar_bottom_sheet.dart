@@ -1,4 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
+// import 'package:cached_network_svg_image/cached_network_svg_image.dart';
 import 'package:dartx/dartx.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -60,7 +61,8 @@ class ChooseAvatarBottomSheet extends StatelessWidget {
                       backgroundColor: AppUtils.getRandomAvatarBgColor(),
                       radius: 20,
                       child: ClipOval(
-                        child: CachedNetworkImage(
+                        child: 
+                        CachedNetworkImage(
                           imageUrl: "${allAvatars[index].url}",
                           width: double.infinity,
                           height: double.infinity,
@@ -79,6 +81,7 @@ class ChooseAvatarBottomSheet extends StatelessWidget {
                             color: ThemeColor.red,
                           ),
                         ),
+                        // CachedNetworkImage(url:allAvatars[index].url,width: 20,height: 20,placeholder: Center(child: SizedBox(width: 20,height: 20, child: CircularProgressIndicator(color: ThemeColor.accent)),), )
                       ),
                     ),
                   );
