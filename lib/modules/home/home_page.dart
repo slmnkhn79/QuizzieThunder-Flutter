@@ -16,7 +16,7 @@ import '../profile/profile_controller.dart';
 import 'home_controller.dart';
 
 class HomePage extends StatelessWidget {
-  HomePage() {
+  HomePage({super.key}) {
     print("homepage created");
   }
 

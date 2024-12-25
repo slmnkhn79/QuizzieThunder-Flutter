@@ -3,7 +3,6 @@ part of 'photo_gallery.dart';
 
 class _AnimatedCutoutOverlay extends StatelessWidget {
   const _AnimatedCutoutOverlay({
-    super.key,
     required this.child,
     required this.cutoutSize,
     required this.animationKey,

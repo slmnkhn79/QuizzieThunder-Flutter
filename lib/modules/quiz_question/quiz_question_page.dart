@@ -76,7 +76,7 @@ class QuizQuestionPage extends StatelessWidget {
                           height: 32,
                         ),
                         Text(
-                          "${quizQuestionController.time.value }",
+                          quizQuestionController.time.value,
                           style: TextStyle(
                               color: ThemeColor.grey_500,
                               fontSize: 12,

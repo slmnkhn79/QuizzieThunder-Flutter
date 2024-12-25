@@ -55,7 +55,7 @@ class _PhotoGalleryState extends State<PhotoGallery> {
   Future<void> _initPhotoIds() async {
     // var ids = unsplashLogic.getCollectionPhotos(widget.collectionId);
     var ids = galleryHeaderController.galleryDetailsResponseModel!.eventDetails;
-    if (ids != null && ids.isNotEmpty) {
+    if (ids.isNotEmpty) {
       // Ensure we have enough images to fill the grid, repeat if necessary
       while (ids.length < _imgCount) {
         ids.addAll(List.from(ids));

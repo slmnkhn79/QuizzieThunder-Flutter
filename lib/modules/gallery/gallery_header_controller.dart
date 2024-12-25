@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:quizzie_thunder/apis/datepair_api.dart';
 import 'package:quizzie_thunder/models/gallery_details_response_model.dart';

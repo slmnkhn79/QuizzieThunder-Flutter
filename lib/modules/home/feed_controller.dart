@@ -1,12 +1,8 @@
 import 'package:get/get.dart';
-import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 import 'package:quizzie_thunder/apis/feed_api.dart';
-import 'package:quizzie_thunder/apis/post_details_api.dart';
 import 'package:quizzie_thunder/models/feed_screen_response_model.dart';
-import 'package:quizzie_thunder/models/like_unlike_response_model.dart';
 import 'package:quizzie_thunder/models/post_card_item_model.dart';
 import 'package:quizzie_thunder/models/post_response_model.dart';
-import 'package:quizzie_thunder/modules/wonderous/ui/common_libs.dart';
 import 'package:quizzie_thunder/utils/app_utils.dart';
 import 'package:quizzie_thunder/utils/enums/snackbar_status.dart';
 

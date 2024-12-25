@@ -1,5 +1,4 @@
 import 'dart:ui' as ui;
-import 'package:http/http.dart' as http;
 import 'package:quizzie_thunder/assets.dart';
 import 'package:quizzie_thunder/modules/wonderous/ui/common_libs.dart';
 import 'package:quizzie_thunder/modules/wonderous/ui/wonder_illustration/common/wonder_illustration_builder.dart';

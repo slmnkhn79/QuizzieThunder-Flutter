@@ -2,7 +2,7 @@ part of '../editorial_screen.dart';
 
 class _AppBar extends StatelessWidget {
   _AppBar(this.wonderType, this.wonderData,
-      {super.key, required this.sectionIndex, required this.scrollPos});
+      {required this.sectionIndex, required this.scrollPos});
   final WonderType wonderType;
   // final dynamic wonderType;
   final WonderData wonderData;
@@ -25,7 +25,7 @@ class _AppBar extends StatelessWidget {
 
   dynamic _getArchType() {
     // return 'Test';
-    ArchType _getArchType() {
+    ArchType getArchType() {
       return switch (wonderType) {
         WonderType.chichenItza => ArchType.flatPyramid,
         WonderType.christRedeemer => ArchType.wideArch,

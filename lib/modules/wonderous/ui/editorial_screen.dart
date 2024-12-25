@@ -234,7 +234,7 @@ class AdaptiveImage extends StatelessWidget {
   final double width;
   final double height;
 
-  AdaptiveImage({
+  const  AdaptiveImage({super.key,
     required this.imageUrl,
     required this.width,
     required this.height,

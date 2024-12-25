@@ -31,7 +31,7 @@ class QuizDetail {
   final String id;
   final String quizName;
   final String quizDescription;
-  final List<dynamic?> quizPrizeDetails;
+  final List<dynamic> quizPrizeDetails;
   final int numQuestions;
   final int? points;
   bool isPlayed;

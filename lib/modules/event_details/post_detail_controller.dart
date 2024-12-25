@@ -1,6 +1,5 @@
 import 'package:get/get.dart';
 import 'package:quizzie_thunder/apis/post_details_api.dart';
-import 'package:quizzie_thunder/models/post_card_item_model.dart';
 import 'package:quizzie_thunder/models/post_comment_response_model.dart';
 import 'package:quizzie_thunder/models/post_response_model.dart';
 import 'package:quizzie_thunder/modules/home/feed_controller.dart';

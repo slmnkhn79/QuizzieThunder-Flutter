@@ -1,10 +1,7 @@
-import 'package:animated_gradient/animated_gradient.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
 import 'package:quizzie_thunder/modules/books/all_books_controller.dart';
 import 'package:quizzie_thunder/theme/colors_theme.dart';
-import 'package:quizzie_thunder/utils/app_utils.dart';
 import 'package:quizzie_thunder/utils/constants.dart';
 
 class AllBooksPage extends StatelessWidget {
@@ -79,7 +76,7 @@ class AllBooksPage extends StatelessWidget {
                       Get.toNamed('/bookById',
                           arguments: {ARG_BOOK_ID: item.id});
                     },
-                    child: Container(
+                    child: SizedBox(
                       height: 100.0,
                       child: Padding(
                         padding: const EdgeInsets.only(left: 16.0, right: 16.0),

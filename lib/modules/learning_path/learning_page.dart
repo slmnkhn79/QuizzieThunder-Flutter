@@ -64,61 +64,63 @@ class LearningPage extends StatelessWidget {
       columns = 1; // Ensure at least 1 column
     }
     return Container(
-      height: MediaQuery.of(context).size.height,
-      child: learningController.isLoadingLearningPaths.value
-          ? Center(
-              child: CircularProgressIndicator(
-              color: ThemeColor.headerOne,
-            ))
-          : Padding(
-              padding:
-                  const EdgeInsets.only(left: 16.0, right: 16.0, top: 16.0),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  SizedBox(
-                    height: MediaQuery.of(context).size.height - 16,
-                    child: GridView.builder(
-                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                           crossAxisCount: columns,
-                            // childAspectRatio: 3,
-                            // crossAxisSpacing: 2,
-                            mainAxisSpacing: 2
-                            ),
-                        itemCount:
-                            learningController.learningPaths!.paths.length,
-                        itemBuilder: (context, index) {
-                          var item =
-                              learningController.learningPaths!.paths[index];
-                          return InkWell(
-                            onTap: () {
-                              Get.toNamed('/learningsPathById',
-                                  arguments: {ARG_LEARNING_PATH_ID: item.id});
-                            },
-                            child: Card(
-                              // child: Text(item.pathName),
-                              child: Container(
-                                height: 50,
-                                child: AnimatedGradient(
-                                    colors: AppUtils.getRandomGradient(index),
-                                    child: ListTile(
-                                      title: Text(item.pathName),
-                                      onTap: () {
-                                        Get.toNamed('/learningsPathById',
-                                            arguments: {
-                                              ARG_LEARNING_PATH_ID: item.id
-                                            });
-                                      },
-                                    )),
+      child: SizedBox(
+        height: MediaQuery.of(context).size.height,
+        child: learningController.isLoadingLearningPaths.value
+            ? Center(
+                child: CircularProgressIndicator(
+                color: ThemeColor.headerOne,
+              ))
+            : Padding(
+                padding:
+                    const EdgeInsets.only(left: 16.0, right: 16.0, top: 16.0),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height - 16,
+                      child: GridView.builder(
+                          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                             crossAxisCount: columns,
+                              // childAspectRatio: 3,
+                              // crossAxisSpacing: 2,
+                              mainAxisSpacing: 2
                               ),
-                            ),
-                          );
-                        }),
-                  )
-                ],
+                          itemCount:
+                              learningController.learningPaths!.paths.length,
+                          itemBuilder: (context, index) {
+                            var item =
+                                learningController.learningPaths!.paths[index];
+                            return InkWell(
+                              onTap: () {
+                                Get.toNamed('/learningsPathById',
+                                    arguments: {ARG_LEARNING_PATH_ID: item.id});
+                              },
+                              child: Card(
+                                // child: Text(item.pathName),
+                                child: SizedBox(
+                                  height: 50,
+                                  child: AnimatedGradient(
+                                      colors: AppUtils.getRandomGradient(index),
+                                      child: ListTile(
+                                        title: Text(item.pathName),
+                                        onTap: () {
+                                          Get.toNamed('/learningsPathById',
+                                              arguments: {
+                                                ARG_LEARNING_PATH_ID: item.id
+                                              });
+                                        },
+                                      )),
+                                ),
+                              ),
+                            );
+                          }),
+                    )
+                  ],
+                ),
               ),
-            ),
+      ),
     );
   }
 

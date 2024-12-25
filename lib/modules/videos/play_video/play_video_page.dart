@@ -8,6 +8,8 @@ import 'package:quizzie_thunder/theme/colors_theme.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 class PlayVideoPage extends StatelessWidget {
+  const PlayVideoPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     PlayVideoController playVideoController = Get.find<PlayVideoController>();

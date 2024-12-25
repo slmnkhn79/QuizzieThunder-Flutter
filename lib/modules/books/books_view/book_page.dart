@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pdfx/pdfx.dart';
-import 'package:flutter/foundation.dart';
 import 'package:quizzie_thunder/modules/books/books_view/book_controller.dart';
 
 import 'package:quizzie_thunder/theme/colors_theme.dart';

@@ -192,9 +192,7 @@ class QuizQuestionController extends GetxController {
       } else {
         int minutes = remainingSeconds ~/ 60;
         int seconds = remainingSeconds % 60;
-        time.value = minutes.toString().padLeft(2, "0") +
-            ":" +
-            seconds.toString().padLeft(2, "0");
+        time.value = "${minutes.toString().padLeft(2, "0")}:${seconds.toString().padLeft(2, "0")}";
         remainingSeconds--;
       }
     });

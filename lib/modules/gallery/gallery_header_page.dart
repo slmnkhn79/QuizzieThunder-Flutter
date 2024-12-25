@@ -4,9 +4,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:quizzie_thunder/modules/gallery/gallery_header_controller.dart';
-import 'package:quizzie_thunder/modules/wonderous/ui/common/hidden_collectible.dart';
 import 'package:quizzie_thunder/modules/wonderous/ui/full_screen_picture/fullscreen_url_img_viewer_v2.dart';
-import 'package:quizzie_thunder/modules/wonderous/ui/photo_gallery/photo_gallery.dart';
 import 'package:quizzie_thunder/theme/colors_theme.dart';
 
 class GalleryHeader extends StatelessWidget {

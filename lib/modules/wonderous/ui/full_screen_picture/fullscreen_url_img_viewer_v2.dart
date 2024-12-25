@@ -34,7 +34,7 @@ class FullscreenUrlImgViewerV2 extends StatelessWidget {
       if (galleryHeaderController.isLoadingEventGallery.value) {
         return Container();
       } else
-      if( galleryHeaderController.galleryDetailsResponseModel!.eventDetails.length == 0){
+      if( galleryHeaderController.galleryDetailsResponseModel!.eventDetails.isEmpty){
         urls = [ headerImageUrl];
        return getDisplay(urls);
       }
@@ -44,7 +44,6 @@ class FullscreenUrlImgViewerV2 extends StatelessWidget {
         return getDisplay(urls);
         
       }
-      ;
     });
   }
   FullscreenKeyboardListener getDisplay(List<String> urls){

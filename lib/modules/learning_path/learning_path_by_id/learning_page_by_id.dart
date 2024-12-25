@@ -1,11 +1,7 @@
-import 'package:animated_gradient/animated_gradient.dart';
 import 'package:get/get.dart';
 import 'package:quizzie_thunder/modules/learning_path/learning_path_by_id/learning_path_by_id_controller.dart';
-import 'package:quizzie_thunder/modules/learning_path/learning_path_controller.dart';
 import 'package:quizzie_thunder/modules/wonderous/ui/common_libs.dart';
 import 'package:quizzie_thunder/theme/colors_theme.dart';
-import 'package:quizzie_thunder/utils/app_utils.dart';
-import 'package:quizzie_thunder/utils/constants.dart';
 
 class LearningPageById extends StatelessWidget {
   const LearningPageById({super.key});

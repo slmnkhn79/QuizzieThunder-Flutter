@@ -1,8 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:like_button/like_button.dart';
-import 'package:quizzie_thunder/apis/feed_api.dart';
 import 'package:quizzie_thunder/models/post_card_item_model.dart';
 import 'package:quizzie_thunder/modules/home/feed_controller.dart';
 import 'package:quizzie_thunder/modules/home/post_card/like_animation.dart';

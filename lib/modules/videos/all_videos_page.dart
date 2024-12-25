@@ -7,6 +7,8 @@ import 'package:quizzie_thunder/theme/colors_theme.dart';
 import 'package:quizzie_thunder/utils/constants.dart';
 
 class AllVideosPage extends StatelessWidget {
+  const AllVideosPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     AllVideosController allVideosController = Get.find<AllVideosController>();

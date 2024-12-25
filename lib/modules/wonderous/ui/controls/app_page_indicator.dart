@@ -3,7 +3,7 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:quizzie_thunder/modules/wonderous/ui/common_libs.dart';
 
 class AppPageIndicator extends StatefulWidget {
-  AppPageIndicator({
+  const AppPageIndicator({
     super.key,
     required this.count,
     required this.controller,

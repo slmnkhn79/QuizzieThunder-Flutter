@@ -1,5 +1,4 @@
 import 'package:get/get.dart';
-import 'package:quizzie_thunder/models/discover_learning_model.dart';
 import 'package:quizzie_thunder/modules/books/all_books_binding.dart';
 import 'package:quizzie_thunder/modules/books/all_books_page.dart';
 import 'package:quizzie_thunder/modules/books/books_view/book_binding.dart';
@@ -12,7 +11,6 @@ import 'package:quizzie_thunder/modules/learning_path/learning_binding.dart';
 import 'package:quizzie_thunder/modules/learning_path/learning_page.dart';
 import 'package:quizzie_thunder/modules/learning_path/learning_path_by_id/learning_by_id_binding.dart';
 import 'package:quizzie_thunder/modules/learning_path/learning_path_by_id/learning_page_by_id.dart';
-import 'package:quizzie_thunder/modules/learning_path/learning_path_controller.dart';
 import 'package:quizzie_thunder/modules/school_details/school_details_binding.dart';
 import 'package:quizzie_thunder/modules/school_details/school_details_page.dart';
 import 'package:quizzie_thunder/modules/study_plans/all_study_plans_page.dart';

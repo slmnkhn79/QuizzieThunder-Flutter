@@ -1,8 +1,6 @@
 import 'package:get/get.dart';
 import 'package:quizzie_thunder/apis/discover_api.dart';
-import 'package:quizzie_thunder/apis/school_discover_api.dart';
 import 'package:quizzie_thunder/models/discover_learning_model.dart';
-import 'package:quizzie_thunder/models/school_discover_screen_response_model.dart';
 
 import '../../utils/app_utils.dart';
 import '../../utils/enums/snackbar_status.dart';

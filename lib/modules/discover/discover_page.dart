@@ -724,7 +724,7 @@ class DiscoverPage extends StatelessWidget {
                           Get.toNamed('/learningsPathById',
                               arguments: {ARG_LEARNING_PATH_ID: item.id});
                         },
-                        child: Container(
+                        child: SizedBox(
                           width: 150.0, // Adjust according to your needs
                           // margin: EdgeInsets.symmetric(
                           //     horizontal: 8.0), // Space between cards
@@ -1016,7 +1016,7 @@ class DiscoverPage extends StatelessWidget {
                       Get.toNamed('/bookById',
                           arguments: {ARG_BOOK_ID: item.id});
                     },
-                    child: Container(
+                    child: SizedBox(
                       height: 80.0,
                       child: Padding(
                         padding: const EdgeInsets.only(left: 16.0, right: 16.0),
@@ -1050,8 +1050,8 @@ class HorizontalScrollBehavior extends MaterialScrollBehavior {
 
 class NoScrollBarScrollBehavior extends ScrollBehavior {
   @override
-  Widget buildViewportChrome(
-      BuildContext context, Widget child, AxisDirection axisDirection) {
+  Widget buildOverscrollIndicator (
+      BuildContext context, Widget child, ScrollableDetails details) {
     return child; // Removing scrollbars by returning the child directly
   }
 }

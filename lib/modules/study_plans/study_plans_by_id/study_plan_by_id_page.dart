@@ -4,6 +4,8 @@ import 'package:quizzie_thunder/modules/study_plans/study_plans_by_id/study_plan
 import 'package:quizzie_thunder/theme/colors_theme.dart';
 
 class StudyPlanByIdPage extends StatelessWidget {
+  const StudyPlanByIdPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     StudyPlanByIdController studyPlanByIdController =

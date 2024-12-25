@@ -1,7 +1,7 @@
 part of '../editorial_screen.dart';
 
 class _CircularTitleBar extends StatelessWidget {
-  const _CircularTitleBar({super.key, required this.titles, required this.icons, required this.index})
+  const _CircularTitleBar({required this.titles, required this.icons, required this.index})
       : assert(titles.length == icons.length, 'The number of titles and icons do not match.');
   final List<String> titles;
   final List<String> icons;
@@ -47,7 +47,6 @@ class _CircularTitleBar extends StatelessWidget {
 
 class _AnimatedCircleWithText extends StatefulWidget {
   const _AnimatedCircleWithText({
-    super.key,
     required this.titles,
     required this.index,
   });

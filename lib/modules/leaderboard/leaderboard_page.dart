@@ -226,9 +226,7 @@ class LeaderboardPage extends StatelessWidget {
                                     ),
                                     leaderboardController
                                                 .leaderboardScreenResponseModel!
-                                                .allTimeLeaderboard!
-                                                .length! >
-                                            0
+                                                .allTimeLeaderboard!.isNotEmpty
                                         ? allTimeWinnerInfo(
                                             leaderboardController
                                                 .leaderboardScreenResponseModel
@@ -252,7 +250,7 @@ class LeaderboardPage extends StatelessWidget {
                                     leaderboardController
                                                 .leaderboardScreenResponseModel!
                                                 .allTimeLeaderboard!
-                                                .length! >
+                                                .length >
                                             1
                                         ? allTimeWinnerInfo(
                                             leaderboardController

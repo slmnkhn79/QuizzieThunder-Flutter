@@ -458,7 +458,7 @@ class PostDetailsPage extends StatelessWidget {
                 ListView.builder(
                     physics: NeverScrollableScrollPhysics(),
                     shrinkWrap: true,
-                    itemCount: postDetailController.comments!.length,
+                    itemCount: postDetailController.comments.length,
                     itemBuilder: (context, index) {
                       return Card(
                         child: Padding(
@@ -470,7 +470,7 @@ class PostDetailsPage extends StatelessWidget {
                               CircleAvatar(
                                 backgroundImage: NetworkImage(
                                     postDetailController
-                                        .comments![index].profilePic),
+                                        .comments[index].profilePic),
                                 radius: 20.0,
                               ),
                               SizedBox(width: 10.0),
@@ -488,12 +488,12 @@ class PostDetailsPage extends StatelessWidget {
                                         children: [
                                           TextSpan(
                                               text:
-                                                  "@${postDetailController.comments![index].user}",
+                                                  "@${postDetailController.comments[index].user}",
                                               style: TextStyle(
                                                   fontWeight: FontWeight.bold)),
                                           TextSpan(
                                               text: postDetailController
-                                                  .comments![index].content)
+                                                  .comments[index].content)
                                         ],
                                       ),
                                     ),
@@ -501,7 +501,7 @@ class PostDetailsPage extends StatelessWidget {
                                     // Comment date
                                     Text(
                                       AppUtils.timeAgo(postDetailController
-                                          .comments![index].createdAt),
+                                          .comments[index].createdAt),
                                       style: TextStyle(
                                           color: Colors.grey, fontSize: 12.0),
                                     ),
@@ -529,7 +529,6 @@ class PostDetailsPage extends StatelessWidget {
                           ),
                         ),
                       );
-                      ;
                     }),
                 postDetailController.isCommentsLoading.value
                     ? CircularProgressIndicator()

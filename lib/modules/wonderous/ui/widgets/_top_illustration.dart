@@ -3,7 +3,8 @@ part of '../editorial_screen.dart';
 class _TopIllustration extends StatelessWidget {
   const _TopIllustration(
     this.type,
-    this.data, {super.key, this.fgOffset = Offset.zero});
+    this.data,
+    this.fgOffset);
   final WonderType type;
   final WonderData data;
   // final dynamic type;

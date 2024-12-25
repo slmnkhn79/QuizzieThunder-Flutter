@@ -1,6 +1,5 @@
 
 
-import 'package:quizzie_thunder/logic/data/wonder_type.dart';
 import 'package:quizzie_thunder/modules/wonderous/ui/common_libs.dart';
 
 extension WonderColorExtensions on WonderType {

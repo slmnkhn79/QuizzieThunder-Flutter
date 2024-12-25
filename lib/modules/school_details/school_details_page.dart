@@ -14,7 +14,7 @@ import 'package:quizzie_thunder/utils/wonder_app_strings.dart';
 class SchoolDetails extends StatelessWidget {
   // FileData _fileData = FileData();
 
-  SchoolDetails({super.key});
+  const SchoolDetails({super.key});
 
   @override
   Widget build(BuildContext context) {

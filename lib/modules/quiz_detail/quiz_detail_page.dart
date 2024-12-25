@@ -95,7 +95,7 @@ class QuizDetailPage extends StatelessWidget {
                                           height: 8,
                                         ),
                                         Text(
-                                          "${quizDetailController.quizDetailResponseModel!.quizDetail.quizName}",
+                                          quizDetailController.quizDetailResponseModel!.quizDetail.quizName,
                                           style: TextStyle(
                                               color: ThemeColor.black,
                                               fontSize: 18,
@@ -208,7 +208,7 @@ class QuizDetailPage extends StatelessWidget {
                                           height: 8,
                                         ),
                                         Text(
-                                          "${quizDetailController.quizDetailResponseModel!.quizDetail.quizDescription}",
+                                          quizDetailController.quizDetailResponseModel!.quizDetail.quizDescription,
                                           style: TextStyle(
                                             color: ThemeColor.black,
                                             fontSize: 16,
@@ -260,11 +260,11 @@ class QuizDetailPage extends StatelessWidget {
                                                             ARG_QUIZ_ID:
                                                                 quizDetailController.quizDetailResponseModel!
                                                                     .quizDetail
-                                                                    ?.id,
+                                                                    .id,
                                                             ARG_QUIZ_NAME:
                                                                 quizDetailController.quizDetailResponseModel!
                                                                     .quizDetail
-                                                                    ?.quizName,
+                                                                    .quizName,
                                                             ARG_QUIZ_CATEGORY_NAME: quizDetailController.quizDetailResponseModel!
                                                                     .quizDetail
                                                                     .categoryName

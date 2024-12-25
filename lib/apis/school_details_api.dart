@@ -2,7 +2,6 @@ import 'dart:typed_data';
 import 'package:get_storage/get_storage.dart';
 // import 'package:mime/mime.dart';
 import 'package:http_parser/http_parser.dart';
-import 'package:quizzie_thunder/models/post_response_model.dart';
 import 'package:quizzie_thunder/models/school_details_model.dart';
 import 'package:quizzie_thunder/utils/constants.dart';
 

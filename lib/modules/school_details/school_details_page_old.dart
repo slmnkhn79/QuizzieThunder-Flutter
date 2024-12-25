@@ -5,7 +5,6 @@ import 'package:flutter/services.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:get/get.dart';
 import 'package:quizzie_thunder/modules/school_details/school_details_controller.dart';
-import 'package:quizzie_thunder/modules/wonderous/ui/photo_gallery/photo_gallery.dart';
 import 'package:quizzie_thunder/routes/app_routes.dart';
 import 'package:quizzie_thunder/theme/colors_theme.dart';
 import 'package:quizzie_thunder/utils/app_utils.dart';
