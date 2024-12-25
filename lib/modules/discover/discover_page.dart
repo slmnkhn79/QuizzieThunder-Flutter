@@ -314,7 +314,8 @@ class DiscoverPage extends StatelessWidget {
                                         imageUrl: discoverController
                                             .discoverScreenResponseModel!
                                             .schools![index]
-                                            .headerImageUrl),
+                                            .headerImageUrl,
+                                            imageRenderMethodForWeb: ImageRenderMethodForWeb.HttpGet,),
                                     // Icon(
                                     //   Icons.science_outlined,
                                     //   size: 36,
