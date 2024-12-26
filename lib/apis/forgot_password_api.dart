@@ -8,9 +8,9 @@ class ForgotPasswordApi {
           forgotPasswordPostBodyModel}) async {
     try {
       final response = await DioClient.getDioInstance().post(
-          "api/user/forgot-password",
+          "/requestPasswordReset",
           data: forgotPasswordPostBodyModel.toJson());
-      return ForgotPasswordResponseModel.fromJson(response.data);
+      return ForgotPasswordResponseModel.fromJson(response.data['result']);
     } catch (e) {
       rethrow;
     }

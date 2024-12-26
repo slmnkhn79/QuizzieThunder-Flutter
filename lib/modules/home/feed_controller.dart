@@ -47,9 +47,13 @@ class FeedController extends GetxController {
 
   void getFeedScreenDetails() async {
     isLoading.value = true;
-    var response = await feedApi.getFeedScreenDetails(skip: pageKey);
-
+    var response =
+     await feedApi.getFeedScreenDetails(skip: pageKey);
+    print("*************************");
+    print(response);
+    print("*************************");
     if (response.code == 200) {
+      print("enter into if");
       feedScreenResponseModel = response;
       if (feedScreenResponseModel!.posts.isEmpty) {
         endReached.value = true;
@@ -62,9 +66,11 @@ class FeedController extends GetxController {
 
       isLoading.value = false;
     } else {
+      print("enter into else");
       isLoading.value = false;
       AppUtils.showSnackBar("Error", status: MessageStatus.ERROR);
     }
+    print("exit");
   }
 
   void likePostById(String? postId, bool isLiked) async {
@@ -76,7 +82,7 @@ class FeedController extends GetxController {
         PostDetailsResponseModel updatedPost = response;
         var card = posts.firstWhere((item) => item.id == postId);
         card.isLiked = true;
-        card.likes= updatedPost.post.likes;
+        card.likes = updatedPost.post.likes;
         posts.refresh(); // Refresh the list to update the UI
       }
     } else {
@@ -88,7 +94,7 @@ class FeedController extends GetxController {
         PostDetailsResponseModel updatedPost = response;
         var card = posts.firstWhere((item) => item.id == postId);
         card.isLiked = false;
-        card.likes= updatedPost.post.likes;
+        card.likes = updatedPost.post.likes;
         posts.refresh();
       }
     }

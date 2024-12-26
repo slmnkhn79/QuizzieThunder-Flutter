@@ -17,7 +17,14 @@ class FeedApi {
 
       return FeedScreenResponseModel.fromJson(response.data['result']);
     } catch (e) {
-      rethrow;
+      // rethrow;
+      // return 
+      return FeedScreenResponseModel.fromJson({
+        "code": 400,
+        "message" : "Failed",
+        "status": false,
+        "posts":[]
+      });
     }
   }
   Future<dynamic> likePostById(

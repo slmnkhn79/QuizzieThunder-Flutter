@@ -16,7 +16,7 @@ class UserProfileResponseModel {
       code: json["code"],
       status: json["status"],
       message: json["message"],
-      user: json["user"] == null ? null : User.fromJson(json["user"]),
+      user: json["user_detail"] == null ? null : User.fromJson(json["user_detail"]),
     );
   }
 

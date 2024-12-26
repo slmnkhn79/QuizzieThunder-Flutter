@@ -26,10 +26,11 @@ class ErrorHandingInterceptor extends Interceptor {
       _isErrorCodeHandled = true;
       await localStorage.write(KEY_IS_API_ERROR_HANDLE, _isErrorCodeHandled);
       // Redirecting to sign in screen if token expires
+      print("interceptor----");
       AppUtils.showSnackBar("Session Expired! Please login again",
           status: MessageStatus.ERROR);
-          Get.closeAllSnackbars();
-      AppUtils.logout();
+          // Get.closeAllSnackbars();
+      // AppUtils.logout();
     } else {
       if (!_isErrorCodeHandled) {
         print(
@@ -41,6 +42,7 @@ class ErrorHandingInterceptor extends Interceptor {
             status: MessageStatus.ERROR);
       }
     }
+    print("interceptor++++");
     super.onError(err, handler);
   }
 }

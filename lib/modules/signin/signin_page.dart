@@ -33,7 +33,9 @@ class SigninPage extends StatelessWidget {
                   padding: const EdgeInsets.all(16.0),
                   child: Center(
                     child: SizedBox(
-                      width: MediaQuery.of(context).size.width > 600 ? 600 : MediaQuery.of(context).size.width,
+                      width: MediaQuery.of(context).size.width > 600
+                          ? 600
+                          : MediaQuery.of(context).size.width,
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -65,12 +67,12 @@ class SigninPage extends StatelessWidget {
                                       height: 8,
                                     ),
                                     TextFormField(
-                                      controller:
-                                          signinController.phoneNumberController,
-                                      keyboardType: TextInputType.text ,
+                                      controller: signinController
+                                          .phoneNumberController,
+                                      keyboardType: TextInputType.text,
                                       style: TextStyle(
-                                          color: ThemeColor.black, fontSize: 14),
-                                      maxLength: 10,
+                                          color: ThemeColor.black,
+                                          fontSize: 14),
                                       decoration: InputDecoration(
                                         counterText: '',
                                         prefixIcon: Icon(
@@ -116,10 +118,11 @@ class SigninPage extends StatelessWidget {
                                       controller:
                                           signinController.passwordController,
                                       keyboardType: TextInputType.text,
-                                      obscureText:
-                                          signinController.passwordInVisible.value,
+                                      obscureText: signinController
+                                          .passwordInVisible.value,
                                       style: TextStyle(
-                                          color: ThemeColor.black, fontSize: 14),
+                                          color: ThemeColor.black,
+                                          fontSize: 14),
                                       enableSuggestions: false,
                                       autocorrect: false,
                                       decoration: InputDecoration(
@@ -191,7 +194,8 @@ class SigninPage extends StatelessWidget {
                                 },
                                 style: TextButton.styleFrom(
                                   textStyle: TextStyle(
-                                      fontSize: 16, fontWeight: FontWeight.w500),
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w500),
                                   shape: RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(12)),
                                   backgroundColor: ThemeColor.primaryDark,
@@ -243,7 +247,8 @@ class SigninPage extends StatelessWidget {
                                       ),
                                     ),
                                     TextSpan(
-                                        text: "Terms of service & Privacy Policy",
+                                        text:
+                                            "Terms of service & Privacy Policy",
                                         style: TextStyle(
                                             color: ThemeColor.black,
                                             fontWeight: FontWeight.bold)),

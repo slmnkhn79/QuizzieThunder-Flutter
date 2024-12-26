@@ -21,6 +21,10 @@ const ARG_VIDEO_ID = 'arg_video_id';
 const ARG_BOOK_ID = 'arg_book_id';
 
 
+final EMAIL_REGEX = RegExp(
+      r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$');
+
+
 
 // Local Storage Keys
 const KEY_USER_DATA = "key_user_data";

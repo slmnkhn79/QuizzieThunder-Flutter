@@ -45,7 +45,7 @@ class ForgotPasswordPage extends StatelessWidget {
                         height: 12,
                       ),
                       Text(
-                        "Please enter your mobile number for get OTP to your mobile number to reset your password",
+                        "Please enter your email to reset your password",
                         style: TextStyle(
                             fontSize: 14, color: ThemeColor.textPrimary),
                       ),
@@ -53,7 +53,7 @@ class ForgotPasswordPage extends StatelessWidget {
                         height: 24,
                       ),
                       Text(
-                        "Phone Number",
+                        "Email Address",
                         style: TextStyle(
                             fontSize: 14,
                             color: ThemeColor.textPrimary,
@@ -65,9 +65,8 @@ class ForgotPasswordPage extends StatelessWidget {
                       TextFormField(
                         controller:
                             forgotPasswordController.phoneNumberController,
-                        keyboardType: TextInputType.phone,
+                        keyboardType: TextInputType.emailAddress,
                         style: TextStyle(color: ThemeColor.black, fontSize: 14),
-                        maxLength: 10,
                         decoration: InputDecoration(
                           counterText: '',
                           prefixIcon: Icon(
@@ -76,7 +75,7 @@ class ForgotPasswordPage extends StatelessWidget {
                           ),
                           contentPadding: EdgeInsets.all(12),
                           floatingLabelBehavior: FloatingLabelBehavior.never,
-                          hintText: "Phone Number",
+                          hintText: "Email Address",
                           hintStyle: TextStyle(
                               fontSize: 14, color: ThemeColor.grey_500),
                           border: OutlineInputBorder(

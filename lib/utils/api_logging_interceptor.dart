@@ -12,9 +12,9 @@ class LoggingInterceptor extends Interceptor {
 
   @override
   void onResponse(Response response, ResponseInterceptorHandler handler) {
-    print(
-      'RESPONSE[${response.statusCode}] => PATH: $BASE_URL${response.requestOptions.path} \n $response',
-    );
+    // print(
+    //   'RESPONSE[${response.statusCode}] => PATH: $BASE_URL${response.requestOptions.path} \n $response',
+    // );
     super.onResponse(response, handler);
   }
 
