@@ -1,4 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:cached_network_image_platform_interface/cached_network_image_platform_interface.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:quizzie_thunder/modules/event_details/post_detail_controller.dart';
@@ -198,6 +199,7 @@ class PostDetailsPage extends StatelessWidget {
                                                 height: 400,
                                                 width: double.infinity,
                                                 child: CachedNetworkImage(
+                                                    imageRenderMethodForWeb: ImageRenderMethodForWeb.HttpGet,
                                                     imageUrl: postDetailsController
                                                         .postDetailsResponseModel!
                                                         .post

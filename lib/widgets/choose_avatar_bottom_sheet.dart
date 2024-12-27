@@ -1,3 +1,4 @@
+import 'package:cached_network_image_platform_interface/cached_network_image_platform_interface.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 // import 'package:cached_network_svg_image/cached_network_svg_image.dart';
 import 'package:dartx/dartx.dart';
@@ -63,6 +64,7 @@ class ChooseAvatarBottomSheet extends StatelessWidget {
                       child: ClipOval(
                         child: 
                         CachedNetworkImage(
+                          imageRenderMethodForWeb: ImageRenderMethodForWeb.HttpGet,
                           imageUrl: "${allAvatars[index].url}",
                           width: double.infinity,
                           height: double.infinity,

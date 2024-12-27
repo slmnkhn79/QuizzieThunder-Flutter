@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 import 'package:quizzie_thunder/modules/gallery/gallery_header_controller.dart';
 import 'package:quizzie_thunder/modules/wonderous/ui/full_screen_picture/fullscreen_url_img_viewer_v2.dart';
 import 'package:quizzie_thunder/theme/colors_theme.dart';
+import 'package:cached_network_image_platform_interface/cached_network_image_platform_interface.dart';
 
 class GalleryHeader extends StatelessWidget {
   const GalleryHeader({super.key});
@@ -233,6 +234,7 @@ class GalleryHeader extends StatelessWidget {
                                                           // ),
                                                           Divider(height: 1.0),
                                                           CachedNetworkImage(
+                                                            imageRenderMethodForWeb: ImageRenderMethodForWeb.HttpGet,
                                                               fadeInDuration:
                                                                   Duration(
                                                                       milliseconds:
@@ -354,6 +356,7 @@ void showDetailsPage(
                               child: Padding(
                                   padding: EdgeInsets.all(16),
                                   child: CachedNetworkImage(
+                                    imageRenderMethodForWeb: ImageRenderMethodForWeb.HttpGet,
                                       fadeInDuration: Duration(milliseconds: 0),
                                       fadeOutDuration:
                                           Duration(milliseconds: 0),

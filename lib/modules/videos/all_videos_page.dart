@@ -1,3 +1,4 @@
+import 'package:cached_network_image_platform_interface/cached_network_image_platform_interface.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:get/get.dart';
 
@@ -89,8 +90,8 @@ class AllVideosPage extends StatelessWidget {
                       child: InkWell(
                         onTap: () {
                           //play the video in next page
-                           Get.toNamed('/videoById',
-                            arguments: {ARG_VIDEO_ID: item.id});
+                          Get.toNamed('/videoById',
+                              arguments: {ARG_VIDEO_ID: item.id});
                         },
                         child: Card(
                           shape: RoundedRectangleBorder(
@@ -116,6 +117,8 @@ class AllVideosPage extends StatelessWidget {
                                         CrossAxisAlignment.center,
                                     children: [
                                       CachedNetworkImage(
+                                          imageRenderMethodForWeb:
+                                              ImageRenderMethodForWeb.HttpGet,
                                           imageUrl: item.thumbnail!),
                                       Icon(Icons.play_circle_fill_sharp)
                                     ],

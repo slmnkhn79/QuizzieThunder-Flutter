@@ -1,3 +1,4 @@
+import 'package:cached_network_image_platform_interface/cached_network_image_platform_interface.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
@@ -257,6 +258,7 @@ class _PhotoGalleryState extends State<PhotoGallery> {
           builder: (_, value, child) =>
               Transform.scale(scale: value, child: child),
           child: CachedNetworkImage(
+            imageRenderMethodForWeb: ImageRenderMethodForWeb.HttpGet,
             imageUrl: _photoIds.value[index].imageUrl,
             fit: BoxFit.cover,
             // size: UnsplashPhotoSize.large,

@@ -1,4 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:cached_network_image_platform_interface/cached_network_image_platform_interface.dart';
 import 'package:card_swiper/card_swiper.dart';
 import 'package:dartx/dartx.dart';
 import 'package:flutter/gestures.dart';
@@ -6,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:quizzie_thunder/modules/home/feed_controller.dart';
 import 'package:quizzie_thunder/modules/home/post_card/post_card.dart';
+import 'package:shimmer/shimmer.dart';
 
 import '../../routes/app_routes.dart';
 import '../../theme/colors_theme.dart';
@@ -130,6 +132,7 @@ class HomePage extends StatelessWidget {
                                               radius: 24,
                                               child: ClipOval(
                                                 child: CachedNetworkImage(
+                                                  imageRenderMethodForWeb: ImageRenderMethodForWeb.HttpGet,
                                                   imageUrl:
                                                       "${profileController.profilePic}",
                                                   width: double.infinity,
@@ -471,6 +474,7 @@ class HomePage extends StatelessWidget {
                               radius: 24,
                               child: ClipOval(
                                 child: CachedNetworkImage(
+                                  imageRenderMethodForWeb: ImageRenderMethodForWeb.HttpGet,
                                   imageUrl:
                                       "${homeController.homeScreenResponseModel?.weekTopRank?.user?.profilePic}",
                                   width: double.infinity,
@@ -783,6 +787,7 @@ class HomePage extends StatelessWidget {
                                   radius: 24,
                                   child: ClipOval(
                                     child: CachedNetworkImage(
+                                      imageRenderMethodForWeb: ImageRenderMethodForWeb.HttpGet,
                                       imageUrl: feedController
                                           .feedScreenResponseModel!
                                           .posts[index]
@@ -790,20 +795,23 @@ class HomePage extends StatelessWidget {
                                       width: double.infinity,
                                       height: double.infinity,
                                       fit: BoxFit.cover,
-                                      placeholder: (context, url) => Center(
-                                        child: SizedBox(
-                                          width: 20,
-                                          height: 20,
-                                          child: CircularProgressIndicator(
-                                            color: ThemeColor.accent,
-                                          ),
-                                        ),
-                                      ),
-                                      errorWidget: (context, url, error) =>
-                                          Icon(
-                                        Icons.error,
-                                        color: ThemeColor.red,
-                                      ),
+                                      progressIndicatorBuilder: (context, url,
+                                      downloadProgress) =>
+                                  // SizedBox(
+                                  //     width: 50,
+                                  //     height: 50,
+                                  //     child: CircularProgressIndicator(
+                                  //         value:
+                                  //             downloadProgress
+                                  //                 .progress)
+                                  // Image.asset("assets/images/placeholder.png"),
+                                  Shimmer.fromColors(
+                                      baseColor: Colors.grey[300]!,
+                                      highlightColor: Colors.white,
+                                      child: Image.asset(
+                                          "assets/images/placeholder.png")),
+                              errorWidget: (context, url, error) =>
+                                  Icon(Icons.error)
                                     ),
                                   ),
                                 ),
@@ -821,7 +829,9 @@ class HomePage extends StatelessWidget {
                                       AppUtils.getRandomAvatarBgColor(),
                                   radius: 24,
                                   child: ClipOval(
-                                    child: CachedNetworkImage(
+                                    child: 
+                                    CachedNetworkImage(
+                                      
                                       imageUrl: feedController
                                           .feedScreenResponseModel!
                                           .posts[index]
@@ -829,20 +839,23 @@ class HomePage extends StatelessWidget {
                                       width: double.infinity,
                                       height: double.infinity,
                                       fit: BoxFit.cover,
-                                      placeholder: (context, url) => Center(
-                                        child: SizedBox(
-                                          width: 20,
-                                          height: 20,
-                                          child: CircularProgressIndicator(
-                                            color: ThemeColor.accent,
-                                          ),
-                                        ),
-                                      ),
-                                      errorWidget: (context, url, error) =>
-                                          Icon(
-                                        Icons.error,
-                                        color: ThemeColor.red,
-                                      ),
+                                     progressIndicatorBuilder: (context, url,
+                                      downloadProgress) =>
+                                  // SizedBox(
+                                  //     width: 50,
+                                  //     height: 50,
+                                  //     child: CircularProgressIndicator(
+                                  //         value:
+                                  //             downloadProgress
+                                  //                 .progress)
+                                  // Image.asset("assets/images/placeholder.png"),
+                                  Shimmer.fromColors(
+                                      baseColor: Colors.grey[300]!,
+                                      highlightColor: Colors.white,
+                                      child: Image.asset(
+                                          "assets/images/placeholder.png")),
+                              errorWidget: (context, url, error) =>
+                                  Icon(Icons.error)
                                     ),
                                   ),
                                 ),

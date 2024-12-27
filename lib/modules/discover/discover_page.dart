@@ -1,5 +1,7 @@
 import 'dart:math';
+
 import 'dart:ui';
+import 'package:cached_network_image_platform_interface/cached_network_image_platform_interface.dart';
 import 'package:animated_gradient/animated_gradient.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
@@ -8,6 +10,7 @@ import 'package:quizzie_thunder/modules/discover/event_card.dart';
 import 'package:quizzie_thunder/modules/discover/learning_discover_controller.dart';
 import 'package:quizzie_thunder/models/all_quiz_response_model.dart';
 import 'package:quizzie_thunder/modules/discover/search_controller.dart';
+import 'package:shimmer/shimmer.dart';
 
 import '../../routes/app_routes.dart';
 import '../../theme/colors_theme.dart';
@@ -310,13 +313,13 @@ class DiscoverPage extends StatelessWidget {
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
-                                    CachedNetworkImage(
-                                        imageUrl: discoverController
-                                            .discoverScreenResponseModel!
-                                            .schools![index]
-                                            .headerImageUrl,
-                                            // imageRenderMethodForWeb: ImageRenderMethodForWeb.HttpGet,
-                                            ),
+                                    Image.network(
+                                      discoverController
+                                          .discoverScreenResponseModel!
+                                          .schools![index]
+                                          .headerImageUrl,
+                                      // imageRenderMethodForWeb: ImageRenderMethodForWeb.HttpGet,
+                                    ),
                                     // Icon(
                                     //   Icons.science_outlined,
                                     //   size: 36,
@@ -954,7 +957,26 @@ class DiscoverPage extends StatelessWidget {
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
                                     CachedNetworkImage(
-                                        imageUrl: item.thumbnail),
+                                        imageUrl: item.thumbnail,
+                                        imageRenderMethodForWeb:
+                                            ImageRenderMethodForWeb.HttpGet,
+                                        progressIndicatorBuilder: (context, url,
+                                                downloadProgress) =>
+                                            // SizedBox(
+                                            //     width: 50,
+                                            //     height: 50,
+                                            //     child: CircularProgressIndicator(
+                                            //         value:
+                                            //             downloadProgress
+                                            //                 .progress)
+                                            // Image.asset("assets/images/placeholder.png"),
+                                            Shimmer.fromColors(
+                                                baseColor: Colors.grey[300]!,
+                                                highlightColor: Colors.white,
+                                                child: Image.asset(
+                                                    "assets/images/placeholder.png")),
+                                        errorWidget: (context, url, error) =>
+                                            Icon(Icons.error)),
                                     Icon(Icons.play_circle_fill_sharp)
                                   ],
                                 )),
@@ -1052,7 +1074,7 @@ class HorizontalScrollBehavior extends MaterialScrollBehavior {
 
 class NoScrollBarScrollBehavior extends ScrollBehavior {
   @override
-  Widget buildOverscrollIndicator (
+  Widget buildOverscrollIndicator(
       BuildContext context, Widget child, ScrollableDetails details) {
     return child; // Removing scrollbars by returning the child directly
   }

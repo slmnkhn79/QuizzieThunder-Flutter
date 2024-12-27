@@ -1,3 +1,4 @@
+import 'package:cached_network_image_platform_interface/cached_network_image_platform_interface.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -69,6 +70,7 @@ class ProfilePage extends StatelessWidget {
                                                 radius: 36,
                                                 child: ClipOval(
                                                   child: CachedNetworkImage(
+                                                    imageRenderMethodForWeb: ImageRenderMethodForWeb.HttpGet,
                                                     imageUrl:
                                                         "${profileController.profileScreenResponseModel?.userDetail?.profilePic}",
                                                     width: double.infinity,

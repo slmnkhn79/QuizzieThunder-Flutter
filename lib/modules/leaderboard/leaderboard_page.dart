@@ -1,3 +1,5 @@
+
+import 'package:cached_network_image_platform_interface/cached_network_image_platform_interface.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -311,6 +313,7 @@ class LeaderboardPage extends StatelessWidget {
           radius: 24,
           child: ClipOval(
             child: CachedNetworkImage(
+              imageRenderMethodForWeb: ImageRenderMethodForWeb.HttpGet,
               imageUrl: "${leaderboard?.user?.profilePic}",
               width: double.infinity,
               height: double.infinity,
@@ -485,6 +488,7 @@ class LeaderboardPage extends StatelessWidget {
                   radius: 24,
                   child: ClipOval(
                     child: CachedNetworkImage(
+                      imageRenderMethodForWeb: ImageRenderMethodForWeb.HttpGet,
                       imageUrl: "${leaderboard?.user?.profilePic}",
                       width: double.infinity,
                       height: double.infinity,
@@ -601,6 +605,7 @@ class LeaderboardPage extends StatelessWidget {
                       radius: 24,
                       child: ClipOval(
                         child: CachedNetworkImage(
+                          imageRenderMethodForWeb: ImageRenderMethodForWeb.HttpGet,
                           imageUrl: "${schoolLeaderboard?.school.profilePic}",
                           width: double.infinity,
                           height: double.infinity,

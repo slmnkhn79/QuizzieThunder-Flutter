@@ -1,3 +1,4 @@
+import 'package:cached_network_image_platform_interface/cached_network_image_platform_interface.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -83,6 +84,7 @@ class UpdateProfilePage extends StatelessWidget {
                                               AppUtils.getRandomAvatarBgColor(),
                                           child: ClipOval(
                                             child: CachedNetworkImage(
+                                              imageRenderMethodForWeb: ImageRenderMethodForWeb.HttpGet,
                                                 imageUrl:
                                                     updateProfileController
                                                         .profilePicUrl.value,

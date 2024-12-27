@@ -1,3 +1,4 @@
+import 'package:cached_network_image_platform_interface/cached_network_image_platform_interface.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:quizzie_thunder/models/post_card_item_model.dart';
@@ -127,6 +128,7 @@ class PostCard extends StatelessWidget {
                   height: 400,
                   width: double.infinity,
                   child: CachedNetworkImage(
+                    imageRenderMethodForWeb: ImageRenderMethodForWeb.HttpGet,
                       imageUrl: post.photoUrl.toString(),
                       fit: BoxFit.cover,
                       fadeInDuration: Duration(milliseconds: 0),

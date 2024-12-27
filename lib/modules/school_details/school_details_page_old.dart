@@ -1,3 +1,5 @@
+
+import 'package:cached_network_image_platform_interface/cached_network_image_platform_interface.dart';
 // import 'package:file_picker/file_picker.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
@@ -70,6 +72,7 @@ class SchoolDetailsStatic extends StatelessWidget {
                         children: <Widget>[
                           // Header Image
                           CachedNetworkImage(
+                            imageRenderMethodForWeb: ImageRenderMethodForWeb.HttpGet,
                               // width: 600,
                               // height: 400,
                               fadeInDuration: Duration(milliseconds: 0),
@@ -302,6 +305,7 @@ class SchoolDetailsStatic extends StatelessWidget {
                                       Expanded(
                                           flex: 2,
                                           child: CachedNetworkImage(
+                                            imageRenderMethodForWeb: ImageRenderMethodForWeb.HttpGet,
                                               fadeInDuration:
                                                   Duration(milliseconds: 0),
                                               fadeOutDuration:
@@ -311,21 +315,24 @@ class SchoolDetailsStatic extends StatelessWidget {
                                                   .school
                                                   .achivements[index]
                                                   .achiveImageUrl,
-                                              progressIndicatorBuilder: (context,
-                                                      url, downloadProgress) =>
-                                                  // SizedBox(
-                                                  //     width: 50,
-                                                  //     height: 50,
-                                                  //     child: CircularProgressIndicator(
-                                                  //         value:
-                                                  //             downloadProgress
-                                                  //                 .progress)
-                                                  Image.asset(
-                                                      "assets/images/placeholder.png"),
-                                              // ),
-                                              errorWidget:
-                                                  (context, url, error) =>
-                                                      Icon(Icons.error))),
+                                              progressIndicatorBuilder: (context, url,
+                                      downloadProgress) =>
+                                  // SizedBox(
+                                  //     width: 50,
+                                  //     height: 50,
+                                  //     child: CircularProgressIndicator(
+                                  //         value:
+                                  //             downloadProgress
+                                  //                 .progress)
+                                  // Image.asset("assets/images/placeholder.png"),
+                                  Shimmer.fromColors(
+                                      baseColor: Colors.grey[300]!,
+                                      highlightColor: Colors.white,
+                                      child: Image.asset(
+                                          "assets/images/placeholder.png")),
+                              errorWidget: (context, url, error) =>
+                                  Icon(Icons.error)
+                                                      )),
                                       Expanded(
                                           flex: 1,
                                           child: Padding(
