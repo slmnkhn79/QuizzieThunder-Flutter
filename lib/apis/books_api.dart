@@ -8,18 +8,29 @@ class BooksApi {
       final response = await DioClient.getDioInstance().post("/allBooks");
       return AllBooksResponseModel.fromJson(response.data['result']);
     } catch (e) {
-      rethrow;
+      // rethrow;
+      return AllBooksResponseModel.fromJson({
+        "code": "200",
+        "status": true,
+        "message": "No books found",
+        "books": []
+      });
     }
   }
 
-  Future<BookResponseModel> getBookById(
-      {required String bookId}) async {
+  Future<BookResponseModel> getBookById({required String bookId}) async {
     try {
       final response = await DioClient.getDioInstance()
           .post("/bookById", data: {'bookId': bookId});
       return BookResponseModel.fromJson(response.data['result']);
     } catch (e) {
-      rethrow;
+      // rethrow;
+      return BookResponseModel.fromJson({
+        "code": "200",
+        "status": true,
+        "message": "No books found",
+        "book": {}
+      });
     }
   }
 }

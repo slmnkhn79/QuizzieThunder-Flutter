@@ -31,15 +31,17 @@ class SchoolDetails extends StatelessWidget {
               Icons.arrow_back,
               color: ThemeColor.white,
             )),
-        title: Obx(() => Text(
-              schoolController.isLoading.value
-                  ? "School Details"
-                  : schoolController.schoolDetailsModel!.school.name!,
-              style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                  color: ThemeColor.white),
-            )),
+        // title: Obx(() => Text(
+        //       schoolController.isLoading.value
+        //           ? "School Details"
+        //           : schoolController.schoolDetailsModel!.school.name!,
+        //       style: TextStyle(
+        //           fontSize: 20,
+        //           fontWeight: FontWeight.bold,
+        //           color: ThemeColor.white),
+        //     )
+        //     ),
+        
         backgroundColor: ThemeColor.headerOne,
         centerTitle: false,
         elevation: 0,

@@ -227,14 +227,27 @@ class DiscoverPage extends StatelessWidget {
                     });
                   },
                   child: Stack(children: [
-                    Image.network(
-                      discoverController.discoverScreenResponseModel!.topSchool!
-                          .headerImageUrl,
-                      width: double.infinity,
-                      fit: BoxFit.cover,
-                    ),
+                    CachedNetworkImage(
+                        imageUrl: discoverController
+                            .discoverScreenResponseModel!
+                            .topSchool!
+                            .headerImageUrl,
+                        width: double.infinity,
+                        height: 250,
+                        fit: BoxFit.cover,
+                        imageRenderMethodForWeb:
+                            ImageRenderMethodForWeb.HttpGet,
+                        progressIndicatorBuilder: (context, url,
+                                downloadProgress) =>
+                            Shimmer.fromColors(
+                                baseColor: Colors.grey[300]!,
+                                highlightColor: Colors.white,
+                                child: Image.asset(
+                                    "assets/images/placeholder.png")),
+                        errorWidget: (context, url, error) =>
+                            Icon(Icons.error)),
                     Positioned.fill(
-                      top: 200,
+                      top: 150,
                       child: Padding(
                           padding: const EdgeInsets.all(16.0),
                           child: Container(
@@ -244,9 +257,6 @@ class DiscoverPage extends StatelessWidget {
                                 mainAxisAlignment: MainAxisAlignment.end,
                                 crossAxisAlignment: CrossAxisAlignment.end,
                                 children: [
-                                  // SizedBox(
-                                  //   height: 84,
-                                  // ),
                                   Text(
                                       "${discoverController.discoverScreenResponseModel?.topSchool!.name}",
                                       style: TextStyle(
@@ -313,13 +323,24 @@ class DiscoverPage extends StatelessWidget {
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
-                                    Image.network(
-                                      discoverController
-                                          .discoverScreenResponseModel!
-                                          .schools![index]
-                                          .headerImageUrl,
-                                      // imageRenderMethodForWeb: ImageRenderMethodForWeb.HttpGet,
-                                    ),
+                                    CachedNetworkImage(
+                                      width: 250,
+                                      // height: 250,
+                                        imageUrl: discoverController
+                                            .discoverScreenResponseModel!
+                                            .schools![index]
+                                            .headerImageUrl,
+                                        imageRenderMethodForWeb:
+                                            ImageRenderMethodForWeb.HttpGet,
+                                        progressIndicatorBuilder: (context, url,
+                                                downloadProgress) =>
+                                            Shimmer.fromColors(
+                                                baseColor: Colors.grey[300]!,
+                                                highlightColor: Colors.white,
+                                                child: Image.asset(
+                                                    "assets/images/placeholder.png")),
+                                        errorWidget: (context, url, error) =>
+                                            Icon(Icons.error)),
                                     // Icon(
                                     //   Icons.science_outlined,
                                     //   size: 36,

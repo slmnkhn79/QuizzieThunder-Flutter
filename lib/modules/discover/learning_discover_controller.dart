@@ -26,6 +26,7 @@ class LearningDiscoverController extends GetxController {
       isLoading.value = false;
     } else {
       isLoading.value = false;
+      discoverLearningResponseModel = response;
       AppUtils.showSnackBar("Error", status: MessageStatus.ERROR);
     }
   }

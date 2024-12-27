@@ -4,6 +4,7 @@ import 'package:get_it/get_it.dart';
 import 'package:get_it_mixin/get_it_mixin.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:quizzie_thunder/apis/testing_encryption_api.dart';
 import 'package:quizzie_thunder/logic/common/app_logic.dart';
 
 import 'modules/splash/splash_binding.dart';
@@ -15,6 +16,7 @@ void main() async {
   await GetStorage.init();
   GetIt.I.registerLazySingleton<AppLogic>(() => AppLogic());
   await appLogic.bootstrap();
+  await TestingEncryptionApi().encryptAndSendData("This is my message");
   runApp(MyApp());
 }
 

@@ -14,8 +14,11 @@ class SigninController extends GetxController {
 
   final localStorage = GetStorage();
 
-  final GlobalKey<FormState> signinFormKey =
+  static final GlobalKey<FormState> signinFormKey =
       GlobalKey<FormState>(debugLabel: '__signinFormKey__');
+
+      static final scaffoldKey = GlobalKey<ScaffoldState>();
+      
 
   final phoneNumberController = TextEditingController();
   final passwordController = TextEditingController();

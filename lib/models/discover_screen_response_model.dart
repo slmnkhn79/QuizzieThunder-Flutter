@@ -51,6 +51,7 @@ class School {
       required this.numOfStudents,
       required this.facultyRatio,
       // required this.attributes
+      required this.cardImage
       });
 
   final String? id;
@@ -66,6 +67,7 @@ class School {
   final String headerImageUrl;
   final int numOfStudents;
   final String facultyRatio;
+  final String cardImage;
   // final List<Attribute> attributes;
 
   factory School.fromJson(Map<String, dynamic> json) {
@@ -89,6 +91,7 @@ class School {
       headerImageUrl: json['headerImageUrl'],
       numOfStudents: json['numOfStudents'],
       facultyRatio: json['facultyRatio'],
+      cardImage: json['cardImage']
       // attributes: json["attributes"] == null
           // ? []
           // : List<Attribute>.from(
@@ -111,6 +114,7 @@ class School {
         "headerImageUrl": headerImageUrl,
         "numOfStudents": numOfStudents,
         "facultyRatio": facultyRatio,
+        "cardImage":cardImage
       };
 }
 

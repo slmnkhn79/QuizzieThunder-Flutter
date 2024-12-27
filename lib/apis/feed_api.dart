@@ -39,7 +39,14 @@ class FeedApi {
       // return FeedScreenResponseModel.fromJson(response.data['result']);
       return PostDetailsResponseModel.fromJson(response.data['result']);
     } catch (e) {
-      rethrow;
+      // rethrow;
+      return 
+      PostDetailsResponseModel.fromJson({
+        "code": 200,
+        "status": true,
+        "message": "No data fetched",
+        "post": [],
+      });
     }
   }
 
