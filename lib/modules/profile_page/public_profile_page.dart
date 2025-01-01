@@ -1,7 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cached_network_image_platform_interface/cached_network_image_platform_interface.dart';
 import 'package:flutter/material.dart';
-import 'package:fl_chart/fl_chart.dart';
+// import 'package:fl_chart/fl_chart.dart';
 import 'package:get/get.dart';
 import 'package:quizzie_thunder/modules/profile_page/public_profile_controller.dart';
 import 'package:quizzie_thunder/theme/colors_theme.dart';
@@ -144,7 +144,11 @@ class PublicProfilePage extends StatelessWidget {
                                 ),
                                 Container(
                                   alignment: Alignment.topLeft,
-                                  padding: const EdgeInsets.only(top:16.0, left: 16,right: 16,bottom: 8),
+                                  padding: const EdgeInsets.only(
+                                      top: 16.0,
+                                      left: 16,
+                                      right: 16,
+                                      bottom: 8),
                                   color: ThemeColor.facebook_light_4,
                                   child: Text(
                                     "About",
@@ -152,7 +156,8 @@ class PublicProfilePage extends StatelessWidget {
                                   ),
                                 ),
                                 Container(
-                                  padding: const EdgeInsets.only(top:4.0, left: 16,right: 16,bottom: 8),
+                                  padding: const EdgeInsets.only(
+                                      top: 4.0, left: 16, right: 16, bottom: 8),
                                   color: ThemeColor.facebook_light_4,
                                   child: Text(
                                     softWrap: true,
@@ -165,61 +170,16 @@ class PublicProfilePage extends StatelessWidget {
                                     style: TextStyle(fontSize: 16),
                                   ),
                                 ),
-
-                                Padding(
-                                  padding: const EdgeInsets.all(16.0),
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        'Key Interests',
-                                        style: TextStyle(
-                                            fontSize: 18,
-                                            fontWeight: FontWeight.bold),
-                                      ),
-                                      SizedBox(height: 8),
-                                      Text('• Interest 1'),
-                                      Text('• Interest 2'),
-                                      Text('• Interest 3'),
-                                      SizedBox(height: 16),
-                                      Text(
-                                        'Skills',
-                                        style: TextStyle(
-                                            fontSize: 18,
-                                            fontWeight: FontWeight.bold),
-                                      ),
-                                      SizedBox(height: 8),
-                                      Text('• Skill 1'),
-                                      Text('• Skill 2'),
-                                      Text('• Skill 3'),
-                                    ],
-                                  ),
+                                SizedBox(
+                                  height: 10,
                                 ),
-                                // Padding(
-                                //   padding: const EdgeInsets.all(16.0),
-                                //   child: LineChart(
-                                //     LineChartData(
-                                //       borderData: FlBorderData(show: false),
-                                //       titlesData: FlTitlesData(show: true),
-                                //       lineBarsData: [
-                                //         LineChartBarData(
-                                //           spots: [
-                                //             FlSpot(0, 3),
-                                //             FlSpot(1, 4),
-                                //             FlSpot(2, 2),
-                                //             FlSpot(3, 5),
-                                //             FlSpot(4, 3.5),
-                                //           ],
-                                //           isCurved: true,
-                                //           // colors: [Colors.blue],
-                                //           barWidth: 4,
-                                //           belowBarData: BarAreaData(show: false),
-                                //         ),
-                                //       ],
-                                //     ),
-                                //   ),
-                                // ),
+                                skillsViewContainer(
+                                    context, publicProfileController),
+                                SizedBox(
+                                  height: 10,
+                                ),
+                                interestsViewContainer(
+                                    context, publicProfileController)
                               ],
                             ),
                           ),
@@ -227,5 +187,118 @@ class PublicProfilePage extends StatelessWidget {
                       ),
                     ));
         }));
+  }
+
+  Container skillsViewContainer(
+      BuildContext context, PublicProfileController publicProfileController) {
+    return Container(
+      alignment: Alignment.topLeft,
+      color: ThemeColor.facebook_light_4,
+      child: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'Skills',
+                  style: TextStyle(fontSize: 24),
+                ),
+                SizedBox(height: 8),
+                ...publicProfileController.publicProfileScreenResponseModel!
+                    .otherAttributes!.keySkills!
+                    .map((skill) {
+                  return Container(
+                    padding: const EdgeInsets.all(8),
+                    margin: const EdgeInsets.only(bottom: 8),
+                    decoration: BoxDecoration(
+                      color: ThemeColor.white,
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          skill['skill'],
+                          style: TextStyle(fontSize: 16),
+                        ),
+                        Text(
+                          skill['score'].toString(),
+                          style: TextStyle(fontSize: 16,color: ThemeColor.facebook_light_2),
+                        ),
+                      ],
+                    ),
+                  );
+                }).toList(),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Container interestsViewContainer(
+      BuildContext context, PublicProfileController publicProfileController) {
+    return Container(
+      alignment: Alignment.topLeft,
+      color: ThemeColor.facebook_light_4,
+      child: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'Interests',
+                  style: TextStyle(fontSize: 24),
+                ),
+                SizedBox(height: 8),
+                ...publicProfileController.publicProfileScreenResponseModel!
+                    .otherAttributes!.keyInterest!
+                    .map((interest) {
+                  return Container(
+                    padding: const EdgeInsets.all(8),
+                    margin: const EdgeInsets.only(bottom: 8),
+                    decoration: BoxDecoration(
+                      color: ThemeColor.white,
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          interest['interest'],
+                          style: TextStyle(fontSize: 16),
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            Text(
+                              '${interest['quiz_won']}',
+                              style: TextStyle(
+                                fontSize: 16,
+                              ),
+                            ),
+                            Text(
+                              ' x quiz won',
+                              style: TextStyle(
+                                  fontSize: 12,
+                                  color: ThemeColor.facebook_light_2),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  );
+                }).toList(),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }

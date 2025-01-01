@@ -25,7 +25,7 @@ class PublicProfileScreenResponseModel {
           ? null
           : UserDetail.fromJson(json["user_detail"]),
       stats: json["stats"] == null ? null : Stats.fromJson(json["stats"]),
-      otherAttributes: json["other_attributes"] == null ? null : OtherAttributes.fromJson(json["other_attributes"]),
+      otherAttributes: json["otherAttributes"] == null ? null : OtherAttributes.fromJson(json["otherAttributes"]),
     );
   }
 
@@ -41,7 +41,7 @@ class PublicProfileScreenResponseModel {
 class OtherAttributes {
   final dynamic perfromance;
   final dynamic keyInterest;
-  final dynamic keySkills;
+  final List<dynamic> keySkills;
   final dynamic scores;
 
   OtherAttributes({
