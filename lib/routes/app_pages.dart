@@ -11,6 +11,8 @@ import 'package:quizzie_thunder/modules/learning_path/learning_binding.dart';
 import 'package:quizzie_thunder/modules/learning_path/learning_page.dart';
 import 'package:quizzie_thunder/modules/learning_path/learning_path_by_id/learning_by_id_binding.dart';
 import 'package:quizzie_thunder/modules/learning_path/learning_path_by_id/learning_page_by_id.dart';
+import 'package:quizzie_thunder/modules/profile_page/public_profile_binding.dart';
+import 'package:quizzie_thunder/modules/profile_page/public_profile_page.dart';
 import 'package:quizzie_thunder/modules/school_details/school_details_binding.dart';
 import 'package:quizzie_thunder/modules/school_details/school_details_page.dart';
 import 'package:quizzie_thunder/modules/study_plans/all_study_plans_page.dart';
@@ -190,6 +192,11 @@ class AppPages {
       name: AppRoutes.bookById,
       page: () => BookPage(),
       binding: BookBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.publicProfile,
+      page: () => PublicProfilePage(),
+      binding: PublicProfileBinding(),
     ),
   ];
 }

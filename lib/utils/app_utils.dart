@@ -1,10 +1,11 @@
+import 'dart:convert';
 import 'dart:io';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
-import 'package:package_info_plus/package_info_plus.dart';
+// import 'package:package_info_plus/package_info_plus.dart';
 import 'package:flutter_file_dialog/flutter_file_dialog.dart';
 import 'package:http/http.dart' as http;
 import 'package:path_provider/path_provider.dart';
@@ -61,19 +62,33 @@ class AppUtils {
     return initials;
   }
 
-  static Future<Map<String, String>> getAppDetails() async {
-    final PackageInfo packageInfo = await PackageInfo.fromPlatform();
-
-    final version = packageInfo.version;
-    final buildNumber = packageInfo.buildNumber;
-    final buildSignature = packageInfo.buildSignature;
-    final appName = packageInfo.appName;
-    final packageName = packageInfo.packageName;
-    final installerStore = packageInfo.installerStore;
-
-    print("App version = $version");
-    return {"version": version, "buildNumber": buildNumber};
+  String convertBase64(String data) {
+    Codec<String, String> stringToBase64 = utf8.fuse(base64);
+    String encoded = stringToBase64.encode(data);
+    return encoded;
   }
+
+  String convertBase64ToString(String base64EncodedData) {
+    List<int> bytes = base64.decode(base64EncodedData);
+
+    // Converting bytes to string
+    String decodedString = utf8.decode(bytes);
+    return decodedString;
+  }
+
+  // static Future<Map<String, String>> getAppDetails() async {
+  //   final PackageInfo packageInfo = await PackageInfo.fromPlatform();
+
+  //   final version = packageInfo.version;
+  //   final buildNumber = packageInfo.buildNumber;
+  //   final buildSignature = packageInfo.buildSignature;
+  //   final appName = packageInfo.appName;
+  //   final packageName = packageInfo.packageName;
+  //   final installerStore = packageInfo.installerStore;
+
+  //   print("App version = $version");
+  //   return {"version": version, "buildNumber": buildNumber};
+  // }
 
   static Color getRandomAvatarBgColor() {
     final List<Color> randomColors = [

@@ -7,6 +7,7 @@ import 'package:quizzie_thunder/main.dart';
 import 'package:quizzie_thunder/models/school_leaderboard_screen_response_model.dart';
 import 'package:quizzie_thunder/modules/leaderboard/school_leaderboard_controller.dart';
 import 'package:quizzie_thunder/modules/videos/play_video/play_video_page.dart';
+import 'package:quizzie_thunder/routes/app_pages.dart';
 import 'package:quizzie_thunder/utils/constants.dart';
 
 import '../../models/leaderboard_screen_response_model.dart';
@@ -291,11 +292,16 @@ class LeaderboardPage extends StatelessWidget {
                                       ?.length ??
                                   0,
                               itemBuilder: (context, index) {
-                                return userQuizPointsInfoContainter(
-                                    index,
-                                    leaderboardController
-                                        .leaderboardScreenResponseModel
-                                        ?.allTimeLeaderboard?[index]);
+                                return InkWell(
+                                  onTap: (){
+                                    Get.toNamed('/publicProfile',arguments: {ARG_STUDENT_ID:leaderboardController.leaderboardScreenResponseModel?.allTimeLeaderboard?[index]?.user?.id});
+                                  },
+                                  child: userQuizPointsInfoContainter(
+                                      index,
+                                      leaderboardController
+                                          .leaderboardScreenResponseModel
+                                          ?.allTimeLeaderboard?[index]),
+                                );
                               }),
                         )),
                   ],

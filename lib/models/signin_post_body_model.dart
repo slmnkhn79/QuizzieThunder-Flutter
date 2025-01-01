@@ -1,3 +1,5 @@
+import 'package:quizzie_thunder/utils/app_utils.dart';
+
 class SignInPostBodyModel {
   SignInPostBodyModel({
     required this.username,
@@ -10,12 +12,12 @@ class SignInPostBodyModel {
   factory SignInPostBodyModel.fromJson(Map<String, dynamic> json) {
     return SignInPostBodyModel(
       username: json["username"],
-      password: json["password"],
+      password: AppUtils().convertBase64(json["password"]),
     );
   }
 
   Map<String, dynamic> toJson() => {
         "username": username,
-        "password": password,
+        "password":  AppUtils().convertBase64(password!),
       };
 }

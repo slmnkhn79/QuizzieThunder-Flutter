@@ -15,338 +15,307 @@ class ProfilePage extends StatelessWidget {
   Widget build(BuildContext context) {
     ProfileController profileController = Get.find<ProfileController>();
     return Scaffold(
-        appBar: AppBar(
-          actions: [
-            IconButton(
-                onPressed: () {
-                  Get.toNamed(AppRoutes.settingsPage);
-                },
-                icon: Icon(
-                  Icons.settings_rounded,
-                  color: ThemeColor.white,
-                ))
-          ],
-          backgroundColor: ThemeColor.headerOne,
-          elevation: 0,
-        ),
-        backgroundColor: ThemeColor.facebook_light_4,
-        body: Obx(() => RefreshIndicator(
-              onRefresh: () async {
-                profileController.getProfileScreenDetails();
+      appBar: AppBar(
+        actions: [
+          IconButton(
+              onPressed: () {
+                Get.toNamed(AppRoutes.settingsPage);
               },
-              child: profileController.isLoading.value
-                  ? const Center(
-                      child: CircularProgressIndicator(
-                      color: ThemeColor.white,
-                    ))
-                  : Stack(
-                      children: [
-                        Padding(
-                            padding: const EdgeInsets.only(
-                                left: 8, right: 8, top: 0),
-                            child: Obx(
-                              () => SingleChildScrollView(
-                                  child: Center(
-                                child: Expanded(
-                                  child: SizedBox(
-                                    width:
-                                        MediaQuery.of(context).size.width > 600
-                                            ? 600
-                                            : MediaQuery.of(context).size.width,
-                                    child: Container(
-                                      color: ThemeColor.headerThree,
-                                      child: Column(
-                                        children: [
-                                          SizedBox(
-                                            height: 16,
+              icon: Icon(
+                Icons.settings_rounded,
+                color: ThemeColor.white,
+              ))
+        ],
+        backgroundColor: ThemeColor.headerOne,
+        elevation: 0,
+      ),
+      backgroundColor: ThemeColor.facebook_light_4,
+      body: Obx(() => RefreshIndicator(
+            onRefresh: () async {
+              return profileController.getProfileScreenDetails();
+            },
+            child: profileController.isLoading.value
+                ? const Center(
+                    child: CircularProgressIndicator(
+                    color: ThemeColor.white,
+                  ))
+                :
+                //  Stack(
+                // children: [
+                // Padding(
+                // padding: const EdgeInsets.only(
+                // left: 8, right: 8, top: 0),
+                // child: Obx(
+                // () =>
+                SingleChildScrollView(
+                    child: Center(
+                    child: SizedBox(
+                      width: MediaQuery.of(context).size.width > 600
+                          ? 600
+                          : MediaQuery.of(context).size.width,
+                      child: Container(
+                        color: ThemeColor.headerThree,
+                        child: Column(
+                          children: [
+                            SizedBox(
+                              height: 16,
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                CircleAvatar(
+                                  backgroundColor:
+                                      AppUtils.getRandomAvatarBgColor(),
+                                  radius: 36,
+                                  child: ClipOval(
+                                    child: CachedNetworkImage(
+                                      imageRenderMethodForWeb:
+                                          ImageRenderMethodForWeb.HttpGet,
+                                      imageUrl:
+                                          "${profileController.profileScreenResponseModel?.userDetail?.profilePic}",
+                                      width: double.infinity,
+                                      height: double.infinity,
+                                      fit: BoxFit.cover,
+                                      placeholder: (context, url) => Center(
+                                        child: SizedBox(
+                                          width: 20,
+                                          height: 20,
+                                          child: CircularProgressIndicator(
+                                            color: ThemeColor.headerOne,
                                           ),
-                                          Row(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
-                                            children: [
-                                              CircleAvatar(
-                                                backgroundColor: AppUtils
-                                                    .getRandomAvatarBgColor(),
-                                                radius: 36,
-                                                child: ClipOval(
-                                                  child: CachedNetworkImage(
-                                                    imageRenderMethodForWeb: ImageRenderMethodForWeb.HttpGet,
-                                                    imageUrl:
-                                                        "${profileController.profileScreenResponseModel?.userDetail?.profilePic}",
-                                                    width: double.infinity,
-                                                    height: double.infinity,
-                                                    fit: BoxFit.cover,
-                                                    placeholder:
-                                                        (context, url) =>
-                                                            Center(
-                                                      child: SizedBox(
-                                                        width: 20,
-                                                        height: 20,
-                                                        child:
-                                                            CircularProgressIndicator(
-                                                          color:
-                                                              ThemeColor.headerOne,
-                                                        ),
-                                                      ),
-                                                    ),
-                                                    errorWidget:
-                                                        (context, url, error) =>
-                                                            Icon(
-                                                      Icons.error,
-                                                      color: ThemeColor.red,
-                                                    ),
-                                                  ),
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                          SizedBox(
-                                            height: 16,
-                                          ),
-                                          Text(
-                                            "${profileController.profileScreenResponseModel?.userDetail?.firstname} ${profileController.profileScreenResponseModel?.userDetail?.lastname}",
-                                            style: TextStyle(
-                                                color: ThemeColor.black,
-                                                fontWeight: FontWeight.bold,
-                                                fontSize: 20),
-                                          ),
-                                          SizedBox(
-                                            height: 24,
-                                          ),
-                                          Padding(
-                                            padding: const EdgeInsets.all(8.0),
-                                            child: Container(
-                                              padding: const EdgeInsets.all(16),
-                                              decoration: BoxDecoration(
-                                                  color: ThemeColor.headerOne,
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          20)),
-                                              child: Row(
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment
-                                                        .spaceAround,
-                                                children: [
-                                                  userInfoBlock(
-                                                      Icons
-                                                          .star_border_outlined,
-                                                      "POINTS",
-                                                      "${profileController.profileScreenResponseModel?.stats?.points ?? 0}"),
-                                                  userInfoBlock(
-                                                      Icons.bar_chart_outlined,
-                                                      "RANK",
-                                                      "#${profileController.profileScreenResponseModel?.stats?.rank ?? "--"}"),
-                                                  userInfoBlock(
-                                                      Icons.handshake_outlined,
-                                                      "WON",
-                                                      "${profileController.profileScreenResponseModel?.stats?.quizWon ?? 0}"),
-                                                ],
-                                              ),
-                                            ),
-                                          ),
-                                          SizedBox(
-                                            height: 16,
-                                          ),
-                                          Row(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.spaceAround,
-                                            children: [
-                                              Column(
-                                                children: [
-                                                  InkWell(
-                                                    onTap: () {
-                                                      profileController
-                                                          .selectedTabIndex
-                                                          .value = 0;
-                                                    },
-                                                    child: Text(
-                                                      "Badge",
-                                                      style: TextStyle(
-                                                          color: profileController
-                                                                      .selectedTabIndex
-                                                                      .value ==
-                                                                  0
-                                                              ? ThemeColor
-                                                                  .primaryDark
-                                                              : ThemeColor
-                                                                  .grey_500,
-                                                          fontSize: 16,
-                                                          fontWeight: profileController
-                                                                      .selectedTabIndex
-                                                                      .value ==
-                                                                  0
-                                                              ? FontWeight.bold
-                                                              : FontWeight
-                                                                  .normal),
-                                                    ),
-                                                  ),
-                                                  SizedBox(
-                                                    height: 12,
-                                                  ),
-                                                  Visibility(
-                                                    visible: profileController
-                                                            .selectedTabIndex
-                                                            .value ==
-                                                        0,
-                                                    child: CircleAvatar(
-                                                      radius: 3,
-                                                      backgroundColor:
-                                                          ThemeColor
-                                                              .primaryDark,
-                                                    ),
-                                                  )
-                                                ],
-                                              ),
-                                              Column(
-                                                children: [
-                                                  InkWell(
-                                                    onTap: () {
-                                                      profileController
-                                                          .selectedTabIndex
-                                                          .value = 1;
-                                                    },
-                                                    child: Text(
-                                                      "Stats",
-                                                      style: TextStyle(
-                                                          color: profileController
-                                                                      .selectedTabIndex
-                                                                      .value ==
-                                                                  1
-                                                              ? ThemeColor
-                                                                  .primaryDark
-                                                              : ThemeColor
-                                                                  .grey_500,
-                                                          fontSize: 16,
-                                                          fontWeight: profileController
-                                                                      .selectedTabIndex
-                                                                      .value ==
-                                                                  1
-                                                              ? FontWeight.bold
-                                                              : FontWeight
-                                                                  .normal),
-                                                    ),
-                                                  ),
-                                                  SizedBox(
-                                                    height: 12,
-                                                  ),
-                                                  Visibility(
-                                                    visible: profileController
-                                                            .selectedTabIndex
-                                                            .value ==
-                                                        1,
-                                                    child: CircleAvatar(
-                                                      radius: 3,
-                                                      backgroundColor:
-                                                          ThemeColor
-                                                              .primaryDark,
-                                                    ),
-                                                  )
-                                                ],
-                                              ),
-                                              Column(
-                                                children: [
-                                                  InkWell(
-                                                    onTap: () {
-                                                      profileController
-                                                          .selectedTabIndex
-                                                          .value = 2;
-                                                    },
-                                                    child: Text(
-                                                      "Details",
-                                                      style: TextStyle(
-                                                          color: profileController
-                                                                      .selectedTabIndex
-                                                                      .value ==
-                                                                  2
-                                                              ? ThemeColor
-                                                                  .primaryDark
-                                                              : ThemeColor
-                                                                  .grey_500,
-                                                          fontSize: 16,
-                                                          fontWeight: profileController
-                                                                      .selectedTabIndex
-                                                                      .value ==
-                                                                  2
-                                                              ? FontWeight.bold
-                                                              : FontWeight
-                                                                  .normal),
-                                                    ),
-                                                  ),
-                                                  SizedBox(
-                                                    height: 12,
-                                                  ),
-                                                  Visibility(
-                                                    visible: profileController
-                                                            .selectedTabIndex
-                                                            .value ==
-                                                        2,
-                                                    child: CircleAvatar(
-                                                      radius: 3,
-                                                      backgroundColor:
-                                                          ThemeColor
-                                                              .primaryDark,
-                                                    ),
-                                                  )
-                                                ],
-                                              )
-                                            ],
-                                          ),
-                                          SizedBox(
-                                            height: 16,
-                                          ),
-                                          if (profileController.selectedTabIndex.value == 0)
-                                            badgeSection()
-                                          else if (profileController
-                                                  .selectedTabIndex.value ==
-                                              1)
-                                            statsSection(profileController)
-                                          else
-                                            detailSection(profileController),
-                                          SizedBox(
-                                            height: 64,
-                                          ),
-                                        ],
+                                        ),
+                                      ),
+                                      errorWidget: (context, url, error) =>
+                                          Icon(
+                                        Icons.error,
+                                        color: ThemeColor.red,
                                       ),
                                     ),
                                   ),
                                 ),
-                              )),
-                            )),
-                        // Row(
-                        //   mainAxisAlignment: MainAxisAlignment.center,
-                        //   children: [
-                        //     CircleAvatar(
-                        //       backgroundColor:
-                        //           AppUtils.getRandomAvatarBgColor(),
-                        //       radius: 36,
-                        //       child: ClipOval(
-                        //         child: CachedNetworkImage(
-                        //           imageUrl:
-                        //               "${profileController.profileScreenResponseModel?.userDetail?.profilePic}",
-                        //           width: double.infinity,
-                        //           height: double.infinity,
-                        //           fit: BoxFit.cover,
-                        //           placeholder: (context, url) => Center(
-                        //             child: Container(
-                        //               width: 20,
-                        //               height: 20,
-                        //               child: CircularProgressIndicator(
-                        //                 color: ThemeColor.accent,
-                        //               ),
-                        //             ),
-                        //           ),
-                        //           errorWidget: (context, url, error) => Icon(
-                        //             Icons.error,
-                        //             color: ThemeColor.red,
-                        //           ),
-                        //         ),
-                        //       ),
-                        //     ),
-                        //   ],
-                        // ),
-                      ],
+                              ],
+                            ),
+                            SizedBox(
+                              height: 16,
+                            ),
+                            Text(
+                              "${profileController.profileScreenResponseModel?.userDetail?.firstname} ${profileController.profileScreenResponseModel?.userDetail?.lastname}",
+                              style: TextStyle(
+                                  color: ThemeColor.black,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 20),
+                            ),
+                            SizedBox(
+                              height: 24,
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Container(
+                                padding: const EdgeInsets.all(16),
+                                decoration: BoxDecoration(
+                                    color: ThemeColor.headerOne,
+                                    borderRadius: BorderRadius.circular(20)),
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceAround,
+                                  children: [
+                                    userInfoBlock(
+                                        Icons.star_border_outlined,
+                                        "POINTS",
+                                        "${profileController.profileScreenResponseModel?.stats?.points ?? 0}"),
+                                    userInfoBlock(
+                                        Icons.bar_chart_outlined,
+                                        "RANK",
+                                        "#${profileController.profileScreenResponseModel?.stats?.rank ?? "--"}"),
+                                    userInfoBlock(
+                                        Icons.handshake_outlined,
+                                        "WON",
+                                        "${profileController.profileScreenResponseModel?.stats?.quizWon ?? 0}"),
+                                  ],
+                                ),
+                              ),
+                            ),
+                            SizedBox(
+                              height: 16,
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: [
+                                Column(
+                                  children: [
+                                    InkWell(
+                                      onTap: () {
+                                        profileController
+                                            .selectedTabIndex.value = 0;
+                                      },
+                                      child: Text(
+                                        "Badge",
+                                        style: TextStyle(
+                                            color: profileController
+                                                        .selectedTabIndex
+                                                        .value ==
+                                                    0
+                                                ? ThemeColor.primaryDark
+                                                : ThemeColor.grey_500,
+                                            fontSize: 16,
+                                            fontWeight: profileController
+                                                        .selectedTabIndex
+                                                        .value ==
+                                                    0
+                                                ? FontWeight.bold
+                                                : FontWeight.normal),
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 12,
+                                    ),
+                                    Visibility(
+                                      visible: profileController
+                                              .selectedTabIndex.value ==
+                                          0,
+                                      child: CircleAvatar(
+                                        radius: 3,
+                                        backgroundColor: ThemeColor.primaryDark,
+                                      ),
+                                    )
+                                  ],
+                                ),
+                                Column(
+                                  children: [
+                                    InkWell(
+                                      onTap: () {
+                                        profileController
+                                            .selectedTabIndex.value = 1;
+                                      },
+                                      child: Text(
+                                        "Stats",
+                                        style: TextStyle(
+                                            color: profileController
+                                                        .selectedTabIndex
+                                                        .value ==
+                                                    1
+                                                ? ThemeColor.primaryDark
+                                                : ThemeColor.grey_500,
+                                            fontSize: 16,
+                                            fontWeight: profileController
+                                                        .selectedTabIndex
+                                                        .value ==
+                                                    1
+                                                ? FontWeight.bold
+                                                : FontWeight.normal),
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 12,
+                                    ),
+                                    Visibility(
+                                      visible: profileController
+                                              .selectedTabIndex.value ==
+                                          1,
+                                      child: CircleAvatar(
+                                        radius: 3,
+                                        backgroundColor: ThemeColor.primaryDark,
+                                      ),
+                                    )
+                                  ],
+                                ),
+                                Column(
+                                  children: [
+                                    InkWell(
+                                      onTap: () {
+                                        profileController
+                                            .selectedTabIndex.value = 2;
+                                      },
+                                      child: Text(
+                                        "Details",
+                                        style: TextStyle(
+                                            color: profileController
+                                                        .selectedTabIndex
+                                                        .value ==
+                                                    2
+                                                ? ThemeColor.primaryDark
+                                                : ThemeColor.grey_500,
+                                            fontSize: 16,
+                                            fontWeight: profileController
+                                                        .selectedTabIndex
+                                                        .value ==
+                                                    2
+                                                ? FontWeight.bold
+                                                : FontWeight.normal),
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 12,
+                                    ),
+                                    Visibility(
+                                      visible: profileController
+                                              .selectedTabIndex.value ==
+                                          2,
+                                      child: CircleAvatar(
+                                        radius: 3,
+                                        backgroundColor: ThemeColor.primaryDark,
+                                      ),
+                                    )
+                                  ],
+                                )
+                              ],
+                            ),
+                            SizedBox(
+                              height: 16,
+                            ),
+                            if (profileController.selectedTabIndex.value == 0)
+                              badgeSection()
+                            else if (profileController.selectedTabIndex.value ==
+                                1)
+                              statsSection(profileController)
+                            else
+                              detailSection(profileController),
+                            SizedBox(
+                              height: 64,
+                            ),
+                          ],
+                        ),
+                      ),
                     ),
-            )));
+                  )),
+          )),
+      // Row(
+      //   mainAxisAlignment: MainAxisAlignment.center,
+      //   children: [
+      //     CircleAvatar(
+      //       backgroundColor:
+      //           AppUtils.getRandomAvatarBgColor(),
+      //       radius: 36,
+      //       child: ClipOval(
+      //         child: CachedNetworkImage(
+      //           imageUrl:
+      //               "${profileController.profileScreenResponseModel?.userDetail?.profilePic}",
+      //           width: double.infinity,
+      //           height: double.infinity,
+      //           fit: BoxFit.cover,
+      //           placeholder: (context, url) => Center(
+      //             child: Container(
+      //               width: 20,
+      //               height: 20,
+      //               child: CircularProgressIndicator(
+      //                 color: ThemeColor.accent,
+      //               ),
+      //             ),
+      //           ),
+      //           errorWidget: (context, url, error) => Icon(
+      //             Icons.error,
+      //             color: ThemeColor.red,
+      //           ),
+      //         ),
+      //       ),
+      //     ),
+      //   ],
+      // ),
+      //   ],
+      // ),
+      // )
+      // )
+    );
   }
 
   SizedBox detailSection(ProfileController profileController) {

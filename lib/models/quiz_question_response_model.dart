@@ -1,3 +1,5 @@
+import 'package:quizzie_thunder/utils/app_utils.dart';
+
 class QuizQuestionResponseModel {
   QuizQuestionResponseModel({
     required this.code,
@@ -49,7 +51,7 @@ class Question {
   factory Question.fromJson(Map<String, dynamic> json) {
     return Question(
       id: json["_id"],
-      question: json["question"],
+      question: AppUtils().convertBase64ToString(json["question"]),
       options: json["options"] == null
           ? []
           : List<String>.from(json["options"]!.map((x) => x)),

@@ -67,7 +67,7 @@ class School {
   final String headerImageUrl;
   final int numOfStudents;
   final String facultyRatio;
-  final String cardImage;
+  final String? cardImage;
   // final List<Attribute> attributes;
 
   factory School.fromJson(Map<String, dynamic> json) {

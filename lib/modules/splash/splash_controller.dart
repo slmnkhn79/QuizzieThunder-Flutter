@@ -11,7 +11,7 @@ class SplashController extends GetxController {
 
   @override
   void onInit() {
-    getAppDetails();
+    // getAppDetails();
     super.onInit();
   }
 
@@ -29,8 +29,8 @@ class SplashController extends GetxController {
     super.onReady();
   }
 
-  void getAppDetails() async {
-    Map<String, String> appDetails = await AppUtils.getAppDetails();
-    appVersion.value = appDetails["version"] ?? "";
-  }
+  // void getAppDetails() async {
+  //   Map<String, String> appDetails = await AppUtils.getAppDetails();
+  //   appVersion.value = appDetails["version"] ?? "";
+  // }
 }

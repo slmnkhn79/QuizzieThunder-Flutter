@@ -27,6 +27,7 @@ class AppRoutes {
   static const videoById = '/videoById';
   static const allBooks = '/allBooks';
   static const bookById = '/bookById';
+  static const publicProfile = '/publicProfile';
 
 
 
