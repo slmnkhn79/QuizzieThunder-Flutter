@@ -8,7 +8,9 @@ class SchoolDiscoverApi {
       final response = await DioClient.getDioInstance().post("/discover");
       return DiscoverScreenResponseModel.fromJson(response.data['result']);
     } catch (e) {
-      rethrow;
+      // rethrow;
+      return DiscoverScreenResponseModel.fromJson({
+          "status": false, "code": 400, "topSchool": null, "schools": null});
     }
   }
 }

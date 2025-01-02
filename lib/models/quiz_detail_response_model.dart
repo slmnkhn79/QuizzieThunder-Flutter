@@ -1,6 +1,7 @@
 class QuizDetailResponseModel {
   QuizDetailResponseModel(
-      {required this.code,
+      {
+      required this.code,
       required this.status,
       required this.quizDetail,
       required this.message});

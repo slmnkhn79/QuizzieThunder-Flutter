@@ -8,7 +8,13 @@ class StudyPlanApi {
       final response = await DioClient.getDioInstance().post("/studyplans");
       return AllStudyPlanResponseModel.fromJson(response.data['result']);
     } catch (e) {
-      rethrow;
+      // rethrow;
+      return AllStudyPlanResponseModel.fromJson({
+        "code": 400,
+        "status": false,
+        "message": e.toString(),
+        "plans": []
+      });
     }
   }
 
@@ -19,7 +25,13 @@ class StudyPlanApi {
           .post("/studyPlanById", data: {'studyPlanId': studyPlanId});
       return StudyPlanResponseModel.fromJson(response.data['result']);
     } catch (e) {
-      rethrow;
+      // rethrow;
+      return StudyPlanResponseModel.fromJson({
+        "code": 400,
+        "status": false,
+        "message": e.toString(),
+        "plan": null
+      });
     }
   }
 }

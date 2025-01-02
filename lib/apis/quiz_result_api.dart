@@ -11,7 +11,13 @@ class QuizResultApi {
           data: quizResultPostBodyModel.toJson());
       return QuizResultResponseModel.fromJson(response.data['result']);
     } catch (e) {
-      rethrow;
+      // rethrow;
+      return QuizResultResponseModel.fromJson({
+        "code": 400,
+        "status": false,
+        "message": "Please contact adminstrator",
+        "newQuizResult" : []
+      });
     }
   }
 }

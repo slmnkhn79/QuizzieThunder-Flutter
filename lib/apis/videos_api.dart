@@ -10,17 +10,29 @@ class VideosApi {
       );
       return AllVideosReponseModel.fromJson(response.data['result']);
     } catch (e) {
-      rethrow;
+      // rethrow;
+      return AllVideosReponseModel.fromJson({
+        "code": 400,
+        "status": false,
+        "message": e.toString(),
+        "videos": []
+      });
     }
   }
+
   Future<VideoReponseModel> getVideoById({required String videoId}) async {
     try {
-      final response = await DioClient.getDioInstance().post(
-        "/videoById",data: {"videoId":videoId}
-      );
+      final response = await DioClient.getDioInstance()
+          .post("/videoById", data: {"videoId": videoId});
       return VideoReponseModel.fromJson(response.data['result']);
     } catch (e) {
-      rethrow;
+      // rethrow;
+      return VideoReponseModel.fromJson({
+        "code": 400,
+        "status": false,
+        "message": e.toString(),
+        "video": null
+      });
     }
   }
 }

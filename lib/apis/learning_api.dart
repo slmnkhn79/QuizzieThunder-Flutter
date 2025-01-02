@@ -15,7 +15,13 @@ class LearningPathApi {
 
       return LearningPathsResponseModel.fromJson(response.data['result']);
     } catch (e) {
-      rethrow;
+      // rethrow;
+      return LearningPathsResponseModel.fromJson({
+        "code" : 400,
+        "status": false,
+        "message": "Something went wrong",
+        "paths": []
+      });
     }
   }
   Future<LearningPathByIdResponseModel> getLearningPathById(String learningId
@@ -29,7 +35,13 @@ class LearningPathApi {
 
       return LearningPathByIdResponseModel.fromJson(response.data['result']);
     } catch (e) {
-      rethrow;
+      // rethrow;
+      return LearningPathByIdResponseModel.fromJson({
+        "code" : 400,
+        "status": false,
+        "message": "Something went wrong",
+        "path": null
+      });
     }
   }
 }

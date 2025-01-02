@@ -10,7 +10,14 @@ class QuizQuestionApi {
           .post("/getQuizQuestion",data: {"quizId":quizId});
       return QuizQuestionResponseModel.fromJson(response.data['result']);
     } catch (e) {
-      rethrow;
+      // rethrow;
+      return QuizQuestionResponseModel.fromJson({
+        "code" : 400,
+        "status" : false,
+        "message" : "No question found",
+        "quiz" : null,
+        "questions" : []
+      });
     }
   }
   // Future<QuizQuestionResponseModel> postQuizQuestionList(

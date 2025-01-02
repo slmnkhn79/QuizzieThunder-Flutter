@@ -8,7 +8,13 @@ class SchoolLeaderboardApi {
       final response = await DioClient.getDioInstance().post("/schoolLeaderboard");
       return SchoolLeaderboardScreenResponseModel.fromJson(response.data['result']);
     } catch (e) {
-      rethrow;
+      // rethrow;
+      return SchoolLeaderboardScreenResponseModel.fromJson({
+        "code": 400,
+        "status": false,
+        "message": "Error in fetching school leaderboard",
+        "schoolLeaderboard": null
+      });
     }
   }
 }

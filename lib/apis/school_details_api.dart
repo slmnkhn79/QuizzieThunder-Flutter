@@ -74,7 +74,13 @@ class SchoolDetailsApi {
           return SchoolDetailsModel.fromJson(response.data['result']);
     } catch (e) {
       print('Error getting details : $e');
-      rethrow;
+      // rethrow;
+      return SchoolDetailsModel.fromJson({
+        "code": 400,
+        "status": true,
+        "message": e.toString(),
+        "school": null
+      });
       
     }
   }

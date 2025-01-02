@@ -10,7 +10,17 @@ class HomeApi {
 
       return HomeScreenResponseModel.fromJson(response.data['result']);
     } catch (e) {
-      rethrow;
+      // rethrow;
+      return HomeScreenResponseModel.fromJson({
+        "code": 500,
+        "status": false,
+        "message": "Something went wrong",
+        "quizzes" : [],
+        "mostPlayedQuiz" : [],
+        "topPicQuiz" : [],
+        "weekTopRank" : [],
+        "quizCategories" : [],
+      });
     }
   }
 }

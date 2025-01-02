@@ -5,7 +5,8 @@ class LearningPathsResponseModel {
   final List<LearningPath> paths;
 
   LearningPathsResponseModel(
-      {required this.code,
+      {
+      required this.code,
       required this.status,
       required this.message,
       required this.paths});

@@ -10,7 +10,13 @@ class SignUpApi {
           .post("/signup", data: signUpPostBodyModel.toJson());
       return SignUpResponseModel.fromJson(response.data['result']);
     } catch (e) {
-      rethrow;
+      // rethrow;
+      return SignUpResponseModel.fromJson({
+        "code": 400,
+        "status": false,
+        "message": e.toString(),
+        "result": null
+      });
     }
   }
 }

@@ -14,7 +14,12 @@ class ResetPasswordApi {
           data: updatePasswordPostBodyModel.toJson());
       return UpdatePasswordResponseModel.fromJson(response.data['result']);
     } catch (e) {
-      rethrow;
+      // rethrow;
+      return UpdatePasswordResponseModel.fromJson({
+        "code": 400,
+        "status": false,
+        "message": "Something went wrong",
+      });
     }
   }
 
@@ -27,7 +32,12 @@ class ResetPasswordApi {
           data: createNewPasswordPostBodyModel.toJson());
       return CreateNewPasswordResponseModel.fromJson(response.data);
     } catch (e) {
-      rethrow;
+      // rethrow;
+      return CreateNewPasswordResponseModel.fromJson({
+        "code": 400,
+        "status": false,
+        "message": "Something went wrong",
+      });
     }
   }
 }

@@ -15,7 +15,13 @@ class PostDetailsApi {
       return PostDetailsResponseModel.fromJson(response.data['result']);
       // return response.data['results'];
     } catch (e) {
-      rethrow;
+      // rethrow;
+      return PostCommentResponseModel.fromJson({
+        "code": 400,
+        "status": false,
+        "message": "Something went wrong",
+        "post": null
+      });
     }
   }
 

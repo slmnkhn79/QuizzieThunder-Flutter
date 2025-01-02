@@ -12,7 +12,9 @@ class ForgotPasswordApi {
           data: forgotPasswordPostBodyModel.toJson());
       return ForgotPasswordResponseModel.fromJson(response.data['result']);
     } catch (e) {
-      rethrow;
+      // rethrow;
+      return ForgotPasswordResponseModel.fromJson(
+          {"code": 400, "status": false, "message": e.toString()});
     }
   }
 }

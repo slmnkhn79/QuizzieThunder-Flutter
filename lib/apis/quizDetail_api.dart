@@ -7,11 +7,16 @@ class QuizDetailApi {
       {required String? quizId, required String? userId}) async {
     try {
       final response = await DioClient.getDioInstance()
-          .post("/getQuizDetail",data: {"quizId":quizId, "userId":userId});
+          .post("/getQuizDetail", data: {"quizId": quizId, "userId": userId});
       return QuizDetailResponseModel.fromJson(response.data['result']);
     } catch (e) {
-      rethrow;
+      // rethrow;
+      return QuizDetailResponseModel.fromJson({
+        "code": 400,
+        "status": false,
+        "quizDetail": null,
+        "message": " Something went wrong"
+      });
     }
   }
-  
 }

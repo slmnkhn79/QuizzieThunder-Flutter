@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:quizzie_thunder/modules/wonderous/ui/common_libs.dart';
 
 import '../models/api_error_response_model.dart';
 import 'app_utils.dart';
@@ -19,17 +20,25 @@ class ErrorHandingInterceptor extends Interceptor {
       _isErrorCodeHandled = true;
     }
     print("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
-    print(err);
+    print(err.toString());
 
     if ((!_isErrorCodeHandled && err.response?.statusCode == 401) ||
-        err.response?.statusCode == 400) {
+        err.response?.statusCode == 400 || err.response?.statusCode == 404) {
       _isErrorCodeHandled = true;
       await localStorage.write(KEY_IS_API_ERROR_HANDLE, _isErrorCodeHandled);
       // Redirecting to sign in screen if token expires
       print("interceptor----");
-      AppUtils.showSnackBar("Session Expired! Please login again",
-          status: MessageStatus.ERROR);
-          // Get.closeAllSnackbars();
+      // AppUtils.showSnackBar("Session Expired! Please login again",
+      //     status: MessageStatus.ERROR);
+      Get.defaultDialog(
+        title: "Hello",
+        content: Text(err.response!.statusMessage!),
+        confirm: MaterialButton(
+          onPressed: (){ Get.back();},
+          child: Text("OK"),
+        ),
+      );
+      // Get.closeAllSnackbars();
       // AppUtils.logout();
     } else {
       if (!_isErrorCodeHandled) {
@@ -40,6 +49,14 @@ class ErrorHandingInterceptor extends Interceptor {
         AppUtils.showSnackBar(
             "${ApiErrorResponseModel.fromJson(err.response?.data).error}",
             status: MessageStatus.ERROR);
+      //   Get.defaultDialog(
+      //   title: "Hello",
+      //   content: Text(err.response!.statusMessage!),
+      //   confirm: MaterialButton(
+      //     onPressed: () =>{ Get.back(closeOverlays: true)},
+      //     child: Text("OK"),
+      //   ),
+      // );
       }
     }
     print("interceptor++++");

@@ -28,7 +28,13 @@ class UpdateProfileApi {
           data: updateProfilePostBodyModel.toJson());
       return UpdateProfileResponseModel.fromJson(response.data['result']);
     } catch (e) {
-      rethrow;
+      // rethrow;
+      return UpdateProfileResponseModel.fromJson({
+        "code": 400,
+        "status": false,
+        "message": "Please contact adminstrator",
+        "updatedUser": null
+      });
     }
   }
 

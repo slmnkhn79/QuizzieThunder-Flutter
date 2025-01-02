@@ -6,7 +6,7 @@ class HomeScreenResponseModel {
     required this.status,
     required this.quizzes,
     required this.mostPlayedQuiz,
-       required this.topPicQuiz,
+    required this.topPicQuiz,
     required this.weekTopRank,
     required this.quizCategories,
     

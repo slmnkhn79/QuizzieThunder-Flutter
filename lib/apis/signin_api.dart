@@ -10,7 +10,13 @@ class SignInApi {
           .post("/login", data: signInPostBodyModel.toJson());
       return SignInResponseModel.fromJson(response.data['result']);
     } catch (e) {
-      rethrow;
+      // rethrow;
+      return SignInResponseModel.fromJson({
+        "code": 400,
+        "status": false,
+        "message": e.toString(),
+        "result": false
+      });
     }
   }
 }

@@ -62,7 +62,13 @@ class FeedApi {
       // return FeedScreenResponseModel.fromJson(response.data['result']);
       return PostDetailsResponseModel.fromJson(response.data['result']);
     } catch (e) {
-      rethrow;
+      // rethrow;
+      return PostDetailsResponseModel.fromJson( {
+        "code":  400,
+        "status": false,
+        "message": "Some error occured",
+        "post": null
+      });
     }
   }
 }
