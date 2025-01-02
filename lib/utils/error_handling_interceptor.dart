@@ -19,8 +19,8 @@ class ErrorHandingInterceptor extends Interceptor {
     } else {
       _isErrorCodeHandled = true;
     }
-    print("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
-    print(err.toString());
+    // print("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
+    // print(err.toString());
 
     if ((!_isErrorCodeHandled && err.response?.statusCode == 401) ||
         err.response?.statusCode == 400 || err.response?.statusCode == 404) {
@@ -31,8 +31,9 @@ class ErrorHandingInterceptor extends Interceptor {
       // AppUtils.showSnackBar("Session Expired! Please login again",
       //     status: MessageStatus.ERROR);
       Get.defaultDialog(
-        title: "Hello",
-        content: Text(err.response!.statusMessage!),
+        navigatorKey: GlobalKey(debugLabel: "dialog"),
+        title: "Error",
+        content: Text(err.response!.statusMessage! ?? "Some error occured"),
         confirm: MaterialButton(
           onPressed: (){ Get.back();},
           child: Text("OK"),
@@ -42,9 +43,9 @@ class ErrorHandingInterceptor extends Interceptor {
       // AppUtils.logout();
     } else {
       if (!_isErrorCodeHandled) {
-        print(
+        // print(
             // "Error = ${ApiErrorResponseModel.fromJson(err.response?.data).message}");
-            "Error = ${ApiErrorResponseModel.fromJson(err.response?.data).error}");
+            // "Error = ${ApiErrorResponseModel.fromJson(err.response?.data).error}");
 
         AppUtils.showSnackBar(
             "${ApiErrorResponseModel.fromJson(err.response?.data).error}",

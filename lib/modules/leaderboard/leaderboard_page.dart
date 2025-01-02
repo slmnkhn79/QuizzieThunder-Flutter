@@ -194,8 +194,7 @@ class LeaderboardPage extends StatelessWidget {
     return Expanded(
       child: SingleChildScrollView(
         child: leaderboardController
-                    .leaderboardScreenResponseModel?.allTimeLeaderboard ==
-                null
+                    .leaderboardScreenResponseModel?.allTimeLeaderboard == 0
             ? Container(
                 child: Column(
                 children: [Text("Be the first to apper here!")],
@@ -229,7 +228,7 @@ class LeaderboardPage extends StatelessWidget {
                                     ),
                                     leaderboardController
                                                 .leaderboardScreenResponseModel!
-                                                .allTimeLeaderboard!.isNotEmpty
+                                                .allTimeLeaderboard!.length  > 1
                                         ? allTimeWinnerInfo(
                                             leaderboardController
                                                 .leaderboardScreenResponseModel
@@ -239,8 +238,7 @@ class LeaderboardPage extends StatelessWidget {
                                 ),
                                 leaderboardController
                                             .leaderboardScreenResponseModel
-                                            ?.allTimeLeaderboard?[0] !=
-                                        null
+                                            ?.allTimeLeaderboard?.isNotEmpty == true                                        
                                     ? allTimeWinnerInfo(leaderboardController
                                         .leaderboardScreenResponseModel
                                         ?.allTimeLeaderboard?[0])
@@ -253,12 +251,12 @@ class LeaderboardPage extends StatelessWidget {
                                     leaderboardController
                                                 .leaderboardScreenResponseModel!
                                                 .allTimeLeaderboard!
-                                                .length >
-                                            1
+                                                .length > 2
+                                            
                                         ? allTimeWinnerInfo(
                                             leaderboardController
                                                 .leaderboardScreenResponseModel
-                                                ?.allTimeLeaderboard?[2])
+                                                ?.allTimeLeaderboard![2])
                                         : Container(),
                                   ],
                                 ),

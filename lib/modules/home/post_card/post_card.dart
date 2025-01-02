@@ -1,9 +1,12 @@
 import 'package:cached_network_image_platform_interface/cached_network_image_platform_interface.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:quizzie_thunder/models/post_card_item_model.dart';
 import 'package:quizzie_thunder/modules/home/feed_controller.dart';
 import 'package:quizzie_thunder/modules/home/post_card/like_animation.dart';
+import 'package:quizzie_thunder/modules/wonderous/ui/full_screen_picture/fullscreen_url_img_viewer.dart';
+import 'package:quizzie_thunder/modules/wonderous/ui/full_screen_picture/fullscreen_url_img_viewer_v2.dart';
 import 'package:quizzie_thunder/theme/colors_theme.dart';
 import 'package:quizzie_thunder/utils/app_utils.dart';
 import 'package:shimmer/shimmer.dart';
@@ -11,7 +14,6 @@ import 'package:shimmer/shimmer.dart';
 class PostCard extends StatelessWidget {
   final PostCardModel post;
   final FeedController feedController;
-  
 
   const PostCard({super.key, required this.post, required this.feedController});
 
@@ -117,6 +119,9 @@ class PostCard extends StatelessWidget {
           ),
           // IMAGE SECTION OF THE POST
           GestureDetector(
+            onTap: () {
+             
+            },
             onDoubleTap: () {
               feedController.likePostById(post.id, false);
               feedController.updateIsLikedAnimatingToTrue(post.id);
@@ -128,7 +133,7 @@ class PostCard extends StatelessWidget {
                   height: 400,
                   width: double.infinity,
                   child: CachedNetworkImage(
-                    imageRenderMethodForWeb: ImageRenderMethodForWeb.HttpGet,
+                      imageRenderMethodForWeb: ImageRenderMethodForWeb.HttpGet,
                       imageUrl: post.photoUrl.toString(),
                       fit: BoxFit.cover,
                       fadeInDuration: Duration(milliseconds: 0),

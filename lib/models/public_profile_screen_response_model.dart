@@ -136,6 +136,7 @@ class UserDetail {
     required this.description,
     required this.state,
     required this.city,
+    required this.rank
   });
 
   final String? id;
@@ -158,6 +159,7 @@ class UserDetail {
   final String? description;
   final String? state;
   final String? city;
+  final int? rank;
 
   factory UserDetail.fromJson(Map<String, dynamic> json) {
     return UserDetail(
@@ -185,6 +187,7 @@ class UserDetail {
       description: json["description"].length == 0 ? "No description available" : json["description"],
       state: json["state"],
       city:  json["city"],
+      rank: json['rank']
     );
   }
 
@@ -208,17 +211,36 @@ class UserDetail {
 class School{
   final String? id;
   final String? schoolName;
+  final String? schoolType;
+  final String? city;
+  final String? state;
+  final String? logo;
 
-  School({required this.id, required this.schoolName});
+  School( {
+    required this.id,
+    required this.schoolName,
+    required this.schoolType,
+    required this.city,
+    required this.state,
+    required this.logo,
+  });
   factory School.fromJson(Map<String, dynamic> json) {
     return School(
       id: json["_id"],
       schoolName: json["schoolName"],
+      schoolType: json["type"],
+      state: json["state"],
+      city: json["city"],
+      logo: json["logo"],
     );
   }
 
 Map<String, dynamic> toJson() => {
       "_id": id,
       "schoolName": schoolName,
+      "type": schoolType,
+      "state": state,
+      "city": city,
+      "logo": logo,
     };
 }

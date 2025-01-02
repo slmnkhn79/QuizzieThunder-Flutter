@@ -133,6 +133,12 @@ class PublicProfilePage extends StatelessWidget {
                                                   fontSize: 16,
                                                   color: Colors.black54),
                                             ),
+                                            Text(
+                                              'Rank ${publicProfileController.publicProfileScreenResponseModel!.userDetail!.rank}',
+                                              style: TextStyle(
+                                                  fontSize: 16,
+                                                  color: ThemeColor.blue),
+                                            ),
                                           ],
                                         ),
                                       ),
@@ -179,7 +185,12 @@ class PublicProfilePage extends StatelessWidget {
                                   height: 10,
                                 ),
                                 interestsViewContainer(
-                                    context, publicProfileController)
+                                    context, publicProfileController),
+                                SizedBox(
+                                  height: 10,
+                                ),
+                                schoolDetailsContainer(
+                                    context, publicProfileController),
                               ],
                             ),
                           ),
@@ -225,7 +236,8 @@ class PublicProfilePage extends StatelessWidget {
                         ),
                         Text(
                           skill['score'].toString(),
-                          style: TextStyle(fontSize: 16,color: ThemeColor.facebook_light_2),
+                          style: TextStyle(
+                              fontSize: 16, color: ThemeColor.facebook_light_2),
                         ),
                       ],
                     ),
@@ -297,6 +309,67 @@ class PublicProfilePage extends StatelessWidget {
               ],
             ),
           ),
+        ],
+      ),
+    );
+  }
+
+  Container schoolDetailsContainer(
+      BuildContext context, PublicProfileController publicProfileController) {
+    var school = publicProfileController
+        .publicProfileScreenResponseModel!.userDetail!.school!;
+    return Container(
+      alignment: Alignment.topLeft,
+      color: ThemeColor.facebook_light_4,
+      padding: const EdgeInsets.all(16),
+      child: Column(
+        children: [
+          SizedBox(height: 8),
+          Container(
+            child: Column(
+              children: [
+                Row(
+                  children: [
+                    Text(
+                      'Education',
+                      style: TextStyle(fontSize: 24),
+                    ),
+                  ],
+                ),
+                SizedBox(height: 8),
+                Container(
+                  padding: const EdgeInsets.all(8),
+                  margin: const EdgeInsets.only(bottom: 8),
+                  decoration: BoxDecoration(
+                    color: ThemeColor.white,
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  child: Row(
+                    children: [
+                      CachedNetworkImage(imageUrl: school.logo!),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            school.schoolName!,
+                            style: TextStyle(fontSize: 24),
+                          ),
+                          Text(
+                            "${school.city!}, ${school.state!}",
+                            style: TextStyle(fontSize: 16),
+                          ),
+                          Text(
+                            "${school.schoolType!}",
+                            style: TextStyle(fontSize: 16),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          )
         ],
       ),
     );

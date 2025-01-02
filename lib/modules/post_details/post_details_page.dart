@@ -2,11 +2,13 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cached_network_image_platform_interface/cached_network_image_platform_interface.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:quizzie_thunder/modules/event_details/post_detail_controller.dart';
+import 'package:quizzie_thunder/modules/post_details/post_detail_controller.dart';
 import 'package:quizzie_thunder/modules/home/post_card/like_animation.dart';
 import 'package:quizzie_thunder/modules/home/post_card/post_card.dart';
 import 'package:quizzie_thunder/theme/colors_theme.dart';
 import 'package:quizzie_thunder/utils/app_utils.dart';
+
+import '../wonderous/ui/full_screen_picture/fullscreen_url_img_viewer.dart';
 
 class PostDetailsPage extends StatelessWidget {
   final String eventId;
@@ -182,13 +184,23 @@ class PostDetailsPage extends StatelessWidget {
                                         ),
                                         // IMAGE SECTION OF THE POST
                                         GestureDetector(
+                                          onTap: () {
+                                            Get.to(FullscreenUrlImgViewer(
+                                              headerImageUrl:
+                                                  postDetailsController
+                                                      .postDetailsResponseModel!
+                                                      .post
+                                                      .imageUrl
+                                                      .toString(),
+                                            ));
+                                          },
                                           onDoubleTap: () {
                                             postDetailsController.likePostById(
                                                 // postDetailsController
                                                 //     .postDetailsResponseModel!
                                                 //     .post
                                                 //     .isLiked
-                                                    false);
+                                                false);
                                             postDetailsController
                                                 .isLikeAnimating.value = true;
                                           },
@@ -199,7 +211,9 @@ class PostDetailsPage extends StatelessWidget {
                                                 height: 400,
                                                 width: double.infinity,
                                                 child: CachedNetworkImage(
-                                                    imageRenderMethodForWeb: ImageRenderMethodForWeb.HttpGet,
+                                                    imageRenderMethodForWeb:
+                                                        ImageRenderMethodForWeb
+                                                            .HttpGet,
                                                     imageUrl: postDetailsController
                                                         .postDetailsResponseModel!
                                                         .post
