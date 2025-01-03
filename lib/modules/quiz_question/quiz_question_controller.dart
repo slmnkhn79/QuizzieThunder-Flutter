@@ -73,8 +73,12 @@ class QuizQuestionController extends GetxController {
       // _startQuizTimer();
       isLoading.value = false;
     } else {
+      allQuestions = List.empty();
       isLoading.value = false;
+      totalQuestions = 0;
+      // Get.back(closeOverlays: true);
       AppUtils.showSnackBar("Error", status: MessageStatus.ERROR);
+      
     }
   }
 

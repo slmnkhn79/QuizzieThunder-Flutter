@@ -314,50 +314,55 @@ class HomePage extends StatelessWidget {
 
   Container quizFeedContainer(
       HomeController homeController, BuildContext context) {
-    return Container(
+    return 
+   
+    Container(
       // height: MediaQuery.of(context).size.height,
       child: Column(children: [
-        InkWell(
-          onTap: () {
-            Get.toNamed(AppRoutes.quizDetailPage, arguments: {
-              ARG_QUIZ_ID:
-                  homeController.homeScreenResponseModel?.mostPlayedQuiz!.id
-            });
-          },
-          child: Stack(
-            children: [
-              Image.asset(
-                "assets/images/most_played_quiz_bg.png",
-                width: double.infinity,
-                fit: BoxFit.cover,
-              ),
-              Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    SizedBox(
-                      height: 4,
-                    ),
-                    Text("MOST PLAYED QUIZ",
-                        style: TextStyle(
-                            fontSize: 12,
-                            fontWeight: FontWeight.bold,
-                            color: ThemeColor.dustyRose)),
-                    SizedBox(
-                      height: 8,
-                    ),
-                    Text(
-                        "${homeController.homeScreenResponseModel?.mostPlayedQuiz?.title}",
-                        style: TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
-                            color: ThemeColor.burgundy))
-                  ],
+        Visibility(
+          visible: homeController.homeScreenResponseModel?.mostPlayedQuiz != null,
+          child: InkWell(
+            onTap: () {
+              Get.toNamed(AppRoutes.quizDetailPage, arguments: {
+                ARG_QUIZ_ID:
+                    homeController.homeScreenResponseModel?.mostPlayedQuiz!.id
+              });
+            },
+            child: Stack(
+              children: [
+                Image.asset(
+                  "assets/images/most_played_quiz_bg.png",
+                  width: double.infinity,
+                  fit: BoxFit.cover,
                 ),
-              )
-            ],
+                Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      SizedBox(
+                        height: 4,
+                      ),
+                      Text("MOST PLAYED QUIZ",
+                          style: TextStyle(
+                              fontSize: 12,
+                              fontWeight: FontWeight.bold,
+                              color: ThemeColor.dustyRose)),
+                      SizedBox(
+                        height: 8,
+                      ),
+                      Text(
+                          "${homeController.homeScreenResponseModel?.mostPlayedQuiz?.title}",
+                          style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                              color: ThemeColor.burgundy))
+                    ],
+                  ),
+                )
+              ],
+            ),
           ),
         ),
         SizedBox(

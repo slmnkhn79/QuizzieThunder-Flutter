@@ -22,8 +22,10 @@ class QuizQuestionPage extends StatelessWidget {
       child: Scaffold(
           appBar: AppBar(
             leading: IconButton(
-                onPressed: () {
-                  showEndQuizAlertDialog(quizQuestionController);
+                onPressed: () async {
+                  quizQuestionController.allQuestions.isEmpty
+                      ? Get.back()
+                      : await showEndQuizAlertDialog(quizQuestionController);
                 },
                 icon: const Icon(
                   Icons.close_rounded,
@@ -59,116 +61,137 @@ class QuizQuestionPage extends StatelessWidget {
                   child: CircularProgressIndicator(
                   color: ThemeColor.white,
                 ))
-              : Padding(
-                  padding: const EdgeInsets.only(left: 8, right: 8, bottom: 8),
-                  child: Container(
-                    width: double.infinity,
-                    height: double.infinity,
-                    padding: const EdgeInsets.all(16),
-                    decoration: BoxDecoration(
-                        color: ThemeColor.white,
-                        borderRadius: BorderRadius.circular(20)),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        SizedBox(
-                          height: 32,
+              : !quizQuestionController.isLoading.value &&
+                      quizQuestionController.allQuestions.isEmpty
+                  ? Padding(
+                      padding:
+                          const EdgeInsets.only(left: 8, right: 8, bottom: 8),
+                      child: Container(
+                          width: double.infinity,
+                          height: double.infinity,
+                          padding: const EdgeInsets.all(16),
+                          decoration: BoxDecoration(
+                              color: ThemeColor.white,
+                              borderRadius: BorderRadius.circular(20)),
+                          child: Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                SizedBox(
+                                  height: 32,
+                                ),
+                                Text("Quiz Already Completed")
+                              ])))
+                  : Padding(
+                      padding:
+                          const EdgeInsets.only(left: 8, right: 8, bottom: 8),
+                      child: Container(
+                        width: double.infinity,
+                        height: double.infinity,
+                        padding: const EdgeInsets.all(16),
+                        decoration: BoxDecoration(
+                            color: ThemeColor.white,
+                            borderRadius: BorderRadius.circular(20)),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            SizedBox(
+                              height: 32,
+                            ),
+                            Text(
+                              quizQuestionController.time.value,
+                              style: TextStyle(
+                                  color: ThemeColor.grey_500,
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                            SizedBox(
+                              height: 32,
+                            ),
+                            Text(
+                              "QUESTION ${quizQuestionController.questionCount.value + 1} OF ${quizQuestionController.totalQuestions}",
+                              // "10",
+                              style: TextStyle(
+                                  color: ThemeColor.grey_500,
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                            SizedBox(
+                              height: 16,
+                            ),
+                            Text(
+                              "${quizQuestionController.allQuestions[quizQuestionController.questionCount.value].question}",
+                              // "Test Questions",
+                              style: TextStyle(
+                                  color: ThemeColor.black,
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                            SizedBox(
+                              height: 44,
+                            ),
+                            optionContainerList(quizQuestionController),
+                            Spacer(),
+                            SizedBox(
+                              height: 5,
+                            ),
+                            quizQuestionController.questionCount >= 0 &&
+                                    quizQuestionController.questionCount <
+                                        quizQuestionController.totalQuestions -
+                                            1
+                                ? SizedBox(
+                                    width: double.infinity,
+                                    height: 44,
+                                    child: ElevatedButton(
+                                      onPressed: () {
+                                        quizQuestionController.nextQuestion(
+                                            isSkipped: true);
+                                      },
+                                      style: TextButton.styleFrom(
+                                        textStyle: TextStyle(
+                                            fontSize: 16,
+                                            fontWeight: FontWeight.w500),
+                                        shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(12)),
+                                        backgroundColor: ThemeColor.primaryDark,
+                                      ),
+                                      child: Text("Next",
+                                          style: TextStyle(
+                                              color: ThemeColor.white)),
+                                    ))
+                                : Container(),
+                            SizedBox(
+                              height: 5,
+                            ),
+                            quizQuestionController.questionCount.value ==
+                                    quizQuestionController.totalQuestions - 1
+                                ? SizedBox(
+                                    width: double.infinity,
+                                    height: 44,
+                                    child: ElevatedButton(
+                                      onPressed: () {
+                                        quizQuestionController.endQuiz();
+                                      },
+                                      style: TextButton.styleFrom(
+                                        textStyle: TextStyle(
+                                            fontSize: 16,
+                                            fontWeight: FontWeight.w500),
+                                        shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(12)),
+                                        backgroundColor: ThemeColor.red,
+                                      ),
+                                      child: Text("Submit",
+                                          style: TextStyle(
+                                              color: ThemeColor.white)),
+                                    ))
+                                : Container()
+                          ],
                         ),
-                        Text(
-                          quizQuestionController.time.value,
-                          style: TextStyle(
-                              color: ThemeColor.grey_500,
-                              fontSize: 12,
-                              fontWeight: FontWeight.bold),
-                        ),
-                        SizedBox(
-                          height: 32,
-                        ),
-                        Text(
-                          "QUESTION ${quizQuestionController.questionCount.value + 1 } OF ${quizQuestionController.totalQuestions}",
-                          style: TextStyle(
-                              color: ThemeColor.grey_500,
-                              fontSize: 12,
-                              fontWeight: FontWeight.bold),
-                        ),
-                        SizedBox(
-                          height: 16,
-                        ),
-                        Text(
-                          "${quizQuestionController.allQuestions[quizQuestionController.questionCount.value].question}",
-                          style: TextStyle(
-                              color: ThemeColor.black,
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold),
-                        ),
-                        SizedBox(
-                          height: 44,
-                        ),
-                        optionContainerList(quizQuestionController),
-                        Spacer(),
-                        // quizQuestionController.questionCount >= 1 ?
-                        // SizedBox(
-                        //     width: double.infinity,
-                        //     height: 44,
-                        //     child: ElevatedButton(
-                        //       onPressed: () {
-                        //         quizQuestionController.prevQuestion(
-                        //             );
-                        //       },
-                        //       style: TextButton.styleFrom(
-                        //         textStyle: TextStyle(
-                        //             fontSize: 16, fontWeight: FontWeight.w500),
-                        //         shape: RoundedRectangleBorder(
-                        //             borderRadius: BorderRadius.circular(12)),
-                        //         backgroundColor: ThemeColor.primaryDark,
-                        //       ),
-                        //       child: Text("Prev",
-                        //           style: TextStyle(color: ThemeColor.white)),
-                        //     ))
-                        //     : Container(),
-                            SizedBox(height: 5,),
-                        quizQuestionController.questionCount >= 0 && quizQuestionController.questionCount < quizQuestionController.totalQuestions-1 ? SizedBox(
-                            width: double.infinity,
-                            height: 44,
-                            child: ElevatedButton(
-                              onPressed: () {
-                                quizQuestionController.nextQuestion(
-                                    isSkipped: true);
-                              },
-                              style: TextButton.styleFrom(
-                                textStyle: TextStyle(
-                                    fontSize: 16, fontWeight: FontWeight.w500),
-                                shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(12)),
-                                backgroundColor: ThemeColor.primaryDark,
-                              ),
-                              child: Text("Next",
-                                  style: TextStyle(color: ThemeColor.white)),
-                            )): Container(),
-                            SizedBox(height: 5,),
-                        quizQuestionController.questionCount.value == quizQuestionController.totalQuestions -1 ? 
-                        SizedBox(
-                            width: double.infinity,
-                            height: 44,
-                            child: ElevatedButton(
-                              onPressed: () {
-                                quizQuestionController.endQuiz();
-                              },
-                              style: TextButton.styleFrom(
-                                textStyle: TextStyle(
-                                    fontSize: 16, fontWeight: FontWeight.w500),
-                                shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(12)),
-                                backgroundColor: ThemeColor.red,
-                              ),
-                              child: Text("Submit",
-                                  style: TextStyle(color: ThemeColor.white)),
-                            )):Container()
-                      ],
-                    ),
-                  ),
-                ))),
+                      ),
+                    ))),
     );
   }
 
@@ -180,22 +203,31 @@ class QuizQuestionPage extends StatelessWidget {
           .allQuestions[quizQuestionController.questionCount.value].options
           .asMap()
           .entries
-          .map((entry) =>
-              optionContainer(entry.key, entry.value, quizQuestionController, quizQuestionController
-          .allQuestions[quizQuestionController.questionCount.value].id!))
+          .map((entry) => optionContainer(
+              entry.key,
+              entry.value,
+              quizQuestionController,
+              quizQuestionController
+                  .allQuestions[quizQuestionController.questionCount.value]
+                  .id!))
           .toList(),
     );
   }
 
   Column optionContainer(int index, String optionName,
-      QuizQuestionController quizQuestionController , String questionId) {
+      QuizQuestionController quizQuestionController, String questionId) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         InkWell(
           onTap: () {
-            quizQuestionController.nextQuestion(selectedOption: index, prevQuestionId: quizQuestionController.allQuestions[quizQuestionController.questionCount.value].id, solution: optionName);
+            quizQuestionController.nextQuestion(
+                selectedOption: index,
+                prevQuestionId: quizQuestionController
+                    .allQuestions[quizQuestionController.questionCount.value]
+                    .id,
+                solution: optionName);
           },
           child: Container(
             width: double.infinity,
@@ -215,10 +247,13 @@ class QuizQuestionPage extends StatelessWidget {
                 //                     0)
                 //             ? ThemeColor.white
                 //             : ThemeColor.white,
-                color: quizQuestionController.answerSelected.containsKey(questionId) 
-                        && quizQuestionController.answerSelected.getOrElse(questionId,()=>'') == optionName
-                ?ThemeColor.vibrantGreen 
-                :  ThemeColor.white,
+                color: quizQuestionController.answerSelected
+                            .containsKey(questionId) &&
+                        quizQuestionController.answerSelected
+                                .getOrElse(questionId, () => '') ==
+                            optionName
+                    ? ThemeColor.vibrantGreen
+                    : ThemeColor.white,
                 border: Border.all(
                     color: (quizQuestionController.optionSelectedIndex.value ==
                                 index &&
@@ -295,9 +330,10 @@ class QuizQuestionPage extends StatelessWidget {
           ),
           ElevatedButton.icon(
             onPressed: () {
-              Get.back(result: true);
-              quizQuestionController.endQuiz();
-              
+              Get.back(closeOverlays: true,result: true);
+              quizQuestionController.allQuestions.isNotEmpty
+                  ? quizQuestionController.endQuiz()
+                  : null;
             },
             icon: Icon(
               Icons.check,
