@@ -205,6 +205,7 @@ class _ViewerState extends State<_Viewer> with SingleTickerProviderStateMixin {
             fit: BoxFit.contain,
             scale: FullscreenUrlImgViewerV2.imageScale,
             progress: true,
+            distractor:  true,
           ),
         ),
       ),

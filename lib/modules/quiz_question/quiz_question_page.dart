@@ -24,7 +24,7 @@ class QuizQuestionPage extends StatelessWidget {
             leading: IconButton(
                 onPressed: () async {
                   quizQuestionController.allQuestions.isEmpty
-                      ? Get.back()
+                      ? Get.back( closeOverlays: true)
                       : await showEndQuizAlertDialog(quizQuestionController);
                 },
                 icon: const Icon(
@@ -307,7 +307,7 @@ class QuizQuestionPage extends StatelessWidget {
         actions: [
           ElevatedButton.icon(
             onPressed: () {
-              Get.back(result: true);
+              Get.back(closeOverlays: true,result: false);
             },
             icon: Icon(
               Icons.close,

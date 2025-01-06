@@ -17,7 +17,7 @@ class SigninController extends GetxController {
   static final GlobalKey<FormState> signinFormKey =
       GlobalKey<FormState>(debugLabel: '__signinFormKey__');
 
-      static final scaffoldKey = GlobalKey<ScaffoldState>();
+      // static final scaffoldKey = GlobalKey<ScaffoldState>();
       
 
   final phoneNumberController = TextEditingController();
@@ -27,6 +27,10 @@ class SigninController extends GetxController {
   var passwordInVisible = true.obs;
 
   var errorMessage = "";
+
+  void updatePasswordVisibility() {
+    passwordInVisible.value = !passwordInVisible.value;
+  }
 
   bool _loginFormValidation() {
     if (phoneNumberController.text.isEmpty) {

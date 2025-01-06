@@ -24,6 +24,7 @@ class HomeController extends GetxController {
     var response = await homeApi.getHomeScreenDetails();
     if (response.code == 200) {
       homeScreenResponseModel = response;
+      
       isLoading.value = false;
     } else {
       isLoading.value = false;

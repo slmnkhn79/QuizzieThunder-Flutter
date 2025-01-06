@@ -191,6 +191,10 @@ class PublicProfilePage extends StatelessWidget {
                                 ),
                                 schoolDetailsContainer(
                                     context, publicProfileController),
+                                SizedBox(
+                                  height: 10,
+                                ),
+                                statsSection(publicProfileController)
                               ],
                             ),
                           ),
@@ -374,4 +378,164 @@ class PublicProfilePage extends StatelessWidget {
       ),
     );
   }
+}
+
+Stack statsSection(PublicProfileController publicProfileController) {
+  return Stack(children: [
+    Padding(
+      padding: const EdgeInsets.all(16.0),
+      child: Column(
+        children: [
+          SizedBox(
+            height: 48,
+          ),
+          RichText(
+              textAlign: TextAlign.center,
+              text: TextSpan(
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                  children: [
+                    TextSpan(
+                      text: "Total quizzes played ",
+                      style: TextStyle(
+                        color: ThemeColor.black,
+                      ),
+                    ),
+                    TextSpan(
+                        text:
+                            "${publicProfileController.publicProfileScreenResponseModel?.stats?.totalQuizPlayed ?? 0} quizzes ",
+                        style: TextStyle(
+                            color: ThemeColor.black,
+                            fontWeight: FontWeight.bold)),
+                    // TextSpan(
+                    //     text: "this year",
+                    //     style: TextStyle(
+                    //         color: ThemeColor.black,
+                    //         fontWeight: FontWeight.bold)),
+                  ])),
+          SizedBox(
+            height: 36,
+          ),
+          Stack(
+            alignment: Alignment.center,
+            children: [
+              SizedBox(
+                width: 120,
+                height: 120,
+                child: CircularProgressIndicator(
+                  value: (publicProfileController
+                              .publicProfileScreenResponseModel
+                              ?.stats
+                              ?.successRate ??
+                          0) /
+                      100,
+                  color: ThemeColor.headerOne,
+                  backgroundColor: ThemeColor.white,
+                  strokeWidth: 10,
+                ),
+              ),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Text(
+                    "${publicProfileController.publicProfileScreenResponseModel?.stats?.successRate ?? 0}%",
+                    style: TextStyle(
+                      fontSize: 28,
+                      fontWeight: FontWeight.bold,
+                      color: ThemeColor.black,
+                    ),
+                  ),
+                  SizedBox(
+                    height: 4,
+                  ),
+                  Text(
+                    "Success Rate",
+                    style: TextStyle(
+                      fontSize: 12,
+                      color: ThemeColor.grey,
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+          SizedBox(
+            height: 44,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Expanded(
+                  child: Container(
+                padding: const EdgeInsets.all(8),
+                decoration: BoxDecoration(
+                    color: ThemeColor.white,
+                    borderRadius: BorderRadius.circular(10)),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "${publicProfileController.publicProfileScreenResponseModel?.stats?.averagePointsPerQuiz?.toInt() ?? 0}",
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        color: ThemeColor.black,
+                      ),
+                    ),
+                    SizedBox(
+                      height: 8,
+                    ),
+                    Text(
+                      "Average Points Per Quiz",
+                      style: TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.w500,
+                        color: ThemeColor.black,
+                      ),
+                    ),
+                  ],
+                ),
+              )),
+              SizedBox(
+                width: 16,
+              ),
+              Expanded(
+                  child: Container(
+                padding: const EdgeInsets.all(8),
+                decoration: BoxDecoration(
+                    color: ThemeColor.headerTwo,
+                    borderRadius: BorderRadius.circular(10)),
+                child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "${publicProfileController.publicProfileScreenResponseModel?.stats?.quizParticipationRate?.toInt() ?? 0}%",
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                          color: ThemeColor.white,
+                        ),
+                      ),
+                      SizedBox(
+                        height: 8,
+                      ),
+                      Text(
+                        "Quiz Participation Rate",
+                        style: TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.w500,
+                          color: ThemeColor.white,
+                        ),
+                      ),
+                    ]),
+              ))
+            ],
+          )
+        ],
+      ),
+    )
+  ]);
 }

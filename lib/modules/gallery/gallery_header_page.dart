@@ -93,19 +93,22 @@ class GalleryHeader extends StatelessWidget {
                                                                   .toString() ==
                                                               y
                                                           ? ThemeColor.headerTwo
-                                                          : ThemeColor.headerOne,
+                                                          : ThemeColor
+                                                              .headerOne,
                                                       borderRadius:
                                                           BorderRadius.circular(
                                                               16)),
                                                   child: Text(y.toString(),
                                                       style: TextStyle(
-                                                          color:
-                                                              ThemeColor.white)),
+                                                          color: ThemeColor
+                                                              .white)),
                                                 ),
                                                 onPressed: () {
                                                   galleryHeaderController
                                                       .selectedYear
                                                       .value = int.parse(y);
+                                                  galleryHeaderController
+                                                      .getEventByDate();
                                                 },
                                               );
                                             })
@@ -140,15 +143,17 @@ class GalleryHeader extends StatelessWidget {
                                                                   .value ==
                                                               y['month']
                                                           ? ThemeColor.headerTwo
-                                                          : ThemeColor.headerOne,
+                                                          : ThemeColor
+                                                              .headerOne,
                                                       borderRadius:
                                                           BorderRadius.circular(
                                                               16)),
                                                   child: Text(
-                                                      y['month_name'].toString(),
+                                                      y['month_name']
+                                                          .toString(),
                                                       style: TextStyle(
-                                                          color:
-                                                              ThemeColor.white)),
+                                                          color: ThemeColor
+                                                              .white)),
                                                 ),
                                                 onPressed: () {
                                                   galleryHeaderController
@@ -165,129 +170,8 @@ class GalleryHeader extends StatelessWidget {
                                   galleryHeaderController.isLoadingGallery.value
                                       ? Container()
                                       // : PhotoGallery(galleryDetailsResponseModel:  galleryHeaderController.galleryResponseModel)
-                                      : Padding(
-                                          padding: const EdgeInsets.all(8.0),
-                                          child: SizedBox(
-                                              width: double.infinity,
-                                              // height: MediaQuery.of(context).size.height +200,
-                                              child: ListView.builder(
-                                                shrinkWrap: true,
-                                                itemBuilder: (context, index) {
-                                                  return InkWell(
-                                                    onTap: () {
-                                                      galleryHeaderController
-                                                              .selectedEventId
-                                                              .value =
-                                                          galleryHeaderController
-                                                              .galleryResponseModel!
-                                                              .gallery[index]
-                                                              .id;
-                                                      // showDetailsPage(
-                                                      //     context,
-                                                      //     galleryHeaderController,
-                                                      // galleryHeaderController
-                                                      //     .galleryResponseModel!
-                                                      //     .gallery[index]
-                                                      //     .headerImageUrl
-                                                      // );
-                                                      galleryHeaderController
-                                                          .getEventById();
-                                                      Get.to(
-                                                          FullscreenUrlImgViewerV2(
-                                                              galleryHeaderController:
-                                                                  galleryHeaderController,
-                                                              headerImageUrl:
-                                                                  galleryHeaderController
-                                                                      .galleryResponseModel!
-                                                                      .gallery[
-                                                                          index]
-                                                                      .headerImageUrl),
-                                                          arguments: {
-                                                            'eventId':
-                                                                galleryHeaderController
-                                                                    .galleryResponseModel!
-                                                                    .gallery[
-                                                                        index]
-                                                                    .id,
-                                                          });
-                                                      // Get.to(PhotoGallery(eventId: galleryHeaderController.galleryResponseModel!.gallery[index].id));
-                                                    },
-                                                    child: Card(
-                                                      child: Column(
-                                                        mainAxisAlignment:
-                                                            MainAxisAlignment
-                                                                .start,
-                                                        mainAxisSize:
-                                                            MainAxisSize.min,
-                                                        children: [
-                                                          // Padding(
-                                                          //   padding:
-                                                          //       EdgeInsets.all(
-                                                          //           20.0),
-                                                          //   child: Text(
-                                                          //     '${galleryHeaderController.galleryResponseModel!.gallery[index].date.day}/${galleryHeaderController.galleryResponseModel!.gallery[index].date.month}/${galleryHeaderController.galleryResponseModel!.gallery[index].date.year}',
-                                                          //     style: TextStyle(
-                                                          //       color: Color(
-                                                          //           0xffb6b2b2),
-                                                          //     ),
-                                                          //   ),
-                                                          // ),
-                                                          Divider(height: 1.0),
-                                                          CachedNetworkImage(
-                                                            imageRenderMethodForWeb: ImageRenderMethodForWeb.HttpGet,
-                                                              fadeInDuration:
-                                                                  Duration(
-                                                                      milliseconds:
-                                                                          0),
-                                                              fadeOutDuration:
-                                                                  Duration(
-                                                                      milliseconds:
-                                                                          0),
-                                                              imageUrl: galleryHeaderController
-                                                                  .galleryResponseModel!
-                                                                  .gallery[index]
-                                                                  .headerImageUrl),
-                                                          Divider(),
-                                                          Padding(
-                                                            padding:
-                                                                const EdgeInsets
-                                                                    .all(8.0),
-                                                            child: Row(
-                                                              mainAxisAlignment:
-                                                                  MainAxisAlignment
-                                                                      .spaceEvenly,
-                                                              crossAxisAlignment:
-                                                                  CrossAxisAlignment
-                                                                      .center,
-                                                              children: [
-                                                                Text(galleryHeaderController
-                                                                    .galleryResponseModel!
-                                                                    .gallery[
-                                                                        index]
-                                                                    .eventName),
-                                                                    VerticalDivider(),
-                                                                Text(
-                                                                  '${galleryHeaderController.galleryResponseModel!.gallery[index].date.day}/${galleryHeaderController.galleryResponseModel!.gallery[index].date.month}/${galleryHeaderController.galleryResponseModel!.gallery[index].date.year}',
-                                                                  style:
-                                                                      TextStyle(
-                                                                    color: Color(
-                                                                        0xffb6b2b2),
-                                                                  ),
-                                                                )
-                                                              ],
-                                                            ),
-                                                          ),
-                                                        ],
-                                                      ),
-                                                    ),
-                                                  );
-                                                },
-                                                itemCount: galleryHeaderController
-                                                    .galleryResponseModel!
-                                                    .gallery
-                                                    .length,
-                                              )),
-                                        )
+                                      : showEventsGridView(
+                                          context, galleryHeaderController)
                                 ],
                               ),
                             ),
@@ -307,6 +191,156 @@ class MyCustomScrollBehavior extends MaterialScrollBehavior {
         PointerDeviceKind.mouse,
         // etc.
       };
+}
+
+Container showEventsGridView(
+    BuildContext context, GalleryHeaderController galleryHeaderController) {
+  return galleryHeaderController.galleryResponseModel!.gallery.isEmpty
+      ? Container()
+      : Container(
+          child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: SizedBox(
+                  width: double.infinity,
+                  height: MediaQuery.of(context).size.height * 0.8,
+                  child: Container(
+                    color: ThemeColor.white,
+                    child: GridView.builder(
+                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: 3,
+                          crossAxisSpacing: 0,
+                          mainAxisSpacing: 0,
+                        ),
+                        itemCount: galleryHeaderController
+                            .galleryResponseModel!.gallery.length,
+                        itemBuilder: (context, index) {
+                          var item = galleryHeaderController
+                              .galleryResponseModel!.gallery[index];
+                          return InkWell(
+                            onTap: () {
+                              galleryHeaderController.selectedEventId.value =
+                                  galleryHeaderController
+                                      .galleryResponseModel!.gallery[index].id;
+                              galleryHeaderController.getEventById();
+                              Get.to(
+                                  FullscreenUrlImgViewerV2(
+                                      galleryHeaderController:
+                                          galleryHeaderController,
+                                      headerImageUrl: galleryHeaderController
+                                          .galleryResponseModel!
+                                          .gallery[index]
+                                          .headerImageUrl),
+                                  arguments: {
+                                    'eventId': galleryHeaderController
+                                        .galleryResponseModel!
+                                        .gallery[index]
+                                        .id,
+                                  });
+                            },
+                            child: Container(
+                              decoration: BoxDecoration(
+                                image: DecorationImage(
+                                  fit: BoxFit.cover,
+                                  image: NetworkImage(item.headerImageUrl),
+                                ),
+                              ),
+                            ),
+                          );
+                        }),
+                  ))),
+        );
+}
+
+Padding showEventsListView(
+    BuildContext context, GalleryHeaderController galleryHeaderController) {
+  return Padding(
+    padding: const EdgeInsets.all(8.0),
+    child: SizedBox(
+        width: double.infinity,
+        // height: MediaQuery.of(context).size.height +200,
+        child: ListView.builder(
+          shrinkWrap: true,
+          itemBuilder: (context, index) {
+            return InkWell(
+              onTap: () {
+                galleryHeaderController.selectedEventId.value =
+                    galleryHeaderController
+                        .galleryResponseModel!.gallery[index].id;
+                // showDetailsPage(
+                //     context,
+                //     galleryHeaderController,
+                // galleryHeaderController
+                //     .galleryResponseModel!
+                //     .gallery[index]
+                //     .headerImageUrl
+                // );
+                galleryHeaderController.getEventById();
+                Get.to(
+                    FullscreenUrlImgViewerV2(
+                        galleryHeaderController: galleryHeaderController,
+                        headerImageUrl: galleryHeaderController
+                            .galleryResponseModel!
+                            .gallery[index]
+                            .headerImageUrl),
+                    arguments: {
+                      'eventId': galleryHeaderController
+                          .galleryResponseModel!.gallery[index].id,
+                    });
+                // Get.to(PhotoGallery(eventId: galleryHeaderController.galleryResponseModel!.gallery[index].id));
+              },
+              child: Card(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    // Padding(
+                    //   padding:
+                    //       EdgeInsets.all(
+                    //           20.0),
+                    //   child: Text(
+                    //     '${galleryHeaderController.galleryResponseModel!.gallery[index].date.day}/${galleryHeaderController.galleryResponseModel!.gallery[index].date.month}/${galleryHeaderController.galleryResponseModel!.gallery[index].date.year}',
+                    //     style: TextStyle(
+                    //       color: Color(
+                    //           0xffb6b2b2),
+                    //     ),
+                    //   ),
+                    // ),
+                    Divider(height: 1.0),
+                    CachedNetworkImage(
+                        imageRenderMethodForWeb:
+                            ImageRenderMethodForWeb.HttpGet,
+                        fadeInDuration: Duration(milliseconds: 0),
+                        fadeOutDuration: Duration(milliseconds: 0),
+                        imageUrl: galleryHeaderController.galleryResponseModel!
+                            .gallery[index].headerImageUrl),
+                    Divider(),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Text(galleryHeaderController
+                              .galleryResponseModel!.gallery[index].eventName),
+                          VerticalDivider(),
+                          Text(
+                            '${galleryHeaderController.galleryResponseModel!.gallery[index].date.day}/${galleryHeaderController.galleryResponseModel!.gallery[index].date.month}/${galleryHeaderController.galleryResponseModel!.gallery[index].date.year}',
+                            style: TextStyle(
+                              color: Color(0xffb6b2b2),
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            );
+          },
+          itemCount:
+              galleryHeaderController.galleryResponseModel!.gallery.length,
+        )),
+  );
 }
 
 void showDetailsPage(
@@ -356,7 +390,8 @@ void showDetailsPage(
                               child: Padding(
                                   padding: EdgeInsets.all(16),
                                   child: CachedNetworkImage(
-                                    imageRenderMethodForWeb: ImageRenderMethodForWeb.HttpGet,
+                                      imageRenderMethodForWeb:
+                                          ImageRenderMethodForWeb.HttpGet,
                                       fadeInDuration: Duration(milliseconds: 0),
                                       fadeOutDuration:
                                           Duration(milliseconds: 0),

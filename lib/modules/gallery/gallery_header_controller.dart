@@ -7,7 +7,8 @@ import 'package:quizzie_thunder/utils/constants.dart';
 import 'package:quizzie_thunder/utils/enums/snackbar_status.dart';
 
 class GalleryHeaderController extends GetxController {
-  final arguments = Get.arguments;
+  var arguments = Get.arguments;
+  var test = Get.arguments[ARG_SCHOOL_ID];
   String schoolId = '';
 
   // String? selectedYear;
@@ -54,6 +55,8 @@ class GalleryHeaderController extends GetxController {
     }
     super.onInit();
   }
+
+
    @override
   void onReady() {
     getEventByDate();

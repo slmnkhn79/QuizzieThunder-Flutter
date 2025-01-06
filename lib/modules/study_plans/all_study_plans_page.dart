@@ -42,9 +42,10 @@ class AllStudyPlans extends StatelessWidget {
 
   Center studyPlans(
       BuildContext context, StudyPlansAllController studyPlansAllController) {
-        int columns = (MediaQuery.of(context).size.width > 600
+    int columns = (MediaQuery.of(context).size.width > 600
             ? 600
-            : MediaQuery.of(context).size.width) ~/ 180; // 200px per card (adjust as needed)
+            : MediaQuery.of(context).size.width) ~/
+        180; // 200px per card (adjust as needed)
     if (columns == 0) {
       columns = 1; // Ensure at least 1 column
     }
@@ -58,11 +59,11 @@ class AllStudyPlans extends StatelessWidget {
         child: Column(
           children: [
             SizedBox(
-              height: MediaQuery.of(context).size.height *0.1,
+              height: MediaQuery.of(context).size.height * 0.1,
               child: Text("Filters"),
             ),
             SizedBox(
-              height: MediaQuery.of(context).size.height *0.8,
+              height: MediaQuery.of(context).size.height * 0.8,
               child: GridView.builder(
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: columns,
@@ -80,24 +81,22 @@ class AllStudyPlans extends StatelessWidget {
                             arguments: {ARG_STUDY_PLAN_ID: item.id});
                       },
                       child: Card(
+                        color: AppUtils.getRandomCardBgColor(),
                         shape: RoundedRectangleBorder(
                           borderRadius:
                               BorderRadius.circular(4), // No border radius
                         ),
                         elevation: 4.0,
-                        child: AnimatedGradient(
-                          colors: AppUtils.getRandomGradient(index),
-                          child: Center(
-                            child: ListTile(
-                              title: Text(item.planName,
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 12.0,
-                                    fontWeight: FontWeight.w700,
-                                  )),
-                              leading: Text(item.standard.standardName),
-                              trailing: Icon(Icons.not_started_outlined),
-                            ),
+                        child: Center(
+                          child: ListTile(
+                            title: Text(item.planName,
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 12.0,
+                                  fontWeight: FontWeight.w700,
+                                )),
+                            leading: Text(item.standard.standardName),
+                            trailing: Icon(Icons.not_started_outlined),
                           ),
                         ),
                       ),

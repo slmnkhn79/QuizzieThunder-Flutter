@@ -23,7 +23,7 @@ class _AppBar extends StatelessWidget {
     'geography.png',
   ];
 
-  dynamic _getArchType() {
+  // dynamic _getArchType() {
     // return 'Test';
     ArchType getArchType() {
       return switch (wonderType) {
@@ -36,12 +36,12 @@ class _AppBar extends StatelessWidget {
         WonderType.pyramidsGiza => ArchType.pyramid,
         WonderType.tajMahal => ArchType.spade
       };
-    }
+    // }
   }
 
   @override
   Widget build(BuildContext context) {
-    final arch = _getArchType();
+    final arch = getArchType();
     return LayoutBuilder(builder: (_, constraints) {
       bool showOverlay = constraints.biggest.height < 300;
       return Stack(
@@ -63,9 +63,9 @@ class _AppBar extends StatelessWidget {
                       padding: const EdgeInsets.only(bottom: 50),
                       child: ClipPath(
                         // Switch arch type to Rect if we are showing the title bar
-                        // clipper: showOverlay ? null : ArchClipper(arch),
-                        clipper:
-                            showOverlay ? null : ArchClipper(ArchType.pyramid),
+                        clipper: showOverlay ? null : ArchClipper(arch),
+                        // clipper:
+                        //     showOverlay ? null : ArchClipper(ArchType.pyramid),
 
                         child: ValueListenableBuilder<double>(
                           valueListenable: scrollPos,

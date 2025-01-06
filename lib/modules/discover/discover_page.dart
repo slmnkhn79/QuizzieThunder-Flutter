@@ -215,6 +215,9 @@ class DiscoverPage extends StatelessWidget {
     return Container(
       child: Column(
         children: [
+          
+          discoverController
+                          .discoverScreenResponseModel!.topSchool == null ?  Container():
           Padding(
             padding: const EdgeInsets.all(16.0),
             child: Column(
@@ -320,16 +323,17 @@ class DiscoverPage extends StatelessWidget {
                                   });
                                 },
                                 child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
                                     CachedNetworkImage(
-                                      width: 250,
-                                      // height: 250,
+                                      width: 230,
+                                      height: 120,
+                                      fit: BoxFit.cover,
                                         imageUrl: discoverController
                                             .discoverScreenResponseModel!
                                             .schools![index]
-                                            .headerImageUrl,
+                                            .cardImage!,
                                         imageRenderMethodForWeb:
                                             ImageRenderMethodForWeb.HttpGet,
                                         progressIndicatorBuilder: (context, url,
@@ -349,23 +353,29 @@ class DiscoverPage extends StatelessWidget {
                                     // SizedBox(
                                     //   height: 16,
                                     // ),
-                                    Text(
-                                      "${discoverController.discoverScreenResponseModel?.schools?[index].name}",
-                                      textAlign: TextAlign.center,
-                                      style: TextStyle(
-                                          fontSize: 16,
-                                          color: ThemeColor.white,
-                                          fontWeight: FontWeight.bold),
-                                    ),
-                                    // SizedBox(
-                                    //   height: 4,
-                                    // ),
-                                    Text(
-                                      "${discoverController.discoverScreenResponseModel?.schools?[index].schoolType}",
-                                      style: TextStyle(
-                                        fontSize: 12,
-                                        color: ThemeColor.white,
-                                      ),
+                                    Column(
+                                      children: [
+                                        Text(
+                                          "${discoverController.discoverScreenResponseModel?.schools?[index].name}",
+                                          textAlign: TextAlign.center,
+                                          // overflow: TextOverflow.ellipsis,
+                                          style: TextStyle(
+                                              fontSize: 16,
+                                              color: ThemeColor.white,
+                                              fontWeight: FontWeight.bold),
+                                        ),
+                                        // SizedBox(
+                                        //   height: 4,
+                                        // ),
+                                        Text(
+                                          "${discoverController.discoverScreenResponseModel?.schools?[index].schoolType}",
+                                          // overflow: TextOverflow.ellipsis,
+                                          style: TextStyle(
+                                            fontSize: 12,
+                                            color: ThemeColor.white,
+                                          ),
+                                        ),
+                                      ],
                                     )
                                   ],
                                 ),
@@ -756,32 +766,30 @@ class DiscoverPage extends StatelessWidget {
                           //     horizontal: 8.0), // Space between cards
 
                           child: Card(
+                            color: AppUtils.getRandomCardBgColor(),
                             shape: RoundedRectangleBorder(
                               borderRadius:
                                   BorderRadius.circular(4), // No border radius
                             ),
                             elevation: 4.0,
-                            child: AnimatedGradient(
-                              colors: AppUtils.getRandomGradient(index),
-                              child: Center(
-                                child: ListTile(
-                                  isThreeLine: true,
-                                  title: Text(
-                                    item.pathName,
-                                    style: TextStyle(
-                                      color: AppUtils.getRandomShadeOfWhite(),
-                                      fontSize: 12.0,
-                                      fontWeight: FontWeight.w700,
-                                    ),
+                            child: Center(
+                              child: ListTile(
+                                isThreeLine: true,
+                                title: Text(
+                                  item.pathName,
+                                  style: TextStyle(
+                                    color: ThemeColor.black,
+                                    fontSize: 12.0,
+                                    fontWeight: FontWeight.w700,
                                   ),
-                                  subtitle: Text('Some Description',
-                                      style: TextStyle(
-                                        color: AppUtils.getRandomShadeOfWhite(),
-                                        fontSize: 10.0,
-                                        fontWeight: FontWeight.w700,
-                                      )),
-                                  // trailing:  Icon(Icons.navigate_next_rounded),
                                 ),
+                                subtitle: Text('Some Description',
+                                    style: TextStyle(
+                                      color: ThemeColor.black,
+                                      fontSize: 10.0,
+                                      fontWeight: FontWeight.w700,
+                                    )),
+                                // trailing:  Icon(Icons.navigate_next_rounded),
                               ),
                             ),
                           ),
@@ -864,29 +872,27 @@ class DiscoverPage extends StatelessWidget {
                                 arguments: {ARG_STUDY_PLAN_ID: item.id});
                           },
                           child: Card(
+                            color: AppUtils.getRandomCardBgColor(),
                             shape: RoundedRectangleBorder(
                               borderRadius:
                                   BorderRadius.circular(4), // No border radius
                             ),
                             elevation: 4.0,
-                            child: AnimatedGradient(
-                              colors: AppUtils.getRandomGradient(index),
-                              child: Center(
-                                child: ListTile(
-                                    title: Text(item.planName,
-                                        style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 12.0,
-                                          fontWeight: FontWeight.w700,
-                                        )),
-                                    leading: Text(item.standard),
-                                    trailing:
-                                        // MediaQuery.of(context).size.width > 600
-                                        //         ?
-                                        Icon(Icons.not_started_outlined)
-                                    //         : null,
-                                    ),
-                              ),
+                            child: Center(
+                              child: ListTile(
+                                  title: Text(item.planName,
+                                      style: TextStyle(
+                                        color: Colors.black87,
+                                        fontSize: 12.0,
+                                        fontWeight: FontWeight.w700,
+                                      )),
+                                  leading: Text(item.standard),
+                                  trailing:
+                                      // MediaQuery.of(context).size.width > 600
+                                      //         ?
+                                      Icon(Icons.not_started_outlined)
+                                  //         : null,
+                                  ),
                             ),
                           ),
                         );

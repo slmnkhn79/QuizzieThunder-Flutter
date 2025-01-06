@@ -72,8 +72,9 @@ class _ScrollingContent extends StatelessWidget {
 
     Widget buildHiddenCollectible({required int slot}) {
       List<
-          // WonderType
-          dynamic> getTypesForSlot(slot) {
+          WonderType
+          // dynamic
+          > getTypesForSlot(slot) {
         // return ["getTypesForSlot"];
         return switch (slot) {
           0 => [WonderType.chichenItza, WonderType.colosseum],

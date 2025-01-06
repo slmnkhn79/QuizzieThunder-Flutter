@@ -124,7 +124,8 @@ class _WonderEditorialScreenState extends State<WonderEditorialScreen> {
                           //   // "tajMahal",
                           //   // Polish: Inject the content padding into the illustration as an offset, so it can center itself relative to the content
                           //   // this allows the background to extend underneath the vertical side nav when it has rounded corners.
-                          //   fgOffset: Offset(widget.contentPadding.left / 2, 0),
+                          //   // fgOffset: Offset(widget.contentPadding.left / 2, 0),
+                          //    Offset(0, 0),
                           // )
                           
                             AdaptiveImage(imageUrl: widget.data.headerPhoto, width: 600, height: 500)

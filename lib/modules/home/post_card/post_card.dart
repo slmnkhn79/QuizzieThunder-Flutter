@@ -7,8 +7,10 @@ import 'package:quizzie_thunder/modules/home/feed_controller.dart';
 import 'package:quizzie_thunder/modules/home/post_card/like_animation.dart';
 import 'package:quizzie_thunder/modules/wonderous/ui/full_screen_picture/fullscreen_url_img_viewer.dart';
 import 'package:quizzie_thunder/modules/wonderous/ui/full_screen_picture/fullscreen_url_img_viewer_v2.dart';
+import 'package:quizzie_thunder/routes/app_routes.dart';
 import 'package:quizzie_thunder/theme/colors_theme.dart';
 import 'package:quizzie_thunder/utils/app_utils.dart';
+import 'package:quizzie_thunder/utils/constants.dart';
 import 'package:shimmer/shimmer.dart';
 
 class PostCard extends StatelessWidget {
@@ -24,14 +26,9 @@ class PostCard extends StatelessWidget {
   }
 
   Container getPostCardView(PostCardModel post, BuildContext context) {
-    final width = MediaQuery.of(context).size.width;
     return Container(
       // boundary needed for web
       decoration: BoxDecoration(
-        // border: Border(
-        //     // color: width > webScreenSize ? secondaryColor : mobileBackgroundColor,
-        //     ),
-        // borderRadius: BorderRadius.all(Radius.circular(8.0)),
         color: Colors.white,
       ),
       padding: const EdgeInsets.symmetric(
@@ -50,8 +47,8 @@ class PostCard extends StatelessWidget {
                 CircleAvatar(
                   radius: 16,
                   backgroundImage: NetworkImage(
-                      // post.profImage.toString(),
-                      'https://res.cloudinary.com/dt6hyafmc/image/upload/v1692392344/Avatars/avatar_8609.png'),
+                      post.school.profilePic.toString(),
+                      ),
                 ),
                 Expanded(
                   child: Padding(
@@ -72,7 +69,7 @@ class PostCard extends StatelessWidget {
                     ),
                   ),
                 ),
-                // widget.snap['uid'].toString() == user.uid
+                
                 post.isLiked
                     ? IconButton(
                         onPressed: () {
@@ -98,11 +95,6 @@ class PostCard extends StatelessWidget {
                                                 child: Text(e),
                                               ),
                                               onTap: () {
-                                                // deletePost(
-                                                //   widget.snap['postId']
-                                                //       .toString(),
-                                                // );
-                                                // remove the dialog box
                                                 Navigator.of(context).pop();
                                               }),
                                         )
@@ -120,7 +112,10 @@ class PostCard extends StatelessWidget {
           // IMAGE SECTION OF THE POST
           GestureDetector(
             onTap: () {
-             
+             feedController.selectedPostIndex =
+                      post.id;
+                  Get.toNamed(AppRoutes.postDetailsPage,
+                      arguments: {ARG_POST_ID: post.id});
             },
             onDoubleTap: () {
               feedController.likePostById(post.id, false);

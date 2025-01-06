@@ -22,14 +22,9 @@ class LearningController extends GetxController {
   void onInit() {
     if (arguments != null) {
       pageIsLearningPath.value = arguments[ARG_IS_LEARNING_PATH];
-    }
-    if (pageIsLearningPath.value) {
-      pageIsLearningPath.value = true;
       getLearningPaths();
-    } else {
-      learningPathId = arguments['learningPathId'];
-      print(learningPathId);
     }
+
 
     super.onInit();
   }
