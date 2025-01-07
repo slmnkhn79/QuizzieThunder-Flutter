@@ -3,6 +3,11 @@ import 'package:quizzie_thunder/modules/books/all_books_binding.dart';
 import 'package:quizzie_thunder/modules/books/all_books_page.dart';
 import 'package:quizzie_thunder/modules/books/books_view/book_binding.dart';
 import 'package:quizzie_thunder/modules/books/books_view/book_page.dart';
+import 'package:quizzie_thunder/modules/course_content/all_course_content_binding.dart';
+import 'package:quizzie_thunder/modules/course_content/all_course_content_page.dart';
+import 'package:quizzie_thunder/modules/course_content/course_by_id/course_content_binding.dart';
+import 'package:quizzie_thunder/modules/course_content/course_by_id/course_content_controller.dart';
+import 'package:quizzie_thunder/modules/course_content/course_by_id/course_content_page.dart';
 import 'package:quizzie_thunder/modules/post_details/post_detail_binding.dart';
 import 'package:quizzie_thunder/modules/post_details/post_details_page.dart';
 import 'package:quizzie_thunder/modules/gallery/gallery_header_binding.dart';
@@ -197,6 +202,16 @@ class AppPages {
       name: AppRoutes.publicProfile,
       page: () => PublicProfilePage(),
       binding: PublicProfileBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.allCourses,
+      page: () => AllCourseContentPage(),
+      binding: AllCourseContentBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.courseById,
+      page: () => CourseContentPage(),
+      binding: CourseContentBinding(),
     ),
   ];
 }

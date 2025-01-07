@@ -703,6 +703,8 @@ class DiscoverPage extends StatelessWidget {
               Divider(),
               mentorVideos(learningDiscoverController, context),
               Divider(),
+              courseContainer(learningDiscoverController, context),
+              Divider(),
               booksContainer(learningDiscoverController, context)
             ],
           );
@@ -1074,7 +1076,8 @@ class DiscoverPage extends StatelessWidget {
                         child: Column(
                           children: [
                             ListTile(
-                              title: Text(item.bookName),
+                              leading: Icon(Icons.menu_book_outlined,color: Colors.green[900]),
+                              title: Text(item.bookName, style: TextStyle(color: ThemeColor.headerOne,  fontWeight:  FontWeight.bold)),
                               trailing: Text("Read..."),
                             ),
                             Divider()
@@ -1087,7 +1090,82 @@ class DiscoverPage extends StatelessWidget {
           ],
         ));
   }
+
+
+SizedBox courseContainer(LearningDiscoverController learningDiscoverController,
+      BuildContext context) {
+    return SizedBox(
+        width: MediaQuery.of(context).size.width > 600
+            ? 600
+            : MediaQuery.of(context).size.width,
+        // height: 600.0,
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(left: 8.0, right: 8.0),
+              child: SizedBox(
+                height: 30,
+                width: double.infinity,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      "Recommended Course Material",
+                      style: TextStyle(
+                        fontWeight: FontWeight.w700,
+                      ),
+                    ),
+                    InkWell(
+                        onTap: () {
+                          Get.toNamed('/allCourses');
+                        },
+                        child: Text("See all",
+                            style: TextStyle(color: Colors.blue[400])))
+                  ],
+                ),
+              ),
+            ),
+            ListView.builder(
+                physics: NeverScrollableScrollPhysics(),
+                shrinkWrap: true,
+                scrollDirection: Axis.vertical,
+                itemCount: learningDiscoverController
+                    .discoverLearningResponseModel!
+                    .data
+                    .courses
+                    .length, // Number of cards
+                itemBuilder: (context, index) {
+                  var item = learningDiscoverController
+                      .discoverLearningResponseModel!.data.courses[index];
+                  return InkWell(
+                    onTap: () {
+                      Get.toNamed('/courseById',
+                          arguments: {ARG_COURSE_CONTENT_ID: item.id});
+                    },
+                    child: SizedBox(
+                      height: 80.0,
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 16.0, right: 16.0),
+                        child: Column(
+                          children: [
+                            ListTile(
+                              leading: Icon(Icons.picture_as_pdf, color: Colors.amber[900],),
+                              title: Text(item.topicName, style: TextStyle(color: ThemeColor.headerOne,  fontWeight:  FontWeight.bold)),
+                              trailing: Text("Read..."),
+                              subtitle: Text("${item.standard} Standard"),
+                            ),
+                            Divider()
+                          ],
+                        ),
+                      ),
+                    ),
+                  );
+                }),
+          ],
+        ));
+  }
 }
+
 
 class HorizontalScrollBehavior extends MaterialScrollBehavior {
   // Override behavior methods and getters like dragDevices

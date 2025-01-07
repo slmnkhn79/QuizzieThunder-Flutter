@@ -20,6 +20,7 @@ const ARG_STUDY_PLAN_ID = 'arg_study_plan_id';
 const ARG_VIDEO_ID = 'arg_video_id';
 const ARG_BOOK_ID = 'arg_book_id';
 const ARG_STUDENT_ID = 'arg_student_id';
+const ARG_COURSE_CONTENT_ID = 'arg_course_content_id';
 
 
 final EMAIL_REGEX = RegExp(

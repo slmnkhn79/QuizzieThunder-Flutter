@@ -11,8 +11,9 @@ class LearningApi {
     } catch (e) {
       // rethrow;
       return DiscoverLearningResponseModel.fromJson({
-        "code": "400",
+        "code": 400,
         "status": true,
+        "message":e.toString(),
         "data": {
           "books": [],
           "learnings": [],

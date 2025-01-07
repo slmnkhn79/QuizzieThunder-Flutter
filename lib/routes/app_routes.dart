@@ -28,6 +28,8 @@ class AppRoutes {
   static const allBooks = '/allBooks';
   static const bookById = '/bookById';
   static const publicProfile = '/publicProfile';
+  static const allCourses = '/allCourses';
+  static const courseById = '/courseById';
 
 
 
