@@ -18,8 +18,9 @@ class LearningByIdController extends GetxController {
   void onInit() {
     if (arguments != null) {
       learningPathId = arguments[ARG_LEARNING_PATH_ID];
+      getLearningPathById();
     }
-    getLearningPathById();
+    
 
     super.onInit();
   }

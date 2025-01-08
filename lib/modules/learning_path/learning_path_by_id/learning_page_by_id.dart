@@ -1,5 +1,7 @@
+import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:get/get.dart';
 import 'package:quizzie_thunder/modules/learning_path/learning_path_by_id/learning_path_by_id_controller.dart';
+import 'package:quizzie_thunder/modules/learning_path/learning_path_by_id/markdownl_view.dart';
 import 'package:quizzie_thunder/modules/wonderous/ui/common_libs.dart';
 import 'package:quizzie_thunder/theme/colors_theme.dart';
 
@@ -53,6 +55,7 @@ class LearningPageById extends StatelessWidget {
 
   Container getLearningById(
       BuildContext context, LearningByIdController learningController) {
+    // var content = learningController.learningPath!.paths!.content;
     return Container(
       child: learningController.isLoadingLearning.value
           ? const Center(
@@ -63,7 +66,36 @@ class LearningPageById extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Text(learningController.learningPath!.paths!.pathName)
+                // formatText("**salman** this is test -**khan**"),
+                SizedBox(
+                  height: MediaQuery.of(context).size.height,
+                  child: ListView.builder(
+                    itemCount: learningController
+                        .learningPath!.paths!.content['data'].length,
+                    itemBuilder: (context, index) {
+                      final item = learningController
+                          .learningPath!.paths!.content['data'][index];
+                      switch (item['type']) {
+                        case 'title':
+                          return MainTitle(item['heading']);
+                        case 'heading':
+                          return SecondaryTitle(
+                              item['heading'], item['content']);
+                        case 'subheading':
+                          return TertiaryTitle(
+                              item['heading'], item['content']);
+                        case 'content':
+                          return Content(
+                              item['heading'], item['content']);
+                        case 'material_title':
+                          return MaterialTitle(
+                              item['heading'], item['content']);
+                        default:
+                          return Container();
+                      }
+                    },
+                  ),
+                )
               ],
             ),
     );

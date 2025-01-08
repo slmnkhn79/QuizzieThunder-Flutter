@@ -23,7 +23,8 @@ class ErrorHandingInterceptor extends Interceptor {
     // print(err.toString());
 
     if ((!_isErrorCodeHandled && err.response?.statusCode == 401) ||
-        err.response?.statusCode == 400 || err.response?.statusCode == 404) {
+        err.response?.statusCode == 400 ||
+        err.response?.statusCode == 404) {
       _isErrorCodeHandled = true;
       await localStorage.write(KEY_IS_API_ERROR_HANDLE, _isErrorCodeHandled);
       // Redirecting to sign in screen if token expires
@@ -33,31 +34,33 @@ class ErrorHandingInterceptor extends Interceptor {
       Get.defaultDialog(
         navigatorKey: GlobalKey(debugLabel: "dialog"),
         title: "Error",
-        content: Text(err.response!.statusMessage! ?? "Some error occured"),
+        content: Text("Some error occured"),
         confirm: MaterialButton(
-          onPressed: (){ Get.back();},
+          onPressed: () {
+            Get.back(closeOverlays: true);
+            AppUtils.logout();
+          },
           child: Text("OK"),
         ),
       );
       // Get.closeAllSnackbars();
-      // AppUtils.logout();
     } else {
       if (!_isErrorCodeHandled) {
         // print(
-            // "Error = ${ApiErrorResponseModel.fromJson(err.response?.data).message}");
-            // "Error = ${ApiErrorResponseModel.fromJson(err.response?.data).error}");
+        // "Error = ${ApiErrorResponseModel.fromJson(err.response?.data).message}");
+        // "Error = ${ApiErrorResponseModel.fromJson(err.response?.data).error}");
 
         AppUtils.showSnackBar(
             "${ApiErrorResponseModel.fromJson(err.response?.data).error}",
             status: MessageStatus.ERROR);
-      //   Get.defaultDialog(
-      //   title: "Hello",
-      //   content: Text(err.response!.statusMessage!),
-      //   confirm: MaterialButton(
-      //     onPressed: () =>{ Get.back(closeOverlays: true)},
-      //     child: Text("OK"),
-      //   ),
-      // );
+        //   Get.defaultDialog(
+        //   title: "Hello",
+        //   content: Text(err.response!.statusMessage!),
+        //   confirm: MaterialButton(
+        //     onPressed: () =>{ Get.back(closeOverlays: true)},
+        //     child: Text("OK"),
+        //   ),
+        // );
       }
     }
     print("interceptor++++");

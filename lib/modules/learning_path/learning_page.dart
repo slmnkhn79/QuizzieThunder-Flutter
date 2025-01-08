@@ -90,6 +90,10 @@ class LearningPage extends StatelessWidget {
             child: Column(
               children: [
                 filterContainer(context, learningController),
+                TextButton(onPressed: (){
+                  learningController.setSearchTermId('');
+
+                }, child: Text("Reset")),
                 getLearningPathGrid(context, learningController, columns),
               ],
             ),
@@ -164,7 +168,7 @@ class LearningPage extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
-        children: [Text("Learning By ID")],
+        children: [Container()],
       ),
     );
   }
@@ -172,9 +176,47 @@ class LearningPage extends StatelessWidget {
   SizedBox filterContainer(
       BuildContext context, LearningController learningController) {
     return SizedBox(
-      height: MediaQuery.of(context).size.height * 0.1,
-      child: Text("Filters"),
-    );
+        height: MediaQuery.of(context).size.height * 0.1,
+        child: learningController.isSearchLoading.value
+            ? Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                const CircularProgressIndicator(),
+              ],
+            )
+            : GridView.builder(
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 5,
+                    childAspectRatio: 3),
+                itemCount: learningController
+                    .searchResponseModel!.searchResults.length,
+                itemBuilder: (context, index) {
+                  var item = learningController
+                      .searchResponseModel!.searchResults[index];
+                  return InkWell(
+                    onTap: (){
+                      
+                      learningController.setSearchTermId(item.id);
+                    },
+                    child: Container(
+                      margin: EdgeInsets.symmetric(horizontal: 4,vertical: 4),
+                        decoration: BoxDecoration(
+                            color: ThemeColor.headerTwo,
+                            borderRadius: BorderRadius.circular(16)),
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 2, vertical: 2),
+                        child: Text(
+                          item.displayValue,
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              color: ThemeColor.black,
+                              fontSize: 14,
+                              fontWeight: FontWeight.bold),
+                        )),
+                  );
+                },
+              ));
   }
 
   SizedBox getLearningPathGrid(BuildContext context,
@@ -183,10 +225,10 @@ class LearningPage extends StatelessWidget {
       height: MediaQuery.of(context).size.height * 0.8,
       child: GridView.builder(
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: columns,
-              childAspectRatio: 2,
-              // crossAxisSpacing: 2,
-              ),
+            crossAxisCount: columns,
+            childAspectRatio: 2,
+            // crossAxisSpacing: 2,
+          ),
           itemCount: learningController.learningPaths!.paths.length,
           itemBuilder: (context, index) {
             var item = learningController.learningPaths!.paths[index];

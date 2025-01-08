@@ -15,7 +15,8 @@ class LearningPathByIdResponseModel {
       code: json['code'],
       status: json['status'],
       message: json['message'],
-      paths: json['paths'] == null ? null :  LearningPath.fromJson(json['paths']),
+      paths:
+          json['paths'] == null ? null : LearningPath.fromJson(json['paths']),
     );
   }
 
@@ -34,29 +35,30 @@ class LearningPath {
   final String id;
   final String pathName;
   final dynamic description;
+  final dynamic content;
 
-
-  LearningPath({
-    required this.id,
-    required this.pathName,
-    required this.description,
-  });
+  LearningPath(
+      {required this.id,
+      required this.pathName,
+      required this.description,
+      required this.content});
 
   // Factory constructor to create a PathModel from a JSON map
   factory LearningPath.fromJson(Map<String, dynamic> json) {
     return LearningPath(
-      id: json['id'],
-      pathName: json['pathName'],
-      description: json['description'],
-    );
+        id: json['id'],
+        pathName: json['pathName'],
+        description: json['description'],
+        content: json['content']);
   }
 
   // Method to convert a PathModel instance to a JSON map
   Map<String, dynamic> toJson() {
     return {
-      'id':id,
+      'id': id,
       'pathName': pathName,
       'description': description,
+      "content": content
     };
   }
 }
