@@ -47,8 +47,8 @@ class PostCard extends StatelessWidget {
                 CircleAvatar(
                   radius: 16,
                   backgroundImage: NetworkImage(
-                      post.school.profilePic.toString(),
-                      ),
+                    post.school.profilePic.toString(),
+                  ),
                 ),
                 Expanded(
                   child: Padding(
@@ -60,7 +60,7 @@ class PostCard extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
                         Text(
-                          post.title.toString(),
+                          post.school.schoolName.toString(),
                           style: const TextStyle(
                             fontWeight: FontWeight.bold,
                           ),
@@ -69,7 +69,6 @@ class PostCard extends StatelessWidget {
                     ),
                   ),
                 ),
-                
                 post.isLiked
                     ? IconButton(
                         onPressed: () {
@@ -110,12 +109,12 @@ class PostCard extends StatelessWidget {
             ),
           ),
           // IMAGE SECTION OF THE POST
+          post.photoUrl.isEmpty   ? Container(): 
           GestureDetector(
             onTap: () {
-             feedController.selectedPostIndex =
-                      post.id;
-                  Get.toNamed(AppRoutes.postDetailsPage,
-                      arguments: {ARG_POST_ID: post.id});
+              feedController.selectedPostIndex = post.id;
+              Get.toNamed(AppRoutes.postDetailsPage,
+                  arguments: {ARG_POST_ID: post.id});
             },
             onDoubleTap: () {
               feedController.likePostById(post.id, false);
@@ -130,7 +129,7 @@ class PostCard extends StatelessWidget {
                   child: CachedNetworkImage(
                       imageRenderMethodForWeb: ImageRenderMethodForWeb.HttpGet,
                       imageUrl: post.photoUrl.toString(),
-                      fit: BoxFit.cover,
+                      fit: BoxFit.fill,
                       fadeInDuration: Duration(milliseconds: 0),
                       fadeOutDuration: Duration(milliseconds: 0),
                       progressIndicatorBuilder: (context, url,
@@ -166,71 +165,24 @@ class PostCard extends StatelessWidget {
             ),
           ),
           // LIKE, COMMENT SECTION OF THE POST
-          Row(
-            children: <Widget>[
-              AnimatedOpacity(
-                duration: const Duration(milliseconds: 200),
-                opacity: post.isLiked ? 1 : 0.5,
-                child: LikeAnimation(
-                  isAnimating: post.isLiked,
-                  smallLike: false,
-                  child: IconButton(
-                      icon: post.isLiked
-                          ? const Icon(
-                              Icons.favorite,
-                              color: Colors.red,
-                            )
-                          : const Icon(
-                              Icons.favorite_border,
-                            ),
-                      onPressed: () =>
-                          feedController.likePostById(post.id, post.isLiked)),
-                ),
-              ),
-              IconButton(
-                  icon: const Icon(
-                    Icons.comment_outlined,
-                  ),
-                  onPressed: () => {}
-                  // Navigator.of(context).push(
-                  // MaterialPageRoute(
-                  //   builder: (context) => CommentsScreen(
-                  //     postId: widget.snap['postId'].toString(),
-                  //   ),
-                  // ),
-                  ),
-              IconButton(
-                  icon: const Icon(
-                    Icons.send,
-                  ),
-                  onPressed: () {}),
-              Expanded(
-                  child: Align(
-                alignment: Alignment.bottomRight,
-                child: IconButton(
-                    icon: const Icon(Icons.bookmark_border), onPressed: () {}),
-              ))
-            ],
-          ),
+          getDescription(context, feedController),
+          getLikeComments(context, feedController),
+          
           //DESCRIPTION AND NUMBER OF COMMENTS
-          Container(
+          
+        ],
+      ),
+    );
+  }
+  Container getDescription(BuildContext context, FeedController feedController)
+  {
+    return Container(
             padding: const EdgeInsets.symmetric(horizontal: 16),
             child: Column(
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                DefaultTextStyle(
-                    style: Theme.of(context)
-                        .textTheme
-                        .titleSmall!
-                        .copyWith(fontWeight: FontWeight.w800),
-                    child: Text(
-                      '${post.likes.toString()} likes',
-                      style: Theme.of(context)
-                          .textTheme
-                          .bodyMedium!
-                          .copyWith(color: ThemeColor.headerOne),
-                    )),
+                
                 Container(
                   width: double.infinity,
                   padding: const EdgeInsets.only(
@@ -241,20 +193,24 @@ class PostCard extends StatelessWidget {
                       // style: const TextStyle(color: primaryColor),
                       children: [
                         TextSpan(
-                          text: post.school.schoolName.toString(),
+                          text: post.title.toString(),
+                          // text: "salman",
                           style: const TextStyle(
                               fontWeight: FontWeight.bold,
+                              fontSize: 24,
                               color: ThemeColor.black),
-                        ),
-                        TextSpan(
-                          text: ' ${post.caption}',
-                          style: const TextStyle(
-                              fontWeight: FontWeight.bold,
-                              color: ThemeColor.headerOne),
                         ),
                       ],
                     ),
                   ),
+                ),
+                Text(
+                  ' ${post.caption}',
+                  maxLines: 3,
+                  overflow: TextOverflow.fade,
+                  style: const TextStyle(
+                      fontWeight: FontWeight.w100,
+                      color: Color.fromARGB(255, 75, 75, 75)),
                 ),
                 // InkWell(
                 //   child: Container(
@@ -289,9 +245,66 @@ class PostCard extends StatelessWidget {
                 ),
               ],
             ),
-          )
-        ],
-      ),
-    );
+          );
+  }
+  Row getLikeComments(BuildContext context, FeedController feedController) {
+    return Row(
+            children: <Widget>[
+              AnimatedOpacity(
+                duration: const Duration(milliseconds: 200),
+                opacity: post.isLiked ? 1 : 0.5,
+                child: LikeAnimation(
+                  isAnimating: post.isLiked,
+                  smallLike: false,
+                  child: IconButton(
+                      icon: post.isLiked
+                          ? const Icon(
+                              Icons.favorite,
+                              color: Colors.red,
+                            )
+                          : const Icon(
+                              Icons.favorite_border,
+                            ),
+                      onPressed: () =>
+                          feedController.likePostById(post.id, post.isLiked)),
+                ),
+              ),
+              DefaultTextStyle(
+                    style: Theme.of(context)
+                        .textTheme
+                        .titleSmall!
+                        .copyWith(fontWeight: FontWeight.w800),
+                    child: Text(
+                      '${post.likes.toString()}',
+                      style: Theme.of(context)
+                          .textTheme
+                          .bodyMedium!
+                          .copyWith(color: ThemeColor.headerOne),
+                    )),
+              IconButton(
+                  icon: const Icon(
+                    Icons.comment_outlined,
+                  ),
+                  onPressed: () => {}
+                  // Navigator.of(context).push(
+                  // MaterialPageRoute(
+                  //   builder: (context) => CommentsScreen(
+                  //     postId: widget.snap['postId'].toString(),
+                  //   ),
+                  // ),
+                  ),
+              IconButton(
+                  icon: const Icon(
+                    Icons.send,
+                  ),
+                  onPressed: () {}),
+              Expanded(
+                  child: Align(
+                alignment: Alignment.bottomRight,
+                child: IconButton(
+                    icon: const Icon(Icons.bookmark_border), onPressed: () {}),
+              ))
+            ],
+          );
   }
 }

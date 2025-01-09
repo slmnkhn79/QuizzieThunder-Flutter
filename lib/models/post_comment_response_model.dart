@@ -17,7 +17,7 @@ class PostCommentResponseModel {
       code: json['code'],
       status: json['status'],
       message: json['message'],
-      comments: (json['comments'] as List)
+      comments:(json['comments'] as List)
           .map((comment) => Comment.fromJson(comment))
           .toList(),
     );

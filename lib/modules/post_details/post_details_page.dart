@@ -2,12 +2,14 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cached_network_image_platform_interface/cached_network_image_platform_interface.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:quizzie_thunder/modules/post_details/post_detail_controller.dart';
 import 'package:quizzie_thunder/modules/home/post_card/like_animation.dart';
 import 'package:quizzie_thunder/modules/home/post_card/post_card.dart';
 import 'package:quizzie_thunder/theme/colors_theme.dart';
 import 'package:quizzie_thunder/utils/app_utils.dart';
 
+import '../../utils/constants.dart';
 import '../wonderous/ui/full_screen_picture/fullscreen_url_img_viewer.dart';
 
 class PostDetailsPage extends StatelessWidget {
@@ -89,7 +91,33 @@ class PostDetailsPage extends StatelessWidget {
                                     child: Column(
                                       children: [
                                         // HEADER SECTION OF THE POST
-                                        Container(
+                                        getHeader(context, postDetailsController),
+                                        // IMAGE SECTION OF THE POST
+                                        postDetailsController!.postDetailsResponseModel!.post.imageUrl!.isNotEmpty ?
+                                        getImage(context, postDetailsController) : Container(),
+                                        
+
+                                        // LIKE, COMMENT SECTION OF THE POST
+                                        
+                                        //DESCRIPTION AND NUMBER OF COMMENTS
+                                        getContainer(context, postDetailsController),
+                                        getLikeComments(context, postDetailsController),
+                                        inputCommentBox(postDetailsController),
+                                        getComments(postDetailsController)
+                                      ],
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ))));
+  }
+  Container getHeader(BuildContext context, PostDetailController postDetailsController){
+    return Container(
                                           padding: const EdgeInsets.symmetric(
                                             vertical: 4,
                                             horizontal: 16,
@@ -124,12 +152,12 @@ class PostDetailsPage extends StatelessWidget {
                                                             .postDetailsResponseModel!
                                                             .post
                                                             .school
-                                                            .schoolName
-                                                            .toString(),
+                                                            .schoolName,
                                                         style: const TextStyle(
-                                                          fontWeight:
-                                                              FontWeight.bold,
-                                                        ),
+                                                            fontWeight:
+                                                                FontWeight.bold,
+                                                            color:
+                                                                Colors.black),
                                                       ),
                                                     ],
                                                   ),
@@ -181,254 +209,201 @@ class PostDetailsPage extends StatelessWidget {
                                                   : Container(),
                                             ],
                                           ),
-                                        ),
-                                        // IMAGE SECTION OF THE POST
-                                        GestureDetector(
-                                          onTap: () {
-                                            Get.to(FullscreenUrlImgViewer(
-                                              headerImageUrl:
-                                                  postDetailsController
-                                                      .postDetailsResponseModel!
-                                                      .post
-                                                      .imageUrl
-                                                      .toString(),
-                                            ));
-                                          },
-                                          onDoubleTap: () {
-                                            postDetailsController.likePostById(
-                                                // postDetailsController
-                                                //     .postDetailsResponseModel!
-                                                //     .post
-                                                //     .isLiked
-                                                false);
-                                            postDetailsController
-                                                .isLikeAnimating.value = true;
-                                          },
-                                          child: Stack(
-                                            alignment: Alignment.center,
-                                            children: [
-                                              SizedBox(
-                                                height: 400,
-                                                width: double.infinity,
-                                                child: CachedNetworkImage(
-                                                    imageRenderMethodForWeb:
-                                                        ImageRenderMethodForWeb
-                                                            .HttpGet,
-                                                    imageUrl: postDetailsController
-                                                        .postDetailsResponseModel!
-                                                        .post
-                                                        .imageUrl
-                                                        .toString(),
-                                                    fit: BoxFit.cover,
-                                                    fadeInDuration: Duration(
-                                                        milliseconds: 0),
-                                                    fadeOutDuration: Duration(
-                                                        milliseconds: 0),
-                                                    progressIndicatorBuilder: (context,
-                                                            url,
-                                                            downloadProgress) =>
-                                                        Image.asset(
-                                                            "assets/images/placeholder.png"),
-                                                    // ),
-                                                    errorWidget:
-                                                        (context, url, error) =>
-                                                            Icon(Icons.error)),
-                                              ),
-                                              AnimatedOpacity(
-                                                duration: const Duration(
-                                                    milliseconds: 200),
-                                                opacity: postDetailsController
-                                                        .isLikeAnimating.value
-                                                    ? 1
-                                                    : 0,
-                                                child: LikeAnimation(
-                                                  isAnimating:
-                                                      postDetailsController
-                                                          .isLikeAnimating
-                                                          .value,
-                                                  duration: const Duration(
-                                                    milliseconds: 400,
-                                                  ),
-                                                  onEnd: () {
-                                                    postDetailsController
-                                                        .isLikeAnimating
-                                                        .value = false;
-                                                  },
-                                                  child: const Icon(
-                                                    Icons.favorite,
-                                                    color: Colors.white,
-                                                    size: 100,
-                                                  ),
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                        // LIKE, COMMENT SECTION OF THE POST
-                                        Row(
-                                          children: <Widget>[
-                                            Text(
-                                              postDetailsController
-                                                  .isLiked.value
-                                                  .toString(),
-                                              style: TextStyle(
-                                                  fontSize: 1,
-                                                  color: ThemeColor.white),
-                                            ),
-
-                                            LikeAnimation(
-                                              isAnimating: postDetailsController
-                                                  .postDetailsResponseModel!
-                                                  .post
-                                                  .isLiked,
-                                              smallLike: false,
-                                              child: IconButton(
-                                                  icon: postDetailsController
-                                                          .postDetailsResponseModel!
-                                                          .post
-                                                          .isLiked
-                                                      ? const Icon(
-                                                          Icons.favorite,
-                                                          color: Colors.red,
-                                                        )
-                                                      : const Icon(
-                                                          Icons.favorite_border,
-                                                        ),
-                                                  onPressed: () => {
-                                                        postDetailsController
-                                                            .likePostById(
-                                                                postDetailsController
-                                                                    .postDetailsResponseModel!
-                                                                    .post
-                                                                    .isLiked)
-                                                      }),
-                                            ),
-                                            DefaultTextStyle(
-                                                style: Theme.of(context)
-                                                    .textTheme
-                                                    .titleSmall!
-                                                    .copyWith(
-                                                        fontWeight:
-                                                            FontWeight.w800),
-                                                child: Text(
-                                                  '${postDetailsController.postDetailsResponseModel!.post.likes.toString()} likes',
-                                                  style: Theme.of(context)
-                                                      .textTheme
-                                                      .bodyMedium,
-                                                )),
-                                            // IconButton(
-                                            //     icon: const Icon(
-                                            //       Icons.comment_outlined,
-                                            //     ),
-                                            //     onPressed: () => {}
-                                            //     // Navigator.of(context).push(
-                                            //     // MaterialPageRoute(
-                                            //     //   builder: (context) => CommentsScreen(
-                                            //     //     postId: widget.snap['postId'].toString(),
-                                            //     //   ),
-                                            //     // ),
-                                            //     ),
-                                            // IconButton(
-                                            //     icon: const Icon(
-                                            //       Icons.send,
-                                            //     ),
-                                            //     onPressed: () {}),
-                                            Expanded(
-                                                child: Align(
-                                              alignment: Alignment.bottomRight,
-                                              child: IconButton(
-                                                  icon: const Icon(
-                                                      Icons.bookmark_border),
-                                                  onPressed: () {}),
-                                            ))
-                                          ],
-                                        ),
-                                        //DESCRIPTION AND NUMBER OF COMMENTS
-                                        Container(
-                                          padding: const EdgeInsets.symmetric(
-                                              horizontal: 16),
-                                          child: Column(
-                                            mainAxisSize: MainAxisSize.min,
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            children: <Widget>[
-                                              Container(
-                                                width: double.infinity,
-                                                padding: const EdgeInsets.only(
-                                                  top: 8,
-                                                ),
-                                                child: RichText(
-                                                  text: TextSpan(
-                                                    // style: const TextStyle(color: primaryColor),
-                                                    children: [
-                                                      TextSpan(
-                                                        text: postDetailsController
-                                                            .postDetailsResponseModel!
-                                                            .post
-                                                            .school
-                                                            .schoolName
-                                                            .toString(),
-                                                        style: const TextStyle(
-                                                            fontWeight:
-                                                                FontWeight.bold,
-                                                            color: ThemeColor
-                                                                .black),
-                                                      ),
-                                                      TextSpan(
-                                                        text:
-                                                            ' ${postDetailsController.postDetailsResponseModel!.post.caption}',
-                                                        style: const TextStyle(
-                                                            fontWeight:
-                                                                FontWeight.bold,
-                                                            color: ThemeColor
-                                                                .headerOne),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                ),
-                                              ),
-                                              Container(
-                                                padding:
-                                                    const EdgeInsets.symmetric(
-                                                        vertical: 4),
-                                                child: Text(
-                                                  AppUtils.timeAgo(
-                                                      postDetailsController
-                                                          .postDetailsResponseModel!
-                                                          .post
-                                                          .createdAt!),
-                                                  style: const TextStyle(
-                                                    color: ThemeColor.headerOne,
-                                                  ),
-                                                ),
-                                              ),
-                                              Divider(),
-                                            ],
-                                          ),
-                                        ),
-                                        inputCommentBox(postDetailsController),
-                                        getComments(postDetailsController)
-                                      ],
-                                    ),
-                                  )
-                                ],
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
+                                        );
+  }
+  GestureDetector getImage(
+      BuildContext context, PostDetailController postDetailsController) {
+    return GestureDetector(
+      onTap: () {
+        Get.to(FullscreenUrlImgViewer(
+          headerImageUrl: postDetailsController
+              .postDetailsResponseModel!.post.imageUrl
+              .toString(),
+        ));
+      },
+      onDoubleTap: () {
+        postDetailsController.likePostById(
+            // postDetailsController
+            //     .postDetailsResponseModel!
+            //     .post
+            //     .isLiked
+            false);
+        postDetailsController.isLikeAnimating.value = true;
+      },
+      child: postDetailsController.postDetailsResponseModel!.post.imageUrl !=
+              null
+          ? Stack(
+              alignment: Alignment.center,
+              children: [
+                SizedBox(
+                  height: 400,
+                  width: double.infinity,
+                  child: CachedNetworkImage(
+                      imageRenderMethodForWeb: ImageRenderMethodForWeb.HttpGet,
+                      imageUrl: postDetailsController
+                          .postDetailsResponseModel!.post.imageUrl
+                          .toString(),
+                      fit: BoxFit.fill,
+                      fadeInDuration: Duration(milliseconds: 0),
+                      fadeOutDuration: Duration(milliseconds: 0),
+                      progressIndicatorBuilder:
+                          (context, url, downloadProgress) =>
+                              Image.asset("assets/images/placeholder.png"),
+                      // ),
+                      errorWidget: (context, url, error) => Icon(Icons.error)),
+                ),
+                AnimatedOpacity(
+                  duration: const Duration(milliseconds: 200),
+                  opacity: postDetailsController.isLikeAnimating.value ? 1 : 0,
+                  child: LikeAnimation(
+                    isAnimating: postDetailsController.isLikeAnimating.value,
+                    duration: const Duration(
+                      milliseconds: 400,
                     ),
-                  ))));
+                    onEnd: () {
+                      postDetailsController.isLikeAnimating.value = false;
+                    },
+                    child: const Icon(
+                      Icons.favorite,
+                      color: Colors.white,
+                      size: 100,
+                    ),
+                  ),
+                ),
+              ],
+            )
+          : Container(),
+    );
+  }
+
+  Row getLikeComments(
+      BuildContext context, PostDetailController postDetailsController) {
+    return Row(
+      children: <Widget>[
+        Text(
+          postDetailsController.isLiked.value.toString(),
+          style: TextStyle(fontSize: 1, color: ThemeColor.white),
+        ),
+
+        LikeAnimation(
+          isAnimating:
+              postDetailsController.postDetailsResponseModel!.post.isLiked,
+          smallLike: false,
+          child: IconButton(
+              icon: postDetailsController.postDetailsResponseModel!.post.isLiked
+                  ? const Icon(
+                      Icons.favorite,
+                      color: Colors.red,
+                    )
+                  : const Icon(
+                      Icons.favorite_border,
+                    ),
+              onPressed: () => {
+                    postDetailsController.likePostById(postDetailsController
+                        .postDetailsResponseModel!.post.isLiked)
+                  }),
+        ),
+        DefaultTextStyle(
+            style: Theme.of(context)
+                .textTheme
+                .titleSmall!
+                .copyWith(fontWeight: FontWeight.w800),
+            child: Text(
+              postDetailsController.postDetailsResponseModel!.post.likes.toString(),
+              style: Theme.of(context).textTheme.bodyMedium,
+            )),
+        // IconButton(
+        //     icon: const Icon(
+        //       Icons.comment_outlined,
+        //     ),
+        //     onPressed: () => {}
+        //     // Navigator.of(context).push(
+        //     // MaterialPageRoute(
+        //     //   builder: (context) => CommentsScreen(
+        //     //     postId: widget.snap['postId'].toString(),
+        //     //   ),
+        //     // ),
+        //     ),
+        // IconButton(
+        //     icon: const Icon(
+        //       Icons.send,
+        //     ),
+        //     onPressed: () {}),
+      ],
+    );
+  }
+
+  Expanded getExpandedButton() {
+    return Expanded(
+        child: Align(
+      alignment: Alignment.bottomRight,
+      child:
+          IconButton(icon: const Icon(Icons.bookmark_border), onPressed: () {}),
+    ));
+  }
+
+  Container getContainer(
+      BuildContext context, PostDetailController postDetailsController) {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 16),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Container(
+            width: double.infinity,
+            padding: const EdgeInsets.only(
+              top: 8,
+            ),
+            child: RichText(
+              text: TextSpan(
+                // style: const TextStyle(color: primaryColor),
+                children: [
+                  TextSpan(
+                    text: postDetailsController
+                        .postDetailsResponseModel!.post.title
+                        .toString(),
+                    style: const TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 24,
+                        color: ThemeColor.black),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          Text(
+            ' ${postDetailsController.postDetailsResponseModel!.post.caption}',
+            style: const TextStyle(
+                fontWeight: FontWeight.w100,
+                color: Color.fromARGB(255, 75, 75, 75)),
+          ),
+          Container(
+            padding: const EdgeInsets.symmetric(vertical: 4),
+            child: Text(
+              AppUtils.timeAgo(postDetailsController
+                  .postDetailsResponseModel!.post.createdAt!),
+              style: const TextStyle(
+                color: ThemeColor.headerOne,
+              ),
+            ),
+          ),
+          Divider(),
+        ],
+      ),
+    );
   }
 
   Padding inputCommentBox(PostDetailController postDetailController) {
+    // var item = GetStorage().read(KEY_USER_DATA)['result']['profile_pic'];
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Row(
         children: [
           // Circular Profile Image
           CircleAvatar(
-            backgroundImage: NetworkImage('https://example.com/profile.jpg'),
+            backgroundImage: NetworkImage(
+                GetStorage().read(KEY_USER_DATA)['result']['profile_pic']),
             radius: 18.0,
           ),
           SizedBox(width: 8.0),

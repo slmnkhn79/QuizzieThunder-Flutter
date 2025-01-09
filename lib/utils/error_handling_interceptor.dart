@@ -38,7 +38,7 @@ class ErrorHandingInterceptor extends Interceptor {
         confirm: MaterialButton(
           onPressed: () {
             Get.back(closeOverlays: true);
-            AppUtils.logout();
+            // AppUtils.logout();
           },
           child: Text("OK"),
         ),

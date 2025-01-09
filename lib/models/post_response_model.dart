@@ -85,7 +85,7 @@ class School {
   // Factory constructor for creating a new School instance from a map.
   factory School.fromJson(Map<String, dynamic> json) {
     return School(
-      schoolName: json['schoolName'] ?? '',
+      schoolName: json['school_name'] ?? '',
       logo: json['logo'] ?? '',
     );
   }
