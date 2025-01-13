@@ -1,0 +1,540 @@
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Inter', sans-serif;
+    }
+
+    .formbold-mb-3 {
+        margin-bottom: 15px;
+    }
+
+    .formbold-relative {
+        position: relative;
+    }
+
+    .formbold-opacity-0 {
+        opacity: 0;
+    }
+
+    .formbold-stroke-current {
+        stroke: currentColor;
+    }
+
+    #supportCheckbox:checked~div span {
+        opacity: 1;
+    }
+
+    .formbold-main-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 48px;
+    }
+
+    .formbold-form-wrapper {
+        margin: 0 auto;
+        max-width: 570px;
+        width: 100%;
+        background: white;
+        padding: 40px;
+    }
+
+    .formbold-img {
+        margin-bottom: 45px;
+    }
+
+    .formbold-form-title {
+        margin-bottom: 30px;
+    }
+
+    .formbold-form-title h2 {
+        font-weight: 600;
+        font-size: 28px;
+        line-height: 34px;
+        color: #07074d;
+    }
+
+    .formbold-form-title p {
+        font-size: 16px;
+        line-height: 24px;
+        color: #536387;
+        margin-top: 12px;
+    }
+
+    .formbold-input-flex {
+        display: flex;
+        gap: 20px;
+        margin-bottom: 15px;
+    }
+
+    .formbold-input-flex>div {
+        width: 100%;
+    }
+
+    .formbold-form-input {
+        text-align: center;
+        width: 100%;
+        padding: 13px 22px;
+        border-radius: 5px;
+        border: 1px solid #dde3ec;
+        background: #ffffff;
+        font-weight: 500;
+        font-size: 16px;
+        color: #536387;
+        outline: none;
+        resize: none;
+    }
+
+    .formbold-form-input:focus {
+        border-color: #6a64f1;
+        box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.05);
+    }
+
+    .formbold-form-label {
+        color: #536387;
+        font-size: 14px;
+        line-height: 24px;
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    .formbold-checkbox-label {
+        display: flex;
+        cursor: pointer;
+        user-select: none;
+        font-size: 16px;
+        line-height: 24px;
+        color: #536387;
+    }
+
+    .formbold-checkbox-label a {
+        margin-left: 5px;
+        color: #6a64f1;
+    }
+
+    .formbold-input-checkbox {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border-width: 0;
+    }
+
+    .formbold-checkbox-inner {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 20px;
+        height: 20px;
+        margin-right: 16px;
+        margin-top: 2px;
+        border: 0.7px solid #dde3ec;
+        border-radius: 3px;
+    }
+
+    .formbold-btn {
+        font-size: 16px;
+        border-radius: 5px;
+        padding: 14px 25px;
+        border: none;
+        font-weight: 500;
+        background-color: #6a64f1;
+        color: white;
+        cursor: pointer;
+        margin-top: 25px;
+    }
+
+    .formbold-btn:hover {
+        box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.05);
+    }
+
+    .formbold-input-radio-wrapper {
+        margin-bottom: 25px;
+    }
+
+    .formbold-radio-flex {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .formbold-radio-label {
+        font-size: 14px;
+        line-height: 24px;
+        color: #07074d;
+        position: relative;
+        padding-left: 25px;
+        cursor: pointer;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+
+    .formbold-input-radio {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+    }
+
+    .formbold-radio-checkmark {
+        position: absolute;
+        top: -1px;
+        left: 0;
+        height: 18px;
+        width: 18px;
+        background-color: #ffffff;
+        border: 1px solid #dde3ec;
+        border-radius: 50%;
+    }
+
+    .formbold-radio-label .formbold-input-radio:checked~.formbold-radio-checkmark {
+        background-color: #6a64f1;
+    }
+
+    .formbold-radio-checkmark:after {
+        content: '';
+        position: absolute;
+        display: none;
+    }
+
+    .formbold-radio-label .formbold-input-radio:checked~.formbold-radio-checkmark:after {
+        display: block;
+    }
+
+    .formbold-radio-label .formbold-radio-checkmark:after {
+        top: 50%;
+        left: 50%;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: #ffffff;
+        transform: translate(-50%, -50%);
+    }
+
+    #skill-radio-buttons-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    #interest-radio-buttons-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .error-message {
+        display: none;
+        /* Hidden by default */
+        color: #D8000C;
+        /* Red color for error text */
+        background-color: #FFBABA;
+        /* Light red background */
+        border: 1px solid #D8000C;
+        /* Red border */
+        padding: 10px;
+        margin-top: 10px;
+        border-radius: 5px;
+        font-family: Arial, sans-serif;
+    }
+</style>
+
+<!-- <div class="formbold-main-wrapper">
+    <div class="formbold-form-wrapper">
+
+        <img src="https://academy.slmnkhn79.shop/favicon.png">
+        <div id="errorMessage" class="error-message">test</div>
+        <form id="signupForm">
+            
+            <div class="formbold-form-title">
+
+                <h2 class="">Register now</h2>
+                <p>
+                    Enter the following details
+                </p>
+            </div>
+
+            <div class="formbold-input-flex">
+                <div>
+                    <label for="firstname" class="formbold-form-label">
+                        First name
+                    </label>
+                    <input type="text" name="firstname" id="firstname" required class="formbold-form-input" />
+                </div>
+                <div>
+                    <label for="lastname" class="formbold-form-label"> Last name </label>
+                    <input type="text" name="lastname" id="lastname" required class="formbold-form-input" />
+                </div>
+            </div>
+
+            <div class="formbold-input-flex">
+                <div>
+                    <label for="email" class="formbold-form-label"> Email </label>
+                    <input type="email" name="email" id="email" required class="formbold-form-input" />
+                </div>
+                <div>
+                    <label for="dob" class="formbold-form-label"> Date of Birth </label>
+                    <input type="date" name="dob" id="dob" required class="formbold-form-input" />
+                </div>
+            </div>
+
+            <div class="formbold-input-flex">
+                <div>
+                    <label for="state" class="formbold-form-label"> City </label>
+                    <input type="text" name="state" id="state" required class="formbold-form-input" />
+                </div>
+                <div>
+                    <label for="country" class="formbold-form-label"> State </label>
+                    <input type="text" name="country" id="country" required class="formbold-form-input" />
+                </div>
+            </div>
+
+            <div class="formbold-input-flex">
+                <div>
+                    <label for="post" class="formbold-form-label"> Username </label>
+                    <input type="text" name="post" id="post" required class="formbold-form-input" />
+                </div>
+            </div>
+
+            <div class="formbold-input-flex">
+                <div>
+                    <label for="state" class="formbold-form-label"> Password </label>
+                    <input type="text" name="state" id="state" required class="formbold-form-input" />
+                </div>
+                <div>
+                    <label for="country" class="formbold-form-label"> Confrim Password </label>
+                    <input type="text" name="country" id="country" required class="formbold-form-input" />
+                </div>
+            </div>
+
+            <div class="formbold-input-group">
+                <label for="age" class="formbold-form-label"> Age </label>
+                <input type="text" name="age" id="age" required placeholder="Enter your age"
+                    class="formbold-form-input" />
+            </div>
+
+            <div class="formbold-radio-flex">
+                <div class="formbold-input-radio-wrapper">
+                    <label for="ans" class="formbold-form-label">
+                        Select your gender
+                    </label>
+                    <div class="formbold-radio-group">
+                        <label class="formbold-radio-label">
+                            <input class="formbold-input-radio" type="radio" required name="ans" id="ans" />
+                            Male
+                            <span class="formbold-radio-checkmark"></span>
+                        </label>
+                    </div>
+                    <div class="formbold-radio-group">
+                        <label class="formbold-radio-label">
+                            <input class="formbold-input-radio" type="radio" required name="ans" id="ans" />
+                            Female
+                            <span class="formbold-radio-checkmark"></span>
+                        </label>
+                    </div>
+                </div>
+                <div class="formbold-input-radio-wrapper">
+                    <label for="firstname" class="formbold-form-label">
+                        Select your interest
+                    </label>
+                    <div class="formbold-radio-flex">
+                        <input type="text" id="interest-filter-input" placeholder="Filter interests..."
+                            oninput="filterInterests()" class="formbold-form-input" />
+                        <div id="interest-radio-buttons-container"></div>
+                        <div class="formbold-input-group">
+                            <label for="interests" class="interests" id="interests" placeholder="Enter your interests"
+                                class="formbold-form-input" />
+                        </div>
+                    </div>
+                    <div class="formbold-input-radio-wrapper">
+                        <label for="firstname" class="formbold-form-label">
+                            Select your skills
+                        </label>
+
+                        <div class="formbold-radio-flex">
+                            <input type="text" id="skill-filter-input" placeholder="Filter skills..."
+                                oninput="filterSkills()" required class="formbold-form-input" />
+                            <div id="skill-radio-buttons-container"></div>
+                            <div class="formbold-input-group">
+                                <label for="skills" class="skills" id="skills" placeholder="Enter your skills"
+                                    class="formbold-form-input" />
+                            </div>
+                        </div>
+                        <button class="formbold-btn" id="submitData">Register Now</button>
+        </form>
+
+        <div id="responseMessage"></div>
+
+    </div>
+</div> -->
+
+<div class="formbold-main-wrapper">
+    <div class="formbold-form-wrapper">
+        <img src="https://academy.slmnkhn79.shop/favicon.png">
+
+        <form id="signupForm">
+            <div class="formbold-form-title">
+                <h2 class="">Register now</h2>
+                <p>Enter the following details</p>
+            </div>
+            <div id="errorMessage" class="error-message"></div>
+            <div class="formbold-input-flex">
+                <div>
+                    <label for="firstname" class="formbold-form-label">First name</label>
+                    <input type="text" name="firstname" id="firstname" required class="formbold-form-input" />
+                    <div class="error-message" id="firstnameError">First name is required</div>
+                </div>
+                <div>
+                    <label for="lastname" class="formbold-form-label">Last name</label>
+                    <input type="text" name="lastname" id="lastname" required class="formbold-form-input" />
+                    <div class="error-message" id="lastnameError">Last name is required</div>
+                </div>
+            </div>
+
+            <div class="formbold-input-flex">
+                <div>
+                    <label for="email" class="formbold-form-label">Email</label>
+                    <input type="email" name="email" id="email" required class="formbold-form-input" />
+                    <div class="error-message" id="emailError">Email is required</div>
+                </div>
+                <div>
+                    <label for="dob" class="formbold-form-label">Date of Birth</label>
+                    <input type="date" name="dob" id="dob" required class="formbold-form-input" />
+                    <div class="error-message" id="dobError">Date of Birth is required</div>
+                </div>
+            </div>
+
+            <div class="formbold-input-flex">
+                <div>
+                    <label for="state" class="formbold-form-label">City</label>
+                    <input type="text" name="state" id="state" required class="formbold-form-input" />
+                    <div class="error-message" id="cityError">City is required</div>
+                </div>
+                <div>
+                    <label for="country" class="formbold-form-label">State</label>
+                    <input type="text" name="country" id="country" required class="formbold-form-input" />
+                    <div class="error-message" id="stateError">State is required</div>
+                </div>
+            </div>
+
+            <div class="formbold-input-flex">
+                <div>
+                    <label for="post" class="formbold-form-label">Username</label>
+                    <input type="text" name="post" id="post" required class="formbold-form-input" />
+                    <div class="error-message" id="usernameError">Username is required</div>
+                </div>
+            </div>
+
+            <div class="formbold-input-flex">
+                <div>
+                    <label for="password" class="formbold-form-label">Password</label>
+                    <input type="password" name="password" id="password" required class="formbold-form-input" />
+                    <div class="error-message" id="passwordError">Password is required</div>
+                </div>
+                <div>
+                    <label for="confirmPassword" class="formbold-form-label">Confirm Password</label>
+                    <input type="password" name="confirmPassword" id="confirmPassword" required
+                        class="formbold-form-input" />
+                    <div class="error-message" id="confirmPasswordError">Confirm Password is required</div>
+                </div>
+            </div>
+
+            <div class="formbold-input-group">
+                <label for="age" class="formbold-form-label">Age</label>
+                <input type="text" name="age" id="age" required placeholder="Enter your age"
+                    class="formbold-form-input" />
+                <div class="error-message" id="ageError">Age is required</div>
+            </div>
+
+            <div class="formbold-radio-flex">
+                <div class="formbold-input-radio-wrapper">
+                    <label for="gender" class="formbold-form-label">Select your gender</label>
+                    <div class="formbold-radio-group">
+                        <label class="formbold-radio-label">
+                            <input class="formbold-input-radio" type="radio" required name="gender" id="male"
+                                value="male" />
+                            Male
+                            <span class="formbold-radio-checkmark"></span>
+                        </label>
+                    </div>
+                    <div class="formbold-radio-group">
+                        <label class="formbold-radio-label">
+                            <input class="formbold-input-radio" type="radio" required name="gender" id="female"
+                                value="female" />
+                            Female
+                            <span class="formbold-radio-checkmark"></span>
+                        </label>
+                    </div>
+                    <div class="error-message" id="genderError">Gender is required</div>
+                </div>
+                <div class="formbold-input-radio-wrapper">
+                    <label for="interest" class="formbold-form-label">Select your interest</label>
+                    <div class="formbold-radio-flex">
+                        <input type="text" id="interest-filter-input" placeholder="Filter interests..."
+                            oninput="filterInterests()" class="formbold-form-input" />
+                        <div id="interest-radio-buttons-container"></div>
+                        <div class="formbold-input-group">
+                            <label for="interests" class="interests" id="interests" placeholder="Enter your interests"
+                                class="formbold-form-input" />
+                        </div>
+                        <div class="formbold-input-flex">
+                            <div>
+                                <label for="other_interests" class="formbold-form-label">Other Interests</label>
+                                <input type="text" name="other_interests" id="other_interests" required
+                                    class="formbold-form-input" />
+                            </div>
+                        </div>
+                        <div class="error-message" id="interestError">Interest is required</div>
+                    </div>
+                </div>
+                <div class="formbold-input-radio-wrapper">
+                    <label for="skills" class="formbold-form-label">Select your skills</label>
+                    <div class="formbold-radio-flex">
+                        <input type="text" id="skill-filter-input" placeholder="Filter skills..."
+                            oninput="filterSkills()" required class="formbold-form-input" />
+                        <div id="skill-radio-buttons-container"></div>
+                        <div class="formbold-input-group">
+                            <label for="skills" class="skills" id="skills" placeholder="Enter your skills"
+                                class="formbold-form-input" />
+                        </div>
+
+
+                    </div>
+                    <div class="formbold-input-flex">
+                        <div>
+                            <label for="other_skills" class="formbold-form-label">Other Skills</label>
+                            <input type="text" name="other_skills" id="other_skills" required
+                                class="formbold-form-input" />
+                        </div>
+                    </div>
+                    <div class="error-message" id="skillError">Skills are required</div>
+                </div>
+                <div class="formbold-input-flex">
+                    <div>
+                        <label for="summary" class="formbold-form-label">Short summary</label>
+                        <textarea type="text" name="summary" id="summary" required rows="4" cols="50"
+                            class="formbold-form-input" ></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <button class="formbold-btn" id="submitData">Register Now</button>
+        </form>
+
+        <div id="responseMessage"></div>
+    </div>
+</div>
+
+<script src="script.js"></script>
