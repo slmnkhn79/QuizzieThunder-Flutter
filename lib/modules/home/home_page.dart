@@ -315,7 +315,11 @@ class HomePage extends StatelessWidget {
 
   Container quizFeedContainer(
       HomeController homeController, BuildContext context) {
-    return Container(
+    return 
+    homeController.homeScreenResponseModel == null ?
+    Container(child:Text("Please refesh again"))
+    :
+    Container(
       // height: MediaQuery.of(context).size.height,
       child: Column(children: [
 
@@ -699,7 +703,12 @@ class HomePage extends StatelessWidget {
   }
 
   Column nearByFeedContainer(FeedController feedController) {
-    return Column(
+    return 
+    feedController.feedScreenResponseModel == null 
+    ? Column(children: [
+      Text("Please Refresh Again")
+    ],)
+    :Column(
       children: [
         ListView.separated(
             shrinkWrap: true,

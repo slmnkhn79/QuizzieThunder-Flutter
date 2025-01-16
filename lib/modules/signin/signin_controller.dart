@@ -76,8 +76,8 @@ class SigninController extends GetxController {
       }
     } catch (error) {
       isLoading.value = false;
-      AppUtils.showSnackBar("Error" ?? "Error",
-          status: MessageStatus.ERROR);
+      // AppUtils.showSnackBar("Error" ?? "Error",
+      //     status: MessageStatus.ERROR);
     }
   }
 }

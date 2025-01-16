@@ -10,15 +10,20 @@ class PublicProfileController extends GetxController {
   var profileData = {}.obs;
   ProfileApi profileApi = ProfileApi();
   final arguments = Get.arguments;
+  final parameters = Get.parameters;
   var userId = '';
   PublicProfileScreenResponseModel? publicProfileScreenResponseModel;
 
   @override
   void onInit() {
-    if (arguments != null) {
-      userId = arguments[ARG_STUDENT_ID];
-      fetchProfileData();
-    }
+    print(parameters);
+    // if (arguments != null) {
+    //   userId = arguments[ARG_STUDENT_ID];
+    //   fetchProfileData();
+    // }
+
+    userId = parameters['studentId']!;
+    fetchProfileData();
     super.onInit();
   }
 

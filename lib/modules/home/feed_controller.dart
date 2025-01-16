@@ -68,7 +68,7 @@ class FeedController extends GetxController {
     } else {
       print("enter into else");
       isLoading.value = false;
-      AppUtils.showSnackBar("Error", status: MessageStatus.ERROR);
+      // AppUtils.showSnackBar("Error", status: MessageStatus.ERROR);
     }
     print("exit");
   }

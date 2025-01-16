@@ -4,6 +4,7 @@ class HomeScreenResponseModel {
   HomeScreenResponseModel({
     required this.code,
     required this.status,
+    required this.message,
     required this.quizzes,
     required this.mostPlayedQuiz,
     required this.topPicQuiz,
@@ -15,6 +16,7 @@ class HomeScreenResponseModel {
   final int? code;
   final bool? status;
   final List<Quiz>? quizzes;
+  final String? message;
   final Quiz? mostPlayedQuiz;
   final TopPicQuiz? topPicQuiz;
   final WeekTopRank? weekTopRank;
@@ -24,6 +26,7 @@ class HomeScreenResponseModel {
     return HomeScreenResponseModel(
       code: json["code"],
       status: json["status"],
+      message: json['message'] ?? "Some error occurred",
       quizzes: json["quizzes"] == null
           ? []
           : List<Quiz>.from(json["quizzes"]!.map((x) => Quiz.fromJson(x))),

@@ -162,6 +162,7 @@ class PublicProfilePage extends StatelessWidget {
                                   ),
                                 ),
                                 Container(
+                                  width: double.infinity,
                                   padding: const EdgeInsets.only(
                                       top: 4.0, left: 16, right: 16, bottom: 8),
                                   color: ThemeColor.facebook_light_4,

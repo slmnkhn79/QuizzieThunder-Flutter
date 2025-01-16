@@ -22,7 +22,7 @@ class SearchResultsController extends GetxController {
     } else {
       print("response was not 200");
       isLoading.value = false;
-      AppUtils.showSnackBar("Error", status: MessageStatus.ERROR);
+      // AppUtils.showSnackBar("Error", status: MessageStatus.ERROR);
     }
   }
 }

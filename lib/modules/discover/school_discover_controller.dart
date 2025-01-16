@@ -29,7 +29,7 @@ class DiscoverController extends GetxController {
       isLoading.value = false;
     } else {
       isLoading.value = false;
-      AppUtils.showSnackBar("Error", status: MessageStatus.ERROR);
+      // AppUtils.showSnackBar("Error", status: MessageStatus.ERROR);
     }
   }
 }

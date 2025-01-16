@@ -19,51 +19,36 @@ class ErrorHandingInterceptor extends Interceptor {
     } else {
       _isErrorCodeHandled = true;
     }
-    // print("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
-    // print(err.toString());
 
-    if ((!_isErrorCodeHandled && err.response?.statusCode == 401) ||
-        err.response?.statusCode == 400 ||
-        err.response?.statusCode == 404) {
+    if ((!_isErrorCodeHandled &&
+        (err.response?.statusCode == 401 || err.response?.statusCode == 400))) {
       _isErrorCodeHandled = true;
       await localStorage.write(KEY_IS_API_ERROR_HANDLE, _isErrorCodeHandled);
-      // Redirecting to sign in screen if token expires
-      print("interceptor----");
+      Get.dialog(
+      AlertDialog(
+        title: Text('Error'),
+        content: Text("Session Expired! Please login again"),
+        actions: [
+          TextButton(
+            onPressed: () {
+             AppUtils.logout(); 
+            },
+            child: Text('Logout!'),
+          ),
+        ],
+      ),
+    );
       // AppUtils.showSnackBar("Session Expired! Please login again",
       //     status: MessageStatus.ERROR);
-      Get.defaultDialog(
-        navigatorKey: GlobalKey(debugLabel: "dialog"),
-        title: "Error",
-        content: Text("Some error occured"),
-        confirm: MaterialButton(
-          onPressed: () {
-            Get.back(closeOverlays: true);
-            // AppUtils.logout();
-          },
-          child: Text("OK"),
-        ),
-      );
-      // Get.closeAllSnackbars();
+      //     // Get.closeAllSnackbars();
+      // AppUtils.logout();
     } else {
       if (!_isErrorCodeHandled) {
-        // print(
-        // "Error = ${ApiErrorResponseModel.fromJson(err.response?.data).message}");
-        // "Error = ${ApiErrorResponseModel.fromJson(err.response?.data).error}");
-
         AppUtils.showSnackBar(
             "${ApiErrorResponseModel.fromJson(err.response?.data).error}",
             status: MessageStatus.ERROR);
-        //   Get.defaultDialog(
-        //   title: "Hello",
-        //   content: Text(err.response!.statusMessage!),
-        //   confirm: MaterialButton(
-        //     onPressed: () =>{ Get.back(closeOverlays: true)},
-        //     child: Text("OK"),
-        //   ),
-        // );
       }
     }
-    print("interceptor++++");
     super.onError(err, handler);
   }
 }

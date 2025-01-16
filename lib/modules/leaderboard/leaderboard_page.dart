@@ -292,7 +292,7 @@ class LeaderboardPage extends StatelessWidget {
                               itemBuilder: (context, index) {
                                 return InkWell(
                                   onTap: (){
-                                    Get.toNamed('/publicProfile',arguments: {ARG_STUDENT_ID:leaderboardController.leaderboardScreenResponseModel?.allTimeLeaderboard?[index]?.user?.id});
+                                    Get.toNamed('/publicProfile?studentId=${leaderboardController.leaderboardScreenResponseModel?.allTimeLeaderboard?[index]?.user?.id}',arguments: {ARG_STUDENT_ID:leaderboardController.leaderboardScreenResponseModel?.allTimeLeaderboard?[index]?.user?.id});
                                   },
                                   child: userQuizPointsInfoContainter(
                                       index,
