@@ -12,6 +12,7 @@
             rel="stylesheet">
         <script
             src="https://sdk.amazonaws.com/js/aws-sdk-2.814.0.min.js"></script>
+            <script src='./keys.js'></script>
         <script defer src="school_script.js"></script>
 
     </head>
@@ -27,6 +28,15 @@
                 <!-- Form Section -->
                 <div class="col-md-8">
                     <form id="uploadForm">
+                        <div class="form-group row">
+                            <label for="school_name"
+                                class="col-sm-3 col-form-label">School
+                                Name:</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" 
+                                    id="school_name" required hint="Please first enter school name">
+                            </div>
+                        </div>
                         <!-- Header Image -->
                         <div class="form-group row">
                             <label for="header_image"
@@ -60,23 +70,16 @@
                             </div>
                         </div>
 
-                        <div class="form-group row">
-                            <label for="school_name"
-                                class="col-sm-3 col-form-label">School
-                                Name:</label>
-                            <div class="col-sm-9">
-                                <input type="text" class="form-control"
-                                    id="school_name" required>
-                            </div>
-                        </div>
+                        
 
                         <!-- Year -->
                         <div class="form-group row">
                             <label for="year"
                                 class="col-sm-3 col-form-label">Year:</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control"
+                                <input type="text" class="form-control" onchange="validateYear()"
                                     id="year" required>
+                                    <span id="yearValid"></span>
                             </div>
                         </div>
 
@@ -262,13 +265,21 @@
                                     rows="3" required></textarea>
                             </div>
                         </div>
+                        <div class="form-group row">
+                            <label for="locationInfo2"
+                                class="col-sm-3 col-form-label">Location Info 1:</label>
+                            <div class="col-sm-9">
+                                <textarea class="form-control" id="locationInfo2"
+                                    rows="3" placeholder="Address" required></textarea>
+                            </div>
+                        </div>
 
                         <!-- Dropdown -->
                         <div class="form-group row">
-                            <label for="dropdown"
+                            <label for="city"
                                 class="col-sm-3 col-form-label">Dropdown:</label>
                             <div class="col-sm-9">
-                                <select id="dropdown" class="form-control">
+                                <select id="city" class="form-control">
                                     <!-- Options will be filled from REST API -->
                                 </select>
                             </div>

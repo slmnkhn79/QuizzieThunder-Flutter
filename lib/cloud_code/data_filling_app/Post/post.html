@@ -34,6 +34,7 @@
             background-color: #0056b3;
         }
     </style>
+    <script src="./keys.js"></script>
 </head>
 <body>
 
@@ -71,7 +72,9 @@
 <script>
     // Mock function to simulate fetching items from a REST API
     AWS.config.update({
-
+        'accessKeyId' : accessKeyId,
+        'secretAccessKey' : secretAccessKey,
+        'region' :region
     });
     const s3 = new AWS.S3();
 
@@ -81,7 +84,8 @@
                 
                 headers: {
                     'Content-Type': 'application/json',
-                    
+                    'X-Parse-Application-Id':appId,
+                    'X-Parse-REST-API-Key':restApiKey
                 }}); // replace with actual API URL
         
         const items = await response.json();
@@ -145,7 +149,8 @@
                 
                 headers: {
                     'Content-Type': 'application/json',
-                   
+                   'X-Parse-Application-Id':appId,
+                    'X-Parse-REST-API-Key':restApiKey
                 },
                 body: JSON.stringify(data)
             });

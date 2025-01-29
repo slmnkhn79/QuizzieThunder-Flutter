@@ -44,3 +44,8 @@ app.*.map.json
 /android/app/release
 *.zip
 lib/cloud_code/data_filling_app/keys.js
+lib/cloud_code/data_filling_app/Quiz/keys.js
+lib/cloud_code/data_filling_app/School/keys.js
+lib/cloud_code/data_filling_app/Questions/keys.js
+lib/cloud_code/data_filling_app/Post/keys.js
+lib/cloud_code/data_filling_app/StudyPlan/keys.js

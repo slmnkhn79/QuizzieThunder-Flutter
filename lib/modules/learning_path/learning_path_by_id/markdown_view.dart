@@ -2,7 +2,6 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cached_network_image_platform_interface/cached_network_image_platform_interface.dart';
 import 'package:quizzie_thunder/modules/wonderous/ui/common_libs.dart';
 import 'package:shimmer/shimmer.dart';
-import 'package:flutter_image/flutter_image.dart';
 
 class MainTitle extends StatelessWidget {
   final String heading;
