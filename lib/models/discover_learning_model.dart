@@ -33,6 +33,7 @@ class ContentCollections {
   final List<Video> videos;
   final List<StudyPlan> studyPlans;
   final List<Course> courses;
+  final List<CourseModule> courseModule;
 
   ContentCollections({
     required this.books,
@@ -40,6 +41,7 @@ class ContentCollections {
     required this.videos,
     required this.studyPlans,
     required this.courses,
+    required this.courseModule
   });
 
   // Factory constructor to create a ContentCollections instance from a JSON map
@@ -64,6 +66,10 @@ class ContentCollections {
           ? []
           : List<Course>.from(
               json["courses"]!.map((x) => Course.fromJson(x))),
+      courseModule: json["courseWithModule"] == null
+          ? []
+          : List<CourseModule>.from(
+              json["courseWithModule"]!.map((x) => CourseModule.fromJson(x))),
     );
   }
 
@@ -76,6 +82,19 @@ class ContentCollections {
       'studyPlans': studyPlans.map((plan) => plan.toJson()).toList(),
       'courses' : courses.map((course) => course.toJson()).toList()
     };
+  }
+}
+
+class CourseModule {
+  final String id;
+  final String courseModueName;
+
+  CourseModule({required this.id, required this.courseModueName});
+  factory CourseModule.fromJson(Map<String, dynamic> json) {
+    return CourseModule(
+      id: json['id'],
+      courseModueName: json['title']
+    );
   }
 }
 

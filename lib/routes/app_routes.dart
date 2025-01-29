@@ -15,6 +15,11 @@ class AppRoutes {
   static const quizDetailPage = '/quizDetailPage';
   static const quizResultPage = '/quizResultPage';
   static const quizQuestionPage = '/quizQuestionPage';
+
+  static const photoQuizPage = '/photoQuizPage';
+  static const quizSubmissionPAge = '/quizSubmission';
+  static const courseMilestone = '/courseMilestoneById';
+
   static const postDetailsPage = '/postDetailsPage';
   static const addPostPage = '/addPost';
   static const schoolDetailsPage = '/schoolDetails';
@@ -30,8 +35,4 @@ class AppRoutes {
   static const publicProfile = '/publicProfile';
   static const allCourses = '/allCourses';
   static const courseById = '/courseById';
-
-
-
-
 }

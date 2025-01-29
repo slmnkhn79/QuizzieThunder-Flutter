@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:http/http.dart';
 import 'package:quizzie_thunder/apis/quizDetail_api.dart';
 import 'package:quizzie_thunder/models/quiz_detail_response_model.dart';
 import 'package:quizzie_thunder/utils/app_utils.dart';
@@ -12,6 +13,7 @@ class QuizDetailController extends GetxController {
   QuizDetailApi quizDetailApi = QuizDetailApi();
   QuizDetailResponseModel? quizDetailResponseModel;
   final arguments = Get.arguments;
+  final parameters = Get.parameters;
 
   var isLoading = false.obs;
 
@@ -33,6 +35,8 @@ class QuizDetailController extends GetxController {
       // quizCategoryName = arguments[ARG_QUIZ_CATEGORY_NAME] ?? "";
       getQuizDetail(quizId);
     }
+    // quizId = parameters['quizId']!;
+    // getQuizDetail(quizId);
     super.onInit();
   }
 void getQuizDetail(String quizId) async {

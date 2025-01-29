@@ -1,4 +1,8 @@
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:cached_network_image_platform_interface/cached_network_image_platform_interface.dart';
 import 'package:quizzie_thunder/modules/wonderous/ui/common_libs.dart';
+import 'package:shimmer/shimmer.dart';
+import 'package:flutter_image/flutter_image.dart';
 
 class MainTitle extends StatelessWidget {
   final String heading;
@@ -11,7 +15,35 @@ class MainTitle extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 8.0),
       child: Text(
         heading,
-        style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: Color.fromARGB(255, 0, 51, 102)),
+        style: TextStyle(
+            fontSize: 24,
+            fontWeight: FontWeight.bold,
+            color: Color.fromARGB(255, 0, 51, 102)),
+      ),
+    );
+  }
+}
+
+class ImageView extends StatelessWidget {
+  final String imageUrl;
+
+  const ImageView(this.imageUrl, {super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 8.0),
+      child: Center(
+        child: CachedNetworkImage(
+            imageUrl: imageUrl,
+            imageRenderMethodForWeb: ImageRenderMethodForWeb.HttpGet,
+            progressIndicatorBuilder: (context, url, downloadProgress) =>
+                Shimmer.fromColors(
+                    baseColor: Colors.grey[300]!,
+                    highlightColor: Colors.white,
+                    child: Image.asset("assets/images/placeholder.png")),
+            errorWidget: (context, url, error) => Icon(Icons.error)),
+        // child: Image.network(imageUrl)
       ),
     );
   }
@@ -36,10 +68,9 @@ class SecondaryTitle extends StatelessWidget {
           ),
           if (content.isNotEmpty)
             Padding(
-              padding: const EdgeInsets.only(top: 4.0),
-              // child: Text(content),
-              child: formatText(content)
-            ),
+                padding: const EdgeInsets.only(top: 4.0),
+                // child: Text(content),
+                child: formatText(content)),
         ],
       ),
     );
@@ -63,7 +94,10 @@ class TertiaryTitle extends StatelessWidget {
             padding: const EdgeInsets.only(left: 8.0),
             child: Text(
               heading,
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Color.fromARGB(255,75,46,46)),
+              style: TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                  color: Color.fromARGB(255, 75, 46, 46)),
             ),
           ),
           if (content.isNotEmpty)
@@ -77,7 +111,8 @@ class TertiaryTitle extends StatelessWidget {
     );
   }
 }
-  class Content extends StatelessWidget {
+
+class Content extends StatelessWidget {
   final String heading;
   final String content;
 
@@ -99,10 +134,12 @@ class TertiaryTitle extends StatelessWidget {
           ),
           if (content.isNotEmpty)
             Padding(
-              padding: const EdgeInsets.only(top: 4.0, left: 16.0,),
-              // child: Text(content, style: TextStyle(color: Color.fromARGB(255,77,77,77)),),
-              child: formatText(content)
-            ),
+                padding: const EdgeInsets.only(
+                  top: 4.0,
+                  left: 16.0,
+                ),
+                // child: Text(content, style: TextStyle(color: Color.fromARGB(255,77,77,77)),),
+                child: formatText(content)),
         ],
       ),
     );
@@ -126,12 +163,18 @@ class MaterialTitle extends StatelessWidget {
             padding: const EdgeInsets.only(left: 8.0),
             child: Text(
               heading,
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Color.fromARGB(255, 0, 127, 255)),
+              style: TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                  color: Color.fromARGB(255, 0, 127, 255)),
             ),
           ),
           if (content.isNotEmpty)
             Padding(
-              padding: const EdgeInsets.only(top: 4.0, left: 16.0,),
+              padding: const EdgeInsets.only(
+                top: 4.0,
+                left: 16.0,
+              ),
               // child: Text(content, style: TextStyle(color: Color.fromARGB(255,255 ,87,51)),),
               child: formatText(content),
             ),
@@ -151,12 +194,13 @@ RichText formatText(String text) {
     if (match.start > lastMatchEnd) {
       spans.add(TextSpan(
         text: text.substring(lastMatchEnd, match.start),
-        style: TextStyle(color: Color.fromARGB(255,90 ,90,90)),
+        style: TextStyle(color: Color.fromARGB(255, 90, 90, 90)),
       ));
     }
     spans.add(TextSpan(
       text: match.group(1),
-      style: TextStyle(fontWeight: FontWeight.bold, color: Color.fromARGB(255, 0, 127, 251)),
+      style: TextStyle(
+          fontWeight: FontWeight.bold, color: Color.fromARGB(255, 0, 127, 251)),
     ));
     lastMatchEnd = match.end;
   }
@@ -169,6 +213,6 @@ RichText formatText(String text) {
   }
 
   return RichText(
-    text: TextSpan(children: spans ),
+    text: TextSpan(children: spans),
   );
 }

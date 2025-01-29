@@ -1,7 +1,7 @@
 // import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:get/get.dart';
 import 'package:quizzie_thunder/modules/learning_path/learning_path_by_id/learning_path_by_id_controller.dart';
-import 'package:quizzie_thunder/modules/learning_path/learning_path_by_id/markdownl_view.dart';
+import 'package:quizzie_thunder/modules/learning_path/learning_path_by_id/markdown_view.dart';
 import 'package:quizzie_thunder/modules/wonderous/ui/common_libs.dart';
 import 'package:quizzie_thunder/theme/colors_theme.dart';
 
@@ -44,7 +44,7 @@ class LearningPageById extends StatelessWidget {
                           ? 600
                           : MediaQuery.of(context).size.width,
                       child: Container(
-                          color: ThemeColor.headerThree,
+                          color: ThemeColor.white,
                           child: Padding(
                               padding:
                                   const EdgeInsets.symmetric(horizontal: 8.0),
@@ -58,10 +58,16 @@ class LearningPageById extends StatelessWidget {
     // var content = learningController.learningPath!.paths!.content;
     return Container(
       child: learningController.isLoadingLearning.value
-          ? const Center(
-              child: CircularProgressIndicator(
-              color: ThemeColor.white,
-            ))
+          ? SizedBox(
+              height: MediaQuery.of(context).size.height,
+              width: MediaQuery.of(context).size.width > 600
+                  ? 600
+                  : MediaQuery.of(context).size.width,
+              child: const Center(
+                  child: CircularProgressIndicator(
+                color: ThemeColor.white,
+              )),
+            )
           : Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -85,8 +91,7 @@ class LearningPageById extends StatelessWidget {
                           return TertiaryTitle(
                               item['heading'], item['content']);
                         case 'content':
-                          return Content(
-                              item['heading'], item['content']);
+                          return Content(item['heading'], item['content']);
                         case 'material_title':
                           return MaterialTitle(
                               item['heading'], item['content']);

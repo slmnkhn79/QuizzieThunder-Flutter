@@ -1,0 +1,227 @@
+[
+    {
+        "question": "What is the force exerted by air around us called?",
+        "options": ["Gravitational force", "Atmospheric pressure", "Magnetic force", "Electrostatic force"],
+        "correct_answer": "Atmospheric pressure"
+    },
+    {
+        "question": "What is force per unit area called?",
+        "options": ["Pressure", "Friction", "Gravity", "Magnetic force"],
+        "correct_answer": "Pressure"
+    },
+    {
+        "question": "Which force arises due to the interaction between two objects?",
+        "options": ["Gravitational force", "Contact force", "Electrostatic force", "Magnetic force"],
+        "correct_answer": "Contact force"
+    },
+    {
+        "question": "Which force can act on an object without being in contact with it?",
+        "options": ["Muscular force", "Contact force", "Non-contact force", "Friction"],
+        "correct_answer": "Non-contact force"
+    },
+    {
+        "question": "What type of force is friction?",
+        "options": ["Contact force", "Non-contact force", "Gravitational force", "Electrostatic force"],
+        "correct_answer": "Contact force"
+    },
+    {
+        "question": "What is the force that pulls objects towards the center of the Earth?",
+        "options": ["Magnetic force", "Gravitational force", "Electrostatic force", "Muscular force"],
+        "correct_answer": "Gravitational force"
+    },
+    {
+        "question": "Which force is exerted by muscles?",
+        "options": ["Magnetic force", "Muscular force", "Gravitational force", "Electrostatic force"],
+        "correct_answer": "Muscular force"
+    },
+    {
+        "question": "What is the force that acts between charged particles?",
+        "options": ["Gravitational force", "Electrostatic force", "Magnetic force", "Muscular force"],
+        "correct_answer": "Electrostatic force"
+    },
+    {
+        "question": "Which force is responsible for the attraction or repulsion between magnets?",
+        "options": ["Gravitational force", "Electrostatic force", "Magnetic force", "Muscular force"],
+        "correct_answer": "Magnetic force"
+    },
+    {
+        "question": "What is the force that opposes the motion of objects in contact?",
+        "options": ["Gravitational force", "Electrostatic force", "Friction", "Magnetic force"],
+        "correct_answer": "Friction"
+    },
+    {
+        "question": "What is the force that can change the shape of an object?",
+        "options": ["Gravitational force", "Electrostatic force", "Magnetic force", "Force"],
+        "correct_answer": "Force"
+    },
+    {
+        "question": "What is the force that can change the state of motion of an object?",
+        "options": ["Gravitational force", "Electrostatic force", "Magnetic force", "Force"],
+        "correct_answer": "Force"
+    },
+    {
+        "question": "What is the force that can act on an object with or without being in contact with it?",
+        "options": ["Gravitational force", "Electrostatic force", "Magnetic force", "Force"],
+        "correct_answer": "Force"
+    },
+    {
+        "question": "What is the force that can cause a change in the speed of an object?",
+        "options": ["Gravitational force", "Electrostatic force", "Magnetic force", "Force"],
+        "correct_answer": "Force"
+    },
+    {
+        "question": "What is the force that can cause a change in the direction of motion of an object?",
+        "options": ["Gravitational force", "Electrostatic force", "Magnetic force", "Force"],
+        "correct_answer": "Force"
+    },
+    {
+        "question": "What is the force that can cause a change in both the speed and direction of motion of an object?",
+        "options": ["Gravitational force", "Electrostatic force", "Magnetic force", "Force"],
+        "correct_answer": "Force"
+    },
+    {
+        "question": "What is the force that can act on an object without being in contact with it?",
+        "options": ["Gravitational force", "Electrostatic force", "Magnetic force", "Non-contact force"],
+        "correct_answer": "Non-contact force"
+    },
+    {
+        "question": "What is the force that can act on an object with being in contact with it?",
+        "options": ["Gravitational force", "Electrostatic force", "Magnetic force", "Contact force"],
+        "correct_answer": "Contact force"
+    },
+    {
+        "question": "What is the force that can act on an object with or without being in contact with it?",
+        "options": ["Gravitational force", "Electrostatic force", "Magnetic force", "Force"],
+        "correct_answer": "Force"
+    },
+    {
+        "question": "What is the force that can cause a change in the shape of an object?",
+        "options": ["Gravitational force", "Electrostatic force", "Magnetic force", "Force"],
+        "correct_answer": "Force"
+    },
+    {
+        "question": "What is the force that can cause a change in the state of motion of an object?",
+        "options": ["Gravitational force", "Electrostatic force", "Magnetic force", "Force"],
+        "correct_answer": "Force"
+    },
+    {
+        "question": "What is the force that can cause a change in the speed of an object?",
+        "options": ["Gravitational force", "Electrostatic force", "Magnetic force", "Force"],
+        "correct_answer": "Force"
+    },
+    {
+        "question": "What is the force that can cause a change in the direction of motion of an object?",
+        "options": ["Gravitational force", "Electrostatic force", "Magnetic force", "Force"],
+        "correct_answer": "Force"
+    },
+    {
+        "question": "What is the force that can cause a change in both the speed and direction of motion of an object?",
+        "options": ["Gravitational force", "Electrostatic force", "Magnetic force", "Force"],
+        "correct_answer": "Force"
+    },
+    {
+        "question": "What is the force that can act on an object without being in contact with it?",
+        "options": ["Gravitational force", "Electrostatic force", "Magnetic force", "Non-contact force"],
+        "correct_answer": "Non-contact force"
+    },
+    {
+        "question": "What is the force that can act on an object with being in contact with it?",
+        "options": ["Gravitational force", "Electrostatic force", "Magnetic force", "Contact force"],
+        "correct_answer": "Contact force"
+    },
+    {
+        "question": "What is the force that can act on an object with or without being in contact with it?",
+        "options": ["Gravitational force", "Electrostatic force", "Magnetic force", "Force"],
+        "correct_answer": "Force"
+    },
+    {
+        "question": "What is the force that can cause a change in the shape of an object?",
+        "options": ["Gravitational force", "Electrostatic force", "Magnetic force", "Force"],
+        "correct_answer": "Force"
+    },
+    {
+        "question": "What is the force that can cause a change in the state of motion of an object?",
+        "options": ["Gravitational force", "Electrostatic force", "Magnetic force", "Force"],
+        "correct_answer": "Force"
+    },
+    {
+        "question": "What is the force that can cause a change in the speed of an object?",
+        "options": ["Gravitational force", "Electrostatic force", "Magnetic force", "Force"],
+        "correct_answer": "Force"
+    },
+    {
+        "question": "What is the force that acts on an object due to the Earth's gravity?",
+        "options": ["Gravitational force", "Electrostatic force", "Magnetic force", "Muscular force"],
+        "correct_answer": "Gravitational force"
+    },
+    {
+        "question": "Which force is responsible for the repulsion between two like-charged objects?",
+        "options": ["Gravitational force", "Electrostatic force", "Magnetic force", "Muscular force"],
+        "correct_answer": "Electrostatic force"
+    },
+    {
+        "question": "What type of force is exerted by a compressed spring?",
+        "options": ["Gravitational force", "Electrostatic force", "Elastic force", "Muscular force"],
+        "correct_answer": "Elastic force"
+    },
+    {
+        "question": "Which force is responsible for the attraction between opposite poles of magnets?",
+        "options": ["Gravitational force", "Electrostatic force", "Magnetic force", "Muscular force"],
+        "correct_answer": "Magnetic force"
+    },
+    {
+        "question": "What is the force that acts on an object in a fluid due to the fluid's pressure?",
+        "options": ["Gravitational force", "Electrostatic force", "Buoyant force", "Muscular force"],
+        "correct_answer": "Buoyant force"
+    },
+    {
+        "question": "What is the force that opposes the relative motion of two surfaces in contact?",
+        "options": ["Gravitational force", "Electrostatic force", "Friction", "Magnetic force"],
+        "correct_answer": "Friction"
+    },
+    {
+        "question": "Which force is responsible for keeping planets in orbit around the sun?",
+        "options": ["Gravitational force", "Electrostatic force", "Magnetic force", "Muscular force"],
+        "correct_answer": "Gravitational force"
+    },
+    {
+        "question": "What type of force is exerted by a magnet?",
+        "options": ["Gravitational force", "Electrostatic force", "Magnetic force", "Muscular force"],
+        "correct_answer": "Magnetic force"
+    },
+    {
+        "question": "Which force is responsible for the attraction between objects with mass?",
+        "options": ["Gravitational force", "Electrostatic force", "Magnetic force", "Muscular force"],
+        "correct_answer": "Gravitational force"
+    },
+    {
+        "question": "What is the force that can cause an object to start moving, stop moving, or change direction?",
+        "options": ["Gravitational force", "Electrostatic force", "Magnetic force", "Force"],
+        "correct_answer": "Force"
+    },
+    {
+        "question": "Which force is exerted by the Earth's gravity on objects?",
+        "options": ["Gravitational force", "Electrostatic force", "Magnetic force", "Muscular force"],
+        "correct_answer": "Gravitational force"
+    },
+    {
+        "question": "What is the force that acts between two charged objects?",
+        "options": ["Gravitational force", "Electrostatic force", "Magnetic force", "Muscular force"],
+        "correct_answer": "Electrostatic force"
+    },
+    {
+        "question": "Which force is exerted by a person when they push or pull an object?",
+        "options": ["Gravitational force", "Electrostatic force", "Magnetic force", "Muscular force"],
+        "correct_answer": "Muscular force"
+    },
+    {
+        "question": "What is the force that can cause an object to change its shape?",
+        "options": ["Gravitational force", "Electrostatic force", "Magnetic force", "Force"],
+        "correct_answer": "Force"
+    },
+    {
+        "question": "Which force is responsible for the pressure exerted by liquids and gases on the walls of their containers?",
+        "options": ["Gravitational force", "Electrostatic force", "Magnetic force", "Pressure"],
+        "correct_answer": "Pressure"
+    }
+]

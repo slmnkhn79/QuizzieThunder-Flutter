@@ -36,7 +36,7 @@ class QuizDetail {
   final int numQuestions;
   final int? points;
   bool isPlayed;
-  final String quizType;
+  final QuizType quizType;
   final String categoryName;
   final String? timeLimit;
   final String standard;
@@ -67,7 +67,7 @@ class QuizDetail {
       numQuestions : json["numQuestions"],
       points : json["points"],
       isPlayed : json["isPlayed"],
-      quizType : json["quizType"],
+      quizType : QuizType.fromJson(json["quizType"]),
       categoryName : json["categoryName"],
       timeLimit : json["timeLimit"],
       standard : json["standard"],
@@ -90,3 +90,37 @@ class QuizDetail {
         "level":level
       };
 }
+class QuizType {
+  final String quizNameLong;
+  final String quizNameShort;
+  final String quizTypeId;
+  final String id;
+
+  QuizType({
+    required this.quizNameLong,
+    required this.quizNameShort,
+    required this.quizTypeId,
+    required this.id,
+  });
+
+  // Factory method for creating a new QuizType instance from a map
+  factory QuizType.fromJson(Map<String, dynamic> json) {
+    return QuizType(
+      quizNameLong: json['quizTypeNameLong'],
+      quizNameShort: json['quizTypeShort'],
+      quizTypeId: json['quizTypeId'],
+      id: json['id'],
+    );
+  }
+
+  // Method for converting a QuizType instance to a map
+  Map<String, dynamic> toJson() {
+    return {
+      'quiz_name_long': quizNameLong,
+      'quizNameShort': quizNameShort,
+      'quiz_name_short': quizTypeId,
+      'id': id,
+    };
+  }
+}
+

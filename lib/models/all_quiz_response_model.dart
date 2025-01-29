@@ -39,7 +39,8 @@ class Quiz {
     required this.createdAt,
     required this.updatedAt,
     required this.standard,
-    required this.level
+    required this.level,
+    required this.schedule
   });
 
   final String? id;
@@ -50,6 +51,7 @@ class Quiz {
   final DateTime? updatedAt;
   final String? standard;
   final String ? level;
+  final Schedule? schedule;
 
   factory Quiz.fromJson(Map<String, dynamic> json) {
     return Quiz(
@@ -62,6 +64,7 @@ class Quiz {
       updatedAt: DateTime.tryParse(json["updatedAt"] ?? ""),
       standard: json["standard"],
       level: json["level"],
+      schedule: json['schedule'] == null ? null: Schedule.fromJson(json['schedule'])
 
     );
   }
@@ -106,4 +109,18 @@ class Category {
         "createdAt": createdAt?.toIso8601String(),
         "updatedAt": updatedAt?.toIso8601String(),
       };
+}
+class Schedule{
+  final String id;
+  final String frequency_code;
+  final String frequency_name;
+
+  Schedule({required this.id, required this.frequency_code, required this.frequency_name});
+  factory Schedule.fromJson(Map<String, dynamic> json) {
+    return Schedule(
+      id: json["id"],
+      frequency_code: json["frequency_code"],
+      frequency_name: json["frequency_name"]
+    );
+  }
 }

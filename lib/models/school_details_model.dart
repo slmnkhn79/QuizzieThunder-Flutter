@@ -31,7 +31,7 @@ class School {
   School(
       {required this.id,
       required this.name,
-      required this.achivements,
+      // required this.achivements,
       required this.city,
       required this.district,
       required this.state,
@@ -42,7 +42,7 @@ class School {
       required this.headerImageUrl,
       required this.numOfStudents,
       required this.facultyRatio,
-      required this.attributes,
+      // required this.attributes,
       required this.photo1,
       required this.photo2,
       required this.photo3,
@@ -64,9 +64,9 @@ class School {
   final String? id;
   final String? name;
   // final List<Achievements> achivements;
-  final List<Achievements> achivements;
+  // final List<Achievements>? achivements;
   final String city;
-  final String district;
+  final String? district;
   final String state;
   final String? footerImageUrl;
   final List<Course>? coursesOffered;
@@ -75,7 +75,7 @@ class School {
   final String headerImageUrl;
   final int? numOfStudents;
   final String? facultyRatio;
-  final List<Attribute>? attributes;
+  // final List<Attribute>? attributes;
   final String photo1;
   final String photo2;
   final String photo3;
@@ -98,13 +98,13 @@ class School {
     return School(
       id: json["_id"],
       name: json["name"],
-      achivements: 
+      // achivements: 
       // json["achivements"],
 
-      json["achivements"] == null
-          ? []
-          : List<Achievements>.from(
-              json["achivements"]!.map((x) => Achievements.fromJson(x))),
+      // json["achivements"] == null
+      //     ? []
+      //     : List<Achievements>.from(
+      //         json["achivements"]!.map((x) => Achievements.fromJson(x))),
       city: json["city"],
       state: json["state"],
       district: json["district"],
@@ -115,10 +115,10 @@ class School {
       headerImageUrl: json['headerImageUrl'],
       numOfStudents: json['numOfStudents'],
       facultyRatio: json['facultyRatio'],
-      attributes: json["attributes"] == null
-          ? []
-          : List<Attribute>.from(
-              json["attributes"]!.map((x) => Attribute.fromJson(x))),
+      // attributes: json["attributes"] == null
+      //     ? []
+      //     : List<Attribute>.from(
+      //         json["attributes"]!.map((x) => Attribute.fromJson(x))),
       photo1: json["photo1"],
       photo2: json["photo2"],
       photo3: json["photo3"],
@@ -143,7 +143,7 @@ class School {
   Map<String, dynamic> toJson() => {
         "_id": id,
         "name": name,
-        "achivements": achivements,
+        // "achivements": achivements,
         // achivements?.map((x) => x.toJson()).toList(),
         "city": city,
         "state": state,

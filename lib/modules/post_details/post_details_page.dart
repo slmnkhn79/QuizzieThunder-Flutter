@@ -235,23 +235,19 @@ class PostDetailsPage extends StatelessWidget {
           ? Stack(
               alignment: Alignment.center,
               children: [
-                SizedBox(
-                  height: 400,
-                  width: double.infinity,
-                  child: CachedNetworkImage(
-                      imageRenderMethodForWeb: ImageRenderMethodForWeb.HttpGet,
-                      imageUrl: postDetailsController
-                          .postDetailsResponseModel!.post.imageUrl
-                          .toString(),
-                      fit: BoxFit.fill,
-                      fadeInDuration: Duration(milliseconds: 0),
-                      fadeOutDuration: Duration(milliseconds: 0),
-                      progressIndicatorBuilder:
-                          (context, url, downloadProgress) =>
-                              Image.asset("assets/images/placeholder.png"),
-                      // ),
-                      errorWidget: (context, url, error) => Icon(Icons.error)),
-                ),
+                CachedNetworkImage(
+                    imageRenderMethodForWeb: ImageRenderMethodForWeb.HttpGet,
+                    imageUrl: postDetailsController
+                        .postDetailsResponseModel!.post.imageUrl
+                        .toString(),
+                    fit: BoxFit.fill,
+                    fadeInDuration: Duration(milliseconds: 0),
+                    fadeOutDuration: Duration(milliseconds: 0),
+                    progressIndicatorBuilder:
+                        (context, url, downloadProgress) =>
+                            Image.asset("assets/images/placeholder.png"),
+                    // ),
+                    errorWidget: (context, url, error) => Icon(Icons.error)),
                 AnimatedOpacity(
                   duration: const Duration(milliseconds: 200),
                   opacity: postDetailsController.isLikeAnimating.value ? 1 : 0,

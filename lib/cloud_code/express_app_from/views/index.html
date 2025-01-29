@@ -249,136 +249,13 @@
         border-radius: 5px;
         font-family: Arial, sans-serif;
     }
+    .error {
+            color: red;
+        }
+        .success {
+            color: green;
+        }
 </style>
-
-<!-- <div class="formbold-main-wrapper">
-    <div class="formbold-form-wrapper">
-
-        <img src="https://academy.slmnkhn79.shop/favicon.png">
-        <div id="errorMessage" class="error-message">test</div>
-        <form id="signupForm">
-            
-            <div class="formbold-form-title">
-
-                <h2 class="">Register now</h2>
-                <p>
-                    Enter the following details
-                </p>
-            </div>
-
-            <div class="formbold-input-flex">
-                <div>
-                    <label for="firstname" class="formbold-form-label">
-                        First name
-                    </label>
-                    <input type="text" name="firstname" id="firstname" required class="formbold-form-input" />
-                </div>
-                <div>
-                    <label for="lastname" class="formbold-form-label"> Last name </label>
-                    <input type="text" name="lastname" id="lastname" required class="formbold-form-input" />
-                </div>
-            </div>
-
-            <div class="formbold-input-flex">
-                <div>
-                    <label for="email" class="formbold-form-label"> Email </label>
-                    <input type="email" name="email" id="email" required class="formbold-form-input" />
-                </div>
-                <div>
-                    <label for="dob" class="formbold-form-label"> Date of Birth </label>
-                    <input type="date" name="dob" id="dob" required class="formbold-form-input" />
-                </div>
-            </div>
-
-            <div class="formbold-input-flex">
-                <div>
-                    <label for="state" class="formbold-form-label"> City </label>
-                    <input type="text" name="state" id="state" required class="formbold-form-input" />
-                </div>
-                <div>
-                    <label for="country" class="formbold-form-label"> State </label>
-                    <input type="text" name="country" id="country" required class="formbold-form-input" />
-                </div>
-            </div>
-
-            <div class="formbold-input-flex">
-                <div>
-                    <label for="post" class="formbold-form-label"> Username </label>
-                    <input type="text" name="post" id="post" required class="formbold-form-input" />
-                </div>
-            </div>
-
-            <div class="formbold-input-flex">
-                <div>
-                    <label for="state" class="formbold-form-label"> Password </label>
-                    <input type="text" name="state" id="state" required class="formbold-form-input" />
-                </div>
-                <div>
-                    <label for="country" class="formbold-form-label"> Confrim Password </label>
-                    <input type="text" name="country" id="country" required class="formbold-form-input" />
-                </div>
-            </div>
-
-            <div class="formbold-input-group">
-                <label for="age" class="formbold-form-label"> Age </label>
-                <input type="text" name="age" id="age" required placeholder="Enter your age"
-                    class="formbold-form-input" />
-            </div>
-
-            <div class="formbold-radio-flex">
-                <div class="formbold-input-radio-wrapper">
-                    <label for="ans" class="formbold-form-label">
-                        Select your gender
-                    </label>
-                    <div class="formbold-radio-group">
-                        <label class="formbold-radio-label">
-                            <input class="formbold-input-radio" type="radio" required name="ans" id="ans" />
-                            Male
-                            <span class="formbold-radio-checkmark"></span>
-                        </label>
-                    </div>
-                    <div class="formbold-radio-group">
-                        <label class="formbold-radio-label">
-                            <input class="formbold-input-radio" type="radio" required name="ans" id="ans" />
-                            Female
-                            <span class="formbold-radio-checkmark"></span>
-                        </label>
-                    </div>
-                </div>
-                <div class="formbold-input-radio-wrapper">
-                    <label for="firstname" class="formbold-form-label">
-                        Select your interest
-                    </label>
-                    <div class="formbold-radio-flex">
-                        <input type="text" id="interest-filter-input" placeholder="Filter interests..."
-                            oninput="filterInterests()" class="formbold-form-input" />
-                        <div id="interest-radio-buttons-container"></div>
-                        <div class="formbold-input-group">
-                            <label for="interests" class="interests" id="interests" placeholder="Enter your interests"
-                                class="formbold-form-input" />
-                        </div>
-                    </div>
-                    <div class="formbold-input-radio-wrapper">
-                        <label for="firstname" class="formbold-form-label">
-                            Select your skills
-                        </label>
-
-                        <div class="formbold-radio-flex">
-                            <input type="text" id="skill-filter-input" placeholder="Filter skills..."
-                                oninput="filterSkills()" required class="formbold-form-input" />
-                            <div id="skill-radio-buttons-container"></div>
-                            <div class="formbold-input-group">
-                                <label for="skills" class="skills" id="skills" placeholder="Enter your skills"
-                                    class="formbold-form-input" />
-                            </div>
-                        </div>
-                        <button class="formbold-btn" id="submitData">Register Now</button>
-        </form>
-
-        <div id="responseMessage"></div>
-
-    </div>
-</div> -->
 
 <div class="formbold-main-wrapper">
     <div class="formbold-form-wrapper">
@@ -419,12 +296,14 @@
             <div class="formbold-input-flex">
                 <div>
                     <label for="state" class="formbold-form-label">City</label>
-                    <input type="text" name="state" id="state" required class="formbold-form-input" value="Lakhimpur Kheri" disabled />
+                    <input type="text" name="state" id="state" required class="formbold-form-input"
+                        value="Lakhimpur Kheri" disabled />
                     <div class="error-message" id="cityError">City is required</div>
                 </div>
                 <div>
                     <label for="country" class="formbold-form-label">State</label>
-                    <input type="text" name="country" id="country" required class="formbold-form-input" value="Uttar Pradesh" disabled />
+                    <input type="text" name="country" id="country" required class="formbold-form-input"
+                        value="Uttar Pradesh" disabled />
                     <div class="error-message" id="stateError">State is required</div>
                 </div>
             </div>
@@ -440,15 +319,18 @@
             <div class="formbold-input-flex">
                 <div>
                     <label for="password" class="formbold-form-label">Password</label>
-                    <input type="password" name="password" id="password" required class="formbold-form-input" />
+                    <input type="password" name="password" id="password" required class="formbold-form-input" oninput="checkPasswords()">
+                    <span class="toggle-btn" onclick="togglePassword()"></span>
                     <div class="error-message" id="passwordError">Password is required</div>
                 </div>
                 <div>
                     <label for="confirmPassword" class="formbold-form-label">Confirm Password</label>
-                    <input type="password" name="confirmPassword" id="confirmPassword" required
-                        class="formbold-form-input" />
+                    <input type="password" name="confirmPassword" id="confirmPassword" required oninput="checkPasswords()"
+                        class="formbold-form-input" /><span class="toggle-btn" onclick="togglePassword()"></span>
                     <div class="error-message" id="confirmPasswordError">Confirm Password is required</div>
                 </div>
+                <br>
+                <span id="message"></span>
             </div>
 
             <div class="formbold-input-group">
@@ -482,8 +364,7 @@
                 <div class="formbold-input-radio-wrapper">
                     <label for="interest" class="formbold-form-label">Select your interest</label>
                     <div class="formbold-radio-flex">
-                        <input type="text" id="interest-filter-input" placeholder="Filter interests..."
-                            oninput="filterInterests()" class="formbold-form-input" />
+
                         <div id="interest-radio-buttons-container"></div>
                         <div class="formbold-input-group">
                             <label for="interests" class="interests" id="interests" placeholder="Enter your interests"
@@ -502,8 +383,7 @@
                 <div class="formbold-input-radio-wrapper">
                     <label for="skills" class="formbold-form-label">Select your skills</label>
                     <div class="formbold-radio-flex">
-                        <input type="text" id="skill-filter-input" placeholder="Filter skills..."
-                            oninput="filterSkills()" required class="formbold-form-input" />
+
                         <div id="skill-radio-buttons-container"></div>
                         <div class="formbold-input-group">
                             <label for="skills" class="skills" id="skills" placeholder="Enter your skills"
@@ -525,7 +405,7 @@
                     <div>
                         <label for="summary" class="formbold-form-label">Short summary</label>
                         <textarea type="text" name="summary" id="summary" required rows="4" cols="50"
-                            class="formbold-form-input" ></textarea>
+                            class="formbold-form-input"></textarea>
                     </div>
                 </div>
             </div>

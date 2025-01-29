@@ -17,6 +17,7 @@ class QuizQuestionController extends GetxController {
   final time = '00.00'.obs;
 
   final arguments = Get.arguments;
+  final paramters = Get.parameters;
 
   var allQuestions = <Question>[];
 
@@ -38,12 +39,15 @@ class QuizQuestionController extends GetxController {
 
   @override
   void onInit() {
-    if (arguments != null) {
-      quizId = arguments[ARG_QUIZ_ID];
-      print(quizId);
-      quizName = arguments[ARG_QUIZ_NAME] ?? "";
-      quizCategoryName = arguments[ARG_QUIZ_CATEGORY_NAME] ?? "";
-    }
+    // if (arguments != null) {
+    //   quizId = arguments[ARG_QUIZ_ID];
+    //   print(quizId);
+    //   quizName = arguments[ARG_QUIZ_NAME] ?? "";
+    //   quizCategoryName = arguments[ARG_QUIZ_CATEGORY_NAME] ?? "";
+    // }
+    quizId = paramters['quizId']!;
+    quizName = paramters['quizName']!;
+    quizCategoryName = paramters['quizCategoryName']!;
     getAllQuizList();
     super.onInit();
   }

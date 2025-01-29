@@ -8,6 +8,8 @@ import 'package:quizzie_thunder/modules/course_content/all_course_content_page.d
 import 'package:quizzie_thunder/modules/course_content/course_by_id/course_content_binding.dart';
 import 'package:quizzie_thunder/modules/course_content/course_by_id/course_content_controller.dart';
 import 'package:quizzie_thunder/modules/course_content/course_by_id/course_content_page.dart';
+import 'package:quizzie_thunder/modules/courses_milestones/course_binding.dart';
+import 'package:quizzie_thunder/modules/courses_milestones/course_page.dart';
 import 'package:quizzie_thunder/modules/post_details/post_detail_binding.dart';
 import 'package:quizzie_thunder/modules/post_details/post_details_page.dart';
 import 'package:quizzie_thunder/modules/gallery/gallery_header_binding.dart';
@@ -18,6 +20,10 @@ import 'package:quizzie_thunder/modules/learning_path/learning_path_by_id/learni
 import 'package:quizzie_thunder/modules/learning_path/learning_path_by_id/learning_page_by_id.dart';
 import 'package:quizzie_thunder/modules/profile_page/public_profile_binding.dart';
 import 'package:quizzie_thunder/modules/profile_page/public_profile_page.dart';
+import 'package:quizzie_thunder/modules/quiz_question/photo_quiz/photo_quiz_binding.dart';
+import 'package:quizzie_thunder/modules/quiz_question/photo_quiz/photo_quiz_page.dart';
+import 'package:quizzie_thunder/modules/quiz_submissions/quiz_submission_binding.dart';
+import 'package:quizzie_thunder/modules/quiz_submissions/quiz_submission_page.dart';
 import 'package:quizzie_thunder/modules/school_details/school_details_binding.dart';
 import 'package:quizzie_thunder/modules/school_details/school_details_page.dart';
 import 'package:quizzie_thunder/modules/study_plans/all_study_plans_page.dart';
@@ -28,6 +34,7 @@ import 'package:quizzie_thunder/modules/videos/all_videos_binding.dart';
 import 'package:quizzie_thunder/modules/videos/all_videos_page.dart';
 import 'package:quizzie_thunder/modules/videos/play_video/play_video_binding.dart';
 import 'package:quizzie_thunder/modules/videos/play_video/play_video_page.dart';
+import 'package:quizzie_thunder/modules/wonderous/ui/photo_gallery/photo_gallery.dart';
 
 import '../modules/create_new_password/create_new_password_binding.dart';
 import '../modules/create_new_password/create_new_password_page.dart';
@@ -212,6 +219,21 @@ class AppPages {
       name: AppRoutes.courseById,
       page: () => CourseContentPage(),
       binding: CourseContentBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.photoQuizPage,
+      page: () => PhotoQuizPage(),
+      binding: PhotoQuizBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.quizSubmissionPAge,
+      page: () => QuizSubmissionPage(),
+      binding: QuizSubmissionBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.courseMilestone,
+      page: () => CourseDetailsPage(),
+      binding: CourseBinding(),
     ),
   ];
 }

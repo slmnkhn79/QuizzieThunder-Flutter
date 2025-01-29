@@ -96,7 +96,7 @@ class AllStudyPlans extends StatelessWidget {
                                   fontWeight: FontWeight.w700,
                                 )),
                             leading: Text(item.standard.standardName),
-                            trailing: Icon(Icons.not_started_outlined),
+                            // trailing: Icon(Icons.not_started_outlined),
                           ),
                         ),
                       ),

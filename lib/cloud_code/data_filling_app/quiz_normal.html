@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        input[type="datetime-local"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Mobile Styles */
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+
+            form {
+                padding: 15px;
+            }
+
+            button {
+                font-size: 14px;
+            }
+        }
+
+        /* Desktop Styles */
+        @media (min-width: 601px) {
+            form {
+                padding: 30px;
+            }
+
+            button {
+                font-size: 18px;
+            }
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        input[type="datetime-local"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Loading Bar Styles */
+        .loading-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background-color: #007bff;
+            animation: loading 2s infinite;
+        }
+
+        @keyframes loading {
+            0% {
+                width: 0;
+            }
+
+            100% {
+                width: 100%;
+            }
+        }
+
+        /* Error Popup Styles */
+        .error-popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fff;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .error-popup p {
+            margin: 0 0 20px;
+        }
+
+        .error-popup button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        /* Loading Indicator Styles */
+        .loading-indicator {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border: 16px solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 16px solid #007bff;
+            width: 120px;
+            height: 120px;
+            animation: spin 2s linear infinite;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Mobile Styles */
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+
+            form {
+                padding: 15px;
+            }
+
+            button {
+                font-size: 14px;
+            }
+        }
+
+        /* Desktop Styles */
+        @media (min-width: 601px) {
+            form {
+                padding: 30px;
+            }
+
+            button {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="loadingBar" class="loading-bar"></div>
+    <div id="errorPopup" class="error-popup">
+        <p>Error loading content. Please try again later.</p>
+        <button onclick="closePopup()">Close</button>
+    </div>
+    <h1>Create Quiz</h1>
+    <div id="loadingIndicator" class="loading-indicator"></div>
+    <form id="quizForm">
+        <label for="totalQuestions">Total Questions:</label>
+        <input type="number" id="totalQuestions" name="totalQuestions" required><br><br>
+
+        <label for="quizType">Quiz Type:</label>
+        <select id="quizType" name="quizType" required></select><br><br>
+
+        <label for="difficulty">Difficulty:</label>
+        <select id="difficulty" name="difficulty" required>
+            <option value="Medium">Medium</option>
+            <option value="Hard">Hard</option>
+            <option value="Easy">Easy</option>
+            <option value="">Blank</option>
+        </select><br><br>
+
+        <label for="timeLimit">Time Limit:</label>
+        <input type="text" id="timeLimit" name="timeLimit" required><br><br>
+
+        <label for="startDate">Start Date:</label>
+        <input type="datetime-local" id="startDate" name="startDate" required><br><br>
+
+        <label for="endDate">End Date:</label>
+        <input type="datetime-local" id="endDate" name="endDate" required><br><br>
+
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title" required><br><br>
+
+        <label for="description">Description:</label>
+        <textarea id="description" name="description" rows="4" cols="50" required></textarea><br><br>
+
+        <label for="category">Category:</label>
+        <select id="category" name="category" required></select><br><br>
+
+        <label for="standard">Standard:</label>
+        <select id="standard" name="standard" required></select><br><br>
+
+        <button type="submit">Create Quiz</button>
+    </form>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            const loadingBar = document.getElementById('loadingBar');
+            const errorPopup = document.getElementById('errorPopup');
+            const quizForm = document.getElementById('quizForm');
+            // Fetch and populate quiz types
+            try {
+                const quizTypeResponse = await fetch('https://parseapi.back4app.com/classes/QuizTypes', {
+                    method: 'GET',
+
+                    headers: {
+                        'Content-Type': 'application/json',
+                        
+                    }
+                });
+                const quizTypes = await quizTypeResponse.json();
+                var items = quizTypes['results']
+                console.log(items);
+                const quizTypeSelect = document.getElementById('quizType');
+                items.forEach(type => {
+                    const option = document.createElement('option');
+                    option.value = type['objectId'];
+                    option.textContent = type['type_name_long'];
+                    quizTypeSelect.appendChild(option);
+                });
+
+                // Fetch and populate categories
+                const categoryResponse = await fetch('https://parseapi.back4app.com/classes/QuizCategory', {
+                    method: 'GET',
+                    headers: {
+                     
+                    }
+                });
+                const categories = await categoryResponse.json();
+                var catArr = categories['results']
+                const categorySelect = document.getElementById('category');
+                catArr.forEach(category => {
+                    const option = document.createElement('option');
+                    option.value = category['objectId'];
+                    option.textContent = category['title'];
+                    categorySelect.appendChild(option);
+                });
+
+                // Fetch and populate standards
+                const standardResponse = await fetch('https://parseapi.back4app.com/classes/Standard', {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        
+                    }
+                });
+                const standards = await standardResponse.json();
+                var standardsArr = standards['results']
+                const standardSelect = document.getElementById('standard');
+                standardsArr.forEach(standard => {
+                    const option = document.createElement('option');
+                    option.value = standard['objectId'];
+                    option.textContent = standard['standard_name'];
+                    standardSelect.appendChild(option);
+                });
+                loadingBar.style.display = 'none';
+                quizForm.style.display = 'block';
+            }
+            catch (error) {
+                console.error('Error loading content:', error);
+                loadingBar.style.display = 'none';
+                errorPopup.style.display = 'block';
+            }
+        });
+        function closePopup() {
+            document.getElementById('errorPopup').style.display = 'none';
+        }
+        document.getElementById('quizForm').addEventListener('submit', async function (event) {
+            event.preventDefault(); // Prevent form submission
+            const loadingIndicator = document.getElementById('loadingIndicator');
+            loadingIndicator.style.display = 'block';
+
+            // Get form values
+            const totalQuestions = document.getElementById('totalQuestions').value;
+            const quizType = document.getElementById('quizType').value;
+            const difficulty = document.getElementById('difficulty').value;
+            const timeLimit = document.getElementById('timeLimit').value;
+            const startDate = document.getElementById('startDate').value;
+            const endDate = document.getElementById('endDate').value;
+            const title = document.getElementById('title').value;
+            const description = document.getElementById('description').value;
+            const category = document.getElementById('category').value;
+            const standard = document.getElementById('standard').value;
+
+            // Validate form values
+            if (!totalQuestions || totalQuestions <= 0) {
+                alert('Please enter a valid number of total questions.');
+                loadingIndicator.style.display = 'none';
+                return;
+            }
+            if (!quizType) {
+                alert('Please select a quiz type.');
+                loadingIndicator.style.display = 'none';
+                return;
+            }
+            if (!difficulty) {
+                alert('Please select a difficulty level.');
+                loadingIndicator.style.display = 'none';
+                return;
+            }
+            if (!timeLimit) {
+                alert('Please enter a time limit.');
+                loadingIndicator.style.display = 'none';
+                return;
+            }
+            if (!startDate) {
+                alert('Please select a start date.');
+                loadingIndicator.style.display = 'none';
+                return;
+            }
+            if (!endDate) {
+                alert('Please select an end date.');
+                loadingIndicator.style.display = 'none';
+                return;
+            }
+            if (new Date(startDate) >= new Date(endDate)) {
+                alert('End date must be after start date.');
+                loadingIndicator.style.display = 'none';
+                return;
+            }
+            if (!title) {
+                alert('Please enter a title.');
+                loadingIndicator.style.display = 'none';
+                return;
+            }
+            if (!description) {
+                alert('Please enter a description.');
+                loadingIndicator.style.display = 'none';
+                return;
+            }
+            if (!category) {
+                alert('Please select a category.');
+                loadingIndicator.style.display = 'none';
+                return;
+            }
+            if (!standard) {
+                alert('Please select a standard.');
+                loadingIndicator.style.display = 'none';
+                return;
+            }
+
+            const data = {
+                totalQuestions: parseInt(totalQuestions, 10),
+                quizType,
+                difficulty,
+                timeLimit,
+                startDate: new Date(startDate).toISOString(),
+                endDate: new Date(endDate).toISOString(),
+                title,
+                description,
+                category,
+                standard
+            };
+
+            try {
+                // Send data to API
+                const response = await fetch('https://parseapi.back4app.com/parse/functions/createQuiz', { // replace with actual API URL
+                    method: 'POST',
+
+                    headers: {
+                        'Content-Type': 'application/json',
+                       
+                    },
+                    body: JSON.stringify(data)
+                });
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+
+                const result = await response.json();
+                alert('Form submitted successfully!');
+
+                console.log('Submission result:', result);
+            } catch (error) {
+                console.error('Error submitting form:', error);
+                alert('Error submitting form. Please try again later.');
+            } finally {
+                // Hide loading indicator
+                loadingIndicator.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+
+</html>

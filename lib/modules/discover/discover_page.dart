@@ -63,10 +63,16 @@ class DiscoverPage extends StatelessWidget {
               },
               child: discoverController.isLoading.value &&
                       learningDiscoverController.isLoading.value
-                  ? const Center(
-                      child: CircularProgressIndicator(
-                      color: ThemeColor.white,
-                    ))
+                  ? SizedBox(
+                    width: MediaQuery.of(context).size.width > 600
+                            ? 600
+                            : MediaQuery.of(context).size.width,
+                    height :  MediaQuery.of(context).size.height,
+                    child: const Center(
+                        child: CircularProgressIndicator(
+                        color: ThemeColor.white,
+                      )),
+                  )
                   : SingleChildScrollView(
                       child: Center(
                       child: SizedBox(
@@ -697,7 +703,8 @@ class DiscoverPage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Divider(),
-              learningPathCards(learningDiscoverController, context),
+              // learningPathCards(learningDiscoverController, context),
+              studyPlanModule(learningDiscoverController, context),
               Divider(),
               studyPlan(learningDiscoverController, context),
               Divider(),
@@ -776,7 +783,7 @@ class DiscoverPage extends StatelessWidget {
                             elevation: 4.0,
                             child: Center(
                               child: ListTile(
-                                isThreeLine: true,
+                                // isThreeLine: true,
                                 title: Text(
                                   item.pathName,
                                   style: TextStyle(
@@ -785,12 +792,13 @@ class DiscoverPage extends StatelessWidget {
                                     fontWeight: FontWeight.w700,
                                   ),
                                 ),
-                                subtitle: Text('Some Description',
-                                    style: TextStyle(
-                                      color: ThemeColor.black,
-                                      fontSize: 10.0,
-                                      fontWeight: FontWeight.w700,
-                                    )),
+                                // subtitle: Text('Some Description',
+                                //     style: TextStyle(
+                                //       color: ThemeColor.black,
+                                //       fontSize: 10.0,
+                                //       fontWeight: FontWeight.w700,
+                                //     )
+                                    // ),
                                 // trailing:  Icon(Icons.navigate_next_rounded),
                               ),
                             ),
@@ -857,7 +865,7 @@ class DiscoverPage extends StatelessWidget {
                       physics: NeverScrollableScrollPhysics(),
                       // scrollDirection: Axis.vertical,
                       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: columns, childAspectRatio: 2),
+                          crossAxisCount: columns, childAspectRatio: 3),
                       itemCount: learningDiscoverController
                           .discoverLearningResponseModel!
                           .data
@@ -874,7 +882,7 @@ class DiscoverPage extends StatelessWidget {
                                 arguments: {ARG_STUDY_PLAN_ID: item.id});
                           },
                           child: Card(
-                            color: AppUtils.getRandomCardBgColor(),
+                            color: AppUtils.getRandomMaterialColor(),
                             shape: RoundedRectangleBorder(
                               borderRadius:
                                   BorderRadius.circular(4), // No border radius
@@ -884,15 +892,15 @@ class DiscoverPage extends StatelessWidget {
                               child: ListTile(
                                   title: Text(item.planName,
                                       style: TextStyle(
-                                        color: Colors.black87,
+                                        color: Colors.white,
                                         fontSize: 12.0,
                                         fontWeight: FontWeight.w700,
                                       )),
-                                  leading: Text(item.standard),
+                                  leading: Text(item.standard,style: TextStyle(color:ThemeColor.white),),
                                   trailing:
                                       // MediaQuery.of(context).size.width > 600
                                       //         ?
-                                      Icon(Icons.not_started_outlined)
+                                      Icon(Icons.not_started_outlined, color:ThemeColor.white)
                                   //         : null,
                                   ),
                             ),
@@ -1163,6 +1171,73 @@ SizedBox courseContainer(LearningDiscoverController learningDiscoverController,
                 }),
           ],
         ));
+  }
+  
+  studyPlanModule(LearningDiscoverController learningDiscoverController, BuildContext context) {
+return SizedBox(
+        width: MediaQuery.of(context).size.width > 600
+            ? 600
+            : MediaQuery.of(context).size.width,
+        // height: 600.0,
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(left: 8.0, right: 8.0),
+              child: SizedBox(
+                height: 30,
+                width: double.infinity,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      "Recommended Course Modules",
+                      style: TextStyle(
+                        fontWeight: FontWeight.w700,
+                      ),
+                    ),
+                    InkWell(
+                        onTap: () {
+                          Get.toNamed('/allMilestoneCourses');
+                        },
+                        child: Text("See all",
+                            style: TextStyle(color: Colors.blue[400])))
+                  ],
+                ),
+              ),
+            ),
+            GridView.builder(
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2, childAspectRatio:4),
+                physics: NeverScrollableScrollPhysics(),
+                shrinkWrap: true,
+                scrollDirection: Axis.vertical,
+                itemCount: learningDiscoverController
+                    .discoverLearningResponseModel!
+                    .data
+                    .courseModule
+                    .length, // Number of cards
+                itemBuilder: (context, index) {
+                  var item = learningDiscoverController
+                      .discoverLearningResponseModel!.data.courseModule[index];
+                  return InkWell(
+                    onTap: () {
+                      Get.toNamed('/courseMilestoneById?courseId=${item.id}');
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 16.0, right: 16.0),
+                      child:
+                          Card(
+                          color: AppUtils.getRandomMaterialColor(),
+                           child: Center(child: Text(item.courseModueName, style: TextStyle(color: ThemeColor.white,  fontWeight:  FontWeight.bold))),
+                            
+                          ),
+                          
+                       
+                    ),
+                  );
+                }),
+          ],
+        ));
+
   }
 }
 

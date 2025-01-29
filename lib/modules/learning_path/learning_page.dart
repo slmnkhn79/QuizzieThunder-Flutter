@@ -176,7 +176,7 @@ class LearningPage extends StatelessWidget {
   SizedBox filterContainer(
       BuildContext context, LearningController learningController) {
     return SizedBox(
-        height: MediaQuery.of(context).size.height * 0.1,
+        height: MediaQuery.of(context).size.height * 0.15,
         child: learningController.isSearchLoading.value
             ? Column(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -187,8 +187,8 @@ class LearningPage extends StatelessWidget {
             )
             : GridView.builder(
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 5,
-                    childAspectRatio: 3),
+                    crossAxisCount: 4,
+                    childAspectRatio: 2),
                 itemCount: learningController
                     .searchResponseModel!.searchResults.length,
                 itemBuilder: (context, index) {
@@ -222,7 +222,7 @@ class LearningPage extends StatelessWidget {
   SizedBox getLearningPathGrid(BuildContext context,
       LearningController learningController, int columns) {
     return SizedBox(
-      height: MediaQuery.of(context).size.height * 0.8,
+      height: MediaQuery.of(context).size.height * 0.75,
       child: GridView.builder(
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: columns,

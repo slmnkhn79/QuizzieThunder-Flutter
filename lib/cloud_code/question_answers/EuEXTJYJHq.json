@@ -1,0 +1,247 @@
+[
+    {
+        "question": "What is the main objective of Pradhan Mantri Kaushal Vikas Yojna?",
+        "options": ["To provide free medical services", "To promote skill development", "To improve agricultural productivity", "To enhance digital literacy"],
+        "correct_answer": "To promote skill development"
+    },
+    {
+        "question": "Which continent has only 5% of the world's population?",
+        "options": ["Asia", "Africa", "Europe", "Australia"],
+        "correct_answer": "Australia"
+    },
+    {
+        "question": "What is the average population density in India?",
+        "options": ["382 persons per sq km", "450 persons per sq km", "300 persons per sq km", "500 persons per sq km"],
+        "correct_answer": "382 persons per sq km"
+    },
+    {
+        "question": "Which factor does NOT affect the distribution of population?",
+        "options": ["Topography", "Climate", "Soil", "Language"],
+        "correct_answer": "Language"
+    },
+    {
+        "question": "What is a population pyramid?",
+        "options": ["A graphical representation of age and sex distribution", "A type of ancient structure", "A method of population control", "A measure of population density"],
+        "correct_answer": "A graphical representation of age and sex distribution"
+    },
+    {
+        "question": "What is the term for people moving out of a country?",
+        "options": ["Immigrants", "Emigrants", "Migrants", "Nomads"],
+        "correct_answer": "Emigrants"
+    },
+    {
+        "question": "Which continent has 13% of the world's population?",
+        "options": ["Asia", "Africa", "Europe", "North America"],
+        "correct_answer": "Africa"
+    },
+    {
+        "question": "What was the main cause of population change in 1999?",
+        "options": ["Natural disasters", "Economic growth", "Wars", "Birth and death rates"],
+        "correct_answer": "Birth and death rates"
+    },
+    {
+        "question": "Which factor is a social factor affecting population distribution?",
+        "options": ["Climate", "Soil", "Water", "Cultural factors"],
+        "correct_answer": "Cultural factors"
+    },
+    {
+        "question": "What is the term for people moving into a country?",
+        "options": ["Immigrants", "Emigrants", "Migrants", "Nomads"],
+        "correct_answer": "Immigrants"
+    },
+    {
+        "question": "Which continent has 1% of the world's population?",
+        "options": ["Asia", "Africa", "Europe", "Antarctica"],
+        "correct_answer": "Antarctica"
+    },
+    {
+        "question": "What is the pattern of population distribution?",
+        "options": ["Evenly distributed", "Clustered in urban areas", "Scattered in rural areas", "All of the above"],
+        "correct_answer": "All of the above"
+    },
+    {
+        "question": "What is the total population of the world?",
+        "options": ["7 billion", "7.8 billion", "8 billion", "8.5 billion"],
+        "correct_answer": "8 billion"
+    },
+    {
+        "question": "Which continent has 12% of the world's population?",
+        "options": ["Asia", "Africa", "Europe", "South America"],
+        "correct_answer": "Europe"
+    },
+    {
+        "question": "What is the main objective of human resources development?",
+        "options": ["To increase population", "To improve health services", "To enhance skills and education", "To promote tourism"],
+        "correct_answer": "To enhance skills and education"
+    },
+    {
+        "question": "Which factor is an economic factor affecting population distribution?",
+        "options": ["Topography", "Climate", "Minerals", "Water"],
+        "correct_answer": "Minerals"
+    },
+    {
+        "question": "What is the term for the change in population over time?",
+        "options": ["Population growth", "Population decline", "Population change", "Population stability"],
+        "correct_answer": "Population change"
+    },
+    {
+        "question": "Which factor is a cultural factor affecting population distribution?",
+        "options": ["Topography", "Climate", "Soil", "Social factors"],
+        "correct_answer": "Social factors"
+    },
+    {
+        "question": "What is the main cause of population change?",
+        "options": ["Birth and death rates", "Migration", "Economic factors", "All of the above"],
+        "correct_answer": "All of the above"
+    },
+    {
+        "question": "What is the term for people moving within a country?",
+        "options": ["Immigrants", "Emigrants", "Internal migrants", "Nomads"],
+        "correct_answer": "Internal migrants"
+    },
+    {
+        "question": "Which factor is a physical factor affecting population distribution?",
+        "options": ["Topography", "Economic factors", "Cultural factors", "Social factors"],
+        "correct_answer": "Topography"
+    },
+    {
+        "question": "What is the main objective of Pradhan Mantri Kaushal Vikas Yojna?",
+        "options": ["To provide free medical services", "To promote skill development", "To improve agricultural productivity", "To enhance digital literacy"],
+        "correct_answer": "To promote skill development"
+    },
+    {
+        "question": "Which continent has only 5% of the world's population?",
+        "options": ["Asia", "Africa", "Europe", "Australia"],
+        "correct_answer": "Australia"
+    },
+    {
+        "question": "What is the average population density in India?",
+        "options": ["382 persons per sq km", "450 persons per sq km", "300 persons per sq km", "500 persons per sq km"],
+        "correct_answer": "382 persons per sq km"
+    },
+    {
+        "question": "Which factor does NOT affect the distribution of population?",
+        "options": ["Topography", "Climate", "Soil", "Language"],
+        "correct_answer": "Language"
+    },
+    {
+        "question": "What is a population pyramid?",
+        "options": ["A graphical representation of age and sex distribution", "A type of ancient structure", "A method of population control", "A measure of population density"],
+        "correct_answer": "A graphical representation of age and sex distribution"
+    },
+    {
+        "question": "What is the term for people moving out of a country?",
+        "options": ["Immigrants", "Emigrants", "Migrants", "Nomads"],
+        "correct_answer": "Emigrants"
+    },
+    {
+        "question": "Which continent has 13% of the world's population?",
+        "options": ["Asia", "Africa", "Europe", "North America"],
+        "correct_answer": "Africa"
+    },
+    {
+        "question": "What was the main cause of population change in 1999?",
+        "options": ["Natural disasters", "Economic growth", "Wars", "Birth and death rates"],
+        "correct_answer": "Birth and death rates"
+    },
+    {
+        "question": "What is the main goal of human resources development?",
+        "options": ["To increase population", "To improve health services", "To enhance skills and education", "To promote tourism"],
+        "correct_answer": "To enhance skills and education"
+    },
+    {
+        "question": "Which factor is an economic factor affecting population distribution?",
+        "options": ["Topography", "Climate", "Minerals", "Water"],
+        "correct_answer": "Minerals"
+    },
+    {
+        "question": "What is the term for the change in population over time?",
+        "options": ["Population growth", "Population decline", "Population change", "Population stability"],
+        "correct_answer": "Population change"
+    },
+    {
+        "question": "Which factor is a cultural factor affecting population distribution?",
+        "options": ["Topography", "Climate", "Soil", "Social factors"],
+        "correct_answer": "Social factors"
+    },
+    {
+        "question": "What is the main cause of population change?",
+        "options": ["Birth and death rates", "Migration", "Economic factors", "All of the above"],
+        "correct_answer": "All of the above"
+    },
+    {
+        "question": "What is the term for people moving within a country?",
+        "options": ["Immigrants", "Emigrants", "Internal migrants", "Nomads"],
+        "correct_answer": "Internal migrants"
+    },
+    {
+        "question": "Which factor is a physical factor affecting population distribution?",
+        "options": ["Topography", "Economic factors", "Cultural factors", "Social factors"],
+        "correct_answer": "Topography"
+    },
+    {
+        "question": "What is the main objective of Pradhan Mantri Kaushal Vikas Yojna?",
+        "options": ["To provide free medical services", "To promote skill development", "To improve agricultural productivity", "To enhance digital literacy"],
+        "correct_answer": "To promote skill development"
+    },
+    {
+        "question": "Which continent has only 5% of the world's population?",
+        "options": ["Asia", "Africa", "Europe", "Australia"],
+        "correct_answer": "Australia"
+    },
+    {
+        "question": "What is the average population density in India?",
+        "options": ["382 persons per sq km", "450 persons per sq km", "300 persons per sq km", "500 persons per sq km"],
+        "correct_answer": "382 persons per sq km"
+    },
+    {
+        "question": "Which factor is a natural factor affecting population distribution?",
+        "options": ["Economic opportunities", "Cultural traditions", "Climate", "Government policies"],
+        "correct_answer": "Climate"
+    },
+    {
+        "question": "What is the term for the number of births per 1,000 people in a year?",
+        "options": ["Birth rate", "Death rate", "Fertility rate", "Growth rate"],
+        "correct_answer": "Birth rate"
+    },
+    {
+        "question": "Which continent has the highest population density?",
+        "options": ["Asia", "Africa", "Europe", "South America"],
+        "correct_answer": "Asia"
+    },
+    {
+        "question": "What is the main focus of Pradhan Mantri Kaushal Vikas Yojna?",
+        "options": ["Healthcare", "Skill development", "Agriculture", "Infrastructure"],
+        "correct_answer": "Skill development"
+    },
+    {
+        "question": "Which factor is a human-made factor affecting population distribution?",
+        "options": ["Topography", "Climate", "Soil fertility", "Economic activities"],
+        "correct_answer": "Economic activities"
+    },
+    {
+        "question": "What is the term for the movement of people from rural to urban areas?",
+        "options": ["Urbanization", "Migration", "Emigration", "Immigration"],
+        "correct_answer": "Urbanization"
+    },
+    {
+        "question": "Which continent has the lowest population density?",
+        "options": ["Asia", "Africa", "Europe", "Australia"],
+        "correct_answer": "Australia"
+    },
+    {
+        "question": "What is the main cause of population growth in developing countries?",
+        "options": ["High birth rates", "Low death rates", "Immigration", "Economic development"],
+        "correct_answer": "High birth rates"
+    },
+    {
+        "question": "Which factor is a demographic factor affecting population distribution?",
+        "options": ["Topography", "Climate", "Age structure", "Soil quality"],
+        "correct_answer": "Age structure"
+    },
+    {
+        "question": "What is the term for the number of deaths per 1,000 people in a year?",
+        "options": ["Birth rate", "Death rate", "Fertility rate", "Growth rate"],
+        "correct_answer": "Death rate"
+    }
+]

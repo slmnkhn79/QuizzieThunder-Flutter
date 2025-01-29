@@ -27,7 +27,7 @@ class StudyPlan {
   final String planDescription;
   final DateTime createdAt;
   final DateTime updatedAt;
-  final String pdfLink;
+  final String? pdfLink;
   final Standard standard;
   final dynamic planAttributes;
   

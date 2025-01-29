@@ -8,10 +8,8 @@ import '../../utils/constants.dart';
 import 'quiz_detail_controller.dart';
 
 class QuizDetailPage extends StatelessWidget {
-
-
   const QuizDetailPage({super.key});
-  
+
   @override
   Widget build(BuildContext context) {
     QuizDetailController quizDetailController =
@@ -95,7 +93,10 @@ class QuizDetailPage extends StatelessWidget {
                                           height: 8,
                                         ),
                                         Text(
-                                          quizDetailController.quizDetailResponseModel!.quizDetail.quizName,
+                                          quizDetailController
+                                              .quizDetailResponseModel!
+                                              .quizDetail
+                                              .quizName,
                                           style: TextStyle(
                                               color: ThemeColor.black,
                                               fontSize: 18,
@@ -208,7 +209,10 @@ class QuizDetailPage extends StatelessWidget {
                                           height: 8,
                                         ),
                                         Text(
-                                          quizDetailController.quizDetailResponseModel!.quizDetail.quizDescription,
+                                          quizDetailController
+                                              .quizDetailResponseModel!
+                                              .quizDetail
+                                              .quizDescription,
                                           style: TextStyle(
                                             color: ThemeColor.black,
                                             fontSize: 16,
@@ -217,86 +221,120 @@ class QuizDetailPage extends StatelessWidget {
                                         SizedBox(
                                           height: 44,
                                         ),
+                                        
                                         quizDetailController
-                                                      .quizDetailResponseModel!
-                                                      .quizDetail
-                                                      .isPlayed 
-                                                      ? Container(padding: EdgeInsets.only(top:5),
-                                                        height: 44,
-                                                        width: double.infinity,
-                                                        decoration: BoxDecoration(
-                                                          color: ThemeColor.red,
-                                                          borderRadius: BorderRadius.circular(12.0)
-                                                        ),
-
-                                                        
-                                                        child: Text("You have already played the quiz",
-                                                        textAlign: TextAlign.center,
-                                                        style:TextStyle(
-                                                          fontSize: 16,
-                                                          fontWeight: FontWeight.w500,
-                                                          color: ThemeColor.white
-                                                          )),
-                                                      )
-                                                      : Container(),
+                                                    .quizDetailResponseModel!
+                                                    .quizDetail
+                                                    .quizType
+                                                    .quizTypeId ==
+                                                'photo_1'
+                                            ? SizedBox(
+                                                width: double.infinity,
+                                                height: 44,
+                                                child: ElevatedButton(
+                                                  onPressed: () {
+                                                    Get.toNamed(
+                                                        '/quizSubmission?quizId=${quizDetailController.quizDetailResponseModel!.quizDetail.id}&quizType=${quizDetailController.quizDetailResponseModel!.quizDetail.quizType.quizTypeId}');
+                                                  },
+                                                  style: TextButton.styleFrom(
+                                                    textStyle: TextStyle(
+                                                        fontSize: 16,
+                                                        fontWeight:
+                                                            FontWeight.w500),
+                                                    shape:
+                                                        RoundedRectangleBorder(
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        12)),
+                                                    backgroundColor:
+                                                        ThemeColor.green,
+                                                  ),
+                                                  child: Text("Submissions",
+                                                      style: TextStyle(
+                                                          color: ThemeColor
+                                                              .white)),
+                                                ))
+                                            : Container(),
+                                        SizedBox(height: 10),
                                         !quizDetailController
-                                                      .quizDetailResponseModel!
-                                                      .quizDetail
-                                                      .isPlayed ?
-                                        SizedBox(
-                                            width: double.infinity,
-                                            height: 44,
-                                            child: ElevatedButton(
-                                              onPressed: quizDetailController
-                                                      .quizDetailResponseModel!
-                                                      .quizDetail
-                                                      .isPlayed
-                                                  ? () {}
-                                                  : () {
-                                                      Get.toNamed(
-                                                          AppRoutes
-                                                              .quizQuestionPage,
-                                                          arguments: {
-                                                            ARG_QUIZ_ID:
-                                                                quizDetailController.quizDetailResponseModel!
-                                                                    .quizDetail
-                                                                    .id,
-                                                            ARG_QUIZ_NAME:
-                                                                quizDetailController.quizDetailResponseModel!
-                                                                    .quizDetail
-                                                                    .quizName,
-                                                            ARG_QUIZ_CATEGORY_NAME: quizDetailController.quizDetailResponseModel!
-                                                                    .quizDetail
-                                                                    .categoryName
-                                                                    .isEmpty
-                                                                ? "${quizDetailController.quizDetail?.category?.title.toString().toUpperCase()}"
-                                                                : quizDetailController
-                                                                    .quizCategoryName
-                                                                    .toString()
-                                                                    .toUpperCase()
-                                                          });
-                                                          quizDetailController.dispose();
-                                                    },
-                                              style: TextButton.styleFrom(
-                                                textStyle: TextStyle(
-                                                    fontSize: 16,
-                                                    fontWeight:
-                                                        FontWeight.w500),
-                                                shape: RoundedRectangleBorder(
+                                                .quizDetailResponseModel!
+                                                .quizDetail
+                                                .isPlayed
+                                            ? SizedBox(
+                                                width: double.infinity,
+                                                height: 44,
+                                                child: ElevatedButton(
+                                                  onPressed: quizDetailController
+                                                          .quizDetailResponseModel!
+                                                          .quizDetail
+                                                          .isPlayed
+                                                      ? () {}
+                                                      : () {
+                                                          switch (quizDetailController
+                                                              .quizDetailResponseModel!
+                                                              .quizDetail
+                                                              .quizType
+                                                              .quizTypeId) {
+                                                            case "mcq_1":
+                                                              Get.toNamed(
+                                                                  '/quizQuestionPage?quizId=${quizDetailController.quizDetailResponseModel!.quizDetail.id}&quizName=${quizDetailController.quizDetailResponseModel!.quizDetail.quizName}&quizCategoryName=${quizDetailController.quizDetailResponseModel!.quizDetail.categoryName}');
+                                                            case "photo_1":
+                                                              Get.toNamed(
+                                                                  '/photoQuizPage?quizId=${quizDetailController.quizDetailResponseModel!.quizDetail.id}&quizName=${quizDetailController.quizDetailResponseModel!.quizDetail.quizName}&quizCategoryName=${quizDetailController.quizDetailResponseModel!.quizDetail.categoryName}');
+                                                          }
+                                                        },
+                                                  style: TextButton.styleFrom(
+                                                    textStyle: TextStyle(
+                                                        fontSize: 16,
+                                                        fontWeight:
+                                                            FontWeight.w500),
+                                                    shape:
+                                                        RoundedRectangleBorder(
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        12)),
+                                                    backgroundColor:
+                                                        quizDetailController
+                                                                .quizDetailResponseModel!
+                                                                .quizDetail
+                                                                .isPlayed
+                                                            ? ThemeColor.red
+                                                            : ThemeColor
+                                                                .headerOne,
+                                                  ),
+                                                  child: Text("Start Quiz",
+                                                      style: TextStyle(
+                                                          color: ThemeColor
+                                                              .white)),
+                                                ))
+                                            : Container(),
+                                            quizDetailController
+                                                .quizDetailResponseModel!
+                                                .quizDetail
+                                                .isPlayed
+                                            ? Container(
+                                                padding:
+                                                    EdgeInsets.only(top: 5),
+                                                height: 44,
+                                                width: double.infinity,
+                                                decoration: BoxDecoration(
+                                                    color: ThemeColor.red,
                                                     borderRadius:
                                                         BorderRadius.circular(
-                                                            12)),
-                                                backgroundColor:
-                                                quizDetailController
-                                                      .quizDetailResponseModel!
-                                                      .quizDetail
-                                                      .isPlayed ? ThemeColor.red:
-                                                    ThemeColor.headerOne,
-                                              ),
-                                              child: Text("Start Quiz",
-                                                  style: TextStyle(
-                                                      color: ThemeColor.white)),
-                                            )):Container(),
+                                                            12.0)),
+                                                child: Text(
+                                                    "You have already played the quiz",
+                                                    textAlign: TextAlign.center,
+                                                    style: TextStyle(
+                                                        fontSize: 16,
+                                                        fontWeight:
+                                                            FontWeight.w500,
+                                                        color:
+                                                            ThemeColor.white)),
+                                              )
+                                            : Container(),
                                       ],
                                     ),
                                   ),
