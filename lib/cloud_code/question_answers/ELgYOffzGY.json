@@ -1,0 +1,932 @@
+[
+    {
+        "question": "Which type of bridge primarily uses simple horizontal beams supported by piers at each end?",
+        "options": [
+            "Arch Bridge",
+            "Beam Bridge",
+            "Cable-Stayed Bridge",
+            "Suspension Bridge"
+        ],
+        "correct_answer": "Beam Bridge"
+    },
+    {
+        "question": "Which of the following bridges uses a curved structure to transfer loads down into the supports on either side?",
+        "options": [
+            "Truss Bridge",
+            "Cable-Stayed Bridge",
+            "Arch Bridge",
+            "Cantilever Bridge"
+        ],
+        "correct_answer": "Arch Bridge"
+    },
+    {
+        "question": "In a suspension bridge, which component is primarily responsible for carrying the load of the deck?",
+        "options": [
+            "Deck Girders",
+            "Main Cables",
+            "Tower Base",
+            "Road Surface"
+        ],
+        "correct_answer": "Main Cables"
+    },
+    {
+        "question": "Which type of bridge is characterized by cables directly connected from the towers to the bridge deck in one or more planes?",
+        "options": [
+            "Suspension Bridge",
+            "Cable-Stayed Bridge",
+            "Beam Bridge",
+            "Arch Bridge"
+        ],
+        "correct_answer": "Cable-Stayed Bridge"
+    },
+    {
+        "question": "What is the main purpose of a pier in bridge construction?",
+        "options": [
+            "To provide a pathway for water flow",
+            "To absorb wind force",
+            "To support loads between abutments",
+            "To decorate the bridge"
+        ],
+        "correct_answer": "To support loads between abutments"
+    },
+    {
+        "question": "Which of the following is NOT typically a material used to build modern bridges?",
+        "options": [
+            "Steel",
+            "Concrete",
+            "Bricks",
+            "Composite materials"
+        ],
+        "correct_answer": "Bricks"
+    },
+    {
+        "question": "What is the term for the horizontal surface of a bridge on which vehicles or pedestrians travel?",
+        "options": [
+            "Barricade",
+            "Deck",
+            "Span",
+            "Abutment"
+        ],
+        "correct_answer": "Deck"
+    },
+    {
+        "question": "In India, which iconic bridge over the Hooghly River in West Bengal is famous for its cantilever structure?",
+        "options": [
+            "Bandra-Worli Sea Link",
+            "Pamban Bridge",
+            "Howrah Bridge",
+            "Vidyasagar Setu"
+        ],
+        "correct_answer": "Howrah Bridge"
+    },
+    {
+        "question": "What is the primary role of an abutment in a bridge?",
+        "options": [
+            "To span the gap in the middle",
+            "To provide foundation support at the ends of the bridge",
+            "To control water flow under the bridge",
+            "To hold suspension cables in place"
+        ],
+        "correct_answer": "To provide foundation support at the ends of the bridge"
+    },
+    {
+        "question": "Which type of bridge relies on an assembly of triangles to achieve structural strength and rigidity?",
+        "options": [
+            "Truss Bridge",
+            "Arch Bridge",
+            "Suspension Bridge",
+            "Cantilever Bridge"
+        ],
+        "correct_answer": "Truss Bridge"
+    },
+    {
+        "question": "What is the main advantage of an arch bridge design?",
+        "options": [
+            "It is cheap to construct over very long spans",
+            "It reduces compression forces through its curved shape",
+            "It can only be built using steel cables",
+            "It does not require abutments"
+        ],
+        "correct_answer": "It reduces compression forces through its curved shape"
+    },
+    {
+        "question": "Which of the following is a modern cable-stayed bridge located in Mumbai, India?",
+        "options": [
+            "Vidyasagar Setu",
+            "Bandra-Worli Sea Link",
+            "Lakshman Jhula",
+            "Coronation Bridge"
+        ],
+        "correct_answer": "Bandra-Worli Sea Link"
+    },
+    {
+        "question": "What is meant by the 'span' of a bridge?",
+        "options": [
+            "The height of the bridge above water",
+            "The distance between two supports or piers",
+            "The width of the roadway on the bridge",
+            "The depth of the base foundation"
+        ],
+        "correct_answer": "The distance between two supports or piers"
+    },
+    {
+        "question": "Which factor is most important when choosing a site for a new bridge?",
+        "options": [
+            "Proximity to airports",
+            "Scenic views for tourists",
+            "Strong foundation or stable ground conditions",
+            "Availability of metal resources"
+        ],
+        "correct_answer": "Strong foundation or stable ground conditions"
+    },
+    {
+        "question": "Which of these bridges is located over the Brahmaputra River?",
+        "options": [
+            "Lakshman Jhula",
+            "Rabindra Setu",
+            "Saraighat Bridge",
+            "Pamban Bridge"
+        ],
+        "correct_answer": "Saraighat Bridge"
+    },
+    {
+        "question": "In bridge terminology, what does 'live load' refer to?",
+        "options": [
+            "The total weight of bridge materials",
+            "The dead weight of the structure only",
+            "The temporary or moving load from vehicles and pedestrians",
+            "The weight of the bridge's support columns"
+        ],
+        "correct_answer": "The temporary or moving load from vehicles and pedestrians"
+    },
+    {
+        "question": "What kind of force mainly acts on arch bridges to maintain their structure?",
+        "options": [
+            "Tension",
+            "Compression",
+            "Shear",
+            "Torsion"
+        ],
+        "correct_answer": "Compression"
+    },
+    {
+        "question": "Which bridge is known as the first sea bridge of India, connecting Rameswaram to the mainland?",
+        "options": [
+            "Pamban Bridge",
+            "Narmada Bridge",
+            "Ganga Bridge",
+            "Rajahmundry Bridge"
+        ],
+        "correct_answer": "Pamban Bridge"
+    },
+    {
+        "question": "Which type of bridge design allows for a portion of the deck to project outward, supported by counterbalanced arms?",
+        "options": [
+            "Beam Bridge",
+            "Suspension Bridge",
+            "Cantilever Bridge",
+            "Truss Bridge"
+        ],
+        "correct_answer": "Cantilever Bridge"
+    },
+    {
+        "question": "Why is steel commonly used in bridge construction?",
+        "options": [
+            "Because it is less expensive than all other materials",
+            "Because it is lightweight and weak in tension",
+            "Because it has high tensile strength and can be rolled into various shapes",
+            "Because it does not require any maintenance"
+        ],
+        "correct_answer": "Because it has high tensile strength and can be rolled into various shapes"
+    },
+    {
+        "question": "Which of the following describes the force that tries to pull or stretch a structural member?",
+        "options": [
+            "Compression",
+            "Shear",
+            "Torsion",
+            "Tension"
+        ],
+        "correct_answer": "Tension"
+    },
+    {
+        "question": "Which city is home to the Vidyasagar Setu, also known as the Second Hooghly Bridge?",
+        "options": [
+            "Kolkata",
+            "Chennai",
+            "Mumbai",
+            "Ahmedabad"
+        ],
+        "correct_answer": "Kolkata"
+    },
+    {
+        "question": "What is an advantage of using concrete in bridge construction?",
+        "options": [
+            "It requires no reinforcement",
+            "It offers high tensile strength without steel",
+            "It can resist compression effectively",
+            "It is always cheaper than steel"
+        ],
+        "correct_answer": "It can resist compression effectively"
+    },
+    {
+        "question": "Which of the following is a famous suspension bridge in India that spans the Ganges near Rishikesh?",
+        "options": [
+            "Lakshman Jhula",
+            "Godavari Bridge",
+            "Pamban Bridge",
+            "Indira Bridge"
+        ],
+        "correct_answer": "Lakshman Jhula"
+    },
+    {
+        "question": "Which part of a truss bridge spreads out the load across multiple interconnected beams?",
+        "options": [
+            "Cantilever section",
+            "Diagonal and vertical members",
+            "Suspension cables",
+            "Bridge deck only"
+        ],
+        "correct_answer": "Diagonal and vertical members"
+    },
+    {
+        "question": "Which force is a bridge mainly designed to resist from vehicles moving across it?",
+        "options": [
+            "Compression in the deck only",
+            "Vibration and dynamic loads",
+            "No forces act on bridges",
+            "Only tension in the piers"
+        ],
+        "correct_answer": "Vibration and dynamic loads"
+    },
+    {
+        "question": "What is a significant disadvantage of using wood as a primary material for modern bridges?",
+        "options": [
+            "It cannot be painted",
+            "It is too light to be stable",
+            "It is susceptible to rot and insect damage",
+            "It cannot be carved into beams"
+        ],
+        "correct_answer": "It is susceptible to rot and insect damage"
+    },
+    {
+        "question": "Why is proper drainage important in bridge design?",
+        "options": [
+            "To increase the number of vehicles on the bridge",
+            "To prevent rust in wooden bridges",
+            "To avoid accumulation of water which may damage the deck",
+            "To reduce the weight of the structure"
+        ],
+        "correct_answer": "To avoid accumulation of water which may damage the deck"
+    },
+    {
+        "question": "Which famous bridge in northern India is also known as the \"Gateway to the North East\" over the Teesta River?",
+        "options": [
+            "Coronation Bridge",
+            "Lakshman Jhula",
+            "Bandra-Worli Sea Link",
+            "Kalia Bhomora Bridge"
+        ],
+        "correct_answer": "Coronation Bridge"
+    },
+    {
+        "question": "What is the key function of a bridge's tower in a cable-stayed or suspension bridge?",
+        "options": [
+            "To act as the deck for traffic",
+            "To hold beams in place",
+            "To support and anchor the cables carrying the deck",
+            "To store construction materials"
+        ],
+        "correct_answer": "To support and anchor the cables carrying the deck"
+    },
+    {
+        "question": "Which type of bridge primarily uses simple horizontal beams supported by piers at each end?",
+        "options": [
+            "Arch Bridge",
+            "Beam Bridge",
+            "Cable-Stayed Bridge",
+            "Suspension Bridge"
+        ],
+        "correct_answer": "Beam Bridge"
+    },
+    {
+        "question": "Which of the following bridges uses a curved structure to transfer loads down into the supports on either side?",
+        "options": [
+            "Truss Bridge",
+            "Cable-Stayed Bridge",
+            "Arch Bridge",
+            "Cantilever Bridge"
+        ],
+        "correct_answer": "Arch Bridge"
+    },
+    {
+        "question": "In a suspension bridge, which component is primarily responsible for carrying the load of the deck?",
+        "options": [
+            "Deck Girders",
+            "Main Cables",
+            "Tower Base",
+            "Road Surface"
+        ],
+        "correct_answer": "Main Cables"
+    },
+    {
+        "question": "Which type of bridge is characterized by cables directly connected from the towers to the bridge deck in one or more planes?",
+        "options": [
+            "Suspension Bridge",
+            "Cable-Stayed Bridge",
+            "Beam Bridge",
+            "Arch Bridge"
+        ],
+        "correct_answer": "Cable-Stayed Bridge"
+    },
+    {
+        "question": "What is the main purpose of a pier in bridge construction?",
+        "options": [
+            "To provide a pathway for water flow",
+            "To absorb wind force",
+            "To support loads between abutments",
+            "To decorate the bridge"
+        ],
+        "correct_answer": "To support loads between abutments"
+    },
+    {
+        "question": "Which of the following is NOT typically a material used to build modern bridges?",
+        "options": [
+            "Steel",
+            "Concrete",
+            "Bricks",
+            "Composite materials"
+        ],
+        "correct_answer": "Bricks"
+    },
+    {
+        "question": "What is the term for the horizontal surface of a bridge on which vehicles or pedestrians travel?",
+        "options": [
+            "Barricade",
+            "Deck",
+            "Span",
+            "Abutment"
+        ],
+        "correct_answer": "Deck"
+    },
+    {
+        "question": "In India, which iconic bridge over the Hooghly River in West Bengal is famous for its cantilever structure?",
+        "options": [
+            "Bandra-Worli Sea Link",
+            "Pamban Bridge",
+            "Howrah Bridge",
+            "Vidyasagar Setu"
+        ],
+        "correct_answer": "Howrah Bridge"
+    },
+    {
+        "question": "What is the primary role of an abutment in a bridge?",
+        "options": [
+            "To span the gap in the middle",
+            "To provide foundation support at the ends of the bridge",
+            "To control water flow under the bridge",
+            "To hold suspension cables in place"
+        ],
+        "correct_answer": "To provide foundation support at the ends of the bridge"
+    },
+    {
+        "question": "Which type of bridge relies on an assembly of triangles to achieve structural strength and rigidity?",
+        "options": [
+            "Truss Bridge",
+            "Arch Bridge",
+            "Suspension Bridge",
+            "Cantilever Bridge"
+        ],
+        "correct_answer": "Truss Bridge"
+    },
+    {
+        "question": "What is the main advantage of an arch bridge design?",
+        "options": [
+            "It is cheap to construct over very long spans",
+            "It reduces compression forces through its curved shape",
+            "It can only be built using steel cables",
+            "It does not require abutments"
+        ],
+        "correct_answer": "It reduces compression forces through its curved shape"
+    },
+    {
+        "question": "Which of the following is a modern cable-stayed bridge located in Mumbai, India?",
+        "options": [
+            "Vidyasagar Setu",
+            "Bandra-Worli Sea Link",
+            "Lakshman Jhula",
+            "Coronation Bridge"
+        ],
+        "correct_answer": "Bandra-Worli Sea Link"
+    },
+    {
+        "question": "What is meant by the 'span' of a bridge?",
+        "options": [
+            "The height of the bridge above water",
+            "The distance between two supports or piers",
+            "The width of the roadway on the bridge",
+            "The depth of the base foundation"
+        ],
+        "correct_answer": "The distance between two supports or piers"
+    },
+    {
+        "question": "Which factor is most important when choosing a site for a new bridge?",
+        "options": [
+            "Proximity to airports",
+            "Scenic views for tourists",
+            "Strong foundation or stable ground conditions",
+            "Availability of metal resources"
+        ],
+        "correct_answer": "Strong foundation or stable ground conditions"
+    },
+    {
+        "question": "Which of these bridges is located over the Brahmaputra River?",
+        "options": [
+            "Lakshman Jhula",
+            "Rabindra Setu",
+            "Saraighat Bridge",
+            "Pamban Bridge"
+        ],
+        "correct_answer": "Saraighat Bridge"
+    },
+    {
+        "question": "In bridge terminology, what does 'live load' refer to?",
+        "options": [
+            "The total weight of bridge materials",
+            "The dead weight of the structure only",
+            "The temporary or moving load from vehicles and pedestrians",
+            "The weight of the bridge's support columns"
+        ],
+        "correct_answer": "The temporary or moving load from vehicles and pedestrians"
+    },
+    {
+        "question": "What kind of force mainly acts on arch bridges to maintain their structure?",
+        "options": [
+            "Tension",
+            "Compression",
+            "Shear",
+            "Torsion"
+        ],
+        "correct_answer": "Compression"
+    },
+    {
+        "question": "Which bridge is known as the first sea bridge of India, connecting Rameswaram to the mainland?",
+        "options": [
+            "Pamban Bridge",
+            "Narmada Bridge",
+            "Ganga Bridge",
+            "Rajahmundry Bridge"
+        ],
+        "correct_answer": "Pamban Bridge"
+    },
+    {
+        "question": "Which type of bridge design allows for a portion of the deck to project outward, supported by counterbalanced arms?",
+        "options": [
+            "Beam Bridge",
+            "Suspension Bridge",
+            "Cantilever Bridge",
+            "Truss Bridge"
+        ],
+        "correct_answer": "Cantilever Bridge"
+    },
+    {
+        "question": "Why is steel commonly used in bridge construction?",
+        "options": [
+            "Because it is less expensive than all other materials",
+            "Because it is lightweight and weak in tension",
+            "Because it has high tensile strength and can be rolled into various shapes",
+            "Because it does not require any maintenance"
+        ],
+        "correct_answer": "Because it has high tensile strength and can be rolled into various shapes"
+    },
+    {
+        "question": "Which of the following describes the force that tries to pull or stretch a structural member?",
+        "options": [
+            "Compression",
+            "Shear",
+            "Torsion",
+            "Tension"
+        ],
+        "correct_answer": "Tension"
+    },
+    {
+        "question": "Which city is home to the Vidyasagar Setu, also known as the Second Hooghly Bridge?",
+        "options": [
+            "Kolkata",
+            "Chennai",
+            "Mumbai",
+            "Ahmedabad"
+        ],
+        "correct_answer": "Kolkata"
+    },
+    {
+        "question": "What is an advantage of using concrete in bridge construction?",
+        "options": [
+            "It requires no reinforcement",
+            "It offers high tensile strength without steel",
+            "It can resist compression effectively",
+            "It is always cheaper than steel"
+        ],
+        "correct_answer": "It can resist compression effectively"
+    },
+    {
+        "question": "Which of the following is a famous suspension bridge in India that spans the Ganges near Rishikesh?",
+        "options": [
+            "Lakshman Jhula",
+            "Godavari Bridge",
+            "Pamban Bridge",
+            "Indira Bridge"
+        ],
+        "correct_answer": "Lakshman Jhula"
+    },
+    {
+        "question": "Which part of a truss bridge spreads out the load across multiple interconnected beams?",
+        "options": [
+            "Cantilever section",
+            "Diagonal and vertical members",
+            "Suspension cables",
+            "Bridge deck only"
+        ],
+        "correct_answer": "Diagonal and vertical members"
+    },
+    {
+        "question": "Which force is a bridge mainly designed to resist from vehicles moving across it?",
+        "options": [
+            "Compression in the deck only",
+            "Vibration and dynamic loads",
+            "No forces act on bridges",
+            "Only tension in the piers"
+        ],
+        "correct_answer": "Vibration and dynamic loads"
+    },
+    {
+        "question": "What is a significant disadvantage of using wood as a primary material for modern bridges?",
+        "options": [
+            "It cannot be painted",
+            "It is too light to be stable",
+            "It is susceptible to rot and insect damage",
+            "It cannot be carved into beams"
+        ],
+        "correct_answer": "It is susceptible to rot and insect damage"
+    },
+    {
+        "question": "Why is proper drainage important in bridge design?",
+        "options": [
+            "To increase the number of vehicles on the bridge",
+            "To prevent rust in wooden bridges",
+            "To avoid accumulation of water which may damage the deck",
+            "To reduce the weight of the structure"
+        ],
+        "correct_answer": "To avoid accumulation of water which may damage the deck"
+    },
+    {
+        "question": "Which famous bridge in northern India is also known as the 'Gateway to the North East' over the Teesta River?",
+        "options": [
+            "Coronation Bridge",
+            "Lakshman Jhula",
+            "Bandra-Worli Sea Link",
+            "Kalia Bhomora Bridge"
+        ],
+        "correct_answer": "Coronation Bridge"
+    },
+    {
+        "question": "What is the key function of a bridge's tower in a cable-stayed or suspension bridge?",
+        "options": [
+            "To act as the deck for traffic",
+            "To hold beams in place",
+            "To support and anchor the cables carrying the deck",
+            "To store construction materials"
+        ],
+        "correct_answer": "To support and anchor the cables carrying the deck"
+    },
+    {
+        "question": "Which type of bridge can rotate or lift its deck to allow ships or boats to pass underneath?",
+        "options": [
+            "Lift Bridge",
+            "Beam Bridge",
+            "Truss Bridge",
+            "Arch Bridge"
+        ],
+        "correct_answer": "Lift Bridge"
+    },
+    {
+        "question": "Which term describes the permanent, static load that comes from the weight of the bridge structure itself?",
+        "options": [
+            "Dynamic load",
+            "Impact load",
+            "Live load",
+            "Dead load"
+        ],
+        "correct_answer": "Dead load"
+    },
+    {
+        "question": "What is the primary reason for providing expansion joints on a long bridge?",
+        "options": [
+            "To adjust the width of the roadway",
+            "To absorb movement due to temperature changes",
+            "To block water from reaching the piers",
+            "To keep vehicles at low speed"
+        ],
+        "correct_answer": "To absorb movement due to temperature changes"
+    },
+    {
+        "question": "Which construction technique involves placing prefab concrete segments and then joining them together on site?",
+        "options": [
+            "Cast-in-place construction",
+            "Prefabricated segmental construction",
+            "Cantilever method",
+            "Suspended cable method"
+        ],
+        "correct_answer": "Prefabricated segmental construction"
+    },
+    {
+        "question": "In a cable-stayed bridge, the cables connect directly from the main towers to which part of the bridge?",
+        "options": [
+            "The foundation piles",
+            "Each other in a web",
+            "The outer girder at ground level",
+            "The road deck"
+        ],
+        "correct_answer": "The road deck"
+    },
+    {
+        "question": "Which is typically the longest type of bridge for spanning great distances over water?",
+        "options": [
+            "Beam Bridge",
+            "Suspension Bridge",
+            "Truss Bridge",
+            "Box Girder Bridge"
+        ],
+        "correct_answer": "Suspension Bridge"
+    },
+    {
+        "question": "What is a key consideration when designing bridges in areas prone to earthquakes?",
+        "options": [
+            "Using only wooden beams",
+            "Avoiding steel reinforcements",
+            "Providing flexible or ductile connections",
+            "Eliminating all expansion joints"
+        ],
+        "correct_answer": "Providing flexible or ductile connections"
+    },
+    {
+        "question": "Which type of bridge arrangement features piers that support two separate arms projecting toward the center span, which may be joined or anchored by a suspended span?",
+        "options": [
+            "Simple Supported Bridge",
+            "Arch Bridge",
+            "Cantilever Bridge",
+            "Cable-Stayed Bridge"
+        ],
+        "correct_answer": "Cantilever Bridge"
+    },
+    {
+        "question": "Which term describes the sideways or horizontal force caused by wind on bridges?",
+        "options": [
+            "Wind shear",
+            "Compressive stress",
+            "Tensile load",
+            "Axial load"
+        ],
+        "correct_answer": "Wind shear"
+    },
+    {
+        "question": "In modern highway bridges, what is often used to reinforce concrete for additional tensile strength?",
+        "options": [
+            "Fiberglass rods",
+            "Steel rebar",
+            "Wooden planks",
+            "Nylon cables"
+        ],
+        "correct_answer": "Steel rebar"
+    },
+    {
+        "question": "Which of the following is a continuous beam bridge that runs across the Yamuna River in Delhi?",
+        "options": [
+            "DND Flyway (Delhi Noida Direct Flyway)",
+            "Rajiv Gandhi Sea Link",
+            "Lakshman Jhula",
+            "Worli-Bandra Sea Link"
+        ],
+        "correct_answer": "DND Flyway (Delhi Noida Direct Flyway)"
+    },
+    {
+        "question": "What is the main function of bearings in a bridge structure?",
+        "options": [
+            "To decorate the bridge ends",
+            "To connect cables to the road surface",
+            "To allow controlled movement and transfer load from the deck to substructure",
+            "To hold streetlights on the bridge"
+        ],
+        "correct_answer": "To allow controlled movement and transfer load from the deck to substructure"
+    },
+    {
+        "question": "Which test is performed on the soil or rock beneath a prospective bridge site to determine its bearing capacity?",
+        "options": [
+            "Soil Grading Analysis",
+            "Load Combination Test",
+            "Bridge Deflection Test",
+            "Geotechnical Investigation"
+        ],
+        "correct_answer": "Geotechnical Investigation"
+    },
+    {
+        "question": "Which type of force is countered by tension cables in a suspension bridge to keep the deck level?",
+        "options": [
+            "Torsional force",
+            "Compression in the main span",
+            "Bending force",
+            "Pull from the anchorages"
+        ],
+        "correct_answer": "Bending force"
+    },
+    {
+        "question": "What is an important environmental consideration when constructing a bridge over a river?",
+        "options": [
+            "Not examining local flora and fauna",
+            "Avoiding all foundation supports",
+            "Minimizing impact on aquatic ecosystems",
+            "Choosing the cheapest construction method"
+        ],
+        "correct_answer": "Minimizing impact on aquatic ecosystems"
+    },
+    {
+        "question": "Which type of bridge is generally best suited for covering short distances economically?",
+        "options": [
+            "Arch Bridge",
+            "Truss Bridge",
+            "Beam Bridge",
+            "Suspension Bridge"
+        ],
+        "correct_answer": "Beam Bridge"
+    },
+    {
+        "question": "Which method is commonly used for maintaining older steel bridges?",
+        "options": [
+            "Applying paint or protective coatings to steel elements",
+            "Removing the deck entirely every year",
+            "Replacing steel with wood",
+            "Sealing all expansion joints permanently"
+        ],
+        "correct_answer": "Applying paint or protective coatings to steel elements"
+    },
+    {
+        "question": "Which term describes the process by which certain metals, including steel, degrade when exposed to moisture and oxygen?",
+        "options": [
+            "Corrosion",
+            "Conduction",
+            "Evaporation",
+            "Sedimentation"
+        ],
+        "correct_answer": "Corrosion"
+    },
+    {
+        "question": "Which of the following bridges between Assam and Arunachal Pradesh is a road-cum-rail bridge over the Brahmaputra?",
+        "options": [
+            "Saraighat Bridge",
+            "Bogibeel Bridge",
+            "Lakshman Jhula",
+            "Naranarayan Setu"
+        ],
+        "correct_answer": "Bogibeel Bridge"
+    },
+    {
+        "question": "In the construction of an arch bridge, what is the temporary structure that supports the arch during assembly called?",
+        "options": [
+            "Scaffolding",
+            "Cofferdam",
+            "Centering",
+            "Pylon"
+        ],
+        "correct_answer": "Centering"
+    },
+    {
+        "question": "Which alloy, often containing chromium, is sometimes used in bridge construction for its resistance to corrosion?",
+        "options": [
+            "Galvanized iron",
+            "Cast iron",
+            "Pig iron",
+            "Stainless steel"
+        ],
+        "correct_answer": "Stainless steel"
+    },
+    {
+        "question": "Which large-scale bridge in India was constructed as part of the Golden Quadrilateral project, spanning the river Narmada?",
+        "options": [
+            "Narmada Bridge Near Bharuch",
+            "Lakshman Jhula",
+            "Rajahmundry Bridge",
+            "Chambal Bridge"
+        ],
+        "correct_answer": "Narmada Bridge Near Bharuch"
+    },
+    {
+        "question": "Which method of constructing piers in water confines the work area and allows water to be pumped out?",
+        "options": [
+            "Cable anchoring",
+            "Shoring",
+            "Cofferdam construction",
+            "Box girder method"
+        ],
+        "correct_answer": "Cofferdam construction"
+    },
+    {
+        "question": "When constructing a bridge over a deep valley, which type of bridge might be favored for its rigidity and ability to span large distances?",
+        "options": [
+            "Suspension Bridge",
+            "Beam Bridge",
+            "Cable-Stayed Bridge",
+            "Truss Bridge"
+        ],
+        "correct_answer": "Truss Bridge"
+    },
+    {
+        "question": "Which type of bridge has a deck completely supported by steel or concrete trusses beneath it?",
+        "options": [
+            "Through arch bridge",
+            "Deck truss bridge",
+            "Suspension bridge",
+            "Cantilever bridge"
+        ],
+        "correct_answer": "Deck truss bridge"
+    },
+    {
+        "question": "Which property of concrete is most enhanced by pre-stressing?",
+        "options": [
+            "Tensile strength",
+            "Thermal conductivity",
+            "Electrical conductivity",
+            "Color appearance"
+        ],
+        "correct_answer": "Tensile strength"
+    },
+    {
+        "question": "For class 8 level, which best describes the purpose of triangular shapes in bridge truss design?",
+        "options": [
+            "They help the bridge look appealing",
+            "They eliminate the need for foundations",
+            "They distribute weight evenly and add strength",
+            "They are used only to hang decorative lights"
+        ],
+        "correct_answer": "They distribute weight evenly and add strength"
+    },
+    {
+        "question": "In a simple beam bridge, increasing the number of piers allows for what effect?",
+        "options": [
+            "Decreasing the overall number of spans",
+            "Shortening each span and reducing bending moments",
+            "Removing the need for abutments",
+            "Making the deck weaker"
+        ],
+        "correct_answer": "Shortening each span and reducing bending moments"
+    },
+    {
+        "question": "Which force is primarily resisted by the bridge’s foundations and abutments when water flows rapidly underneath?",
+        "options": [
+            "Flow drag force",
+            "Tensile stress in the cables",
+            "Dynamic wind load",
+            "Thermal expansion"
+        ],
+        "correct_answer": "Flow drag force"
+    },
+    {
+        "question": "Which type of bridge often features curved cables that fan out from a central tower, akin to a harp shape?",
+        "options": [
+            "Cable-Stayed Bridge",
+            "Arch Bridge",
+            "Truss Bridge",
+            "Beam Bridge"
+        ],
+        "correct_answer": "Cable-Stayed Bridge"
+    },
+    {
+        "question": "In maintaining safe bridge operations, what is typically placed at the edges of the deck to prevent vehicles from leaving the roadway?",
+        "options": [
+            "Guardrails or parapets",
+            "Suspension cables",
+            "Wooden mats",
+            "Expansion joints"
+        ],
+        "correct_answer": "Guardrails or parapets"
+    },
+    {
+        "question": "Which large railway bridge over the Godavari River in Andhra Pradesh is known for its continuous truss design?",
+        "options": [
+            "Rajahmundry Bridge (Godavari Rail Bridge)",
+            "Vidyasagar Setu",
+            "Pamban Bridge",
+            "Worli Sea Link"
+        ],
+        "correct_answer": "Rajahmundry Bridge (Godavari Rail Bridge)"
+    },
+    {
+        "question": "What is the safest approach to planning bridge inspections and maintenance?",
+        "options": [
+            "Base them only on public complaints",
+            "Perform regular scheduled inspections and maintenance",
+            "Wait until a major structural issue arises",
+            "Inspect and repair only after a collapse"
+        ],
+        "correct_answer": "Perform regular scheduled inspections and maintenance"
+    }
+]
