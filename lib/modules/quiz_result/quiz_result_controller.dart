@@ -17,7 +17,7 @@ class QuizResultController extends GetxController {
   Map<String,String> ansMap ={};
   var quizName = "";
   // var quizCategoryName = "";
-  // var skipQuestionCount = 0;
+  var skipQuestionCount = 0;
   // var correctAnswerCount = 0;
   // var incorrectAnswerCount = 0;
   // var completionPercentage = 0;
@@ -29,9 +29,10 @@ class QuizResultController extends GetxController {
     if (arguments != null) {
       quizId = arguments[ARG_QUIZ_ID] ;
       quizName = arguments[ARG_QUIZ_NAME] ?? "";
+      
 
       // quizCategoryName = arguments[ARG_QUIZ_CATEGORY_NAME] ?? "";
-      // skipQuestionCount = arguments[ARG_SKIPPED_QUESTIONS_COUNT];
+      skipQuestionCount = arguments[ARG_SKIPPED_QUESTIONS_COUNT];
       // correctAnswerCount = arguments[ARG_CORRECT_ANSWER_COUNT];
       // incorrectAnswerCount = arguments[ARG_INCORRECT_ANSWER_COUNT];
       // completionPercentage =(skipQuestionCount + correctAnswerCount + incorrectAnswerCount) * 10;
@@ -42,6 +43,7 @@ class QuizResultController extends GetxController {
   }
 
   void postQuizResult() async {
+    print(ansMap);
     isLoading.value = true;
     QuizResultPostBodyModel quizResultPostBodyModel =
         QuizResultPostBodyModel(quizId:  quizId,ansMap:  ansMap,userId: GetStorage().read(KEY_USER_DATA)['result']['_id']);
@@ -54,5 +56,6 @@ class QuizResultController extends GetxController {
       isLoading.value = false;
       AppUtils.showSnackBar("Error", status: MessageStatus.ERROR);
     }
+    // isLoading.value = false;
   }
 }

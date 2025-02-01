@@ -150,11 +150,11 @@ class QuizDetailPage extends StatelessWidget {
                                                     width: 12,
                                                   ),
                                                   Text(
-                                                      quizDetailController
+                                                      '${quizDetailController
                                                           .quizDetailResponseModel!
                                                           .quizDetail
                                                           .numQuestions
-                                                          .toString(),
+                                                          .toString()} questions',
                                                       style: TextStyle(
                                                           color:
                                                               ThemeColor.black,
@@ -277,10 +277,10 @@ class QuizDetailPage extends StatelessWidget {
                                                               .quizType
                                                               .quizTypeId) {
                                                             case "mcq_1":
-                                                              Get.toNamed(
+                                                              Get.offNamed(
                                                                   '/quizQuestionPage?quizId=${quizDetailController.quizDetailResponseModel!.quizDetail.id}&quizName=${quizDetailController.quizDetailResponseModel!.quizDetail.quizName}&quizCategoryName=${quizDetailController.quizDetailResponseModel!.quizDetail.categoryName}');
                                                             case "photo_1":
-                                                              Get.toNamed(
+                                                              Get.offNamed(
                                                                   '/photoQuizPage?quizId=${quizDetailController.quizDetailResponseModel!.quizDetail.id}&quizName=${quizDetailController.quizDetailResponseModel!.quizDetail.quizName}&quizCategoryName=${quizDetailController.quizDetailResponseModel!.quizDetail.categoryName}');
                                                           }
                                                         },

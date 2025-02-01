@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
 import '../../apis/quiz_question_api.dart';
@@ -15,6 +16,8 @@ class QuizQuestionController extends GetxController {
   Timer? _timer;
   int remainingSeconds = 1;
   final time = '00.00'.obs;
+  var isTimer = true.obs;
+  var timePerQuestion = 10;
 
   final arguments = Get.arguments;
   final paramters = Get.parameters;
@@ -54,13 +57,12 @@ class QuizQuestionController extends GetxController {
 
   @override
   void onReady() {
-    _startQuizTimer(10);
     super.onReady();
   }
 
   @override
   void onClose() {
-    if (_timer != null) {
+    if (_timer != null && isTimer.value) {
       _timer!.cancel();
     }
     super.onClose();
@@ -73,18 +75,41 @@ class QuizQuestionController extends GetxController {
       allQuestions.clear();
       allQuestions.addAll(response.questions ?? List.empty());
       totalQuestions = response.quiz!.totalQuestions!;
-      // print("-------------------------------------------------------------");
-      // _startQuizTimer();
-      isLoading.value = false;
+      isTimer.value = response.quiz!.timeLimit != "0";
+      timePerQuestion =
+          int.parse(response.quiz!.timeLimit!); // Convert to integer
+      if (isTimer.value) {
+        _startQuizTimer(timePerQuestion);
+      }
+      startQuizActivity();
     } else {
       allQuestions = List.empty();
       isLoading.value = false;
       totalQuestions = 0;
       // Get.back(closeOverlays: true);
       AppUtils.showSnackBar("Error", status: MessageStatus.ERROR);
-      
     }
   }
+
+//   void nextQuestion(
+//   {bool isSkipped = false,
+//   int selectedOption = -1,
+//   String? prevQuestionId}
+// ) async {
+//   // Common logic omitted for brevity
+//   if (questionCount.value < totalQuestions - 1) {
+//     questionCount.value += 1;
+//   } else {
+//     endQuiz();
+//   }
+// }
+
+// void prevQuestion() {
+//   // Allow previous question navigation only if there is no timer
+//   if (!isTimer.value && questionCount.value > 0) {
+//     questionCount.value -= 1;
+//   }
+// }
 
   void prevQuestion() {
     print(questionCount);
@@ -99,8 +124,11 @@ class QuizQuestionController extends GetxController {
       int selectedOption = -1,
       String? prevQuestionId,
       String? solution}) async {
-    _timer!.cancel();
-    _startQuizTimer(10);
+    if (isTimer.value) {
+      _timer!.cancel();
+      _startQuizTimer(timePerQuestion);
+    }
+
     if (isSkipped) {
       if (questionCount.value < totalQuestions - 1) {
         questionCount.value += 1;
@@ -108,8 +136,8 @@ class QuizQuestionController extends GetxController {
         print(skipQuestionCount);
       }
     } else {
-      answerSelected.update(prevQuestionId!, (value) => solution!,
-          ifAbsent: () => solution!);
+      // answerSelected.update(prevQuestionId!, (value) => solution!,
+      //     ifAbsent: () => solution!);
       if (questionCount.value < totalQuestions - 1) {
         questionCount.value += 1;
       }
@@ -174,16 +202,20 @@ class QuizQuestionController extends GetxController {
   }
 
   void endQuiz() {
-    _timer!.cancel();
-    Get.offAndToNamed(AppRoutes.quizResultPage, arguments: {
-      ARG_QUIZ_ID: quizId,
-      ARG_QUIZ_NAME: quizName,
-      ARG_QUIZ_CATEGORY_NAME: quizCategoryName,
-      // ARG_SKIPPED_QUESTIONS_COUNT: skipQuestionCount,
-      // ARG_CORRECT_ANSWER_COUNT: correctAnswerCount,
-      // ARG_INCORRECT_ANSWER_COUNT: incorrectAnswerCount,
-      ARG_ANS_MAP: answerSelected
-    });
+    if (isTimer.value) {
+      _timer!.cancel();
+    }
+    Get.offNamedUntil(
+        AppRoutes.quizResultPage, ModalRoute.withName('/dashboardPage'),
+        arguments: {
+          ARG_QUIZ_ID: quizId,
+          ARG_QUIZ_NAME: quizName,
+          ARG_QUIZ_CATEGORY_NAME: quizCategoryName,
+          ARG_SKIPPED_QUESTIONS_COUNT: skipQuestionCount,
+          // ARG_CORRECT_ANSWER_COUNT: correctAnswerCount,
+          // ARG_INCORRECT_ANSWER_COUNT: incorrectAnswerCount,
+          ARG_ANS_MAP: answerSelected
+        });
   }
 
   void _startQuizTimer(int seconds) {
@@ -191,20 +223,29 @@ class QuizQuestionController extends GetxController {
     remainingSeconds = seconds;
     _timer = Timer.periodic(duration, (Timer timer) {
       if (remainingSeconds == 0) {
-        if(questionCount.value == totalQuestions - 1){
+        if (questionCount.value == totalQuestions - 1) {
           endQuiz();
-        }else{
-        nextQuestion(isSkipped: true);
-        timer.cancel();
+        } else {
+          nextQuestion(isSkipped: true);
+          timer.cancel();
         }
       } else {
         int minutes = remainingSeconds ~/ 60;
         int seconds = remainingSeconds % 60;
-        time.value = "${minutes.toString().padLeft(2, "0")}:${seconds.toString().padLeft(2, "0")}";
+        time.value =
+            "${minutes.toString().padLeft(2, "0")}:${seconds.toString().padLeft(2, "0")}";
         remainingSeconds--;
       }
     });
   }
 
-  void _startQuestionTimer(int seconds) {}
+  void startQuizActivity() async {
+    isLoading.value = false;
+    var startQuizResponse = await quizQuestionApi.startQuiz(quizId: quizId);
+    if (startQuizResponse['code'] == 200) {
+      AppUtils.showSnackBar("Quiz started", status: MessageStatus.SUCCESS);
+    } else {
+      AppUtils.showSnackBar("Quiz not started", status: MessageStatus.ERROR);
+    }
+  }
 }

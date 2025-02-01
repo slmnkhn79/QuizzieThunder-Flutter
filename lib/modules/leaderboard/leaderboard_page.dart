@@ -26,6 +26,7 @@ class LeaderboardPage extends StatelessWidget {
         Get.find<SchoolLeaderboardController>();
     return Scaffold(
         appBar: AppBar(
+          automaticallyImplyLeading: false,
           title: Text(
             "Leaderboard",
             style: TextStyle(

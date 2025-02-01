@@ -36,10 +36,14 @@ const KEY_IS_API_ERROR_HANDLE = "key_is_api_error_handle";
 const PAGE_LIMIT = "50";
 // const BASE_URL = "https://quizzie-thunder-apis.onrender.com/";
 // const BASE_URL = "http://192.168.1.41:1337/parse/functions";
+// const BASE_URL = "https://parse.slmnkhn79.shop/parse/functions";
+
 const BASE_URL = "https://parseapi.back4app.com/parse/functions";
 // 
 
-const BASE_URL_DEFAULT= "https://parseapi.back4app.com/parse/";
+// const BASE_URL_DEFAULT= "https://parseapi.back4app.com/parse/";
+const BASE_URL_DEFAULT=  "https://parse.slmnkhn79.shop/parse/functions";
+
 
 
 const keyApplicationId = 'ihzu049k4lkpefeqFXYxwCn6kuo7qph3scKcq1sE';

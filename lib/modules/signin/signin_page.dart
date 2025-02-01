@@ -1,3 +1,4 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -219,9 +220,9 @@ class SigninPage extends StatelessWidget {
                                       style:
                                           TextStyle(color: ThemeColor.white)),
                                 )),
-                            // SizedBox(
-                            //   height: 20,
-                            // ),
+                            SizedBox(
+                              height: 20,
+                            ),
                             // Align(
                             //   alignment: Alignment.center,
                             //   child: RichText(

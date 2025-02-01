@@ -49,3 +49,11 @@ lib/cloud_code/data_filling_app/School/keys.js
 lib/cloud_code/data_filling_app/Questions/keys.js
 lib/cloud_code/data_filling_app/Post/keys.js
 lib/cloud_code/data_filling_app/StudyPlan/keys.js
+lib/cloud_code/b4a.exe
+lib/cloud_code/CloudCode/.parse.local
+lib/cloud_code/CloudCode/b4a.exe
+lib/cloud_code/CloudCode/.parse.project
+lib/cloud_code/CloudCode/cloud/.env
+/lib/cloud_code/CloudCode/cloud/node_modules
+/node_modules
+/node_modules

@@ -14,6 +14,7 @@ class SettingsPage extends StatelessWidget {
     SettingsController settingsController = Get.find<SettingsController>();
     return Scaffold(
         appBar: AppBar(
+          
           leading: IconButton(
               onPressed: () {
                 Get.back();

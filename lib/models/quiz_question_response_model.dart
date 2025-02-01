@@ -39,6 +39,8 @@ class Question {
     required this.correctOptionIndex,
     required this.createdAt,
     required this.updatedAt,
+    required this.questionType,
+    required this.imageUrl
   });
 
   final String? id;
@@ -47,6 +49,8 @@ class Question {
   final int? correctOptionIndex;
   final DateTime? createdAt;
   final DateTime? updatedAt;
+  final String questionType;
+  final String? imageUrl;
 
   factory Question.fromJson(Map<String, dynamic> json) {
     return Question(
@@ -58,6 +62,8 @@ class Question {
       correctOptionIndex: json["correctOptionIndex"],
       createdAt: DateTime.tryParse(json["createdAt"] ?? ""),
       updatedAt: DateTime.tryParse(json["updatedAt"] ?? ""),
+      questionType: json['question_type'],
+      imageUrl: json['image_url']
     );
   }
 
@@ -80,6 +86,7 @@ class Quiz {
     required this.createdAt,
     required this.updatedAt,
     required this.totalQuestions,
+    required this.timeLimit
   });
 
   final String? id;
@@ -89,6 +96,7 @@ class Quiz {
   final DateTime? createdAt;
   final DateTime? updatedAt;
   final int? totalQuestions;
+  final String? timeLimit;
 
   factory Quiz.fromJson(Map<String, dynamic> json) {
     return Quiz(
@@ -99,7 +107,8 @@ class Quiz {
           json["category"] == null ? null : Category.fromJson(json["category"]),
       createdAt: DateTime.tryParse(json["createdAt"] ?? ""),
       updatedAt: DateTime.tryParse(json["updatedAt"] ?? ""),
-      totalQuestions: json['totalQuestions']
+      totalQuestions: json['totalQuestions'],
+      timeLimit: json['time_limit']
     );
   }
 
@@ -142,4 +151,9 @@ class Category {
         "createdAt": createdAt?.toIso8601String(),
         "updatedAt": updatedAt?.toIso8601String(),
       };
+}
+enum QuestionType {
+  mcq,
+  imageUpload,
+  longAnswer,
 }

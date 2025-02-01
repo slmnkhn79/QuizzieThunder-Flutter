@@ -16,6 +16,7 @@ class ProfilePage extends StatelessWidget {
     ProfileController profileController = Get.find<ProfileController>();
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         actions: [
           IconButton(
               onPressed: () {

@@ -22,6 +22,7 @@ import 'package:quizzie_thunder/modules/profile_page/public_profile_binding.dart
 import 'package:quizzie_thunder/modules/profile_page/public_profile_page.dart';
 import 'package:quizzie_thunder/modules/quiz_question/photo_quiz/photo_quiz_binding.dart';
 import 'package:quizzie_thunder/modules/quiz_question/photo_quiz/photo_quiz_page.dart';
+import 'package:quizzie_thunder/modules/quiz_question_v3/quiz_question_v3.dart';
 import 'package:quizzie_thunder/modules/quiz_submissions/quiz_submission_binding.dart';
 import 'package:quizzie_thunder/modules/quiz_submissions/quiz_submission_page.dart';
 import 'package:quizzie_thunder/modules/school_details/school_details_binding.dart';
@@ -143,6 +144,7 @@ class AppPages {
     GetPage(
       name: AppRoutes.quizQuestionPage,
       page: () => QuizQuestionPage(),
+      // page: () => QuizPage(),
       binding: QuizQuestionBinding(),
     ),
     GetPage(

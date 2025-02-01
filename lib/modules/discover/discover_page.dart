@@ -30,6 +30,7 @@ class DiscoverPage extends StatelessWidget {
 
     return Scaffold(
         appBar: AppBar(
+          automaticallyImplyLeading: false,
           title: Text(
             "Discover",
             style: TextStyle(
@@ -865,7 +866,7 @@ class DiscoverPage extends StatelessWidget {
                       physics: NeverScrollableScrollPhysics(),
                       // scrollDirection: Axis.vertical,
                       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: columns, childAspectRatio: 3),
+                          crossAxisCount: columns, childAspectRatio: 2),
                       itemCount: learningDiscoverController
                           .discoverLearningResponseModel!
                           .data
@@ -891,16 +892,18 @@ class DiscoverPage extends StatelessWidget {
                             child: Center(
                               child: ListTile(
                                   title: Text(item.planName,
+                                  softWrap: false,
                                       style: TextStyle(
+                                        
                                         color: Colors.white,
                                         fontSize: 12.0,
                                         fontWeight: FontWeight.w700,
                                       )),
                                   leading: Text(item.standard,style: TextStyle(color:ThemeColor.white),),
-                                  trailing:
-                                      // MediaQuery.of(context).size.width > 600
-                                      //         ?
-                                      Icon(Icons.not_started_outlined, color:ThemeColor.white)
+                                  // trailing:
+                                  //     // MediaQuery.of(context).size.width > 600
+                                  //     //         ?
+                                  //     Icon(Icons.not_started_outlined, color:ThemeColor.white)
                                   //         : null,
                                   ),
                             ),

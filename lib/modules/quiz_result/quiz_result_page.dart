@@ -13,6 +13,7 @@ class QuizResultPage extends StatelessWidget {
         Get.find<QuizResultController>();
     return Scaffold(
         appBar: AppBar(
+          automaticallyImplyLeading: false,
           title: Text(
             "Good Job!",
             style: TextStyle(
@@ -23,7 +24,12 @@ class QuizResultPage extends StatelessWidget {
           actions: [
             IconButton(
                 onPressed: () {
+                  // Get.offNamedUntil('/',(route)=> route.i));
+                  // Get.off(closeOverlays: true);
+                  
+                  // Get.back(closeOverlays: true);
                   Get.back();
+                  // Get.offNamedUntil(page, predicate)
                 },
                 icon: Icon(
                   Icons.close_rounded,
@@ -160,11 +166,11 @@ class QuizResultPage extends StatelessWidget {
                             SizedBox(
                               height: 8,
                             ),
-                            // Text("${quizResultController.skipQuestionCount}",
-                            //     style: TextStyle(
-                            //         color: ThemeColor.black,
-                            //         fontSize: 18,
-                            //         fontWeight: FontWeight.bold)),
+                            Text("${quizResultController.skipQuestionCount}",
+                                style: TextStyle(
+                                    color: ThemeColor.black,
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.bold)),
                           ],
                         )),
                         SizedBox(
