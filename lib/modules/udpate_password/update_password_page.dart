@@ -5,7 +5,7 @@ import '../../theme/colors_theme.dart';
 import 'update_password_controller.dart';
 
 class UpdatePasswordPage extends StatelessWidget {
-  const UpdatePasswordPage({Key? key}) : super(key: key);
+  const UpdatePasswordPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -50,6 +50,62 @@ class UpdatePasswordPage extends StatelessWidget {
                           "Your new password must be different from the previous used passwords",
                           style: TextStyle(
                               fontSize: 14, color: ThemeColor.textPrimary),
+                        ),
+                        Text(
+                          "Old Password",
+                          style: TextStyle(
+                              fontSize: 14,
+                              color: ThemeColor.textPrimary,
+                              fontWeight: FontWeight.bold),
+                        ),
+                        SizedBox(
+                          height: 8,
+                        ),
+                        TextFormField(
+                          controller:
+                              updatePasswordController.oldPasswordController,
+                          keyboardType: TextInputType.text,
+                          obscureText:
+                              updatePasswordController.oldPasswordInVisible.value,
+                          style:
+                              TextStyle(color: ThemeColor.black, fontSize: 14),
+                          enableSuggestions: false,
+                          autocorrect: false,
+                          decoration: InputDecoration(
+                            prefixIcon: Icon(
+                              Icons.lock_outlined,
+                              size: 18,
+                            ),
+                            suffixIcon: IconButton(
+                                icon: Icon(
+                                  updatePasswordController
+                                          .oldPasswordInVisible.value
+                                      ? Icons.visibility_off
+                                      : Icons
+                                          .visibility, //change icon based on boolean value
+                                ),
+                                onPressed: () {
+                                  updatePasswordController
+                                          .oldPasswordInVisible.value =
+                                      !updatePasswordController
+                                          .oldPasswordInVisible.value;
+                                }),
+                            contentPadding: EdgeInsets.all(12),
+                            floatingLabelBehavior: FloatingLabelBehavior.never,
+                            hintText: "Password",
+                            hintStyle: TextStyle(
+                                fontSize: 14, color: ThemeColor.grey_500),
+                            border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10)),
+                            enabledBorder: OutlineInputBorder(
+                                borderSide:
+                                    BorderSide(color: Colors.transparent),
+                                borderRadius: BorderRadius.circular(10)),
+                            filled: true,
+                            fillColor: ThemeColor.white,
+                          ),
+                          textInputAction: TextInputAction.next,
+                          autovalidateMode: AutovalidateMode.onUserInteraction,
                         ),
                         SizedBox(
                           height: 24,
@@ -179,8 +235,6 @@ class UpdatePasswordPage extends StatelessWidget {
                               onPressed: () {
                                 updatePasswordController.updatePassword();
                               },
-                              child: Text("Update Password",
-                                  style: TextStyle(color: ThemeColor.white)),
                               style: TextButton.styleFrom(
                                 textStyle: TextStyle(
                                     fontSize: 16, fontWeight: FontWeight.w500),
@@ -188,6 +242,8 @@ class UpdatePasswordPage extends StatelessWidget {
                                     borderRadius: BorderRadius.circular(12)),
                                 backgroundColor: ThemeColor.primaryDark,
                               ),
+                              child: Text("Update Password",
+                                  style: TextStyle(color: ThemeColor.white)),
                             )),
                       ]),
                 ))));

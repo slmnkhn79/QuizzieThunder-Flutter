@@ -1,0 +1,602 @@
+[
+    {
+        "question": "Which of the following best describes an industry?",
+        "options": [
+            "A collection of small shops",
+            "An economic activity concerned with the processing of raw materials and manufacturing of goods",
+            "A type of agricultural process involving only cultivation",
+            "A place where only natural resources are conserved"
+        ],
+        "correct_answer": "An economic activity concerned with the processing of raw materials and manufacturing of goods"
+    },
+    {
+        "question": "Which factor is primarily responsible for deciding the location of industries?",
+        "options": [
+            "Availability of raw materials, labor, and infrastructure",
+            "Proximity to desert areas",
+            "Cultural traditions of the region",
+            "Distance from water bodies"
+        ],
+        "correct_answer": "Availability of raw materials, labor, and infrastructure"
+    },
+    {
+        "question": "Which of the following is NOT a characteristic of large-scale industries?",
+        "options": [
+            "High capital investment",
+            "Use of advanced technology",
+            "Small number of employees",
+            "Mass production"
+        ],
+        "correct_answer": "Small number of employees"
+    },
+    {
+        "question": "Agro-based industries primarily depend on:",
+        "options": [
+            "Marine reserves",
+            "Agricultural raw materials",
+            "Forest products",
+            "Mineral ores"
+        ],
+        "correct_answer": "Agricultural raw materials"
+    },
+    {
+        "question": "Which industry type is based on mineral resources such as iron ore and bauxite?",
+        "options": [
+            "Agro-based industry",
+            "Forest-based industry",
+            "Marine-based industry",
+            "Mineral-based industry"
+        ],
+        "correct_answer": "Mineral-based industry"
+    },
+    {
+        "question": "A prominent example of a marine-based industry is:",
+        "options": [
+            "Fishing and fish processing plants",
+            "Textile factories",
+            "Paper manufacturing",
+            "Rubber plantations"
+        ],
+        "correct_answer": "Fishing and fish processing plants"
+    },
+    {
+        "question": "Battling the shortage of forest produce is most critical for which type of industry?",
+        "options": [
+            "Mineral-based industry",
+            "Agro-based industry",
+            "Forest-based industry",
+            "Marine-based industry"
+        ],
+        "correct_answer": "Forest-based industry"
+    },
+    {
+        "question": "Which of the following best differentiates small-scale industries from large-scale industries?",
+        "options": [
+            "They are owned by government entities",
+            "They employ a large workforce",
+            "They need high amounts of capital and infrastructure",
+            "They have limited investment and mainly rely on local labor"
+        ],
+        "correct_answer": "They have limited investment and mainly rely on local labor"
+    },
+    {
+        "question": "Joint sector industries are characterized by:",
+        "options": [
+            "Ownership shared by the state and private entrepreneurs",
+            "Complete government ownership",
+            "Ownership shared only among private individuals",
+            "None of the above"
+        ],
+        "correct_answer": "Ownership shared by the state and private entrepreneurs"
+    },
+    {
+        "question": "Which is a prime example of a cooperative sector industry in India?",
+        "options": [
+            "A government-owned petroleum company",
+            "A privately owned steel plant",
+            "A sugar mill run by local farmer committees",
+            "A fish processing unit owned by a multinational corporation"
+        ],
+        "correct_answer": "A sugar mill run by local farmer committees"
+    },
+    {
+        "question": "Which statement is true about industries operating under cooperative ownership?",
+        "options": [
+            "They require 100% foreign investment",
+            "They are exclusively controlled by a single individual",
+            "They are run by the combined efforts of workers or producers",
+            "They only manufacture high-end products"
+        ],
+        "correct_answer": "They are run by the combined efforts of workers or producers"
+    },
+    {
+        "question": "Which of the following is a key factor in risk reduction measures for industries?",
+        "options": [
+            "Eliminating automation",
+            "Reducing safety protocols",
+            "Ensuring proper insurance and risk assessment",
+            "Limiting workforce training"
+        ],
+        "correct_answer": "Ensuring proper insurance and risk assessment"
+    },
+    {
+        "question": "Which of the following industries relies heavily on marine-based raw materials?",
+        "options": [
+            "Chemical industry",
+            "Seafood processing",
+            "Automobile industry",
+            "IT industry"
+        ],
+        "correct_answer": "Seafood processing"
+    },
+    {
+        "question": "Industrial regions are best identified by:",
+        "options": [
+            " a single factory in a remote location",
+            "A large area with numerous industries, good infrastructure, and dense population",
+            "Regions exclusively dedicated to tourism",
+            "Unsuitable topography for development"
+        ],
+        "correct_answer": "A large area with numerous industries, good infrastructure, and dense population"
+    },
+    {
+        "question": "Which of the following is NOT a factor affecting the location of industries?",
+        "options": [
+            "Raw materials availability",
+            "Market proximity",
+            "Easy finance availability",
+            "Absence of government policies"
+        ],
+        "correct_answer": "Absence of government policies"
+    },
+    {
+        "question": "Jamshedpur is famous for which type of industry?",
+        "options": [
+            "Paper manufacturing",
+            "Automobile assembly",
+            "Iron and steel",
+            "Chemical production"
+        ],
+        "correct_answer": "Iron and steel"
+    },
+    {
+        "question": "Compared to small-scale industries, large-scale industries:",
+        "options": [
+            "Have higher output, higher capital investment, and advanced technology",
+            "Are usually found in remote villages",
+            "Require fewer raw materials",
+            "Have very low capital investment"
+        ],
+        "correct_answer": "Have higher output, higher capital investment, and advanced technology"
+    },
+    {
+        "question": "In the industrial system, 'outputs' can refer to:",
+        "options": [
+            "The raw materials extracted from farms",
+            "The gauge of the machinery used",
+            "The final product or goods produced by the industry",
+            "The number of employees hired"
+        ],
+        "correct_answer": "The final product or goods produced by the industry"
+    },
+    {
+        "question": "Which of these is an example of a mineral-based raw material?",
+        "options": [
+            "Cotton",
+            "Iron ore",
+            "Timber",
+            "Milk"
+        ],
+        "correct_answer": "Iron ore"
+    },
+    {
+        "question": "Small-scale industries typically:",
+        "options": [
+            "Operate under massive conglomerates",
+            "Require heavy machinery and large amounts of capital",
+            "Have relatively low capital and fewer workers",
+            "Always function under government contracts"
+        ],
+        "correct_answer": "Have relatively low capital and fewer workers"
+    },
+    {
+        "question": "Who usually owns public sector industries?",
+        "options": [
+            "Private entrepreneurs",
+            "Local community organizations",
+            "Government or government agencies",
+            "Foreign investors"
+        ],
+        "correct_answer": "Government or government agencies"
+    },
+    {
+        "question": "Which city in the USA is known for its iron and steel industry, comparable to Jamshedpur in India?",
+        "options": [
+            "New York",
+            "Dallas",
+            "Los Angeles",
+            "Pittsburgh"
+        ],
+        "correct_answer": "Pittsburgh"
+    },
+    {
+        "question": "Which of the following is a disadvantage of a cooperative sector industry?",
+        "options": [
+            "High cost of raw materials due to government intervention",
+            "Lower involvement of producers or workers",
+            "Conflicts can arise due to shared decision-making and profit distribution",
+            "Excessive profit for a single owner"
+        ],
+        "correct_answer": "Conflicts can arise due to shared decision-making and profit distribution"
+    },
+    {
+        "question": "The term 'industrial region' refers to:",
+        "options": [
+            "A rural area devoted to small-scale agriculture",
+            "A zone defined by government strictly for commercial offices",
+            "An area concentrated with industries, infrastructure, and workforce",
+            "A region with no manufacturing or service activities"
+        ],
+        "correct_answer": "An area concentrated with industries, infrastructure, and workforce"
+    },
+    {
+        "question": "Manufacturing is best defined as:",
+        "options": [
+            "Producing crops on agricultural land",
+            "Converting raw materials into finished goods on a large scale",
+            "Exploring natural resources underground",
+            "Providing basic educational services"
+        ],
+        "correct_answer": "Converting raw materials into finished goods on a large scale"
+    },
+    {
+        "question": "The most crucial raw material for the textile industry is:",
+        "options": [
+            "Cotton",
+            "Copper ore",
+            "Crude oil",
+            "Wood pulp"
+        ],
+        "correct_answer": "Cotton"
+    },
+    {
+        "question": "Which among the following is a factor that influences industrial location related to finances?",
+        "options": [
+            "Availability of capital from banks and investors",
+            "Volume of rainfall in the region",
+            "Proximity to a coastline",
+            "Number of tourist attractions"
+        ],
+        "correct_answer": "Availability of capital from banks and investors"
+    },
+    {
+        "question": "Pittsburgh became a significant steel hub primarily due to:",
+        "options": [
+            "Abundance of raw materials like iron ore and coal in nearby areas",
+            "Its tropical climate suitable for agriculture",
+            "Proximity to the Atlantic ocean for fishing",
+            "State-owned policy interventions only"
+        ],
+        "correct_answer": "Abundance of raw materials like iron ore and coal in nearby areas"
+    },
+    {
+        "question": "One important way industries reduce risk is by:",
+        "options": [
+            "Reducing wages of all employees",
+            "Ignoring environmental guidelines to cut costs",
+            "Diversifying markets and products",
+            "Eliminating research and development"
+        ],
+        "correct_answer": "Diversifying markets and products"
+    },
+    {
+        "question": "Which of the following occupies a key role in the distribution of iron and steel industries?",
+        "options": [
+            "Locations with advanced tertiary industries",
+            "Proximity to iron ore and coal mines",
+            "Regions with only advanced textile manufacturing units",
+            "Areas where no raw materials are available"
+        ],
+        "correct_answer": "Proximity to iron ore and coal mines"
+    },
+    {
+        "question": "Which of the following best describes the concept of 'footloose industries'?",
+        "options": [
+            "Industries that cannot move once established",
+            "Industries that heavily depend on local agglomerations",
+            "Industries whose location is not strongly tied to raw materials or markets",
+            "Industries that only operate near major rivers"
+        ],
+        "correct_answer": "Industries whose location is not strongly tied to raw materials or markets"
+    },
+    {
+        "question": "Which term describes a region where several industries gather together and benefit from shared facilities?",
+        "options": [
+            "Industrial precinct",
+            "Industrial agglomeration",
+            "Industrial corridor",
+            "Industrial culturing"
+        ],
+        "correct_answer": "Industrial agglomeration"
+    },
+    {
+        "question": "What is the primary function of an industrial cluster?",
+        "options": [
+            "To isolate factories from residential areas",
+            "To facilitate collaboration, reduce costs, and promote innovation among industries",
+            "To promote tourism in remote locations",
+            "To supply only marine-based raw materials to adjacent towns"
+        ],
+        "correct_answer": "To facilitate collaboration, reduce costs, and promote innovation among industries"
+    },
+    {
+        "question": "Which of the following can be considered a characteristic of high-technology industries?",
+        "options": [
+            "They strictly depend on coal-based power plants",
+            "They usually require minimal skill and labor",
+            "They often rely on specialized research and development facilities",
+            "They are typically located in densely forested regions"
+        ],
+        "correct_answer": "They often rely on specialized research and development facilities"
+    },
+    {
+        "question": "Which is an example of a raw material for a forest-based industry?",
+        "options": [
+            "Timber from pine and teak trees",
+            "Iron ore from open-pit mines",
+            "Fish harvested from coastal waters",
+            "Desert sand used for glass manufacturing"
+        ],
+        "correct_answer": "Timber from pine and teak trees"
+    },
+    {
+        "question": "Which term refers to industries that often relocate to take advantage of changes in cost or availability of production factors?",
+        "options": [
+            "Capital-intensive industries",
+            "Footloose industries",
+            "Sunrise industries",
+            "Seasonal industries"
+        ],
+        "correct_answer": "Footloose industries"
+    },
+    {
+        "question": "What is a ‘sunrise industry’?",
+        "options": [
+            "An industry that functions only in the early hours of the day",
+            "A rapidly growing sector with future potential, usually involving new technology",
+            "Any industry located in wetland regions",
+            "An industry devoted to energy production from the sun"
+        ],
+        "correct_answer": "A rapidly growing sector with future potential, usually involving new technology"
+    },
+    {
+        "question": "Which term best describes the system of inputs, processes, and outputs in manufacturing?",
+        "options": [
+            "Industrial revolution",
+            "Value chain",
+            "Industrial block",
+            "Production synergy"
+        ],
+        "correct_answer": "Value chain"
+    },
+    {
+        "question": "Why has the automotive industry frequently clustered in certain regions?",
+        "options": [
+            "Abundance of mineral ores",
+            "Proximity to farmland for raw materials",
+            "Availability of skilled labor, research facilities, and component suppliers",
+            "Easy access to coastal fishing areas"
+        ],
+        "correct_answer": "Availability of skilled labor, research facilities, and component suppliers"
+    },
+    {
+        "question": "Which industry is the backbone of many other sectors, providing essential tools and equipment?",
+        "options": [
+            "Consumer electronics industry",
+            "Machinery manufacturing industry",
+            "Textile industry",
+            "Fertilizer industry"
+        ],
+        "correct_answer": "Machinery manufacturing industry"
+    },
+    {
+        "question": "Which of the following is true about multinational corporations (MNCs)?",
+        "options": [
+            "They strictly operate in home countries only",
+            "They have business operations in multiple countries",
+            "They are always owned by governments",
+            "They only invest in agro-based industries"
+        ],
+        "correct_answer": "They have business operations in multiple countries"
+    },
+    {
+        "question": "Which factor is crucial not just for setting up industries, but also for their sustainability?",
+        "options": [
+            "Availability of cutting-edge sports equipment",
+            "Consistent power supply and infrastructure maintenance",
+            "Exclusively government-run incentive programs",
+            "Over-reliance on a single type of technology"
+        ],
+        "correct_answer": "Consistent power supply and infrastructure maintenance"
+    },
+    {
+        "question": "Which one of the following majorly differentiates public sector industries from private sector industries?",
+        "options": [
+            "Public sector industries focus on profit maximization only",
+            "Private sector industries operate without any employees",
+            "Public sector industries are owned and operated by government bodies",
+            "Private sector industries always run at a deficit"
+        ],
+        "correct_answer": "Public sector industries are owned and operated by government bodies"
+    },
+    {
+        "question": "How do coastal areas often benefit marine-based industries?",
+        "options": [
+            "They provide unlimited freshwater reserves",
+            "They ensure no exports from the region",
+            "They offer abundant marine resources and encourage tourist consumption",
+            "They limit the trade of raw materials"
+        ],
+        "correct_answer": "They offer abundant marine resources and encourage tourist consumption"
+    },
+    {
+        "question": "Which of the following factors best explains why some iron and steel industries locate near coalfields?",
+        "options": [
+            "Coalfields have ideal climate for cotton cultivation",
+            "Coal is an essential fuel for smelting iron ore",
+            "Easy access to oceanic routes",
+            "Proximity to large deposits of timber"
+        ],
+        "correct_answer": "Coal is an essential fuel for smelting iron ore"
+    },
+    {
+        "question": "Industrial disasters like gas leaks and oil spills highlight the need for:",
+        "options": [
+            "Reduced safety standards to save costs",
+            "Strong regulations, safety mechanisms, and emergency protocols",
+            "Discouraging employee participation in safety drills",
+            "Eliminating all manufacturing industries completely"
+        ],
+        "correct_answer": "Strong regulations, safety mechanisms, and emergency protocols"
+    },
+    {
+        "question": "Which industry would likely require a continuous supply of fresh milk as a critical raw material?",
+        "options": [
+            "Dairy processing",
+            "Steel fabrication",
+            "Oil refining",
+            "Computer hardware assembly"
+        ],
+        "correct_answer": "Dairy processing"
+    },
+    {
+        "question": "Which of the following describes a key feature of cottage industries?",
+        "options": [
+            "They use advanced technology and hire hundreds of workers",
+            "They require complex machinery and large infrastructure",
+            "They are often set up in homes with family members as the main workforce",
+            "They usually produce durable goods on a massive scale"
+        ],
+        "correct_answer": "They are often set up in homes with family members as the main workforce"
+    },
+    {
+        "question": "Which type of industry is most likely to locate near sources of bauxite?",
+        "options": [
+            "Procesing of fisheries",
+            "Aluminium smelting industry",
+            "Cultural craft workshops",
+            "Textile knitting units"
+        ],
+        "correct_answer": "Aluminium smelting industry"
+    },
+    {
+        "question": "Why does the distribution of iron and steel industries heavily depend on the availability of raw materials?",
+        "options": [
+            "Iron and steel industries can function without any resources",
+            "Major raw materials like iron ore and coal are bulky and expensive to transport",
+            "They rely purely on imported machinery",
+            "They only require minimal fuel sources"
+        ],
+        "correct_answer": "Major raw materials like iron ore and coal are bulky and expensive to transport"
+    },
+    {
+        "question": "What drives the growth of high-tech parks or technology corridors?",
+        "options": [
+            "Proximity to renewable farmland",
+            "Availability of advanced research institutions, skilled professionals, and venture capital",
+            "Geographical isolation in mountainous terrain",
+            "Exclusive governance by overseas authorities"
+        ],
+        "correct_answer": "Availability of advanced research institutions, skilled professionals, and venture capital"
+    },
+    {
+        "question": "Which of the following is vital for risk mitigation in large-scale industries?",
+        "options": [
+            "Ignoring environmental concerns",
+            "Strong inventory management and disaster response strategies",
+            "Excessive reliance on a single raw material supplier",
+            "Reducing the workforce drastically"
+        ],
+        "correct_answer": "Strong inventory management and disaster response strategies"
+    },
+    {
+        "question": "Why might an industrial unit opt to operate as a joint venture?",
+        "options": [
+            "To reduce the scope of its market reach",
+            "To combine strengths of different parties in terms of capital and expertise",
+            "To impose strict government regulations on employees",
+            "To avoid any external collaboration"
+        ],
+        "correct_answer": "To combine strengths of different parties in terms of capital and expertise"
+    },
+    {
+        "question": "A cooperative sugar mill typically sources its raw materials from:",
+        "options": [
+            "Small farmers who are also members of the cooperative",
+            "Completely unrelated foreign suppliers",
+            "High-technology research institutes",
+            "Marine-based resources like fisheries"
+        ],
+        "correct_answer": "Small farmers who are also members of the cooperative"
+    },
+    {
+        "question": "Which statement accurately describes 'industrial linkages'?",
+        "options": [
+            "Companies that have no connection or influence on each other",
+            "Interdependencies between industries that lead to shared inputs, outputs, or services",
+            "The official ranking chart of industries by size",
+            "A government network for restricting foreign direct investment"
+        ],
+        "correct_answer": "Interdependencies between industries that lead to shared inputs, outputs, or services"
+    },
+    {
+        "question": "What mainly differentiates 'labour-intensive' from 'capital-intensive' industries?",
+        "options": [
+            "Labour-intensive industries rely on minimal workforce",
+            "Capital-intensive industries prioritize manual tasks over machinery",
+            "Labour-intensive industries deploy more human labor relative to machinery",
+            "There is no difference; both terms are interchangeable"
+        ],
+        "correct_answer": "Labour-intensive industries deploy more human labor relative to machinery"
+    },
+    {
+        "question": "Which of the following measures can help industries lower environmental risks?",
+        "options": [
+            "Delaying investments in cleaner technology",
+            "Ensuring safe waste disposal and sewerage treatment",
+            "Discharging chemicals into freshwater sources",
+            "Eliminating all recycling efforts"
+        ],
+        "correct_answer": "Ensuring safe waste disposal and sewerage treatment"
+    },
+    {
+        "question": "Which of these best describes the term 'industrial revolution' in a historical context?",
+        "options": [
+            "A swift change from a manufacturing economy to an agricultural one",
+            "A period of rapid industrial and technological upgrades starting in the late 18th century",
+            "A small-scale transformation in tribal crafts",
+            "An event only relevant to the 21st-century software developments"
+        ],
+        "correct_answer": "A period of rapid industrial and technological upgrades starting in the late 18th century"
+    },
+    {
+        "question": "In the context of industrial regions, 'break-of-bulk point' refers to:",
+        "options": [
+            "A location where goods are transferred from one mode of transport to another",
+            "A location used for discarding leftover raw materials",
+            "A city with no industrial heritage",
+            "A point where only finished goods can be sold"
+        ],
+        "correct_answer": "A location where goods are transferred from one mode of transport to another"
+    },
+    {
+        "question": "Companies often invest in research and development to:",
+        "options": [
+            "Lower the skills of their workforce",
+            "Remain competitive through innovation and quality improvements",
+            "Eliminate all possible new product lines",
+            "Change their classification from private to cooperative"
+        ],
+        "correct_answer": "Remain competitive through innovation and quality improvements"
+    }
+]

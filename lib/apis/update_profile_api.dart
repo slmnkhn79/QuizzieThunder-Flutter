@@ -1,3 +1,6 @@
+import 'package:get_storage/get_storage.dart';
+import 'package:quizzie_thunder/utils/constants.dart';
+
 import '../models/all_avatar_response_model.dart';
 import '../models/update_profile_post_body_model.dart';
 import '../models/update_profile_response_model.dart';
@@ -8,8 +11,9 @@ class UpdateProfileApi {
   Future<UserProfileResponseModel> getUserProfile(
       {required String userId}) async {
     try {
-      final response = await DioClient.getDioInstance().get("api/user/$userId");
-      return UserProfileResponseModel.fromJson(response.data);
+      final response = await DioClient.getDioInstance().post("/profile",
+      data: {"_id": GetStorage().read(KEY_USER_DATA)['result']['_id']});
+      return UserProfileResponseModel.fromJson(response.data['result']);
     } catch (e) {
       rethrow;
     }
@@ -19,19 +23,25 @@ class UpdateProfileApi {
       {required UpdateProfilePostBodyModel updateProfilePostBodyModel,
       required String userId}) async {
     try {
-      final response = await DioClient.getDioInstance().put(
-          "api/user/update/$userId",
+      final response = await DioClient.getDioInstance().post(
+          "/updateProfile",
           data: updateProfilePostBodyModel.toJson());
-      return UpdateProfileResponseModel.fromJson(response.data);
+      return UpdateProfileResponseModel.fromJson(response.data['result']);
     } catch (e) {
-      rethrow;
+      // rethrow;
+      return UpdateProfileResponseModel.fromJson({
+        "code": 400,
+        "status": false,
+        "message": "Please contact adminstrator",
+        "updatedUser": null
+      });
     }
   }
 
   Future<AllAvatarResponseModel> getAllAvatars() async {
     try {
-      final response = await DioClient.getDioInstance().get("api/avatar/all");
-      return AllAvatarResponseModel.fromJson(response.data);
+      final response = await DioClient.getDioInstance().post("/getAllAvatars");
+      return AllAvatarResponseModel.fromJson(response.data['result']);
     } catch (e) {
       rethrow;
     }

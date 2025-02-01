@@ -7,13 +7,14 @@ import '../../utils/app_utils.dart';
 import 'settings_controller.dart';
 
 class SettingsPage extends StatelessWidget {
-  const SettingsPage({Key? key}) : super(key: key);
+  const SettingsPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     SettingsController settingsController = Get.find<SettingsController>();
     return Scaffold(
         appBar: AppBar(
+          
           leading: IconButton(
               onPressed: () {
                 Get.back();
@@ -29,7 +30,7 @@ class SettingsPage extends StatelessWidget {
                 fontWeight: FontWeight.bold,
                 color: ThemeColor.black),
           ),
-          backgroundColor: Colors.transparent,
+          backgroundColor: ThemeColor.headerOne,
           centerTitle: false,
           elevation: 0,
         ),
@@ -64,7 +65,7 @@ class SettingsPage extends StatelessWidget {
                 InkWell(
                   onTap: () {},
                   child: settingsInfoContainer(Icons.mail_outline_rounded,
-                      "Change Email Address", "${settingsController.email}"),
+                      "Change Email Address", settingsController.email),
                 ),
                 SizedBox(
                   height: 12,

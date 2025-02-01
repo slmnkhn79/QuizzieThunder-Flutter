@@ -11,24 +11,26 @@ class SplashController extends GetxController {
 
   @override
   void onInit() {
-    getAppDetails();
+    // getAppDetails();
     super.onInit();
   }
 
   @override
   void onReady() {
-    if (GetStorage().read(KEY_USER_DATA) != null)
+    if (GetStorage().read(KEY_USER_DATA) != null) {
       print("Token = ${AppUtils.loginUserDetail().result?.token}");
+    }
     Future.delayed(
-        Duration(seconds: 3),
+        Duration(seconds: 1),
         () => localStorage.read(KEY_USER_DATA) == null
             ? Get.offNamed(AppRoutes.welcomePage)
+            // ? Get.offNamed(AppRoutes.dashboardPage)
             : Get.offNamed(AppRoutes.dashboardPage));
     super.onReady();
   }
 
-  void getAppDetails() async {
-    Map<String, String> appDetails = await AppUtils.getAppDetails();
-    appVersion.value = appDetails["version"] ?? "";
-  }
+  // void getAppDetails() async {
+  //   Map<String, String> appDetails = await AppUtils.getAppDetails();
+  //   appVersion.value = appDetails["version"] ?? "";
+  // }
 }

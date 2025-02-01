@@ -12,10 +12,12 @@ class UpdatePasswordController extends GetxController {
   final GlobalKey<FormState> updatePasswordFormKey =
       GlobalKey<FormState>(debugLabel: '__updatePasswordFormKey__');
 
+  final oldPasswordController = TextEditingController();
   final passwordController = TextEditingController();
   final confirmPasswordController = TextEditingController();
 
   var isLoading = false.obs;
+  var oldPasswordInVisible = true.obs;
   var passwordInVisible = true.obs;
   var confirmPasswordInVisible = true.obs;
 
@@ -31,6 +33,9 @@ class UpdatePasswordController extends GetxController {
     } else if (passwordController.text != confirmPasswordController.text) {
       errorMessage = "Password and Confirm password not matched";
       return false;
+    } else if (oldPasswordController.text.isEmpty) {
+      errorMessage = "Old Password is empty";
+      return false;
     } else {
       return true;
     }
@@ -40,21 +45,33 @@ class UpdatePasswordController extends GetxController {
     if (_udpatePasswordFormValidation()) {
       UpdatePasswordPostBodyModel updatePasswordPostBodyModel =
           UpdatePasswordPostBodyModel(
-              newPassword: confirmPasswordController.text);
+              oldPassword: oldPasswordController.text,
+              newPassword: passwordController.text,
+              confirmPassword: confirmPasswordController.text);
       isLoading.value = true;
+      try {
       var response = await resetPasswordApi.updatePassword(
           updatePasswordPostBodyModel: updatePasswordPostBodyModel);
-      if (response.code == 200) {
+      
+        if (response.code == 200) {
+          isLoading.value = false;
+          Get.back(closeOverlays: true);
+          AppUtils.showSnackBar(
+              response.message ?? "Password updated successfully",
+              status: MessageStatus.SUCCESS);
+              
+        } else {
+          isLoading.value = false;
+          AppUtils.showSnackBar(response.message ?? "Error",
+              status: MessageStatus.SUCCESS);
+        }
+      } catch (error) {
         isLoading.value = false;
-        AppUtils.showSnackBar(
-            response.message ?? "Password updated successfully",
-            status: MessageStatus.SUCCESS);
-      } else {
-        isLoading.value = false;
-        AppUtils.showSnackBar(response.message ?? "Error",
-            status: MessageStatus.ERROR);
+        // AppUtils.showSnackBar(error.toString() ?? "Error",
+        //     status: MessageStatus.ERROR);
       }
     } else {
+      isLoading.value = false;
       AppUtils.showSnackBar(errorMessage, status: MessageStatus.ERROR);
     }
   }

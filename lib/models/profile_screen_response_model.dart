@@ -136,7 +136,7 @@ class UserDetail {
       createdAt: DateTime.tryParse(json["createdAt"] ?? ""),
       updatedAt: DateTime.tryParse(json["updatedAt"] ?? ""),
       v: json["__v"],
-      profilePic: json["profilePic"],
+      profilePic: json["profilePic"].length == 0 ? "https://academy-v1.s3.ap-northeast-1.amazonaws.com/avatars/profile_pic.jpg" : json["profilePic"],
     );
   }
 

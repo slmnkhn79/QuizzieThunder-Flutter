@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Item Selector and Sender</title>
+    <script src="https://sdk.amazonaws.com/js/aws-sdk-2.814.0.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        select, input[type="text"], button {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+    <script src="./keys.js"></script>
+</head>
+<body>
+
+<h1>Item Selector</h1>
+<div class="form-group">
+    <label for="itemDropdown">Select an Item:</label>
+    <select id="itemDropdown">
+        <!-- Items will be populated here -->
+        <option value="D72INAqPnG">Generic with no school name</option>
+    </select>
+</div>
+<div class="form-group">
+    <label for="title">Title:</label>
+    <input type="text" id="title">
+</div>
+<div class="form-group">
+    <label for="caption">Caption:</label>
+    <input type="text" id="caption">
+</div>
+<div class="form-group">
+    <label for="imageUrl">Image URL:</label>
+    <input type="text" id="imageUrl" disabled>
+</div>
+
+<input type="file" id="fileInput" />
+<button onclick="uploadFile()">Upload</button>
+<p id="uploadedUrl"></p>
+
+<div class="form-group">
+    <label for="type">Type:</label>
+    <input type="text" id="type" value="post" disabled>
+</div>
+<button onclick="sendData()">Submit</button>
+
+<script>
+    // Mock function to simulate fetching items from a REST API
+    AWS.config.update({
+        'accessKeyId' : accessKeyId,
+        'secretAccessKey' : secretAccessKey,
+        'region' :region
+    });
+    const s3 = new AWS.S3();
+
+    async function fetchItems() {
+        // Simulate an API call
+        const response = await fetch('https://parseapi.back4app.com/classes/Schools',{method: 'GET',
+                
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-Parse-Application-Id':appId,
+                    'X-Parse-REST-API-Key':restApiKey
+                }}); // replace with actual API URL
+        
+        const items = await response.json();
+        console.log(items);
+        return items['results'];
+    }
+    function uploadFile() {
+      const fileInput = document.getElementById('fileInput');
+      const file = fileInput.files[0];
+      const params = {
+        Bucket: 'academy-v1',
+        Key: 'post/'+file.name,
+        Body: file,
+        // ACL: 'public-read'
+      };
+
+      s3.upload(params, function(err, data) {
+        if (err) {
+          console.error('Error uploading file:', err);
+        } else {
+          console.log('File uploaded successfully:', data.Location);
+          document.getElementById('imageUrl').value = data.Location;
+        }
+      });
+    }
+    document.addEventListener('DOMContentLoaded', function() {
+        fetchItems().then(items => {
+            const dropdown = document.getElementById('itemDropdown');
+            items.forEach(item => {
+                const option = document.createElement('option');
+                option.value = item.objectId;
+                option.textContent = item.name;
+                dropdown.appendChild(option);
+            });
+        });
+    });
+    
+
+    // Populate dropdown with items from the API
+    
+
+    // Simulate sending data to a REST API
+    async function sendData() {
+        const selectedItem = document.getElementById('itemDropdown').value;
+        const title = document.getElementById('title').value;
+        const caption = document.getElementById('caption').value;
+        const imageUrl = document.getElementById('imageUrl').value;
+        const type = document.getElementById('type').value;
+
+        const data = {
+            schoolId: selectedItem,
+            title: title,
+            caption: caption,
+            imageUrl: imageUrl,
+            type: type
+        };
+
+        try {
+            const response = await fetch('https://parseapi.back4app.com/parse/functions/createPost', { // replace with actual API URL
+                method: 'POST',
+                
+                headers: {
+                    'Content-Type': 'application/json',
+                   'X-Parse-Application-Id':appId,
+                    'X-Parse-REST-API-Key':restApiKey
+                },
+                body: JSON.stringify(data)
+            });
+            if (response.ok) {
+                alert('Data submitted successfully');
+               title.value = '';
+               caption.value = '';
+               imageUrl.value = '';
+               type.value = '';
+
+            } else {
+                alert('Failed to submit data');
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            alert('Error submitting data');
+        }
+    }
+</script>
+
+</body>
+</html>

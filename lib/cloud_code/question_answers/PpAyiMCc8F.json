@@ -1,0 +1,872 @@
+[
+    {
+        "question": "Which organization issues currency notes in India?",
+        "options": [
+            "Reserve Bank of India (RBI)",
+            "State Bank of India (SBI)",
+            "Central Bank of England",
+            "Finance Ministry of India"
+        ],
+        "correct_answer": "Reserve Bank of India (RBI)"
+    },
+    {
+        "question": "What is the main function of a commercial bank?",
+        "options": [
+            "Issuing government bonds",
+            "Accepting deposits and lending money",
+            "Collecting taxes",
+            "Printing currency notes"
+        ],
+        "correct_answer": "Accepting deposits and lending money"
+    },
+    {
+        "question": "Which of the following is an example of 'fiat money'?",
+        "options": [
+            "Barter items like wheat",
+            "Bitcoin",
+            "Gold coins",
+            "Paper currency issued by a government"
+        ],
+        "correct_answer": "Paper currency issued by a government"
+    },
+    {
+        "question": "Which term refers to the extra amount paid by the borrower to the lender on a loan?",
+        "options": [
+            "Deposit",
+            "Interest",
+            "Principal",
+            "Discount"
+        ],
+        "correct_answer": "Interest"
+    },
+    {
+        "question": "Which of these is a digital currency that operates on blockchain technology?",
+        "options": [
+            "Bitcoin",
+            "Cheque",
+            "Demand Draft",
+            "Credit Card"
+        ],
+        "correct_answer": "Bitcoin"
+    },
+    {
+        "question": "Which bank account allows unlimited withdrawals and deposits without restrictions but usually has no or very low interest?",
+        "options": [
+            "Savings Account",
+            "Fixed Deposit Account",
+            "Current Account",
+            "Recurring Deposit Account"
+        ],
+        "correct_answer": "Current Account"
+    },
+    {
+        "question": "What do we call a system where goods and services are exchanged without using money?",
+        "options": [
+            "Digital transaction",
+            "Barter system",
+            "Stock exchange",
+            "Banking system"
+        ],
+        "correct_answer": "Barter system"
+    },
+    {
+        "question": "Which of the following best describes 'inflation'?",
+        "options": [
+            "Decrease in general price levels of goods and services",
+            "Increase in the overall level of prices for goods and services",
+            "Complete removal of taxes",
+            "A sudden slump in money supply"
+        ],
+        "correct_answer": "Increase in the overall level of prices for goods and services"
+    },
+    {
+        "question": "Which body regulates the monetary policy in India?",
+        "options": [
+            "Reserve Bank of India",
+            "Central Bureau of Investigation",
+            "Ministry of External Affairs",
+            "Supreme Court of India"
+        ],
+        "correct_answer": "Reserve Bank of India"
+    },
+    {
+        "question": "What does the term 'legal tender' mean?",
+        "options": [
+            "Currency that must be accepted if offered in payment of a debt",
+            "Currency used only for foreign travel",
+            "Fake currency used as props in movies",
+            "Money that is not regulated by any authority"
+        ],
+        "correct_answer": "Currency that must be accepted if offered in payment of a debt"
+    },
+    {
+        "question": "Which of these is NOT a primary function of money?",
+        "options": [
+            "Medium of exchange",
+            "Store of value",
+            "Unit of account",
+            "Creating new minerals"
+        ],
+        "correct_answer": "Creating new minerals"
+    },
+    {
+        "question": "Which statement is TRUE about mobile banking?",
+        "options": [
+            "No internet connection is required",
+            "Balances cannot be checked",
+            "Transactions can be done using a mobile phone",
+            "It can only be used by bank employees"
+        ],
+        "correct_answer": "Transactions can be done using a mobile phone"
+    },
+    {
+        "question": "Which of the following is a benefit of using digital payments?",
+        "options": [
+            "Increased risk of theft",
+            "Instant transfer and convenience",
+            "Long queues for withdrawal",
+            "Higher currency printing costs"
+        ],
+        "correct_answer": "Instant transfer and convenience"
+    },
+    {
+        "question": "Why do banks keep a portion of deposits as reserves?",
+        "options": [
+            "To meet unexpected demand for withdrawals",
+            "To spend on advertising",
+            "To buy gold",
+            "By law, they must keep 100% of deposits"
+        ],
+        "correct_answer": "To meet unexpected demand for withdrawals"
+    },
+    {
+        "question": "Which of these best describes 'cryptocurrency'?",
+        "options": [
+            "Currency made of gold and silver",
+            "Digital or virtual currency secured by cryptography",
+            "Only paper currency with special watermarks",
+            "A currency that can be used only within banks"
+        ],
+        "correct_answer": "Digital or virtual currency secured by cryptography"
+    },
+    {
+        "question": "In a bank, a 'Fixed Deposit' account usually means:",
+        "options": [
+            "Money is deposited for a fixed period at a fixed interest rate",
+            "Money can be withdrawn at any time without penalty",
+            "Money can be transferred freely to other banks",
+            "No interest is ever earned on this deposit"
+        ],
+        "correct_answer": "Money is deposited for a fixed period at a fixed interest rate"
+    },
+    {
+        "question": "What is the purpose of a 'loan' provided by banks?",
+        "options": [
+            "To help customers safely store gold",
+            "To allow customers to borrow money and pay it back with interest",
+            "To handle foreign exchange only",
+            "To provide free money without repayment"
+        ],
+        "correct_answer": "To allow customers to borrow money and pay it back with interest"
+    },
+    {
+        "question": "Which of the following describes 'blockchain' in relation to Bitcoin?",
+        "options": [
+            "A chain of physical blocks used for storing paper money",
+            "A digital ledger that records all Bitcoin transactions",
+            "A bank locker system for cryptocurrency",
+            "Government registry for money laundering cases"
+        ],
+        "correct_answer": "A digital ledger that records all Bitcoin transactions"
+    },
+    {
+        "question": "Which one is typically a government-imposed restriction on how much of a foreign currency one can buy?",
+        "options": [
+            "Foreign Exchange Limits",
+            "Refund Policy",
+            "Credit Card Limit",
+            "Collateral Security"
+        ],
+        "correct_answer": "Foreign Exchange Limits"
+    },
+    {
+        "question": "Which of these explains why someone would open a 'Savings Account'?",
+        "options": [
+            "To keep money for emergencies and earn some interest",
+            "To buy and sell company shares",
+            "To apply for a government job",
+            "To avoid paying any bank charges"
+        ],
+        "correct_answer": "To keep money for emergencies and earn some interest"
+    },
+    {
+        "question": "What is the main advantage of using an ATM card?",
+        "options": [
+            "Limited to withdrawing large sums only",
+            "Access to cash and account information any time",
+            "Spending only in foreign currency",
+            "It avoids the need for a PIN"
+        ],
+        "correct_answer": "Access to cash and account information any time"
+    },
+    {
+        "question": "Which factor can cause the value of a cryptocurrency like Bitcoin to rise or fall?",
+        "options": [
+            "Wrong bank account number",
+            "Voter turnout in elections",
+            "Market demand and investor interest",
+            "Distance of bank from the city"
+        ],
+        "correct_answer": "Market demand and investor interest"
+    },
+    {
+        "question": "What term indicates the total amount of money in circulation in a country's economy?",
+        "options": [
+            "Money Supply",
+            "Foreign Exchange Rate",
+            "Tax Revenue",
+            "Gross Domestic Product"
+        ],
+        "correct_answer": "Money Supply"
+    },
+    {
+        "question": "Which of these is a digital wallet service frequently used for online payments?",
+        "options": [
+            "PayPal",
+            "Steam Engine",
+            "Telegram",
+            "Gold Coin"
+        ],
+        "correct_answer": "PayPal"
+    },
+    {
+        "question": "Which of these statements is TRUE about interest earned on a bank deposit?",
+        "options": [
+            "It is always zero",
+            "Banks usually pay interest on deposits to encourage savings",
+            "The government directly pays interest on all deposits",
+            "Banks pay interest only to businesses"
+        ],
+        "correct_answer": "Banks usually pay interest on deposits to encourage savings"
+    },
+    {
+        "question": "What is one major concern about Bitcoin and other cryptocurrencies?",
+        "options": [
+            "They are physically heavy to carry",
+            "They are not accepted by any online platforms",
+            "Price volatility and lack of centralized regulation",
+            "They are fully controlled by national banks"
+        ],
+        "correct_answer": "Price volatility and lack of centralized regulation"
+    },
+    {
+        "question": "Which of these is a key feature of 'online banking'?",
+        "options": [
+            "Bank closures on weekends",
+            "Performing transactions using paper slips only",
+            "Access to funds 24/7 from anywhere with internet",
+            "Currency exchange without any IDs"
+        ],
+        "correct_answer": "Access to funds 24/7 from anywhere with internet"
+    },
+    {
+        "question": "Which Indian government initiative promotes digital transactions?",
+        "options": [
+            "Digital India",
+            "Swachh Bharat Abhiyan",
+            "Mid Day Meal Scheme",
+            "Smart Cities Project"
+        ],
+        "correct_answer": "Digital India"
+    },
+    {
+        "question": "Which is an important difference between debit cards and credit cards?",
+        "options": [
+            "Debit cards often charge higher interest rates than credit cards",
+            "Debit cards let you borrow money, while credit cards deduct funds from your bank balance",
+            "Debit cards deduct directly from your bank account, while credit cards allow borrowing up to a limit",
+            "They are interchangeable and have no difference"
+        ],
+        "correct_answer": "Debit cards deduct directly from your bank account, while credit cards allow borrowing up to a limit"
+    },
+    {
+        "question": "Which of the following best describes 'KYC' (Know Your Customer)?",
+        "options": [
+            "A process by which banks verify the identity of their clients",
+            "A new cryptocurrency",
+            "A bank software to detect fake notes",
+            "A method to reduce the tax rate"
+        ],
+        "correct_answer": "A process by which banks verify the identity of their clients"
+    },
+    {
+        "question": "Which organization issues currency notes in India?",
+        "options": [
+            "Reserve Bank of India (RBI)",
+            "State Bank of India (SBI)",
+            "Central Bank of England",
+            "Finance Ministry of India"
+        ],
+        "correct_answer": "Reserve Bank of India (RBI)"
+    },
+    {
+        "question": "What is the main function of a commercial bank?",
+        "options": [
+            "Issuing government bonds",
+            "Accepting deposits and lending money",
+            "Collecting taxes",
+            "Printing currency notes"
+        ],
+        "correct_answer": "Accepting deposits and lending money"
+    },
+    {
+        "question": "Which of the following is an example of 'fiat money'?",
+        "options": [
+            "Barter items like wheat",
+            "Bitcoin",
+            "Gold coins",
+            "Paper currency issued by a government"
+        ],
+        "correct_answer": "Paper currency issued by a government"
+    },
+    {
+        "question": "Which term refers to the extra amount paid by the borrower to the lender on a loan?",
+        "options": [
+            "Deposit",
+            "Interest",
+            "Principal",
+            "Discount"
+        ],
+        "correct_answer": "Interest"
+    },
+    {
+        "question": "Which of these is a digital currency that operates on blockchain technology?",
+        "options": [
+            "Bitcoin",
+            "Cheque",
+            "Demand Draft",
+            "Credit Card"
+        ],
+        "correct_answer": "Bitcoin"
+    },
+    {
+        "question": "Which bank account allows unlimited withdrawals and deposits without restrictions but usually has no or very low interest?",
+        "options": [
+            "Savings Account",
+            "Fixed Deposit Account",
+            "Current Account",
+            "Recurring Deposit Account"
+        ],
+        "correct_answer": "Current Account"
+    },
+    {
+        "question": "What do we call a system where goods and services are exchanged without using money?",
+        "options": [
+            "Digital transaction",
+            "Barter system",
+            "Stock exchange",
+            "Banking system"
+        ],
+        "correct_answer": "Barter system"
+    },
+    {
+        "question": "Which of the following best describes 'inflation'?",
+        "options": [
+            "Decrease in general price levels of goods and services",
+            "Increase in the overall level of prices for goods and services",
+            "Complete removal of taxes",
+            "A sudden slump in money supply"
+        ],
+        "correct_answer": "Increase in the overall level of prices for goods and services"
+    },
+    {
+        "question": "Which body regulates the monetary policy in India?",
+        "options": [
+            "Reserve Bank of India",
+            "Central Bureau of Investigation",
+            "Ministry of External Affairs",
+            "Supreme Court of India"
+        ],
+        "correct_answer": "Reserve Bank of India"
+    },
+    {
+        "question": "What does the term 'legal tender' mean?",
+        "options": [
+            "Currency that must be accepted if offered in payment of a debt",
+            "Currency used only for foreign travel",
+            "Fake currency used as props in movies",
+            "Money that is not regulated by any authority"
+        ],
+        "correct_answer": "Currency that must be accepted if offered in payment of a debt"
+    },
+    {
+        "question": "Which of these is NOT a primary function of money?",
+        "options": [
+            "Medium of exchange",
+            "Store of value",
+            "Unit of account",
+            "Creating new minerals"
+        ],
+        "correct_answer": "Creating new minerals"
+    },
+    {
+        "question": "Which statement is TRUE about mobile banking?",
+        "options": [
+            "No internet connection is required",
+            "Balances cannot be checked",
+            "Transactions can be done using a mobile phone",
+            "It can only be used by bank employees"
+        ],
+        "correct_answer": "Transactions can be done using a mobile phone"
+    },
+    {
+        "question": "Which of the following is a benefit of using digital payments?",
+        "options": [
+            "Increased risk of theft",
+            "Instant transfer and convenience",
+            "Long queues for withdrawal",
+            "Higher currency printing costs"
+        ],
+        "correct_answer": "Instant transfer and convenience"
+    },
+    {
+        "question": "Why do banks keep a portion of deposits as reserves?",
+        "options": [
+            "To meet unexpected demand for withdrawals",
+            "To spend on advertising",
+            "To buy gold",
+            "By law, they must keep 100% of deposits"
+        ],
+        "correct_answer": "To meet unexpected demand for withdrawals"
+    },
+    {
+        "question": "Which of these best describes 'cryptocurrency'?",
+        "options": [
+            "Currency made of gold and silver",
+            "Digital or virtual currency secured by cryptography",
+            "Only paper currency with special watermarks",
+            "A currency that can be used only within banks"
+        ],
+        "correct_answer": "Digital or virtual currency secured by cryptography"
+    },
+    {
+        "question": "In a bank, a 'Fixed Deposit' account usually means:",
+        "options": [
+            "Money is deposited for a fixed period at a fixed interest rate",
+            "Money can be withdrawn at any time without penalty",
+            "Money can be transferred freely to other banks",
+            "No interest is ever earned on this deposit"
+        ],
+        "correct_answer": "Money is deposited for a fixed period at a fixed interest rate"
+    },
+    {
+        "question": "What is the purpose of a 'loan' provided by banks?",
+        "options": [
+            "To help customers safely store gold",
+            "To allow customers to borrow money and pay it back with interest",
+            "To handle foreign exchange only",
+            "To provide free money without repayment"
+        ],
+        "correct_answer": "To allow customers to borrow money and pay it back with interest"
+    },
+    {
+        "question": "Which of the following describes 'blockchain' in relation to Bitcoin?",
+        "options": [
+            "A chain of physical blocks used for storing paper money",
+            "A digital ledger that records all Bitcoin transactions",
+            "A bank locker system for cryptocurrency",
+            "Government registry for money laundering cases"
+        ],
+        "correct_answer": "A digital ledger that records all Bitcoin transactions"
+    },
+    {
+        "question": "Which one is typically a government-imposed restriction on how much of a foreign currency one can buy?",
+        "options": [
+            "Foreign Exchange Limits",
+            "Refund Policy",
+            "Credit Card Limit",
+            "Collateral Security"
+        ],
+        "correct_answer": "Foreign Exchange Limits"
+    },
+    {
+        "question": "Which of these explains why someone would open a 'Savings Account'?",
+        "options": [
+            "To keep money for emergencies and earn some interest",
+            "To buy and sell company shares",
+            "To apply for a government job",
+            "To avoid paying any bank charges"
+        ],
+        "correct_answer": "To keep money for emergencies and earn some interest"
+    },
+    {
+        "question": "What is the main advantage of using an ATM card?",
+        "options": [
+            "Limited to withdrawing large sums only",
+            "Access to cash and account information any time",
+            "Spending only in foreign currency",
+            "It avoids the need for a PIN"
+        ],
+        "correct_answer": "Access to cash and account information any time"
+    },
+    {
+        "question": "Which factor can cause the value of a cryptocurrency like Bitcoin to rise or fall?",
+        "options": [
+            "Wrong bank account number",
+            "Voter turnout in elections",
+            "Market demand and investor interest",
+            "Distance of bank from the city"
+        ],
+        "correct_answer": "Market demand and investor interest"
+    },
+    {
+        "question": "What term indicates the total amount of money in circulation in a country's economy?",
+        "options": [
+            "Money Supply",
+            "Foreign Exchange Rate",
+            "Tax Revenue",
+            "Gross Domestic Product"
+        ],
+        "correct_answer": "Money Supply"
+    },
+    {
+        "question": "Which of these is a digital wallet service frequently used for online payments?",
+        "options": [
+            "PayPal",
+            "Steam Engine",
+            "Telegram",
+            "Gold Coin"
+        ],
+        "correct_answer": "PayPal"
+    },
+    {
+        "question": "Which of these statements is TRUE about interest earned on a bank deposit?",
+        "options": [
+            "It is always zero",
+            "Banks usually pay interest on deposits to encourage savings",
+            "The government directly pays interest on all deposits",
+            "Banks pay interest only to businesses"
+        ],
+        "correct_answer": "Banks usually pay interest on deposits to encourage savings"
+    },
+    {
+        "question": "What is one major concern about Bitcoin and other cryptocurrencies?",
+        "options": [
+            "They are physically heavy to carry",
+            "They are not accepted by any online platforms",
+            "Price volatility and lack of centralized regulation",
+            "They are fully controlled by national banks"
+        ],
+        "correct_answer": "Price volatility and lack of centralized regulation"
+    },
+    {
+        "question": "Which of these is a key feature of 'online banking'?",
+        "options": [
+            "Bank closures on weekends",
+            "Performing transactions using paper slips only",
+            "Access to funds 24/7 from anywhere with internet",
+            "Currency exchange without any IDs"
+        ],
+        "correct_answer": "Access to funds 24/7 from anywhere with internet"
+    },
+    {
+        "question": "Which Indian government initiative promotes digital transactions?",
+        "options": [
+            "Digital India",
+            "Swachh Bharat Abhiyan",
+            "Mid Day Meal Scheme",
+            "Smart Cities Project"
+        ],
+        "correct_answer": "Digital India"
+    },
+    {
+        "question": "Which is an important difference between debit cards and credit cards?",
+        "options": [
+            "Debit cards often charge higher interest rates than credit cards",
+            "Debit cards let you borrow money, while credit cards deduct funds from your bank balance",
+            "Debit cards deduct directly from your bank account, while credit cards allow borrowing up to a limit",
+            "They are interchangeable and have no difference"
+        ],
+        "correct_answer": "Debit cards deduct directly from your bank account, while credit cards allow borrowing up to a limit"
+    },
+    {
+        "question": "Which of the following best describes 'KYC' (Know Your Customer)?",
+        "options": [
+            "A process by which banks verify the identity of their clients",
+            "A new cryptocurrency",
+            "A bank software to detect fake notes",
+            "A method to reduce the tax rate"
+        ],
+        "correct_answer": "A process by which banks verify the identity of their clients"
+    },
+    {
+        "question": "Besides keeping deposits, what is another important role of banks?",
+        "options": [
+            "Organizing sports events",
+            "Providing loans for individuals and businesses",
+            "Offering meteorological reports",
+            "Printing newspaper advertisements"
+        ],
+        "correct_answer": "Providing loans for individuals and businesses"
+    },
+    {
+        "question": "Which type of bank account involves depositing a certain sum each month for a fixed period?",
+        "options": [
+            "Recurring Deposit Account",
+            "Savings Account",
+            "Current Account",
+            "Nostro Account"
+        ],
+        "correct_answer": "Recurring Deposit Account"
+    },
+    {
+        "question": "Which of the following describes NEFT (National Electronic Funds Transfer)?",
+        "options": [
+            "Offline money transfer using coins",
+            "Digital fund transfer system in India allowing transfers in hourly batches",
+            "A method of gold loan repayment",
+            "Currency conversion for Bitcoin"
+        ],
+        "correct_answer": "Digital fund transfer system in India allowing transfers in hourly batches"
+    },
+    {
+        "question": "What is a 'cheque' in banking terms?",
+        "options": [
+            "A promise to buy gold at a future date",
+            "A written order directing a bank to pay a specific amount of money to the bearer",
+            "A digital receipt generated for online transactions",
+            "A foreign currency voucher"
+        ],
+        "correct_answer": "A written order directing a bank to pay a specific amount of money to the bearer"
+    },
+    {
+        "question": "Which of the following best describes a 'Demand Draft'?",
+        "options": [
+            "A card used for international travel",
+            "A pre-paid negotiable instrument issued by a bank, payable on demand",
+            "A personal cheque guaranteed by the issuing bank",
+            "A digital currency used for blockchain payments"
+        ],
+        "correct_answer": "A pre-paid negotiable instrument issued by a bank, payable on demand"
+    },
+    {
+        "question": "What is one reason why governments impose limits on cash withdrawal?",
+        "options": [
+            "To make banking more difficult",
+            "To prevent money laundering and manage liquidity",
+            "To reduce internet usage",
+            "To support only big businesses"
+        ],
+        "correct_answer": "To prevent money laundering and manage liquidity"
+    },
+    {
+        "question": "Who can issue a 'Credit Card'?",
+        "options": [
+            "Only local grocery stores",
+            "Commercial banks or financial institutions",
+            "Any individual from the public",
+            "Government schools"
+        ],
+        "correct_answer": "Commercial banks or financial institutions"
+    },
+    {
+        "question": "What does RTGS (Real Time Gross Settlement) signify?",
+        "options": [
+            "Transfers happen in real time on an individual transaction basis",
+            "Transfers happen only at the end of the day",
+            "Transfers must wait for clearance the next day",
+            "A method using physical cheques"
+        ],
+        "correct_answer": "Transfers happen in real time on an individual transaction basis"
+    },
+    {
+        "question": "Which statement is TRUE about a digital transaction using a UPI (Unified Payments Interface)?",
+        "options": [
+            "It can only happen at bank branches",
+            "It requires direct contact with physical currency",
+            "Money can be transferred between two bank accounts instantly using a mobile device",
+            "It's only available to large corporations"
+        ],
+        "correct_answer": "Money can be transferred between two bank accounts instantly using a mobile device"
+    },
+    {
+        "question": "Which of these is a key risk associated with online banking if not used securely?",
+        "options": [
+            "Immediate wealth",
+            "Potential for hacking or phishing",
+            "Guaranteed 100% returns on deposits",
+            "Automatic insurance coverage"
+        ],
+        "correct_answer": "Potential for hacking or phishing"
+    },
+    {
+        "question": "Why do people invest in cryptocurrencies like Bitcoin despite the risks?",
+        "options": [
+            "They have no other place to store money",
+            "They are guaranteed to never lose value",
+            "They see a possibility of high returns if prices rise",
+            "They are compelled by the government"
+        ],
+        "correct_answer": "They see a possibility of high returns if prices rise"
+    },
+    {
+        "question": "What is 'Deflation' in economic terms?",
+        "options": [
+            "A continuous fall in the general price level of goods and services",
+            "A steady increase in road taxes",
+            "An increase in the supply of currency notes",
+            "A sudden removal of interest rates"
+        ],
+        "correct_answer": "A continuous fall in the general price level of goods and services"
+    },
+    {
+        "question": "Which of the following is typically NOT a function of a central bank (like RBI)?",
+        "options": [
+            "Formulating monetary policy",
+            "Acting as a banker to the government",
+            "Printing currency",
+            "Setting up private businesses"
+        ],
+        "correct_answer": "Setting up private businesses"
+    },
+    {
+        "question": "What does 'Bitcoin mining' refer to?",
+        "options": [
+            "Physically extracting bitcoins from mines",
+            "Using specialized software/hardware to validate transactions and add new bitcoins to circulation",
+            "Printing new currencies in a mint",
+            "A form of online gaming"
+        ],
+        "correct_answer": "Using specialized software/hardware to validate transactions and add new bitcoins to circulation"
+    },
+    {
+        "question": "Which of these best describes a 'Bank Statement'?",
+        "options": [
+            "A list of complaints against the bank",
+            "A monthly or periodic record of a customer's account transactions",
+            "A certificate to prove identification",
+            "A letter guaranteeing a loan"
+        ],
+        "correct_answer": "A monthly or periodic record of a customer's account transactions"
+    },
+    {
+        "question": "What is the safest way to handle your ATM PIN?",
+        "options": [
+            "Writing it on the back of the card",
+            "Sharing it openly with friends",
+            "Keeping it secret and memorized",
+            "Displaying it on social media"
+        ],
+        "correct_answer": "Keeping it secret and memorized"
+    },
+    {
+        "question": "Which of the following can impact the exchange rate of a country’s currency?",
+        "options": [
+            "Population alone",
+            "The average height of citizens",
+            "Imports, exports, and economic stability",
+            "Number of languages spoken"
+        ],
+        "correct_answer": "Imports, exports, and economic stability"
+    },
+    {
+        "question": "In the context of money, what does 'plastic money' refer to?",
+        "options": [
+            "Paper notes coated with plastic",
+            "Credit cards and debit cards",
+            "Counterfeit notes made of plastic",
+            "Invisible digital currency"
+        ],
+        "correct_answer": "Credit cards and debit cards"
+    },
+    {
+        "question": "What is 'Overdraft' in banking?",
+        "options": [
+            "Withdrawing more money from an account than what is available, up to a limit set by the bank",
+            "Depositing checks that are past their validity",
+            "Setting up a small savings account",
+            "Exchanging currency for gold"
+        ],
+        "correct_answer": "Withdrawing more money from an account than what is available, up to a limit set by the bank"
+    },
+    {
+        "question": "What is the primary purpose of 'Insurance' in the financial world?",
+        "options": [
+            "To ensure people buy more gold",
+            "To provide financial protection against various risks",
+            "To force everyone to pay extra tax",
+            "To increase the supply of money"
+        ],
+        "correct_answer": "To provide financial protection against various risks"
+    },
+    {
+        "question": "Which of the following is a common reason to use a 'Credit Card' instead of a 'Debit Card'?",
+        "options": [
+            "You want your account debited immediately",
+            "You want to borrow funds up to a limit and possibly earn reward points",
+            "You want to avoid paying any bill",
+            "You aim to withdraw only your own saved money"
+        ],
+        "correct_answer": "You want to borrow funds up to a limit and possibly earn reward points"
+    },
+    {
+        "question": "Which statement is TRUE about 'mobile wallets' in India (like Paytm, PhonePe, etc.)?",
+        "options": [
+            "They cannot store any money",
+            "They can be used for online and in-store purchases",
+            "They are only for foreign transactions",
+            "They only store physical coins"
+        ],
+        "correct_answer": "They can be used for online and in-store purchases"
+    },
+    {
+        "question": "Which of the following describes 'Liquidity' in the context of money?",
+        "options": [
+            "Difficulty of converting assets into cash",
+            "Ease of converting an asset into cash without loss of value",
+            "Government printing new banknotes",
+            "Storing cash in a fixed deposit for a long term"
+        ],
+        "correct_answer": "Ease of converting an asset into cash without loss of value"
+    },
+    {
+        "question": "What does 'EMI' stand for in the context of loans?",
+        "options": [
+            "Equal Monthly Installments",
+            "Every Minute Investment",
+            "Electronic Money Indicator",
+            "Exact Money Invoice"
+        ],
+        "correct_answer": "Equal Monthly Installments"
+    },
+    {
+        "question": "Why is it important for banks to maintain 'confidentiality' of customer information?",
+        "options": [
+            "To avoid paying customer taxes",
+            "To protect customer privacy and financial security",
+            "To perform identity theft",
+            "To hide their transaction records from authorities"
+        ],
+        "correct_answer": "To protect customer privacy and financial security"
+    },
+    {
+        "question": "Which of these describes how a 'Standing Instruction' works in banking?",
+        "options": [
+            "You stand in a bank queue for any transaction",
+            "An automatic instruction by the account holder to the bank to pay a fixed amount at regular intervals",
+            "A set of rules for foreign exchange rates",
+            "An order to freeze all transactions in an account"
+        ],
+        "correct_answer": "An automatic instruction by the account holder to the bank to pay a fixed amount at regular intervals"
+    },
+    {
+        "question": "What is one of the basic requirements to open a bank account in India?",
+        "options": [
+            "Owning a private jet",
+            "Having valid KYC documents (like PAN, Aadhaar)",
+            "Knowing foreign languages",
+            "Paying a huge deposit fee"
+        ],
+        "correct_answer": "Having valid KYC documents (like PAN, Aadhaar)"
+    }
+]

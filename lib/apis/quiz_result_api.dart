@@ -6,12 +6,18 @@ class QuizResultApi {
   Future<QuizResultResponseModel> submitQuizResult(
       {required QuizResultPostBodyModel quizResultPostBodyModel}) async {
     try {
-      final response = await DioClient.getDioInstance().put(
-          "api/quiz/result/submit-quiz-result",
+      final response = await DioClient.getDioInstance().post(
+          "/submit-quiz-result",
           data: quizResultPostBodyModel.toJson());
-      return QuizResultResponseModel.fromJson(response.data);
+      return QuizResultResponseModel.fromJson(response.data['result']);
     } catch (e) {
-      rethrow;
+      // rethrow;
+      return QuizResultResponseModel.fromJson({
+        "code": 400,
+        "status": false,
+        "message": "Please contact adminstrator",
+        "newQuizResult" : []
+      });
     }
   }
 }

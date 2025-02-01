@@ -5,7 +5,7 @@ import '../../theme/colors_theme.dart';
 import 'verify_otp_controller.dart';
 
 class VerifyOtpPage extends StatelessWidget {
-  const VerifyOtpPage({Key? key}) : super(key: key);
+  const VerifyOtpPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -86,8 +86,6 @@ class VerifyOtpPage extends StatelessWidget {
                                 onPressed: () {
                                   verifyOtpController.verifyOtp();
                                 },
-                                child: Text("Confirm",
-                                    style: TextStyle(color: ThemeColor.white)),
                                 style: TextButton.styleFrom(
                                   textStyle: TextStyle(
                                       fontSize: 16,
@@ -96,13 +94,15 @@ class VerifyOtpPage extends StatelessWidget {
                                       borderRadius: BorderRadius.circular(12)),
                                   backgroundColor: ThemeColor.primaryDark,
                                 ),
+                                child: Text("Confirm",
+                                    style: TextStyle(color: ThemeColor.white)),
                               )),
                         ])))));
   }
 
-  Container otpInputField(
+  SizedBox otpInputField(
       TextEditingController controller, FocusNode focusNode) {
-    return Container(
+    return SizedBox(
       width: 44,
       child: TextFormField(
         controller: controller,

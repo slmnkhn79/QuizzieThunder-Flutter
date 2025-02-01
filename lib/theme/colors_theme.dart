@@ -48,4 +48,18 @@ class ThemeColor {
   static const Color grey_600 = Color(0xff757575);
   static const Color grey_700 = Color(0xff616161);
   static const Color grey_800 = Color(0xff424242);
+  static const Color facebook_light_1 = Color(0xff3b5998);
+  static const Color facebook_light_2 = Color(0xff8b9dc3);
+  static const Color facebook_light_3 = Color(0xffdfe3ee);
+  static const Color facebook_light_4 = Color(0xfff7f7f7);
+  static const Color headerOne = Color(0xff3b5998);
+  static const Color headerTwo = Color(0xff8b9dc3);
+  static const Color headerThree = Color(0xffdfe3ee);
+  static Color accent1 = Color(0xFFE4935D);
+  static Color accent2 = Color(0xFFBEABA1);
+  static Color offWhite = Color(0xFFF8ECE5);
+  static Color caption = const Color(0xFF7D7873);
+  static Color body = const Color(0xFF514F4D);
+  static Color greyStrong = const Color(0xFF272625);
+  static Color greyMedium = const Color(0xFF9D9995);
 }

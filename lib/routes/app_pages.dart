@@ -1,4 +1,41 @@
 import 'package:get/get.dart';
+import 'package:quizzie_thunder/modules/books/all_books_binding.dart';
+import 'package:quizzie_thunder/modules/books/all_books_page.dart';
+import 'package:quizzie_thunder/modules/books/books_view/book_binding.dart';
+import 'package:quizzie_thunder/modules/books/books_view/book_page.dart';
+import 'package:quizzie_thunder/modules/course_content/all_course_content_binding.dart';
+import 'package:quizzie_thunder/modules/course_content/all_course_content_page.dart';
+import 'package:quizzie_thunder/modules/course_content/course_by_id/course_content_binding.dart';
+import 'package:quizzie_thunder/modules/course_content/course_by_id/course_content_controller.dart';
+import 'package:quizzie_thunder/modules/course_content/course_by_id/course_content_page.dart';
+import 'package:quizzie_thunder/modules/courses_milestones/course_binding.dart';
+import 'package:quizzie_thunder/modules/courses_milestones/course_page.dart';
+import 'package:quizzie_thunder/modules/post_details/post_detail_binding.dart';
+import 'package:quizzie_thunder/modules/post_details/post_details_page.dart';
+import 'package:quizzie_thunder/modules/gallery/gallery_header_binding.dart';
+import 'package:quizzie_thunder/modules/gallery/gallery_header_page.dart';
+import 'package:quizzie_thunder/modules/learning_path/learning_binding.dart';
+import 'package:quizzie_thunder/modules/learning_path/learning_page.dart';
+import 'package:quizzie_thunder/modules/learning_path/learning_path_by_id/learning_by_id_binding.dart';
+import 'package:quizzie_thunder/modules/learning_path/learning_path_by_id/learning_page_by_id.dart';
+import 'package:quizzie_thunder/modules/profile_page/public_profile_binding.dart';
+import 'package:quizzie_thunder/modules/profile_page/public_profile_page.dart';
+import 'package:quizzie_thunder/modules/quiz_question/photo_quiz/photo_quiz_binding.dart';
+import 'package:quizzie_thunder/modules/quiz_question/photo_quiz/photo_quiz_page.dart';
+import 'package:quizzie_thunder/modules/quiz_question_v3/quiz_question_v3.dart';
+import 'package:quizzie_thunder/modules/quiz_submissions/quiz_submission_binding.dart';
+import 'package:quizzie_thunder/modules/quiz_submissions/quiz_submission_page.dart';
+import 'package:quizzie_thunder/modules/school_details/school_details_binding.dart';
+import 'package:quizzie_thunder/modules/school_details/school_details_page.dart';
+import 'package:quizzie_thunder/modules/study_plans/all_study_plans_page.dart';
+import 'package:quizzie_thunder/modules/study_plans/study_plan_binding.dart';
+import 'package:quizzie_thunder/modules/study_plans/study_plans_by_id/study_paln_by_id_binding.dart';
+import 'package:quizzie_thunder/modules/study_plans/study_plans_by_id/study_plan_by_id_page.dart';
+import 'package:quizzie_thunder/modules/videos/all_videos_binding.dart';
+import 'package:quizzie_thunder/modules/videos/all_videos_page.dart';
+import 'package:quizzie_thunder/modules/videos/play_video/play_video_binding.dart';
+import 'package:quizzie_thunder/modules/videos/play_video/play_video_page.dart';
+import 'package:quizzie_thunder/modules/wonderous/ui/photo_gallery/photo_gallery.dart';
 
 import '../modules/create_new_password/create_new_password_binding.dart';
 import '../modules/create_new_password/create_new_password_page.dart';
@@ -107,7 +144,98 @@ class AppPages {
     GetPage(
       name: AppRoutes.quizQuestionPage,
       page: () => QuizQuestionPage(),
+      // page: () => QuizPage(),
       binding: QuizQuestionBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.postDetailsPage,
+      page: () => PostDetailsPage(eventId: ''),
+      binding: PostDetailsBinding(),
+    ),
+    // GetPage(
+    //   name: AppRoutes.addPostPage,
+    //   page: () => AddSchoolDetails(),
+    //   binding: AddSchoolBinding(),
+    // ),
+    GetPage(
+      name: AppRoutes.schoolDetailsPage,
+      page: () => SchoolDetails(),
+      binding: SchoolBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.galleryDateView,
+      page: () => GalleryHeader(),
+      binding: GalleryHeaderBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.learningView,
+      page: () => LearningPage(),
+      binding: LearningBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.learningPathById,
+      page: () => LearningPageById(),
+      binding: LearningPathByIdBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.allStudyPlans,
+      page: () => AllStudyPlans(),
+      binding: StudyPlanBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.studyPlansById,
+      page: () => StudyPlanByIdPage(),
+      binding: StudyPlanByIdBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.allVideos,
+      page: () => AllVideosPage(),
+      binding: AllVideosBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.videoById,
+      page: () => PlayVideoPage(),
+      binding: PlayVideoBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.allBooks,
+      page: () => AllBooksPage(),
+      binding: AllBooksBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.bookById,
+      page: () => BookPage(),
+      binding: BookBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.publicProfile,
+      page: () => PublicProfilePage(),
+      binding: PublicProfileBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.allCourses,
+      page: () => AllCourseContentPage(),
+      binding: AllCourseContentBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.courseById,
+      page: () => CourseContentPage(),
+      binding: CourseContentBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.photoQuizPage,
+      page: () => PhotoQuizPage(),
+      binding: PhotoQuizBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.quizSubmissionPAge,
+      page: () => QuizSubmissionPage(),
+      binding: QuizSubmissionBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.courseMilestone,
+      page: () => CourseDetailsPage(),
+      binding: CourseBinding(),
     ),
   ];
 }

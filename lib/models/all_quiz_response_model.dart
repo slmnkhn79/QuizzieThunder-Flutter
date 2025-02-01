@@ -38,6 +38,9 @@ class Quiz {
     this.category,
     required this.createdAt,
     required this.updatedAt,
+    required this.standard,
+    required this.level,
+    required this.schedule
   });
 
   final String? id;
@@ -46,26 +49,35 @@ class Quiz {
   final Category? category;
   final DateTime? createdAt;
   final DateTime? updatedAt;
+  final String? standard;
+  final String ? level;
+  final Schedule? schedule;
 
   factory Quiz.fromJson(Map<String, dynamic> json) {
     return Quiz(
-      id: json["_id"],
+      id: json["id"],
       title: json["title"],
       description: json["description"],
       category:
           json["category"] == null ? null : Category.fromJson(json["category"]),
       createdAt: DateTime.tryParse(json["createdAt"] ?? ""),
       updatedAt: DateTime.tryParse(json["updatedAt"] ?? ""),
+      standard: json["standard"],
+      level: json["level"],
+      schedule: json['schedule'] == null ? null: Schedule.fromJson(json['schedule'])
+
     );
   }
 
   Map<String, dynamic> toJson() => {
-        "_id": id,
+        "id": id,
         "title": title,
         "description": description,
         "category": category?.toJson(),
         "createdAt": createdAt?.toIso8601String(),
         "updatedAt": updatedAt?.toIso8601String(),
+        "standard": standard,
+        "level": level,
       };
 }
 
@@ -84,7 +96,7 @@ class Category {
 
   factory Category.fromJson(Map<String, dynamic> json) {
     return Category(
-      id: json["_id"],
+      id: json["id"],
       title: json["title"],
       createdAt: DateTime.tryParse(json["createdAt"] ?? ""),
       updatedAt: DateTime.tryParse(json["updatedAt"] ?? ""),
@@ -92,9 +104,23 @@ class Category {
   }
 
   Map<String, dynamic> toJson() => {
-        "_id": id,
+        "id": id,
         "title": title,
         "createdAt": createdAt?.toIso8601String(),
         "updatedAt": updatedAt?.toIso8601String(),
       };
+}
+class Schedule{
+  final String id;
+  final String frequency_code;
+  final String frequency_name;
+
+  Schedule({required this.id, required this.frequency_code, required this.frequency_name});
+  factory Schedule.fromJson(Map<String, dynamic> json) {
+    return Schedule(
+      id: json["id"],
+      frequency_code: json["frequency_code"],
+      frequency_name: json["frequency_name"]
+    );
+  }
 }

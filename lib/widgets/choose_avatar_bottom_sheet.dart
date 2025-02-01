@@ -1,4 +1,6 @@
+import 'package:cached_network_image_platform_interface/cached_network_image_platform_interface.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+// import 'package:cached_network_svg_image/cached_network_svg_image.dart';
 import 'package:dartx/dartx.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -12,8 +14,7 @@ class ChooseAvatarBottomSheet extends StatelessWidget {
   final Function(String val) onTap;
 
   const ChooseAvatarBottomSheet(
-      {Key? key, required this.allAvatars, required this.onTap})
-      : super(key: key);
+      {super.key, required this.allAvatars, required this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -61,13 +62,15 @@ class ChooseAvatarBottomSheet extends StatelessWidget {
                       backgroundColor: AppUtils.getRandomAvatarBgColor(),
                       radius: 20,
                       child: ClipOval(
-                        child: CachedNetworkImage(
+                        child: 
+                        CachedNetworkImage(
+                          imageRenderMethodForWeb: ImageRenderMethodForWeb.HttpGet,
                           imageUrl: "${allAvatars[index].url}",
                           width: double.infinity,
                           height: double.infinity,
                           fit: BoxFit.cover,
                           placeholder: (context, url) => Center(
-                            child: Container(
+                            child: SizedBox(
                               width: 20,
                               height: 20,
                               child: CircularProgressIndicator(
@@ -80,6 +83,7 @@ class ChooseAvatarBottomSheet extends StatelessWidget {
                             color: ThemeColor.red,
                           ),
                         ),
+                        // CachedNetworkImage(url:allAvatars[index].url,width: 20,height: 20,placeholder: Center(child: SizedBox(width: 20,height: 20, child: CircularProgressIndicator(color: ThemeColor.accent)),), )
                       ),
                     ),
                   );

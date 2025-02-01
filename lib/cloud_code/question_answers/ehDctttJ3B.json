@@ -1,0 +1,602 @@
+[
+    {
+        "question": "Which type of land use is commonly practiced around river valleys?",
+        "options": [
+            "Commercial shopping malls",
+            "Residential apartment complexes",
+            "Agriculture due to fertile soil",
+            "Mining for minerals"
+        ],
+        "correct_answer": "Agriculture due to fertile soil"
+    },
+    {
+        "question": "Which traditional water harvesting structure is commonly found in Rajasthan for storing rainwater?",
+        "options": [
+            "Dam",
+            "Tanka",
+            "Canal",
+            "Tube well"
+        ],
+        "correct_answer": "Tanka"
+    },
+    {
+        "question": "Which of the following best describes 'biosphere reserves' in India?",
+        "options": [
+            "They are tourist spots only for sightseeing",
+            "Protected areas aimed at conserving biodiversity and promoting research",
+            "Areas for nuclear testing",
+            "Spaces primarily for building industries"
+        ],
+        "correct_answer": "Protected areas aimed at conserving biodiversity and promoting research"
+    },
+    {
+        "question": "Which human activity significantly contributes to soil contamination?",
+        "options": [
+            "Using biodegradable materials",
+            "Excessive dumping of industrial waste and chemicals",
+            "Practice of organic farming",
+            "Contour ploughing"
+        ],
+        "correct_answer": "Excessive dumping of industrial waste and chemicals"
+    },
+    {
+        "question": "Which is the topmost layer of soil called?",
+        "options": [
+            "Bedrock",
+            "Subsoil",
+            "Topsoil or Horizon A",
+            "Parent material or Horizon C"
+        ],
+        "correct_answer": "Topsoil or Horizon A"
+    },
+    {
+        "question": "Why is regular use of compost and manure beneficial for soil?",
+        "options": [
+            "They harden the soil",
+            "They reduce essential nutrients",
+            "They increase organic matter and improve soil fertility",
+            "They attract harmful pests"
+        ],
+        "correct_answer": "They increase organic matter and improve soil fertility"
+    },
+    {
+        "question": "In mountainous regions prone to landslides, which measure helps reduce risk?",
+        "options": [
+            "Deforestation to expand farmland",
+            "Stepped or terraced slopes with proper drainage",
+            "Overgrazing by cattle",
+            "Massive building construction on steep edges"
+        ],
+        "correct_answer": "Stepped or terraced slopes with proper drainage"
+    },
+    {
+        "question": "Which of the following describes how water scarcity affects flora and fauna?",
+        "options": [
+            "Enhances biodiversity due to less competition",
+            "Has no impact on vegetation or wildlife",
+            "Leads to migration or death of species lacking water sources",
+            "Encourages planting of more trees everywhere"
+        ],
+        "correct_answer": "Leads to migration or death of species lacking water sources"
+    },
+    {
+        "question": "Which method is typically used to bring water from distant sources to fields in a water-scarce region?",
+        "options": [
+            "Reliance on rain-fed only, with no additional water",
+            "Boring wells near the ocean",
+            "Canal irrigation networks",
+            "Dew collection as the sole source"
+        ],
+        "correct_answer": "Canal irrigation networks"
+    },
+    {
+        "question": "Which of the following is an example of a protected forest area in India known for its mangrove vegetation?",
+        "options": [
+            "Thar Desert in Rajasthan",
+            "Sunderbans in West Bengal",
+            "Satpura Range in Madhya Pradesh",
+            "Himalayan foothills"
+        ],
+        "correct_answer": "Sunderbans in West Bengal"
+    },
+    {
+        "question": "Which process is essential for breaking down organic matter in soil?",
+        "options": [
+            "Photosynthesis",
+            "Decomposition by organisms",
+            "Evaporation",
+            "Soil pollution by plastics"
+        ],
+        "correct_answer": "Decomposition by organisms"
+    },
+    {
+        "question": "In which soil horizon would you typically find partially weathered rock?",
+        "options": [
+            "Horizon O",
+            "Horizon A",
+            "Horizon B",
+            "Horizon C"
+        ],
+        "correct_answer": "Horizon C"
+    },
+    {
+        "question": "What is the chief goal of afforestation programs?",
+        "options": [
+            "Clearing large forests for agriculture",
+            "Planting trees to increase forest cover and protect biodiversity",
+            "Promoting forest fires to add nutrients",
+            "Converting farmland into parking lots"
+        ],
+        "correct_answer": "Planting trees to increase forest cover and protect biodiversity"
+    },
+    {
+        "question": "Which phenomenon, though sometimes causing floods, is crucial for recharging groundwater?",
+        "options": [
+            "Forest fires",
+            "Seasonal monsoon rains",
+            "Soil compaction",
+            "Mining activities"
+        ],
+        "correct_answer": "Seasonal monsoon rains"
+    },
+    {
+        "question": "What is the role of earthworms in soil health?",
+        "options": [
+            "They reduce organic content in soil",
+            "They cause soil contamination",
+            "They help aerate the soil and improve its quality",
+            "They destroy plant roots"
+        ],
+        "correct_answer": "They help aerate the soil and improve its quality"
+    },
+    {
+        "question": "Which practice helps both soil and water conservation in hilly terrains?",
+        "options": [
+            "Leaving slopes completely bare",
+            "Terrace farming with contour bunding",
+            "Over-irrigating steep slopes",
+            "Burning ground cover after harvest"
+        ],
+        "correct_answer": "Terrace farming with contour bunding"
+    },
+    {
+        "question": "Which of the following resources is commonly considered a community resource in many rural areas of India?",
+        "options": [
+            "Private orchard",
+            "Village well or pond",
+            "Locked reservoir for a factory",
+            "Government research center"
+        ],
+        "correct_answer": "Village well or pond"
+    },
+    {
+        "question": "When rainfall is significantly less than average over a period, resulting in water shortage, it is called:",
+        "options": [
+            "Flood",
+            "Drought",
+            "Avalanche",
+            "Cyclone"
+        ],
+        "correct_answer": "Drought"
+    },
+    {
+        "question": "Which crop rotation practice can help maintain soil fertility over time?",
+        "options": [
+            "Growing the same crop repeatedly",
+            "Growing legumes after cereal crops",
+            "Leaving the soil unused for decades",
+            "Flooding fields with saltwater"
+        ],
+        "correct_answer": "Growing legumes after cereal crops"
+    },
+    {
+        "question": "What is one major benefit of wetlands for water resources?",
+        "options": [
+            "They reduce freshwater availability",
+            "They support minimal biodiversity",
+            "They help in water purification and recharge groundwater",
+            "They are only good for scenery"
+        ],
+        "correct_answer": "They help in water purification and recharge groundwater"
+    },
+    {
+        "question": "Which form of irrigation helps minimize water wastage in semi-arid regions?",
+        "options": [
+            "Flood irrigation",
+            "Sprinkler or drip irrigation",
+            "Overhead open canals",
+            "Uncontrolled flow from wells"
+        ],
+        "correct_answer": "Sprinkler or drip irrigation"
+    },
+    {
+        "question": "Deforestation in tropical rainforests often leads to:",
+        "options": [
+            "Improved soil structure and fertility",
+            "Higher oxygen production",
+            "Loss of habitat and reduction in biodiversity",
+            "Increased availability of water resources"
+        ],
+        "correct_answer": "Loss of habitat and reduction in biodiversity"
+    },
+    {
+        "question": "Which best describes the term 'desertification'?",
+        "options": [
+            "Converting deserts into fertile farmland rapidly",
+            "Gradual transformation of fertile land into desert-like conditions",
+            "Sudden increase in rainfall in desert areas",
+            "A common method of water harvesting"
+        ],
+        "correct_answer": "Gradual transformation of fertile land into desert-like conditions"
+    },
+    {
+        "question": "Which type of vegetation is typically found in the delta regions of India?",
+        "options": [
+            "Alpine meadows",
+            "Thorny shrubs",
+            "Mangrove forests",
+            "Coniferous forests"
+        ],
+        "correct_answer": "Mangrove forests"
+    },
+    {
+        "question": "Why are wildlife corridors important?",
+        "options": [
+            "They prevent animals from migrating",
+            "They reduce biodiversity in protected areas",
+            "They allow safe movement of animals between fragmented habitats",
+            "They encourage poaching and hunting"
+        ],
+        "correct_answer": "They allow safe movement of animals between fragmented habitats"
+    },
+    {
+        "question": "Under which category of protected areas are animals allowed certain traditional uses while maintaining biodiversity?",
+        "options": [
+            "Zoological parks",
+            "Biosphere reserves",
+            "Private farmland",
+            "Industrial zones"
+        ],
+        "correct_answer": "Biosphere reserves"
+    },
+    {
+        "question": "Which of the following is a key step in sustainably managing forest resources?",
+        "options": [
+            "Overharvesting timber for quick economic gain",
+            "Replanting trees after logging and protecting saplings",
+            "Using forests strictly for recreational tourism with no rules",
+            "Abandoning all forest areas without management"
+        ],
+        "correct_answer": "Replanting trees after logging and protecting saplings"
+    },
+    {
+        "question": "Which method could reduce the effects of water pollution from agricultural runoff?",
+        "options": [
+            "Excessive use of synthetic fertilizers",
+            "Contour ploughing with vegetative buffer strips",
+            "Draining pesticides directly into rivers",
+            "Completely eliminating all irrigation"
+        ],
+        "correct_answer": "Contour ploughing with vegetative buffer strips"
+    },
+    {
+        "question": "Which practice helps maintain a balanced ecosystem in forests?",
+        "options": [
+            "Hunting all predators to protect herbivores",
+            "Ensuring each species has necessary habitat and resources",
+            "Killing invasive species by any means necessary",
+            "Planting only one species to simplify management"
+        ],
+        "correct_answer": "Ensuring each species has necessary habitat and resources"
+    },
+    {
+        "question": "Why is it essential to limit groundwater extraction in many parts of India?",
+        "options": [
+            "Groundwater is infinite, so no conservation is needed",
+            "Over-exploitation can lower the water table, causing wells to dry up",
+            "It helps to increase water wastage",
+            "Deeper groundwater always improves water quality"
+        ],
+        "correct_answer": "Over-exploitation can lower the water table, causing wells to dry up"
+    },
+    {
+        "question": "Which of the following is the most common way land is used in rural areas of India?",
+        "options": [
+            "Building large shopping malls",
+            "Constructing highways and petrol pumps",
+            "Agricultural crop cultivation",
+            "Establishing software companies"
+        ],
+        "correct_answer": "Agricultural crop cultivation"
+    },
+    {
+        "question": "What is a common property resource?",
+        "options": [
+            "A piece of land owned by an individual family only",
+            "A resource collectively owned and used by a group or community",
+            "A resource that has no owner and can't be used by anyone",
+            "A resource owned by a single business corporation"
+        ],
+        "correct_answer": "A resource collectively owned and used by a group or community"
+    },
+    {
+        "question": "Which of the following is NOT an important factor when deciding land use?",
+        "options": [
+            "Type of soil and topography",
+            "Climate of the region",
+            "Cultural and traditional practices",
+            "Astrological sign of the landowner"
+        ],
+        "correct_answer": "Astrological sign of the landowner"
+    },
+    {
+        "question": "What does the term 'weathering' refer to?",
+        "options": [
+            "The process of transporting soil particles by wind",
+            "The breakdown of rocks into smaller pieces by natural forces",
+            "The excessive use of fertilizers on cropland",
+            "The creation of soil layers by bulldozers"
+        ],
+        "correct_answer": "The breakdown of rocks into smaller pieces by natural forces"
+    },
+    {
+        "question": "Why is the conservation of land resources necessary?",
+        "options": [
+            "To increase soil erosion",
+            "To ensure that future generations have fertile land",
+            "To reduce agricultural production",
+            "To make land unusable for farming"
+        ],
+        "correct_answer": "To ensure that future generations have fertile land"
+    },
+    {
+        "question": "Which of the following is a major trigger for landslides in mountainous areas?",
+        "options": [
+            "Dense vegetation and strong root systems",
+            "Proper drainage on slopes",
+            "Heavy rainfall loosening the soil",
+            "Construction with strong retaining walls"
+        ],
+        "correct_answer": "Heavy rainfall loosening the soil"
+    },
+    {
+        "question": "Which method helps mitigate landslides in hilly areas?",
+        "options": [
+            "Over-grazing by livestock on steep slopes",
+            "Removal of all trees to make slopes smooth",
+            "Construction of protective walls and planting vegetation",
+            "Ignoring small cracks on hilltops"
+        ],
+        "correct_answer": "Construction of protective walls and planting vegetation"
+    },
+    {
+        "question": "Which of these is NOT considered a factor in soil formation?",
+        "options": [
+            "Climate and weathering",
+            "Organisms and vegetation",
+            "Time and relief",
+            "Color of local buildings"
+        ],
+        "correct_answer": "Color of local buildings"
+    },
+    {
+        "question": "What is meant by the degradation of soil?",
+        "options": [
+            "Improving the fertility of soil using organic manure",
+            "The decline in soil quality, making it less suitable for cultivation",
+            "Converting forests to wildlife reserves",
+            "Leaving land fallow for rejuvenation"
+        ],
+        "correct_answer": "The decline in soil quality, making it less suitable for cultivation"
+    },
+    {
+        "question": "Which of the following is a conservation measure to prevent soil erosion?",
+        "options": [
+            "Intercropping",
+            "Overuse of pesticides",
+            "Clearing all forest cover",
+            "Excessive waterlogging"
+        ],
+        "correct_answer": "Intercropping"
+    },
+    {
+        "question": "Which of these farming methods is used on steep hills to prevent erosion and make farming easier?",
+        "options": [
+            "Terrace farming",
+            "Shifting cultivation",
+            "Overgrazing",
+            "Use of heavy machinery on steep slopes"
+        ],
+        "correct_answer": "Terrace farming"
+    },
+    {
+        "question": "Intercropping can help in soil conservation by:",
+        "options": [
+            "Growing only one type of crop repeatedly on the same land",
+            "Providing continuous crop cover and better use of soil nutrients",
+            "Leaving the land barren after every harvest",
+            "Promoting soil erosion through monoculture"
+        ],
+        "correct_answer": "Providing continuous crop cover and better use of soil nutrients"
+    },
+    {
+        "question": "What is the main purpose of contour ploughing?",
+        "options": [
+            "To plough fields in any random direction",
+            "To encourage water runoff and reduce infiltration",
+            "To prevent soil erosion by following the shape of the land",
+            "To remove all vegetation before planting"
+        ],
+        "correct_answer": "To prevent soil erosion by following the shape of the land"
+    },
+    {
+        "question": "How do shelter belts help in soil conservation?",
+        "options": [
+            "They increase wind speed near the soil surface",
+            "They are tall stone walls blocking water flow",
+            "They help reduce wind speed, thus preventing wind erosion",
+            "They are rows of electricity poles for distributing power"
+        ],
+        "correct_answer": "They help reduce wind speed, thus preventing wind erosion"
+    },
+    {
+        "question": "Which of these is a critical problem leading to water scarcity in many regions?",
+        "options": [
+            "Controlled use of groundwater resources",
+            "Waste disposal in landfills only",
+            "Overuse of groundwater and lack of rainfall",
+            "Systematic water management in agriculture"
+        ],
+        "correct_answer": "Overuse of groundwater and lack of rainfall"
+    },
+    {
+        "question": "What is the main aim of water conservation measures?",
+        "options": [
+            "To drain water resources quickly into the sea",
+            "To store and save water for future use",
+            "To direct all rainwater into sewage lines",
+            "To reduce the water table artificially"
+        ],
+        "correct_answer": "To store and save water for future use"
+    },
+    {
+        "question": "Which of the following is a simple, traditional method of saving water?",
+        "options": [
+            "Rainwater harvesting",
+            "Replacing all canals with highways",
+            "Leaving household taps running",
+            "Evaporating water to the atmosphere"
+        ],
+        "correct_answer": "Rainwater harvesting"
+    },
+    {
+        "question": "Which statement is TRUE regarding natural vegetation?",
+        "options": [
+            "It includes only grass and small shrubs",
+            "It remains unaffected by climate or human activities",
+            "It varies according to climate, soil, and rainfall",
+            "It is exactly the same in desert and rainforest regions"
+        ],
+        "correct_answer": "It varies according to climate, soil, and rainfall"
+    },
+    {
+        "question": "Why is the study of wildlife important?",
+        "options": [
+            "Because animals do not interact with plants or humans",
+            "For maintaining ecological balance and biodiversity",
+            "Wildlife studies only focus on harming species",
+            "It is not important since wildlife does not affect the environment"
+        ],
+        "correct_answer": "For maintaining ecological balance and biodiversity"
+    },
+    {
+        "question": "Which human activity can contribute to the depletion of natural vegetation?",
+        "options": [
+            "Afforestation programs",
+            "Sustainable harvesting of forest products",
+            "Uncontrolled deforestation",
+            "Establishment of wildlife sanctuaries"
+        ],
+        "correct_answer": "Uncontrolled deforestation"
+    },
+    {
+        "question": "What is the main goal of conservation of natural vegetation?",
+        "options": [
+            "To remove all wild plant species",
+            "To preserve forest cover and maintain ecological balance",
+            "To convert forests into playgrounds",
+            "To focus on only one type of crop"
+        ],
+        "correct_answer": "To preserve forest cover and maintain ecological balance"
+    },
+    {
+        "question": "Which of the following can degrade soil quality in a short time span?",
+        "options": [
+            "Planting a variety of crops",
+            "Using organic manures",
+            "Excessive chemical fertilizer and pesticide use",
+            "Growing legumes to enrich soil nitrogen"
+        ],
+        "correct_answer": "Excessive chemical fertilizer and pesticide use"
+    },
+    {
+        "question": "What does rainwater harvesting typically involve?",
+        "options": [
+            "Collecting and storing rainwater for future usage",
+            "Allowing rainwater to flow into sewage systems",
+            "Constructing wells in deserts without rainfall",
+            "Pumping out all groundwater before monsoon"
+        ],
+        "correct_answer": "Collecting and storing rainwater for future usage"
+    },
+    {
+        "question": "Which of these steps is helpful for protecting wildlife?",
+        "options": [
+            "Creating wildlife sanctuaries and national parks",
+            "Promoting hunting of endangered species",
+            "Clearing forests to expand urban areas",
+            "Dumping garbage in forests"
+        ],
+        "correct_answer": "Creating wildlife sanctuaries and national parks"
+    },
+    {
+        "question": "Why is contour ploughing especially useful in hilly regions?",
+        "options": [
+            "It divides hills into many small units for construction",
+            "It reduces soil erosion by following the slope’s natural contour",
+            "It forces heavy rainfall to run off quickly",
+            "It flattens out the hills completely"
+        ],
+        "correct_answer": "It reduces soil erosion by following the slope’s natural contour"
+    },
+    {
+        "question": "Which among the following is a negative impact of soil degradation?",
+        "options": [
+            "Improved water retention",
+            "Decreased agricultural productivity",
+            "Enhanced biodiversity in the region",
+            "Stable land for construction"
+        ],
+        "correct_answer": "Decreased agricultural productivity"
+    },
+    {
+        "question": "Why is intercropping recommended for sustainable agriculture?",
+        "options": [
+            "To reduce genetic diversity in crops",
+            "To ensure year-round exposure of bare soil",
+            "To efficiently use soil nutrients and control pests",
+            "To focus on one crop and ignore others"
+        ],
+        "correct_answer": "To efficiently use soil nutrients and control pests"
+    },
+    {
+        "question": "Which statement is TRUE about the distribution of natural vegetation?",
+        "options": [
+            "It only depends on human settlement patterns",
+            "It is influenced by climate, soil, and altitude",
+            "It is the same in plains and in mountainous regions",
+            "It remains constant over time with no changes"
+        ],
+        "correct_answer": "It is influenced by climate, soil, and altitude"
+    },
+    {
+        "question": "Why is it important to protect natural vegetation and wildlife resources?",
+        "options": [
+            "They have no real impact on the environment",
+            "They help maintain biodiversity and ecological balance",
+            "They prevent rainfall from reaching the ground",
+            "They convert fertile land into deserts"
+        ],
+        "correct_answer": "They help maintain biodiversity and ecological balance"
+    },
+    {
+        "question": "Which of the following measures can help conserve water resources effectively?",
+        "options": [
+            "Leaving taps running unnecessarily",
+            "Practicing rainwater harvesting and drip irrigation",
+            "Using excessive water for washing vehicles",
+            "Exploiting groundwater at maximum levels"
+        ],
+        "correct_answer": "Practicing rainwater harvesting and drip irrigation"
+    }
+]

@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:quizzie_thunder/modules/discover/discover_page.dart';
+import 'package:quizzie_thunder/modules/profile/profile_page.dart';
 
 import '../../theme/colors_theme.dart';
-import '../discover/discover_page.dart';
 import '../home/home_page.dart';
 import '../leaderboard/leaderboard_page.dart';
-import '../profile/profile_page.dart';
 import 'dashboard_controller.dart';
 
 class DashboardPage extends StatelessWidget {
-  const DashboardPage({Key? key}) : super(key: key);
+  const DashboardPage({super.key});
 
   @override
   Widget build(BuildContext context) {

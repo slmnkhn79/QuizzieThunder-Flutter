@@ -1,0 +1,72 @@
+{
+    "result": {
+        "code": 200,
+        "status": true,
+        "message": "success",
+        "school": {
+            "_id": "cNQnFrCwWB",
+            "name": "Ajmani International School",
+            "city": "Lakhimpur Kheri",
+            "district": "Lakhimpur Kheri",
+            "state": "UP",
+           --- "type": "CBSE",
+            "description": "Ajmani International School aims to develop in each student an awareness of his or her intellectual, artistic and recreational potential and an understanding of his or her history. The school believes in the development of each student's intellectual curiosity and is committed to academic excellence",
+            "headerImageUrl": "https://academy-v1.s3.ap-northeast-1.amazonaws.com/ajmani_international_school/ajmani_international_header_image.jpg",
+            "numOfStudents": 800,
+            "facultyRatio": "1.5:1",
+            "attributes": [
+                {
+                    "type": "Academics",
+                    "score": "0.7",
+                    "ratings": "3"
+                },
+                {
+                    "type": "Curriculum",
+                    "score": "0.9",
+                    "ratings": "3"
+                },
+                {
+                    "type": "Teacher's Quality",
+                    "score": "0.8",
+                    "ratings": "5"
+                },
+                {
+                    "type": "School Environment",
+                    "score": "0.7",
+                    "ratings": "5"
+                },
+                {
+                    "type": "Facilities & Resources",
+                    "score": "0.7",
+                    "ratings": "4"
+                },
+                {
+                    "type": "Quiz Participation",
+                    "score": "0.7",
+                    "ratings": "3"
+                },
+                {
+                    "type": "Cocurricular Activities",
+                    "score": "0.7",
+                    "ratings": "3"
+                }
+            ],
+            "photo1": "https://academy-v1.s3.ap-northeast-1.amazonaws.com/ajmani_international_school/ajmani_international_photo_1.jpg",
+            "photo2": "https://academy-v1.s3.ap-northeast-1.amazonaws.com/ajmani_international_school/ajmani_international_photo_2.jpg",
+            "photo3": "https://academy-v1.s3.ap-northeast-1.amazonaws.com/ajmani_international_school/ajmani_international_photo_3.jpg",
+           --- "pullQuote1Top": "The process of learning should be ",
+           --- "pullQuote1Bottom": "enjoyable, active and dynamic.",
+            "pullQuote2": "Ajmani International School aims to develop in each student an awareness of his or her intellectual, artistic and recreational potential and an understanding of his or her history. The school believes in the development of each student's intellectual curiosity and is committed to academic excellence. To fulfill these aims, the objectives of the school are",
+            "historyInfo2": "The campus spans around 6-acre complex, which includes playground, swimming pool, campus, parking with building placed in the center for easy access to all",
+            "constructionInfo1": "We acknowledge that students come to us with a wide variety of learning styles, academic abilities, and linguistic and cultural experiences. An explicit commitment is made to continuing professional development to encourage teaching methods that are creative, varied and flexible. We endorse the philosophy of the International Baccalaureate Organisation.",
+           --- "callout2": "School has long been recognized for its commitment to academic excellence and holistic student development. This past year, students achieved a record high in state examination scores, with over 90% of graduating seniors earning distinctions in subjects such as mathematics, science, and language arts. The school's rigorous Advanced Placement (AP) program has also seen significant success, with over 75% of students scoring 4 or 5 in their AP exams, positioning Green Valley among the top-performing schools in the region.",
+            "constructionInfo2": "Success is recognized, valued and celebrated in a variety of ways at many different levels. Problem solving, discovery, creativity and self-direction characterize our work at all levels. There is a spirit of partnership involving the students, staff, and parents in which each individual feels welcomed and valued.",
+            "locationInfo1": "nestled in the heart of a picturesque and pristine suburb, offering an ideal setting for learning and growth. The school is located in the tranquil neighborhood of Maplewood Gardens, known for its tree-lined streets and beautifully maintained parks. This area is celebrated for its commitment to cleanliness and community well-being, providing students with a peaceful and inspiring environment. With well-tended walking paths and green spaces just steps away, Sunridge Academy not only ensures academic excellence but also promotes outdoor learning and recreational activities, making it a perfect place for students to thrive both academically and personally.",
+            "locationInfo2": "LRP ROAD, LAKHIMPUR KHERI, UTTAR PRADESH, 262701.",
+            "startYear": 2000,
+            "endYear": 0,
+            "videoCaption": "FEEL THE BEATS Jr KG",
+            "videoId": "dmg0yG56Nls"
+        }
+    }
+}

@@ -1,4 +1,3 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -7,7 +6,7 @@ import '../../theme/colors_theme.dart';
 import 'welcome_controller.dart';
 
 class WelcomePage extends StatelessWidget {
-  const WelcomePage({Key? key}) : super(key: key);
+  const WelcomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -41,77 +40,83 @@ class WelcomePage extends StatelessWidget {
                 ),
               ),
             ),
-            Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: Column(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Container(
-                        width: double.infinity,
-                        padding: const EdgeInsets.all(16.0),
-                        decoration: BoxDecoration(
-                            color: ThemeColor.white,
-                            borderRadius: BorderRadius.circular(12)),
-                        child: Column(children: [
-                          Text(
-                            "Take part in challenges with friends",
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                                fontSize: 20,
-                                color: ThemeColor.black,
-                                fontWeight: FontWeight.bold),
-                          ),
-                          SizedBox(
-                            height: 24,
-                          ),
-                          SizedBox(
-                              width: double.infinity,
-                              height: 44,
-                              child: ElevatedButton(
-                                onPressed: () {
-                                  Get.toNamed(AppRoutes.signUpPage);
-                                },
-                                child: Text(
-                                  "Sign Up",
-                                  style: TextStyle(color: ThemeColor.white),
-                                ),
-                                style: TextButton.styleFrom(
-                                  textStyle: TextStyle(
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w500),
-                                  shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(12)),
-                                  backgroundColor: ThemeColor.primaryDark,
-                                ),
-                              )),
-                          SizedBox(
-                            height: 16,
-                          ),
-                          RichText(
-                              text: TextSpan(
-                                  style: TextStyle(
-                                    fontSize: 14,
-                                  ),
-                                  children: [
-                                TextSpan(
-                                  text: "Already have an account? ",
-                                  style: TextStyle(
-                                    color: ThemeColor.grey_500,
-                                  ),
-                                ),
-                                TextSpan(
-                                    text: "Login",
-                                    style: TextStyle(
-                                        color: ThemeColor.primary,
-                                        fontWeight: FontWeight.bold),
-                                    recognizer: TapGestureRecognizer()
-                                      ..onTap = () =>
-                                          Get.toNamed(AppRoutes.signInPage))
-                              ]))
+            Center(
+              child: Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: SizedBox(
+                    width: MediaQuery.of(context).size.width > 600 ? 600 : MediaQuery.of(context).size.width,
+                    child: Column(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Container(
+                            width: double.infinity,
+                            padding: const EdgeInsets.all(16.0),
+                            decoration: BoxDecoration(
+                                color: ThemeColor.white,
+                                borderRadius: BorderRadius.circular(12)),
+                            child: Column(children: [
+                              Text(
+                                "Explore your school",
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                    fontSize: 20,
+                                    color: ThemeColor.black,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                              SizedBox(
+                                height: 24,
+                              ),
+                              SizedBox(
+                                  width: double.infinity,
+                                  height: 44,
+                                  child: ElevatedButton(
+                                    onPressed: () {
+                                      // Get.toNamed(AppRoutes.signUpPage);
+                                      Get.toNamed(AppRoutes.signInPage);
+                                    },
+                                    style: TextButton.styleFrom(
+                                      textStyle: TextStyle(
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.w500),
+                                      shape: RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.circular(12)),
+                                      backgroundColor: ThemeColor.primaryDark,
+                                    ),
+                                    child: Text(
+                                      "Log in!",
+                                      style: TextStyle(color: ThemeColor.white),
+                                    ),
+                                  )),
+                              SizedBox(
+                                height: 16,
+                              ),
+                              // RichText(
+                              //     text: TextSpan(
+                              //         style: TextStyle(
+                              //           fontSize: 14,
+                              //         ),
+                              //         children: [
+                              //       TextSpan(
+                              //         text: "Already have an account? ",
+                              //         style: TextStyle(
+                              //           color: ThemeColor.grey_500,
+                              //         ),
+                              //       ),
+                              //       TextSpan(
+                              //           text: "Login",
+                              //           style: TextStyle(
+                              //               color: ThemeColor.primary,
+                              //               fontWeight: FontWeight.bold),
+                              //           recognizer: TapGestureRecognizer()
+                              //             ..onTap = () =>
+                              //                 Get.toNamed(AppRoutes.signInPage))
+                              //     ]))
+                            ]),
+                          )
                         ]),
-                      )
-                    ]))
+                  )),
+            )
           ],
         ));
   }

@@ -1,0 +1,602 @@
+[
+    {
+        "question": "1) If 30 workers can build a wall in 48 hours, how many workers are required to build the same wall in 30 hours?",
+        "options": [
+            "32",
+            "40",
+            "48",
+            "56"
+        ],
+        "correct_answer": "48"
+    },
+    {
+        "question": "2) A factory produces 45 car engines with 15 machines in 5 days. How many engines will it produce in 7 days with the same machines working at the same rate?",
+        "options": [
+            "54",
+            "57",
+            "63",
+            "70"
+        ],
+        "correct_answer": "63"
+    },
+    {
+        "question": "3) If 5 pipes can fill a tank in 8 hours, how many hours will 4 pipes take to fill the same tank?",
+        "options": [
+            "6",
+            "10",
+            "12",
+            "15"
+        ],
+        "correct_answer": "10"
+    },
+    {
+        "question": "4) If the cost of 7 notebooks is Rs. 84, find the cost of 5 notebooks of the same type.",
+        "options": [
+            "60",
+            "65",
+            "70",
+            "75"
+        ],
+        "correct_answer": "60"
+    },
+    {
+        "question": "5) If 13 meters of cloth costs Rs. 780, how many meters can be purchased for Rs. 1560?",
+        "options": [
+            "24",
+            "25",
+            "26",
+            "28"
+        ],
+        "correct_answer": "26"
+    },
+    {
+        "question": "6) If 4 identical taps can fill a reservoir in 18 hours, how many identical taps are required to fill the same reservoir in 12 hours?",
+        "options": [
+            "5",
+            "6",
+            "7",
+            "8"
+        ],
+        "correct_answer": "6"
+    },
+    {
+        "question": "7) Twelve men can dig a trench in 16 days. How many men will be needed to dig it in 8 days, working at the same rate?",
+        "options": [
+            "20",
+            "22",
+            "24",
+            "26"
+        ],
+        "correct_answer": "24"
+    },
+    {
+        "question": "8) A cyclist covers 56 km in 7 hours. How far will he cover in 9 hours at the same speed?",
+        "options": [
+            "63",
+            "65",
+            "72",
+            "80"
+        ],
+        "correct_answer": "72"
+    },
+    {
+        "question": "9) A bus can travel 300 km in 5 hours. At the same speed, how long will it take to travel 480 km?",
+        "options": [
+            "6",
+            "7",
+            "8",
+            "10"
+        ],
+        "correct_answer": "8"
+    },
+    {
+        "question": "10) If 24 men can build a bridge in 40 days, how many days will 16 men take to build the same bridge?",
+        "options": [
+            "50",
+            "60",
+            "64",
+            "72"
+        ],
+        "correct_answer": "60"
+    },
+    {
+        "question": "11) If 6 pipes can fill a pool in 12 hours, how many hours will 9 pipes take to fill the pool, if all pipes have the same rate?",
+        "options": [
+            "6",
+            "7",
+            "8",
+            "10"
+        ],
+        "correct_answer": "8"
+    },
+    {
+        "question": "12) If the cost of 15 books is Rs. 675, how many books can be bought for Rs. 900?",
+        "options": [
+            "18",
+            "20",
+            "22",
+            "24"
+        ],
+        "correct_answer": "20"
+    },
+    {
+        "question": "13) 45 kg of sugar costs Rs. 1350. Find the cost of 72 kg of sugar.",
+        "options": [
+            "2100",
+            "2160",
+            "2200",
+            "2250"
+        ],
+        "correct_answer": "2160"
+    },
+    {
+        "question": "14) If the ratio of A's age to B's age is 3:5 and A is 27 years old, find B's age.",
+        "options": [
+            "40",
+            "42",
+            "45",
+            "48"
+        ],
+        "correct_answer": "45"
+    },
+    {
+        "question": "15) A train covers 150 km in 3 hours. How far will it cover in 7 hours at the same speed?",
+        "options": [
+            "300",
+            "320",
+            "350",
+            "400"
+        ],
+        "correct_answer": "350"
+    },
+    {
+        "question": "16) Twelve copywriters can prepare an article in 15 hours. In how many hours will 9 copywriters prepare the same article?",
+        "options": [
+            "18",
+            "20",
+            "22",
+            "24"
+        ],
+        "correct_answer": "20"
+    },
+    {
+        "question": "17) If two pipes, each with the same flow rate, fill a tank in 9 hours, how long will three pipes, each with the same flow rate, take to fill it?",
+        "options": [
+            "6",
+            "7",
+            "8",
+            "9"
+        ],
+        "correct_answer": "6"
+    },
+    {
+        "question": "18) If 8 workers can build a fence in 27 days, how many days will 6 workers take to build the fence at the same rate?",
+        "options": [
+            "30",
+            "32",
+            "36",
+            "42"
+        ],
+        "correct_answer": "36"
+    },
+    {
+        "question": "19) An amount of Rs. 2700 is divided between A, B, and C in the ratio 2:3:4. What is C's share?",
+        "options": [
+            "900",
+            "1000",
+            "1200",
+            "1400"
+        ],
+        "correct_answer": "1200"
+    },
+    {
+        "question": "20) If 14 machines can produce 420 articles in 6 days, how many articles can 21 machines produce in 4 days at the same rate?",
+        "options": [
+            "380",
+            "400",
+            "420",
+            "480"
+        ],
+        "correct_answer": "420"
+    },
+    {
+        "question": "21) Five people can paint a house in 20 days. How many days will eight people take to paint the same house, working at the same rate?",
+        "options": [
+            "11",
+            "12.5",
+            "13",
+            "14"
+        ],
+        "correct_answer": "12.5"
+    },
+    {
+        "question": "22) A sum of Rs. 3200 is to be divided among X, Y, and Z in the ratio 4:5:7. Find Y's share in rupees.",
+        "options": [
+            "800",
+            "1000",
+            "1200",
+            "1400"
+        ],
+        "correct_answer": "1000"
+    },
+    {
+        "question": "23) If 6 typists can type a manuscript in 10 hours, how many typists will be required to type it in 5 hours at the same rate?",
+        "options": [
+            "10",
+            "11",
+            "12",
+            "15"
+        ],
+        "correct_answer": "12"
+    },
+    {
+        "question": "24) A bus covers 264 km in 6 hours. At the same speed, how much distance will it cover in 9 hours?",
+        "options": [
+            "360",
+            "396",
+            "400",
+            "420"
+        ],
+        "correct_answer": "396"
+    },
+    {
+        "question": "25) If 7 farmers can plough a field in 15 days, in how many days will 5 farmers plough it, working at the same rate?",
+        "options": [
+            "19",
+            "20",
+            "21",
+            "24"
+        ],
+        "correct_answer": "21"
+    },
+    {
+        "question": "26) If the cost of 9 calculators is Rs. 720, how many calculators can be bought for Rs. 1280?",
+        "options": [
+            "15",
+            "16",
+            "18",
+            "20"
+        ],
+        "correct_answer": "16"
+    },
+    {
+        "question": "27) Twelve pumps can empty a reservoir in 18 hours. If 9 pumps of the same capacity are used, how many hours will it take to empty the reservoir?",
+        "options": [
+            "20",
+            "24",
+            "28",
+            "36"
+        ],
+        "correct_answer": "24"
+    },
+    {
+        "question": "28) If 3 pumps can fill a tank in 16 hours, how many hours will 4 pumps take to fill the same tank at the same rate?",
+        "options": [
+            "12",
+            "14",
+            "15",
+            "16"
+        ],
+        "correct_answer": "12"
+    },
+    {
+        "question": "29) The cost of 4.5 kg of apples is Rs. 540. What will be the cost of 3 kg of apples?",
+        "options": [
+            "360",
+            "400",
+            "420",
+            "450"
+        ],
+        "correct_answer": "360"
+    },
+    {
+        "question": "30) If 16 workers can complete a project in 30 days, how many days will 20 workers take to complete the same project?",
+        "options": [
+            "24",
+            "25",
+            "26",
+            "28"
+        ],
+        "correct_answer": "24"
+    },
+    {
+        "question": "1) If 15 workers can complete a road-paving project in 20 days, how many workers are needed to complete it in 12 days?",
+        "options": [
+            "22",
+            "25",
+            "28",
+            "30"
+        ],
+        "correct_answer": "25"
+    },
+    {
+        "question": "2) A school's science lab uses 18 kilowatts in 6 hours. If they continue at the same usage rate, how many kilowatts will they use in 10 hours?",
+        "options": [
+            "20",
+            "30",
+            "36",
+            "45"
+        ],
+        "correct_answer": "30"
+    },
+    {
+        "question": "3) If 8 boxes weigh 72 kg, how many boxes will weigh 198 kg?",
+        "options": [
+            "18",
+            "20",
+            "22",
+            "24"
+        ],
+        "correct_answer": "22"
+    },
+    {
+        "question": "4) Four large pumps can drain a flooded basement in 8 hours. How long will it take two large pumps to drain the same basement?",
+        "options": [
+            "12",
+            "14",
+            "16",
+            "18"
+        ],
+        "correct_answer": "16"
+    },
+    {
+        "question": "5) If 5 teachers can grade 360 exam papers in 6 hours, how many exam papers can 4 teachers grade in 5 hours?",
+        "options": [
+            "240",
+            "300",
+            "360",
+            "400"
+        ],
+        "correct_answer": "240"
+    },
+    {
+        "question": "6) If a bus covers 180 km in 3 hours, how far will it travel in 5 hours at the same speed?",
+        "options": [
+            "240",
+            "300",
+            "320",
+            "360"
+        ],
+        "correct_answer": "300"
+    },
+    {
+        "question": "7) A sum of Rs. 4200 is divided among P, Q, and R in the ratio 3:4:5. How much does Q receive?",
+        "options": [
+            "1050",
+            "1200",
+            "1400",
+            "1800"
+        ],
+        "correct_answer": "1400"
+    },
+    {
+        "question": "8) Eight men can paint four houses in 10 days. How many days will 10 men take to paint the same four houses?",
+        "options": [
+            "6",
+            "7",
+            "8",
+            "9"
+        ],
+        "correct_answer": "8"
+    },
+    {
+        "question": "9) Ten pumps can fill a swimming pool in 9 hours. How many hours will 15 pumps take to fill the same pool at the same rate?",
+        "options": [
+            "5",
+            "6",
+            "7",
+            "8"
+        ],
+        "correct_answer": "6"
+    },
+    {
+        "question": "10) If 12 chocolate bars cost Rs. 156, how many such bars can be purchased for Rs. 650?",
+        "options": [
+            "45",
+            "50",
+            "52",
+            "55"
+        ],
+        "correct_answer": "50"
+    },
+    {
+        "question": "11) A train covers 288 km in 4 hours. At the same speed, how long will it take to cover 432 km?",
+        "options": [
+            "5",
+            "6",
+            "7",
+            "8"
+        ],
+        "correct_answer": "6"
+    },
+    {
+        "question": "12) If 6 people can design a website in 15 days, how many days will 5 people take to design the same website at the same rate?",
+        "options": [
+            "18",
+            "20",
+            "22",
+            "24"
+        ],
+        "correct_answer": "18"
+    },
+    {
+        "question": "13) If 20 meters of fabric cost Rs. 1000, how many meters can be bought for Rs. 1750?",
+        "options": [
+            "35",
+            "36",
+            "38",
+            "40"
+        ],
+        "correct_answer": "35"
+    },
+    {
+        "question": "14) A painting job can be completed by 4 painters in 12 days. How many painters are needed to finish it in 8 days?",
+        "options": [
+            "5",
+            "6",
+            "7",
+            "8"
+        ],
+        "correct_answer": "6"
+    },
+    {
+        "question": "15) If 9 machines can produce 225 mobile phones in 5 days, how many mobile phones can 12 machines produce in 5 days at the same rate?",
+        "options": [
+            "270",
+            "300",
+            "320",
+            "360"
+        ],
+        "correct_answer": "300"
+    },
+    {
+        "question": "16) If 2400 bricks weigh 1200 kg, how much do 800 bricks weigh?",
+        "options": [
+            "300",
+            "400",
+            "500",
+            "600"
+        ],
+        "correct_answer": "400"
+    },
+    {
+        "question": "17) The ratio of the angles of a triangle is 3:4:5. Which of the following is the correct measure of its angles?",
+        "options": [
+            "45°,60°,75°",
+            "30°,60°,90°",
+            "50°,55°,75°",
+            "40°,50°,90°"
+        ],
+        "correct_answer": "45°,60°,75°"
+    },
+    {
+        "question": "18) If 8 men can build a cabin in 40 days, how many men are needed to do the same job in 16 days?",
+        "options": [
+            "15",
+            "16",
+            "20",
+            "24"
+        ],
+        "correct_answer": "20"
+    },
+    {
+        "question": "19) A water tank is filled by 2 hoses in 24 hours. How many hoses of the same capacity are needed to fill the tank in 6 hours?",
+        "options": [
+            "6",
+            "8",
+            "9",
+            "10"
+        ],
+        "correct_answer": "8"
+    },
+    {
+        "question": "20) If 3 men can complete 3 units of work in 3 days, how many men are needed to complete 9 units of work in 3 days at the same rate?",
+        "options": [
+            "6",
+            "9",
+            "12",
+            "15"
+        ],
+        "correct_answer": "9"
+    },
+    {
+        "question": "21) A mixture has sugar and milk in the ratio 2:5. If there are 70 liters of milk, how many liters of sugar are in the mixture?",
+        "options": [
+            "20",
+            "28",
+            "30",
+            "35"
+        ],
+        "correct_answer": "28"
+    },
+    {
+        "question": "22) If 7 trucks can transport 63 tons of cargo in 5 days, how many trucks are needed to transport 99 tons of cargo in 5 days at the same rate?",
+        "options": [
+            "9",
+            "10",
+            "11",
+            "12"
+        ],
+        "correct_answer": "11"
+    },
+    {
+        "question": "23) Twelve typists can type 300 pages in 5 days. How many days will 8 typists take to type the same 300 pages at the same rate?",
+        "options": [
+            "6",
+            "7.5",
+            "8",
+            "9"
+        ],
+        "correct_answer": "7.5"
+    },
+    {
+        "question": "24) If 5 men can read 25 books in 10 days, how many days will 10 men take to read 40 books at the same rate?",
+        "options": [
+            "7",
+            "8",
+            "9",
+            "10"
+        ],
+        "correct_answer": "8"
+    },
+    {
+        "question": "25) If 15 washers can wash 60 cars in 5 hours, how many cars will 18 washers wash in the same 5 hours at the same rate?",
+        "options": [
+            "65",
+            "70",
+            "72",
+            "75"
+        ],
+        "correct_answer": "72"
+    },
+    {
+        "question": "26) Two taps can fill a pool in 30 hours. If two more taps of the same capacity are added, how many hours will it take to fill the pool?",
+        "options": [
+            "12",
+            "15",
+            "18",
+            "20"
+        ],
+        "correct_answer": "15"
+    },
+    {
+        "question": "27) A farmer has enough feed for 20 cows for 15 days. If he buys 5 more cows, how many days will the same amount of feed last?",
+        "options": [
+            "10",
+            "11",
+            "12",
+            "13"
+        ],
+        "correct_answer": "12"
+    },
+    {
+        "question": "28) If 6 identical tubes can fill 300 balloons with water in 4 hours, how many balloons will 9 identical tubes fill in 4 hours at the same rate?",
+        "options": [
+            "400",
+            "420",
+            "450",
+            "480"
+        ],
+        "correct_answer": "450"
+    },
+    {
+        "question": "29) A sum of Rs. 3600 is to be divided among X, Y, Z in the ratio 3:3:4. Find Y's share.",
+        "options": [
+            "900",
+            "1080",
+            "1200",
+            "1350"
+        ],
+        "correct_answer": "1080"
+    },
+    {
+        "question": "30) If 10 printers can print 1000 pages in 2 hours, how many hours will it take 8 printers to print the same number of pages at the same rate?",
+        "options": [
+            "2",
+            "2.5",
+            "3",
+            "4"
+        ],
+        "correct_answer": "2.5"
+    }
+]

@@ -1,3 +1,4 @@
+import 'package:cached_network_image_platform_interface/cached_network_image_platform_interface.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -8,7 +9,7 @@ import '../../widgets/choose_avatar_bottom_sheet.dart';
 import 'update_profile_controller.dart';
 
 class UpdateProfilePage extends StatelessWidget {
-  const UpdateProfilePage({Key? key}) : super(key: key);
+  const UpdateProfilePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -83,28 +84,30 @@ class UpdateProfilePage extends StatelessWidget {
                                               AppUtils.getRandomAvatarBgColor(),
                                           child: ClipOval(
                                             child: CachedNetworkImage(
-                                              imageUrl:
-                                                  "${updateProfileController.profilePicUrl.value}",
-                                              width: double.infinity,
-                                              height: double.infinity,
-                                              fit: BoxFit.cover,
-                                              placeholder: (context, url) =>
-                                                  Center(
-                                                child: Container(
-                                                  width: 20,
-                                                  height: 20,
-                                                  child:
-                                                      CircularProgressIndicator(
-                                                    color: ThemeColor.accent,
-                                                  ),
-                                                ),
-                                              ),
-                                              errorWidget:
-                                                  (context, url, error) => Icon(
-                                                Icons.error,
-                                                color: ThemeColor.red,
-                                              ),
-                                            ),
+                                              imageRenderMethodForWeb: ImageRenderMethodForWeb.HttpGet,
+                                                imageUrl:
+                                                    updateProfileController
+                                                        .profilePicUrl.value,
+                                                width: double.infinity,
+                                                height: double.infinity,
+                                                fit: BoxFit.cover,
+                                                fadeInDuration: Duration(milliseconds: 0),
+                                                progressIndicatorBuilder: (context,
+                                                        url,
+                                                        downloadProgress) =>
+                                                    // SizedBox(
+                                                    //     width: 50,
+                                                    //     height: 50,
+                                                    //     child: CircularProgressIndicator(
+                                                    //         value:
+                                                    //             downloadProgress
+                                                    //                 .progress)
+                                                    Image.asset(
+                                                        "assets/images/placeholder.png"),
+                                                // ),
+                                                errorWidget:
+                                                    (context, url, error) =>
+                                                        Icon(Icons.error)),
                                           ),
                                         ),
                                         Positioned(
@@ -144,7 +147,9 @@ class UpdateProfilePage extends StatelessWidget {
                               controller:
                                   updateProfileController.firstNameController,
                               keyboardType: TextInputType.text,
+                              enabled: false,
                               style: TextStyle(
+                                
                                   color: ThemeColor.black, fontSize: 14),
                               decoration: InputDecoration(
                                 prefixIcon: Icon(
@@ -175,6 +180,7 @@ class UpdateProfilePage extends StatelessWidget {
                             ),
                             Text(
                               "Last Name",
+                              
                               style: TextStyle(
                                   fontSize: 14,
                                   color: ThemeColor.textPrimary,
@@ -198,6 +204,7 @@ class UpdateProfilePage extends StatelessWidget {
                                 floatingLabelBehavior:
                                     FloatingLabelBehavior.never,
                                 hintText: "Last Name",
+                                enabled: false,
                                 hintStyle: TextStyle(
                                     fontSize: 14, color: ThemeColor.grey_500),
                                 border: OutlineInputBorder(
@@ -262,9 +269,6 @@ class UpdateProfilePage extends StatelessWidget {
                                   onPressed: () {
                                     updateProfileController.updateUserProfile();
                                   },
-                                  child: Text("Update",
-                                      style:
-                                          TextStyle(color: ThemeColor.white)),
                                   style: TextButton.styleFrom(
                                     textStyle: TextStyle(
                                         fontSize: 16,
@@ -274,6 +278,9 @@ class UpdateProfilePage extends StatelessWidget {
                                             BorderRadius.circular(12)),
                                     backgroundColor: ThemeColor.primaryDark,
                                   ),
+                                  child: Text("Update",
+                                      style:
+                                          TextStyle(color: ThemeColor.white)),
                                 )),
                           ]),
                     )))));

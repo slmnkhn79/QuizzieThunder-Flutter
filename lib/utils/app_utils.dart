@@ -1,11 +1,11 @@
+import 'dart:convert';
 import 'dart:io';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
-import 'package:package_info_plus/package_info_plus.dart';
+// import 'package:package_info_plus/package_info_plus.dart';
 import 'package:flutter_file_dialog/flutter_file_dialog.dart';
 import 'package:http/http.dart' as http;
 import 'package:path_provider/path_provider.dart';
@@ -62,19 +62,33 @@ class AppUtils {
     return initials;
   }
 
-  static Future<Map<String, String>> getAppDetails() async {
-    final PackageInfo packageInfo = await PackageInfo.fromPlatform();
-
-    final version = packageInfo.version;
-    final buildNumber = packageInfo.buildNumber;
-    final buildSignature = packageInfo.buildSignature;
-    final appName = packageInfo.appName;
-    final packageName = packageInfo.packageName;
-    final installerStore = packageInfo.installerStore;
-
-    print("App version = $version");
-    return {"version": version, "buildNumber": buildNumber};
+  String convertBase64(String data) {
+    Codec<String, String> stringToBase64 = utf8.fuse(base64);
+    String encoded = stringToBase64.encode(data);
+    return encoded;
   }
+
+  String convertBase64ToString(String base64EncodedData) {
+    List<int> bytes = base64.decode(base64EncodedData);
+
+    // Converting bytes to string
+    String decodedString = utf8.decode(bytes);
+    return decodedString;
+  }
+
+  // static Future<Map<String, String>> getAppDetails() async {
+  //   final PackageInfo packageInfo = await PackageInfo.fromPlatform();
+
+  //   final version = packageInfo.version;
+  //   final buildNumber = packageInfo.buildNumber;
+  //   final buildSignature = packageInfo.buildSignature;
+  //   final appName = packageInfo.appName;
+  //   final packageName = packageInfo.packageName;
+  //   final installerStore = packageInfo.installerStore;
+
+  //   print("App version = $version");
+  //   return {"version": version, "buildNumber": buildNumber};
+  // }
 
   static Color getRandomAvatarBgColor() {
     final List<Color> randomColors = [
@@ -105,6 +119,24 @@ class AppUtils {
     return randomColors[random.nextInt(randomColors.length)];
   }
 
+  static List<Color> getRandomGradient(int? randomValue) {
+    final List<List<Color>> randomColors = [
+      [Color(0xFF3A86FF), Color(0xFF7FDBFF), Color(0xFFF4F4F9)],
+      [Color(0xFF367588), Color(0xFFCAD2C5), Color(0xFFF4F4F9)],
+      // [Color(0xFF367588),
+      // Color(0xFF264653),
+      // Color(0xFFE9C46A)
+      // ],
+      [Color(0xFF5E60CE), Color(0xFF48BFE3), Color(0xFFD9F2EB)],
+      [Color(0xFF6C757D), Color(0xFF95D5B2), Color(0xFFE9ECEF)],
+      [Color(0xFF08B0AB), Color(0xFFFF6854), Color(0xFFE9C46A)],
+      [Color(0xFF3A86FF), Color(0xFF7FDBFF), Color(0xFFF4F4F9)]
+    ];
+    final random = Random();
+    return randomColors[
+        randomValue! % 6 ?? random.nextInt(randomColors.length)];
+  }
+
   static void logout() async {
     await GetStorage().remove(KEY_USER_DATA);
     Get.offAllNamed(AppRoutes.signInPage);
@@ -119,6 +151,15 @@ class AppUtils {
     } else {
       return "GOOD EVENING";
     }
+  }
+
+  static Color getRandomShadeOfBlack() {
+    final Random random = Random();
+
+    // Generates shades of black by using RGB values close to 0.
+    int shade = random.nextInt(56); // Value between 0 and 55
+
+    return Color.fromARGB(255, shade, shade, shade);
   }
 
   static Future<void> shareImageFromApi({
@@ -147,6 +188,107 @@ class AppUtils {
     await tempFile.delete();
   }
 
+  static Color getGradientFirstColor() {
+    final Random random = Random();
+    List<Color> materialColors = [
+      Colors.red,
+      Colors.pink,
+      Colors.purple,
+      Colors.deepPurple,
+      Colors.indigo,
+      Colors.blue,
+      Colors.lightBlue,
+      Colors.cyan,
+      Colors.teal,
+      Colors.green,
+      Colors.lightGreen,
+      Colors.lime,
+      Colors.yellow,
+      Colors.amber,
+      Colors.orange,
+      Colors.deepOrange,
+      Colors.brown,
+      Colors.grey,
+      Colors.blueGrey,
+    ];
+
+    // Select a random color from the list
+    return materialColors[random.nextInt(materialColors.length)];
+  }
+
+  static Color getRandomColor() {
+    final Random random = Random();
+
+    // Ensure green and blue are dominant for a cooler color.
+    int green = random.nextInt(156) + 100; // random between 100 and 255
+    int blue = random.nextInt(156) + 100; // random between 100 and 255
+    int red = random.nextInt(100); // random between 0 and 99
+
+    return Color.fromARGB(
+      255, // Fully opaque
+      red,
+      green,
+      blue,
+    );
+  }
+
+  static Color getRandomShadeOfWhite() {
+    final Random random = Random();
+
+    // Generates shades of white by using RGB values close to 255.
+    int shade = random.nextInt(56) + 200; // Value between 200 and 255
+
+    return Color.fromARGB(255, shade, shade, shade);
+  }
+
+  static Color getRandomMaterialColor() {
+    final Random random = Random();
+
+    // List of Material colors (you can add more if needed)
+    List<Color> materialColors = [
+      Colors.red,
+      Colors.pink,
+      Colors.purple,
+      Colors.deepPurple,
+      Colors.indigo,
+      Colors.blue,
+      Colors.lightBlue,
+      Colors.cyan,
+      Colors.teal,
+      Colors.green,
+      Colors.lightGreen,
+      Colors.lime,
+      Colors.yellow,
+      Colors.amber,
+      Colors.orange,
+      Colors.deepOrange,
+      Colors.brown,
+      Colors.grey,
+      Colors.blueGrey,
+    ];
+
+    // Select a random color from the list
+    return materialColors[random.nextInt(materialColors.length)];
+  }
+
+  static LinearGradient getRandomLightGradient() {
+    return LinearGradient(
+      colors: [
+        getRandomColor(),
+        getRandomColor(),
+      ],
+      begin: Alignment.topLeft,
+      end: Alignment.bottomRight,
+    );
+  }
+
+  static double textScaleFactor(BuildContext context,
+      {double maxTextScaleFactor = 2}) {
+    final width = MediaQuery.of(context).size.width;
+    double val = (width / 1400) * maxTextScaleFactor;
+    return max(1, min(val, maxTextScaleFactor));
+  }
+
   static Future<void> downloadImage(String url, String fileName) async {
     try {
       // Download image
@@ -173,6 +315,30 @@ class AppUtils {
     } catch (e) {
       showSnackBar("An error occurred while saving the image",
           title: "Error", status: MessageStatus.ERROR);
+    }
+  }
+
+  static String timeAgo(DateTime dateTime) {
+    final Duration diff = DateTime.now().difference(dateTime);
+    final int seconds = diff.inSeconds;
+    final int minutes = diff.inMinutes;
+    final int hours = diff.inHours;
+    final int days = diff.inDays;
+    final int months = (days / 30).floor(); // Approximate month length
+    final int years = (days / 365).floor(); // Approximate year length
+
+    if (years >= 1) {
+      return '$years y ago';
+    } else if (months >= 1) {
+      return '$months mo ago';
+    } else if (days >= 1) {
+      return '$days d ago';
+    } else if (hours >= 1) {
+      return '$hours h ago';
+    } else if (minutes >= 1) {
+      return '$minutes m ago';
+    } else {
+      return 'Just now';
     }
   }
 }

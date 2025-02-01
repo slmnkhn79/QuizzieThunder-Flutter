@@ -15,4 +15,24 @@ class AppRoutes {
   static const quizDetailPage = '/quizDetailPage';
   static const quizResultPage = '/quizResultPage';
   static const quizQuestionPage = '/quizQuestionPage';
+
+  static const photoQuizPage = '/photoQuizPage';
+  static const quizSubmissionPAge = '/quizSubmission';
+  static const courseMilestone = '/courseMilestoneById';
+
+  static const postDetailsPage = '/postDetailsPage';
+  static const addPostPage = '/addPost';
+  static const schoolDetailsPage = '/schoolDetails';
+  static const galleryDateView = '/galleryView';
+  static const learningView = '/learnings';
+  static const learningPathById = '/learningsPathById';
+  static const allStudyPlans = '/allStudyPlans';
+  static const studyPlansById = '/studyPlansById';
+  static const allVideos = '/allVideos';
+  static const videoById = '/videoById';
+  static const allBooks = '/allBooks';
+  static const bookById = '/bookById';
+  static const publicProfile = '/publicProfile';
+  static const allCourses = '/allCourses';
+  static const courseById = '/courseById';
 }

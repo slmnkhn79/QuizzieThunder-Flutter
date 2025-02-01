@@ -1,17 +1,17 @@
 class ForgotPasswordPostBodyModel {
   ForgotPasswordPostBodyModel({
-    required this.mobile,
+    required this.email,
   });
 
-  final String? mobile;
+  final String? email;
 
   factory ForgotPasswordPostBodyModel.fromJson(Map<String, dynamic> json) {
     return ForgotPasswordPostBodyModel(
-      mobile: json["mobile"],
+      email: json["email"],
     );
   }
 
   Map<String, dynamic> toJson() => {
-        "mobile": mobile,
+        "email": email,
       };
 }

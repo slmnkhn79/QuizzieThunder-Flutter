@@ -8,8 +8,7 @@ class QuizItemContainer extends StatelessWidget {
   final String? quizCategoryName;
 
   const QuizItemContainer(
-      {Key? key, required this.dataObj, this.quizCategoryName = ""})
-      : super(key: key);
+      {super.key, required this.dataObj, this.quizCategoryName = ""});
 
   @override
   Widget build(BuildContext context) {
@@ -38,8 +37,8 @@ class QuizItemContainer extends StatelessWidget {
                   ),
                   Text(
                       quizCategoryName?.isEmpty == true
-                          ? "${dataObj?.category?.title} - 10 Questions"
-                          : "$quizCategoryName - 10 Questions",
+                          ? "${dataObj?.category?.title}- ${dataObj?.standard} - ${dataObj?.level}"
+                          : "$quizCategoryName - ",
                       style: TextStyle(fontSize: 12, color: ThemeColor.grey))
                 ],
               )

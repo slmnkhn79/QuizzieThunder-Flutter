@@ -23,10 +23,11 @@ class ForgotPasswordController extends GetxController {
 
   bool _forgotPasswordFormValidation() {
     if (phoneNumberController.text.isEmpty) {
-      errorMessage = "Phone number should not be empty";
+      errorMessage = "Email address should not be empty";
       return false;
-    } else if (phoneNumberController.text.toString().length != 10) {
-      errorMessage = "Enter valid phone number";
+    } else if (!EMAIL_REGEX
+        .hasMatch(phoneNumberController.text.toString().trim())) {
+      errorMessage = "Enter a valid email address";
       return false;
     } else {
       return true;
@@ -36,14 +37,16 @@ class ForgotPasswordController extends GetxController {
   void forgotPassword() async {
     if (_forgotPasswordFormValidation()) {
       ForgotPasswordPostBodyModel forgotPasswordPostBodyModel =
-          ForgotPasswordPostBodyModel(mobile: phoneNumberController.text);
+          ForgotPasswordPostBodyModel(email: phoneNumberController.text);
       isLoading.value = true;
       var response = await forgotPasswordApi.forgotPassword(
           forgotPasswordPostBodyModel: forgotPasswordPostBodyModel);
       if (response.code == 200) {
         isLoading.value = false;
-        Get.toNamed(AppRoutes.createNewPasswordPage,
-            arguments: {ARG_PHONE_NUMBER: phoneNumberController.text});
+
+        Get.back();
+        AppUtils.showSnackBar(response.message ?? "Success",
+            status: MessageStatus.SUCCESS);
       } else {
         isLoading.value = false;
         AppUtils.showSnackBar(response.message ?? "Error",

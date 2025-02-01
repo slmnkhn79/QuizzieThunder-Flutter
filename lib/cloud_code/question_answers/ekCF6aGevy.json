@@ -1,0 +1,187 @@
+[
+    {
+      "question": "What is the primary source of light on Earth?",
+      "options": ["The Moon", "The Sun", "Stars", "Fireflies"],
+      "correct_answer": "The Sun"
+    },
+    {
+      "question": "How do we see objects around us?",
+      "options": ["Objects emit their own light", "Objects reflect light into our eyes", "Objects absorb light", "Objects block light"],
+      "correct_answer": "Objects reflect light into our eyes"
+    },
+    {
+      "question": "What is the term for the bending of light as it passes from one medium to another?",
+      "options": ["Reflection", "Refraction", "Diffraction", "Absorption"],
+      "correct_answer": "Refraction"
+    },
+    {
+      "question": "Which color of light has the shortest wavelength?",
+      "options": ["Red", "Blue", "Green", "Yellow"],
+      "correct_answer": "Blue"
+    },
+    {
+      "question": "What happens to light when it hits a smooth, shiny surface?",
+      "options": ["It is absorbed", "It is scattered", "It is reflected", "It is refracted"],
+      "correct_answer": "It is reflected"
+    },
+    {
+      "question": "What is the term for the spreading out of light waves when they pass through a narrow opening?",
+      "options": ["Reflection", "Refraction", "Diffraction", "Absorption"],
+      "correct_answer": "Diffraction"
+    },
+    {
+      "question": "Which part of the eye is responsible for detecting light?",
+      "options": ["Cornea", "Lens", "Retina", "Iris"],
+      "correct_answer": "Retina"
+    },
+    {
+      "question": "What is the phenomenon called when light bounces off an object?",
+      "options": ["Reflection", "Refraction", "Diffraction", "Absorption"],
+      "correct_answer": "Reflection"
+    },
+    {
+      "question": "Why do we see a rainbow after it rains?",
+      "options": ["Light is reflected by raindrops", "Light is refracted and dispersed by raindrops", "Light is absorbed by raindrops", "Light is scattered by raindrops"],
+      "correct_answer": "Light is refracted and dispersed by raindrops"
+    },
+    {
+      "question": "What is the term for the amount of light that passes through a material?",
+      "options": ["Transparency", "Opacity", "Translucency", "Reflectivity"],
+      "correct_answer": "Transparency"
+    },
+    {
+      "question": "Which type of material allows light to pass through it completely?",
+      "options": ["Opaque", "Translucent", "Transparent", "Reflective"],
+      "correct_answer": "Transparent"
+    },
+    {
+      "question": "What is the effect called when light changes direction as it passes through a prism?",
+      "options": ["Reflection", "Refraction", "Diffraction", "Absorption"],
+      "correct_answer": "Refraction"
+    },
+    {
+      "question": "Why do objects appear black?",
+      "options": ["They reflect all light", "They absorb all light", "They refract all light", "They scatter all light"],
+      "correct_answer": "They absorb all light"
+    },
+    {
+      "question": "What is the term for the range of colors that make up white light?",
+      "options": ["Spectrum", "Prism", "Reflection", "Refraction"],
+      "correct_answer": "Spectrum"
+    },
+    {
+      "question": "Which part of the eye controls the amount of light that enters?",
+      "options": ["Cornea", "Lens", "Retina", "Iris"],
+      "correct_answer": "Iris"
+    },
+    {
+      "question": "What happens to light when it passes through a convex lens?",
+      "options": ["It diverges", "It converges", "It reflects", "It absorbs"],
+      "correct_answer": "It converges"
+    },
+    {
+      "question": "Why do we see different colors in objects?",
+      "options": ["Objects emit different colors of light", "Objects reflect different colors of light", "Objects absorb different colors of light", "Objects refract different colors of light"],
+      "correct_answer": "Objects reflect different colors of light"
+    },
+    {
+      "question": "What is the term for a material that does not allow light to pass through?",
+      "options": ["Transparent", "Translucent", "Opaque", "Reflective"],
+      "correct_answer": "Opaque"
+    },
+    {
+      "question": "Which phenomenon explains why the sky appears blue?",
+      "options": ["Reflection", "Refraction", "Scattering", "Absorption"],
+      "correct_answer": "Scattering"
+    },
+    {
+      "question": "What is the term for the angle at which light hits a surface?",
+      "options": ["Angle of incidence", "Angle of reflection", "Angle of refraction", "Angle of diffraction"],
+      "correct_answer": "Angle of incidence"
+    },
+    {
+      "question": "What is the term for the bending of light around the edges of an object?",
+      "options": ["Reflection", "Refraction", "Diffraction", "Absorption"],
+      "correct_answer": "Diffraction"
+    },
+    {
+      "question": "Which color of light has the longest wavelength?",
+      "options": ["Red", "Blue", "Green", "Violet"],
+      "correct_answer": "Red"
+    },
+    {
+      "question": "What is the name of the process by which plants use light to make food?",
+      "options": ["Respiration", "Photosynthesis", "Transpiration", "Germination"],
+      "correct_answer": "Photosynthesis"
+    },
+    {
+      "question": "What type of lens is thicker at the center than at the edges?",
+      "options": ["Concave lens", "Convex lens", "Cylindrical lens", "Plano lens"],
+      "correct_answer": "Convex lens"
+    },
+    {
+      "question": "Why do we see objects as different colors?",
+      "options": ["Objects emit different colors of light", "Objects reflect different colors of light", "Objects absorb different colors of light", "Objects refract different colors of light"],
+      "correct_answer": "Objects reflect different colors of light"
+    },
+    {
+      "question": "What is the term for a material that allows some light to pass through but scatters it?",
+      "options": ["Transparent", "Translucent", "Opaque", "Reflective"],
+      "correct_answer": "Translucent"
+    },
+    {
+      "question": "Which part of the eye focuses light onto the retina?",
+      "options": ["Cornea", "Lens", "Iris", "Pupil"],
+      "correct_answer": "Lens"
+    },
+    {
+      "question": "What is the term for the splitting of white light into its component colors?",
+      "options": ["Reflection", "Refraction", "Dispersion", "Absorption"],
+      "correct_answer": "Dispersion"
+    },
+    {
+      "question": "What happens to light when it passes through a concave lens?",
+      "options": ["It converges", "It diverges", "It reflects", "It absorbs"],
+      "correct_answer": "It diverges"
+    },
+    {
+      "question": "Why do we see shadows?",
+      "options": ["Light is absorbed by objects", "Light is reflected by objects", "Light is blocked by objects", "Light is refracted by objects"],
+      "correct_answer": "Light is blocked by objects"
+    },
+    {
+      "question": "What is the term for the angle at which light is reflected off a surface?",
+      "options": ["Angle of incidence", "Angle of reflection", "Angle of refraction", "Angle of diffraction"],
+      "correct_answer": "Angle of reflection"
+    },
+    {
+      "question": "Which type of material does not allow any light to pass through?",
+      "options": ["Transparent", "Translucent", "Opaque", "Reflective"],
+      "correct_answer": "Opaque"
+    },
+    {
+      "question": "What is the term for the change in direction of light when it passes through a different medium?",
+      "options": ["Reflection", "Refraction", "Diffraction", "Absorption"],
+      "correct_answer": "Refraction"
+    },
+    {
+      "question": "Why do objects appear white?",
+      "options": ["They reflect all colors of light", "They absorb all colors of light", "They refract all colors of light", "They scatter all colors of light"],
+      "correct_answer": "They reflect all colors of light"
+    },
+    {
+      "question": "What is the term for the phenomenon where light waves overlap and combine?",
+      "options": ["Reflection", "Refraction", "Interference", "Absorption"],
+      "correct_answer": "Interference"
+    },
+    {
+      "question": "Which part of the eye adjusts the size of the pupil to control the amount of light entering?",
+      "options": ["Cornea", "Lens", "Retina", "Iris"],
+      "correct_answer": "Iris"
+    },
+    {
+      "question": "What is the term for the scattering of light by particles in the atmosphere?",
+      "options": ["Reflection", "Refraction", "Diffraction", "Rayleigh scattering"],
+      "correct_answer": "Rayleigh scattering"
+    }
+]

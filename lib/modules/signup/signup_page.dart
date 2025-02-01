@@ -5,7 +5,7 @@ import '../../theme/colors_theme.dart';
 import 'signup_controller.dart';
 
 class SignupPage extends StatelessWidget {
-  const SignupPage({Key? key}) : super(key: key);
+  const SignupPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -307,8 +307,6 @@ class SignupPage extends StatelessWidget {
                             onPressed: () {
                               signupController.signUp();
                             },
-                            child: Text("Register",
-                                style: TextStyle(color: ThemeColor.white)),
                             style: TextButton.styleFrom(
                               textStyle: TextStyle(
                                   fontSize: 16, fontWeight: FontWeight.w500),
@@ -316,6 +314,8 @@ class SignupPage extends StatelessWidget {
                                   borderRadius: BorderRadius.circular(12)),
                               backgroundColor: ThemeColor.primaryDark,
                             ),
+                            child: Text("Register",
+                                style: TextStyle(color: ThemeColor.white)),
                           )),
                     ],
                   ),

@@ -1,0 +1,502 @@
+[
+    {
+        "question": "Which type of farming involves growing crops and raising livestock on the same land?",
+        "options": [
+            "Subsistence farming",
+            "Commercial farming",
+            "Mixed farming",
+            "Shifting cultivation"
+        ],
+        "correct_answer": "Mixed farming"
+    },
+    {
+        "question": "What is the main purpose of subsistence farming?",
+        "options": [
+            "To sell crops in the market",
+            "To feed the farmer's family",
+            "To export crops",
+            "To produce cash crops"
+        ],
+        "correct_answer": "To feed the farmer's family"
+    },
+    {
+        "question": "Which crop is known as the 'Golden Fibre'?",
+        "options": [
+            "Cotton",
+            "Jute",
+            "Wheat",
+            "Rice"
+        ],
+        "correct_answer": "Jute"
+    },
+    {
+        "question": "What is sericulture?",
+        "options": [
+            "Cultivation of fruits",
+            "Cultivation of vegetables",
+            "Rearing of silkworms",
+            "Rearing of fish"
+        ],
+        "correct_answer": "Rearing of silkworms"
+    },
+    {
+        "question": "Which type of farming is practiced on large estates for commercial purposes?",
+        "options": [
+            "Subsistence farming",
+            "Shifting cultivation",
+            "Plantations",
+            "Nomadic herding"
+        ],
+        "correct_answer": "Plantations"
+    },
+    {
+        "question": "Which of the following is a major crop grown in India?",
+        "options": [
+            "Coffee",
+            "Tea",
+            "Rice",
+            "All of the above"
+        ],
+        "correct_answer": "All of the above"
+    },
+    {
+        "question": "What is the main input in the farm system?",
+        "options": [
+            "Seeds",
+            "Crops",
+            "Harvesting",
+            "Marketing"
+        ],
+        "correct_answer": "Seeds"
+    },
+    {
+        "question": "Which type of farming involves moving from one place to another with animals?",
+        "options": [
+            "Shifting cultivation",
+            "Nomadic herding",
+            "Mixed farming",
+            "Commercial farming"
+        ],
+        "correct_answer": "Nomadic herding"
+    },
+    {
+        "question": "Which crop is primarily grown in the black soil regions of India?",
+        "options": [
+            "Rice",
+            "Wheat",
+            "Cotton",
+            "Maize"
+        ],
+        "correct_answer": "Cotton"
+    },
+    {
+        "question": "What is horticulture?",
+        "options": [
+            "Cultivation of flowers",
+            "Cultivation of fruits and vegetables",
+            "Rearing of animals",
+            "Cultivation of grains"
+        ],
+        "correct_answer": "Cultivation of fruits and vegetables"
+    },
+    {
+        "question": "Which farming practice involves rotating different crops in the same field?",
+        "options": [
+            "Shifting cultivation",
+            "Mixed farming",
+            "Crop rotation",
+            "Nomadic herding"
+        ],
+        "correct_answer": "Crop rotation"
+    },
+    {
+        "question": "Which of the following is an example of a cash crop?",
+        "options": [
+            "Rice",
+            "Wheat",
+            "Cotton",
+            "Millets"
+        ],
+        "correct_answer": "Cotton"
+    },
+    {
+        "question": "What is the main output in the farm system?",
+        "options": [
+            "Seeds",
+            "Crops",
+            "Fertilizers",
+            "Pesticides"
+        ],
+        "correct_answer": "Crops"
+    },
+    {
+        "question": "Which type of farming is characterized by the use of organic manure and natural methods?",
+        "options": [
+            "Commercial farming",
+            "Organic farming",
+            "Subsistence farming",
+            "Shifting cultivation"
+        ],
+        "correct_answer": "Organic farming"
+    },
+    {
+        "question": "Which crop is known as the 'King of Cereals'?",
+        "options": [
+            "Rice",
+            "Wheat",
+            "Maize",
+            "Millets"
+        ],
+        "correct_answer": "Wheat"
+    },
+    {
+        "question": "Which type of farming is practiced in areas with favorable topography and climate?",
+        "options": [
+            "Subsistence farming",
+            "Commercial farming",
+            "Shifting cultivation",
+            "Plantations"
+        ],
+        "correct_answer": "Plantations"
+    },
+    {
+        "question": "Which crop is primarily grown in the alluvial soil regions of India?",
+        "options": [
+            "Rice",
+            "Wheat",
+            "Cotton",
+            "Jute"
+        ],
+        "correct_answer": "Rice"
+    },
+    {
+        "question": "What is the main process in the farm system?",
+        "options": [
+            "Sowing",
+            "Harvesting",
+            "Irrigation",
+            "All of the above"
+        ],
+        "correct_answer": "All of the above"
+    },
+    {
+        "question": "Which type of farming involves clearing a piece of land by cutting and burning trees?",
+        "options": [
+            "Shifting cultivation",
+            "Nomadic herding",
+            "Mixed farming",
+            "Commercial farming"
+        ],
+        "correct_answer": "Shifting cultivation"
+    },
+    {
+        "question": "Which crop is known as the 'Queen of Cereals'?",
+        "options": [
+            "Rice",
+            "Wheat",
+            "Maize",
+            "Millets"
+        ],
+        "correct_answer": "Rice"
+    },
+    {
+        "question": "Which type of farming is practiced to meet the needs of the farmer's family?",
+        "options": [
+            "Commercial farming",
+            "Subsistence farming",
+            "Organic farming",
+            "Mixed farming"
+        ],
+        "correct_answer": "Subsistence farming"
+    },
+    {
+        "question": "Which crop is primarily grown in the red soil regions of India?",
+        "options": [
+            "Rice",
+            "Wheat",
+            "Millets",
+            "Cotton"
+        ],
+        "correct_answer": "Millets"
+    },
+    {
+        "question": "What is the main purpose of commercial farming?",
+        "options": [
+            "To feed the farmer's family",
+            "To produce crops for sale",
+            "To practice traditional methods",
+            "To conserve soil"
+        ],
+        "correct_answer": "To produce crops for sale"
+    },
+    {
+        "question": "Which crop is known as the 'Beverage Crop'?",
+        "options": [
+            "Tea",
+            "Coffee",
+            "Cotton",
+            "Jute"
+        ],
+        "correct_answer": "Tea"
+    },
+    {
+        "question": "Which type of farming involves the use of modern technology and high-yielding variety seeds?",
+        "options": [
+            "Subsistence farming",
+            "Commercial farming",
+            "Organic farming",
+            "Shifting cultivation"
+        ],
+        "correct_answer": "Commercial farming"
+    },
+    {
+        "question": "Which crop is primarily grown in the loamy soil regions of India?",
+        "options": [
+            "Rice",
+            "Wheat",
+            "Maize",
+            "Cotton"
+        ],
+        "correct_answer": "Wheat"
+    },
+    {
+        "question": "What is the main input in organic farming?",
+        "options": [
+            "Chemical fertilizers",
+            "Organic manure",
+            "Pesticides",
+            "Hybrid seeds"
+        ],
+        "correct_answer": "Organic manure"
+    },
+    {
+        "question": "Which type of farming is practiced in the hilly regions of India?",
+        "options": [
+            "Shifting cultivation",
+            "Nomadic herding",
+            "Mixed farming",
+            "Commercial farming"
+        ],
+        "correct_answer": "Shifting cultivation"
+    },
+    {
+        "question": "Which crop is known as the 'Food Crop'?",
+        "options": [
+            "Rice",
+            "Cotton",
+            "Jute",
+            "Tea"
+        ],
+        "correct_answer": "Rice"
+    },
+    {
+        "question": "Which type of farming involves the cultivation of a single crop on a large scale?",
+        "options": [
+            "Mixed farming",
+            "Plantations",
+            "Subsistence farming",
+            "Nomadic herding"
+        ],
+        "correct_answer": "Plantations"
+    },
+    {
+        "question": "Which farming method involves cultivating crops without the use of synthetic chemicals?",
+        "options": [
+            "Commercial farming",
+            "Organic farming",
+            "Subsistence farming",
+            "Shifting cultivation"
+        ],
+        "correct_answer": "Organic farming"
+    },
+    {
+        "question": "What is the primary objective of horticulture?",
+        "options": [
+            "Rearing livestock",
+            "Growing fruits and vegetables",
+            "Cultivating grains",
+            "Fishing"
+        ],
+        "correct_answer": "Growing fruits and vegetables"
+    },
+    {
+        "question": "Which crop is predominantly grown in the loamy soil regions of India?",
+        "options": [
+            "Rice",
+            "Wheat",
+            "Maize",
+            "Cotton"
+        ],
+        "correct_answer": "Wheat"
+    },
+    {
+        "question": "What is the main characteristic of shifting cultivation?",
+        "options": [
+            "Permanent fields",
+            "Temporary fields",
+            "Use of fertilizers",
+            "Use of pesticides"
+        ],
+        "correct_answer": "Temporary fields"
+    },
+    {
+        "question": "Which type of farming is practiced in areas with high rainfall and fertile soil?",
+        "options": [
+            "Nomadic herding",
+            "Shifting cultivation",
+            "Plantations",
+            "Mixed farming"
+        ],
+        "correct_answer": "Plantations"
+    },
+    {
+        "question": "Which crop is known as the 'Staple Food' of India?",
+        "options": [
+            "Rice",
+            "Wheat",
+            "Maize",
+            "Millets"
+        ],
+        "correct_answer": "Rice"
+    },
+    {
+        "question": "What is the main purpose of sericulture?",
+        "options": [
+            "Producing silk",
+            "Growing vegetables",
+            "Rearing fish",
+            "Cultivating grains"
+        ],
+        "correct_answer": "Producing silk"
+    },
+    {
+        "question": "Which type of farming involves the use of high-yielding variety seeds and modern technology?",
+        "options": [
+            "Subsistence farming",
+            "Commercial farming",
+            "Organic farming",
+            "Shifting cultivation"
+        ],
+        "correct_answer": "Commercial farming"
+    },
+    {
+        "question": "Which crop is primarily grown in the red soil regions of India?",
+        "options": [
+            "Rice",
+            "Wheat",
+            "Millets",
+            "Cotton"
+        ],
+        "correct_answer": "Millets"
+    },
+    {
+        "question": "What is the main input in the farm system?",
+        "options": [
+            "Seeds",
+            "Crops",
+            "Fertilizers",
+            "Pesticides"
+        ],
+        "correct_answer": "Seeds"
+    },
+    {
+        "question": "Which type of farming is characterized by the use of organic manure and natural methods?",
+        "options": [
+            "Commercial farming",
+            "Organic farming",
+            "Subsistence farming",
+            "Shifting cultivation"
+        ],
+        "correct_answer": "Organic farming"
+    },
+    {
+        "question": "Which crop is known as the 'King of Cereals'?",
+        "options": [
+            "Rice",
+            "Wheat",
+            "Maize",
+            "Millets"
+        ],
+        "correct_answer": "Wheat"
+    },
+    {
+        "question": "Which type of farming is practiced in areas with favorable topography and climate?",
+        "options": [
+            "Subsistence farming",
+            "Commercial farming",
+            "Shifting cultivation",
+            "Plantations"
+        ],
+        "correct_answer": "Plantations"
+    },
+    {
+        "question": "Which crop is primarily grown in the alluvial soil regions of India?",
+        "options": [
+            "Rice",
+            "Wheat",
+            "Cotton",
+            "Jute"
+        ],
+        "correct_answer": "Rice"
+    },
+    {
+        "question": "What is the main process in the farm system?",
+        "options": [
+            "Sowing",
+            "Harvesting",
+            "Irrigation",
+            "All of the above"
+        ],
+        "correct_answer": "All of the above"
+    },
+    {
+        "question": "Which type of farming involves clearing a piece of land by cutting and burning trees?",
+        "options": [
+            "Shifting cultivation",
+            "Nomadic herding",
+            "Mixed farming",
+            "Commercial farming"
+        ],
+        "correct_answer": "Shifting cultivation"
+    },
+    {
+        "question": "Which crop is known as the 'Queen of Cereals'?",
+        "options": [
+            "Rice",
+            "Wheat",
+            "Maize",
+            "Millets"
+        ],
+        "correct_answer": "Rice"
+    },
+    {
+        "question": "Which type of farming is practiced to meet the needs of the farmer's family?",
+        "options": [
+            "Commercial farming",
+            "Subsistence farming",
+            "Organic farming",
+            "Mixed farming"
+        ],
+        "correct_answer": "Subsistence farming"
+    },
+    {
+        "question": "Which crop is primarily grown in the red soil regions of India?",
+        "options": [
+            "Rice",
+            "Wheat",
+            "Millets",
+            "Cotton"
+        ],
+        "correct_answer": "Millets"
+    },
+    {
+        "question": "What is the main purpose of commercial farming?",
+        "options": [
+            "To feed the farmer's family",
+            "To produce crops for sale",
+            "To practice traditional methods",
+            "To conserve soil"
+        ],
+        "correct_answer": "To produce crops for sale"
+    }
+]

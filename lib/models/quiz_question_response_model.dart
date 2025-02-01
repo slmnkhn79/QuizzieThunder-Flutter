@@ -1,3 +1,5 @@
+import 'package:quizzie_thunder/utils/app_utils.dart';
+
 class QuizQuestionResponseModel {
   QuizQuestionResponseModel({
     required this.code,
@@ -37,6 +39,8 @@ class Question {
     required this.correctOptionIndex,
     required this.createdAt,
     required this.updatedAt,
+    required this.questionType,
+    required this.imageUrl
   });
 
   final String? id;
@@ -45,17 +49,21 @@ class Question {
   final int? correctOptionIndex;
   final DateTime? createdAt;
   final DateTime? updatedAt;
+  final String questionType;
+  final String? imageUrl;
 
   factory Question.fromJson(Map<String, dynamic> json) {
     return Question(
       id: json["_id"],
-      question: json["question"],
+      question: AppUtils().convertBase64ToString(json["question"]),
       options: json["options"] == null
           ? []
           : List<String>.from(json["options"]!.map((x) => x)),
       correctOptionIndex: json["correctOptionIndex"],
       createdAt: DateTime.tryParse(json["createdAt"] ?? ""),
       updatedAt: DateTime.tryParse(json["updatedAt"] ?? ""),
+      questionType: json['question_type'],
+      imageUrl: json['image_url']
     );
   }
 
@@ -77,6 +85,8 @@ class Quiz {
     required this.category,
     required this.createdAt,
     required this.updatedAt,
+    required this.totalQuestions,
+    required this.timeLimit
   });
 
   final String? id;
@@ -85,6 +95,8 @@ class Quiz {
   final Category? category;
   final DateTime? createdAt;
   final DateTime? updatedAt;
+  final int? totalQuestions;
+  final String? timeLimit;
 
   factory Quiz.fromJson(Map<String, dynamic> json) {
     return Quiz(
@@ -95,6 +107,8 @@ class Quiz {
           json["category"] == null ? null : Category.fromJson(json["category"]),
       createdAt: DateTime.tryParse(json["createdAt"] ?? ""),
       updatedAt: DateTime.tryParse(json["updatedAt"] ?? ""),
+      totalQuestions: json['totalQuestions'],
+      timeLimit: json['time_limit']
     );
   }
 
@@ -105,6 +119,7 @@ class Quiz {
         "category": category?.toJson(),
         "createdAt": createdAt?.toIso8601String(),
         "updatedAt": updatedAt?.toIso8601String(),
+        "totalQuestions":totalQuestions
       };
 }
 
@@ -136,4 +151,9 @@ class Category {
         "createdAt": createdAt?.toIso8601String(),
         "updatedAt": updatedAt?.toIso8601String(),
       };
+}
+enum QuestionType {
+  mcq,
+  imageUpload,
+  longAnswer,
 }

@@ -1,14 +1,15 @@
 import 'package:get/get.dart';
+import 'package:quizzie_thunder/utils/app_utils.dart';
+import 'package:quizzie_thunder/utils/enums/snackbar_status.dart';
 
 import '../../apis/home_api.dart';
 import '../../models/home_screen_response_model.dart';
-import '../../utils/app_utils.dart';
-import '../../utils/enums/snackbar_status.dart';
 
 class HomeController extends GetxController {
   HomeApi homeApi = HomeApi();
 
   var isLoading = false.obs;
+  var selectedTabIndex = 0.obs;
 
   HomeScreenResponseModel? homeScreenResponseModel;
 
@@ -24,9 +25,11 @@ class HomeController extends GetxController {
     if (response.code == 200) {
       homeScreenResponseModel = response;
       isLoading.value = false;
-    } else {
+    } else
+    if(response.code == 500)
+     {
       isLoading.value = false;
-      AppUtils.showSnackBar("Error", status: MessageStatus.ERROR);
+      // AppUtils.showSnackBar(response.message! , status: MessageStatus.ERROR);
     }
   }
 }

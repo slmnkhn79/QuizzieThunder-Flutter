@@ -5,7 +5,7 @@ import '../../theme/colors_theme.dart';
 import 'quiz_result_controller.dart';
 
 class QuizResultPage extends StatelessWidget {
-  const QuizResultPage({Key? key}) : super(key: key);
+  const QuizResultPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -13,6 +13,7 @@ class QuizResultPage extends StatelessWidget {
         Get.find<QuizResultController>();
     return Scaffold(
         appBar: AppBar(
+          automaticallyImplyLeading: false,
           title: Text(
             "Good Job!",
             style: TextStyle(
@@ -23,7 +24,12 @@ class QuizResultPage extends StatelessWidget {
           actions: [
             IconButton(
                 onPressed: () {
+                  // Get.offNamedUntil('/',(route)=> route.i));
+                  // Get.off(closeOverlays: true);
+                  
+                  // Get.back(closeOverlays: true);
                   Get.back();
+                  // Get.offNamedUntil(page, predicate)
                 },
                 icon: Icon(
                   Icons.close_rounded,
@@ -53,7 +59,7 @@ class QuizResultPage extends StatelessWidget {
                             height: 12,
                           ),
                           Text(
-                            "${quizResultController.quizName}",
+                            quizResultController.quizName,
                             style: TextStyle(
                                 color: ThemeColor.white,
                                 fontSize: 14,
@@ -62,13 +68,13 @@ class QuizResultPage extends StatelessWidget {
                           SizedBox(
                             height: 4,
                           ),
-                          Text(
-                            "${quizResultController.quizCategoryName}",
-                            style: TextStyle(
-                              color: ThemeColor.white,
-                              fontSize: 12,
-                            ),
-                          ),
+                          // Text(
+                          //   quizResultController.quizCategoryName,
+                          //   style: TextStyle(
+                          //     color: ThemeColor.white,
+                          //     fontSize: 12,
+                          //   ),
+                          // ),
                           Image.asset(
                             "assets/images/prize.png",
                             width: 200,
@@ -77,13 +83,13 @@ class QuizResultPage extends StatelessWidget {
                           SizedBox(
                             height: 16,
                           ),
-                          Text(
-                            "You get +${quizResultController.correctAnswerCount * 10} Quiz Points",
-                            style: TextStyle(
-                                color: ThemeColor.white,
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold),
-                          ),
+                          // Text(
+                          //   "You get +${quizResultController.correctAnswerCount * 10} Quiz Points",
+                          //   style: TextStyle(
+                          //       color: ThemeColor.white,
+                          //       fontSize: 16,
+                          //       fontWeight: FontWeight.bold),
+                          // ),
                           SizedBox(
                             height: 16,
                           ),
@@ -108,12 +114,12 @@ class QuizResultPage extends StatelessWidget {
                             SizedBox(
                               height: 8,
                             ),
-                            Text(
-                                "${quizResultController.correctAnswerCount} questions",
-                                style: TextStyle(
-                                    color: ThemeColor.black,
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.bold)),
+                            // Text(
+                            //     "${quizResultController.correctAnswerCount} questions",
+                            //     style: TextStyle(
+                            //         color: ThemeColor.black,
+                            //         fontSize: 18,
+                            //         fontWeight: FontWeight.bold)),
                           ],
                         )),
                         SizedBox(
@@ -132,12 +138,12 @@ class QuizResultPage extends StatelessWidget {
                             SizedBox(
                               height: 8,
                             ),
-                            Text(
-                                "${quizResultController.completionPercentage}%",
-                                style: TextStyle(
-                                    color: ThemeColor.black,
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.bold)),
+                            // Text(
+                            //     "${quizResultController.completionPercentage}%",
+                            //     style: TextStyle(
+                            //         color: ThemeColor.black,
+                            //         fontSize: 18,
+                            //         fontWeight: FontWeight.bold)),
                           ],
                         ))
                       ],
@@ -183,11 +189,11 @@ class QuizResultPage extends StatelessWidget {
                             SizedBox(
                               height: 8,
                             ),
-                            Text("${quizResultController.incorrectAnswerCount}",
-                                style: TextStyle(
-                                    color: ThemeColor.black,
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.bold)),
+                            // Text("${quizResultController.incorrectAnswerCount}",
+                            //     style: TextStyle(
+                            //         color: ThemeColor.black,
+                            //         fontSize: 18,
+                            //         fontWeight: FontWeight.bold)),
                           ],
                         ))
                       ],

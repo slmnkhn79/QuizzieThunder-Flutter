@@ -1,0 +1,227 @@
+[
+    {
+        "question": "What is the primary function of ball bearings?",
+        "options": ["Reduce friction", "Increase friction", "Generate heat", "Absorb shock"],
+        "correct_answer": "Reduce friction"
+    },
+    {
+        "question": "Which type of friction occurs when an object moves through a fluid?",
+        "options": ["Static friction", "Sliding friction", "Rolling friction", "Fluid friction"],
+        "correct_answer": "Fluid friction"
+    },
+    {
+        "question": "What is friction?",
+        "options": ["A force that opposes motion", "A force that aids motion", "A force that generates electricity", "A force that reduces weight"],
+        "correct_answer": "A force that opposes motion"
+    },
+    {
+        "question": "What is the role of lubricants in reducing friction?",
+        "options": ["Increase friction", "Reduce friction", "Generate heat", "Absorb shock"],
+        "correct_answer": "Reduce friction"
+    },
+    {
+        "question": "Which type of friction is experienced by a rolling object?",
+        "options": ["Static friction", "Sliding friction", "Rolling friction", "Fluid friction"],
+        "correct_answer": "Rolling friction"
+    },
+    {
+        "question": "What is static friction?",
+        "options": ["Friction between two stationary objects", "Friction between moving objects", "Friction in fluids", "Friction in gases"],
+        "correct_answer": "Friction between two stationary objects"
+    },
+    {
+        "question": "What is sliding friction?",
+        "options": ["Friction between two stationary objects", "Friction between moving objects", "Friction in fluids", "Friction in gases"],
+        "correct_answer": "Friction between moving objects"
+    },
+    {
+        "question": "What is interlocking in the context of friction?",
+        "options": ["The process of reducing friction", "The process of increasing friction", "The process of generating heat", "The process of absorbing shock"],
+        "correct_answer": "The process of increasing friction"
+    },
+    {
+        "question": "Which of the following is an example of rolling friction?",
+        "options": ["A car tire on the road", "A book sliding on a table", "A person standing still", "A fish swimming in water"],
+        "correct_answer": "A car tire on the road"
+    },
+    {
+        "question": "What is the effect of drag on a moving object?",
+        "options": ["Increases speed", "Decreases speed", "Generates electricity", "Reduces weight"],
+        "correct_answer": "Decreases speed"
+    },
+    {
+        "question": "Which type of friction is the strongest?",
+        "options": ["Static friction", "Sliding friction", "Rolling friction", "Fluid friction"],
+        "correct_answer": "Static friction"
+    },
+    {
+        "question": "What is the purpose of using ball bearings in machinery?",
+        "options": ["To increase friction", "To reduce friction", "To generate heat", "To absorb shock"],
+        "correct_answer": "To reduce friction"
+    },
+    {
+        "question": "Which type of friction is experienced by a sliding object?",
+        "options": ["Static friction", "Sliding friction", "Rolling friction", "Fluid friction"],
+        "correct_answer": "Sliding friction"
+    },
+    {
+        "question": "What is the role of lubricants in machinery?",
+        "options": ["Increase friction", "Reduce friction", "Generate heat", "Absorb shock"],
+        "correct_answer": "Reduce friction"
+    },
+    {
+        "question": "Which type of friction occurs when an object is at rest?",
+        "options": ["Static friction", "Sliding friction", "Rolling friction", "Fluid friction"],
+        "correct_answer": "Static friction"
+    },
+    {
+        "question": "What is the effect of interlocking on friction?",
+        "options": ["Increases friction", "Decreases friction", "Generates heat", "Reduces weight"],
+        "correct_answer": "Increases friction"
+    },
+    {
+        "question": "Which type of friction is experienced by a rolling ball?",
+        "options": ["Static friction", "Sliding friction", "Rolling friction", "Fluid friction"],
+        "correct_answer": "Rolling friction"
+    },
+    {
+        "question": "What is the effect of lubricants on moving parts?",
+        "options": ["Increase friction", "Reduce friction", "Generate heat", "Absorb shock"],
+        "correct_answer": "Reduce friction"
+    },
+    {
+        "question": "Which type of friction is experienced by a stationary object?",
+        "options": ["Static friction", "Sliding friction", "Rolling friction", "Fluid friction"],
+        "correct_answer": "Static friction"
+    },
+    {
+        "question": "What is the role of drag in fluid dynamics?",
+        "options": ["Increase speed", "Decrease speed", "Generate electricity", "Reduce weight"],
+        "correct_answer": "Decrease speed"
+    },
+    {
+        "question": "Which type of friction is the weakest?",
+        "options": ["Static friction", "Sliding friction", "Rolling friction", "Fluid friction"],
+        "correct_answer": "Rolling friction"
+    },
+    {
+        "question": "What is the purpose of using lubricants in engines?",
+        "options": ["Increase friction", "Reduce friction", "Generate heat", "Absorb shock"],
+        "correct_answer": "Reduce friction"
+    },
+    {
+        "question": "Which type of friction occurs when an object moves through air?",
+        "options": ["Static friction", "Sliding friction", "Rolling friction", "Fluid friction"],
+        "correct_answer": "Fluid friction"
+    },
+    {
+        "question": "What is the effect of interlocking on moving parts?",
+        "options": ["Increase friction", "Decrease friction", "Generate heat", "Reduce weight"],
+        "correct_answer": "Increase friction"
+    },
+    {
+        "question": "Which type of friction is experienced by a sliding book?",
+        "options": ["Static friction", "Sliding friction", "Rolling friction", "Fluid friction"],
+        "correct_answer": "Sliding friction"
+    },
+    {
+        "question": "What is the role of ball bearings in reducing friction?",
+        "options": ["Increase friction", "Reduce friction", "Generate heat", "Absorb shock"],
+        "correct_answer": "Reduce friction"
+    },
+    {
+        "question": "Which type of friction is experienced by a moving car?",
+        "options": ["Static friction", "Sliding friction", "Rolling friction", "Fluid friction"],
+        "correct_answer": "Rolling friction"
+    },
+    {
+        "question": "What is the effect of lubricants on friction?",
+        "options": ["Increase friction", "Reduce friction", "Generate heat", "Absorb shock"],
+        "correct_answer": "Reduce friction"
+    },
+    {
+        "question": "Which type of friction is experienced by a stationary object?",
+        "options": ["Static friction", "Sliding friction", "Rolling friction", "Fluid friction"],
+        "correct_answer": "Static friction"
+    },
+    {
+        "question": "What is the role of drag in reducing speed?",
+        "options": ["Increase speed", "Decrease speed", "Generate electricity", "Reduce weight"],
+        "correct_answer": "Decrease speed"
+    },
+    {
+        "question": "What happens to friction when the surface area in contact increases?",
+        "options": ["Increases", "Decreases", "Remains the same", "Varies randomly"],
+        "correct_answer": "Remains the same"
+    },
+    {
+        "question": "Which type of friction is involved when a person walks on the ground?",
+        "options": ["Static friction", "Sliding friction", "Rolling friction", "Fluid friction"],
+        "correct_answer": "Static friction"
+    },
+    {
+        "question": "What is the effect of rough surfaces on friction?",
+        "options": ["Increases friction", "Decreases friction", "No effect", "Reduces weight"],
+        "correct_answer": "Increases friction"
+    },
+    {
+        "question": "Which type of friction is experienced by a swimmer in water?",
+        "options": ["Static friction", "Sliding friction", "Rolling friction", "Fluid friction"],
+        "correct_answer": "Fluid friction"
+    },
+    {
+        "question": "What is the role of grooves in car tires?",
+        "options": ["Increase friction", "Reduce friction", "Generate heat", "Absorb shock"],
+        "correct_answer": "Increase friction"
+    },
+    {
+        "question": "Which type of friction is experienced by a sled moving on snow?",
+        "options": ["Static friction", "Sliding friction", "Rolling friction", "Fluid friction"],
+        "correct_answer": "Sliding friction"
+    },
+    {
+        "question": "What is the effect of polishing a surface on friction?",
+        "options": ["Increases friction", "Decreases friction", "No effect", "Reduces weight"],
+        "correct_answer": "Decreases friction"
+    },
+    {
+        "question": "Which type of friction is experienced by a cyclist on a road?",
+        "options": ["Static friction", "Sliding friction", "Rolling friction", "Fluid friction"],
+        "correct_answer": "Rolling friction"
+    },
+    {
+        "question": "What is the role of oil in reducing friction in engines?",
+        "options": ["Increase friction", "Reduce friction", "Generate heat", "Absorb shock"],
+        "correct_answer": "Reduce friction"
+    },
+    {
+        "question": "Which type of friction is experienced by a boat moving through water?",
+        "options": ["Static friction", "Sliding friction", "Rolling friction", "Fluid friction"],
+        "correct_answer": "Fluid friction"
+    },
+    {
+        "question": "What is the effect of adding weight to an object on friction?",
+        "options": ["Increases friction", "Decreases friction", "No effect", "Varies randomly"],
+        "correct_answer": "Increases friction"
+    },
+    {
+        "question": "Which type of friction is experienced by a skateboard on a ramp?",
+        "options": ["Static friction", "Sliding friction", "Rolling friction", "Fluid friction"],
+        "correct_answer": "Rolling friction"
+    },
+    {
+        "question": "What is the role of sandpaper in increasing friction?",
+        "options": ["Smoothens surfaces", "Roughens surfaces", "Generates heat", "Absorbs shock"],
+        "correct_answer": "Roughens surfaces"
+    },
+    {
+        "question": "Which type of friction is experienced by a parachutist falling through the air?",
+        "options": ["Static friction", "Sliding friction", "Rolling friction", "Fluid friction"],
+        "correct_answer": "Fluid friction"
+    },
+    {
+        "question": "What is the effect of using grease on moving parts?",
+        "options": ["Increases friction", "Decreases friction", "No effect", "Reduces weight"],
+        "correct_answer": "Decreases friction"
+    }
+]

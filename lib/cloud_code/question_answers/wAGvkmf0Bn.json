@@ -1,0 +1,292 @@
+[
+    {
+      "question": "What is the primary goal of futuristic thinking?",
+      "options": [
+        "To predict the exact future",
+        "To prepare for possible future scenarios",
+        "To focus only on current problems",
+        "To ignore technological advancements"
+      ],
+      "correct_answer": "To prepare for possible future scenarios"
+    },
+    {
+      "question": "Which of the following is an example of innovative thinking?",
+      "options": [
+        "Following traditional methods without change",
+        "Using technology to solve everyday problems",
+        "Ignoring new ideas",
+        "Avoiding risks at all costs"
+      ],
+      "correct_answer": "Using technology to solve everyday problems"
+    },
+    {
+      "question": "What role does artificial intelligence (AI) play in the future?",
+      "options": [
+        "It will replace all human jobs",
+        "It will assist humans in solving complex problems",
+        "It will have no impact on society",
+        "It will only be used for entertainment"
+      ],
+      "correct_answer": "It will assist humans in solving complex problems"
+    },
+    {
+      "question": "How can renewable energy contribute to a sustainable future?",
+      "options": [
+        "By increasing pollution",
+        "By reducing dependence on fossil fuels",
+        "By making energy more expensive",
+        "By ignoring environmental concerns"
+      ],
+      "correct_answer": "By reducing dependence on fossil fuels"
+    },
+    {
+      "question": "What is the significance of smart cities in the future?",
+      "options": [
+        "They will increase traffic congestion",
+        "They will use technology to improve urban living",
+        "They will ignore environmental sustainability",
+        "They will only benefit wealthy people"
+      ],
+      "correct_answer": "They will use technology to improve urban living"
+    },
+    {
+      "question": "Which of the following is a futuristic mode of transportation?",
+      "options": [
+        "Bullock carts",
+        "Hyperloop",
+        "Steam engines",
+        "Bicycles"
+      ],
+      "correct_answer": "Hyperloop"
+    },
+    {
+      "question": "What is the purpose of 3D printing in the future?",
+      "options": [
+        "To replace all traditional manufacturing methods",
+        "To create customized products and prototypes",
+        "To increase waste production",
+        "To slow down innovation"
+      ],
+      "correct_answer": "To create customized products and prototypes"
+    },
+    {
+      "question": "How can virtual reality (VR) be used in education?",
+      "options": [
+        "To replace teachers entirely",
+        "To provide immersive learning experiences",
+        "To discourage students from studying",
+        "To make education more expensive"
+      ],
+      "correct_answer": "To provide immersive learning experiences"
+    },
+    {
+      "question": "What is the potential of blockchain technology in the future?",
+      "options": [
+        "To increase cybercrime",
+        "To create secure and transparent systems",
+        "To slow down internet speeds",
+        "To replace all traditional currencies"
+      ],
+      "correct_answer": "To create secure and transparent systems"
+    },
+    {
+      "question": "Which of the following is an example of a futuristic healthcare innovation?",
+      "options": [
+        "Using leeches for treatment",
+        "Telemedicine and remote surgeries",
+        "Ignoring patient data",
+        "Avoiding the use of technology"
+      ],
+      "correct_answer": "Telemedicine and remote surgeries"
+    },
+    {
+      "question": "What is the importance of space exploration for the future?",
+      "options": [
+        "It has no practical benefits",
+        "It helps us understand Earth and find new resources",
+        "It is only for entertainment purposes",
+        "It increases pollution on Earth"
+      ],
+      "correct_answer": "It helps us understand Earth and find new resources"
+    },
+    {
+      "question": "How can drones be used in the future?",
+      "options": [
+        "Only for military purposes",
+        "For delivery services, agriculture, and surveillance",
+        "To increase air traffic accidents",
+        "To replace all human jobs"
+      ],
+      "correct_answer": "For delivery services, agriculture, and surveillance"
+    },
+    {
+      "question": "What is the role of robotics in the future?",
+      "options": [
+        "To replace all human workers",
+        "To assist humans in dangerous or repetitive tasks",
+        "To increase unemployment",
+        "To ignore ethical concerns"
+      ],
+      "correct_answer": "To assist humans in dangerous or repetitive tasks"
+    },
+    {
+      "question": "Which of the following is a futuristic energy source?",
+      "options": [
+        "Coal",
+        "Solar power",
+        "Diesel",
+        "Wood"
+      ],
+      "correct_answer": "Solar power"
+    },
+    {
+      "question": "What is the potential of quantum computing in the future?",
+      "options": [
+        "To slow down computing speeds",
+        "To solve problems that are impossible for classical computers",
+        "To replace all smartphones",
+        "To increase energy consumption"
+      ],
+      "correct_answer": "To solve problems that are impossible for classical computers"
+    },
+    {
+      "question": "How can biotechnology improve the future of food production?",
+      "options": [
+        "By increasing the use of pesticides",
+        "By creating genetically modified crops that are more resilient",
+        "By ignoring food safety standards",
+        "By reducing the variety of crops"
+      ],
+      "correct_answer": "By creating genetically modified crops that are more resilient"
+    },
+    {
+      "question": "What is the significance of the Internet of Things (IoT) in the future?",
+      "options": [
+        "To disconnect devices from the internet",
+        "To create a network of interconnected smart devices",
+        "To increase energy consumption",
+        "To make technology more complicated"
+      ],
+      "correct_answer": "To create a network of interconnected smart devices"
+    },
+    {
+      "question": "Which of the following is a futuristic educational tool?",
+      "options": [
+        "Blackboard and chalk",
+        "Augmented reality (AR) textbooks",
+        "Handwritten notes",
+        "Traditional classrooms without technology"
+      ],
+      "correct_answer": "Augmented reality (AR) textbooks"
+    },
+    {
+      "question": "What is the potential of nanotechnology in the future?",
+      "options": [
+        "To increase pollution",
+        "To create smaller, more efficient devices and materials",
+        "To ignore medical advancements",
+        "To slow down scientific research"
+      ],
+      "correct_answer": "To create smaller, more efficient devices and materials"
+    },
+    {
+      "question": "How can futuristic thinking help in solving climate change?",
+      "options": [
+        "By ignoring the problem",
+        "By developing sustainable technologies and policies",
+        "By increasing the use of fossil fuels",
+        "By avoiding innovation"
+      ],
+      "correct_answer": "By developing sustainable technologies and policies"
+    },
+    {
+      "question": "What is the role of big data in the future?",
+      "options": [
+        "To ignore data privacy concerns",
+        "To analyze large datasets for better decision-making",
+        "To slow down technological advancements",
+        "To replace human intuition"
+      ],
+      "correct_answer": "To analyze large datasets for better decision-making"
+    },
+    {
+      "question": "Which of the following is a futuristic communication tool?",
+      "options": [
+        "Pigeon mail",
+        "Holographic video calls",
+        "Smoke signals",
+        "Landline telephones"
+      ],
+      "correct_answer": "Holographic video calls"
+    },
+    {
+      "question": "What is the potential of self-driving cars in the future?",
+      "options": [
+        "To increase traffic accidents",
+        "To reduce human errors and improve road safety",
+        "To make driving more expensive",
+        "To ignore traffic rules"
+      ],
+      "correct_answer": "To reduce human errors and improve road safety"
+    },
+    {
+      "question": "How can futuristic thinking help in disaster management?",
+      "options": [
+        "By ignoring early warning systems",
+        "By using technology to predict and respond to disasters",
+        "By increasing the impact of disasters",
+        "By avoiding innovation"
+      ],
+      "correct_answer": "By using technology to predict and respond to disasters"
+    },
+    {
+      "question": "What is the significance of wearable technology in the future?",
+      "options": [
+        "To make people less healthy",
+        "To monitor health and fitness in real-time",
+        "To ignore medical advancements",
+        "To replace all traditional clothing"
+      ],
+      "correct_answer": "To monitor health and fitness in real-time"
+    },
+    {
+      "question": "Which of the following is a futuristic approach to waste management?",
+      "options": [
+        "Dumping waste in oceans",
+        "Using AI to sort and recycle waste efficiently",
+        "Ignoring waste disposal problems",
+        "Increasing the use of plastic"
+      ],
+      "correct_answer": "Using AI to sort and recycle waste efficiently"
+    },
+    {
+      "question": "What is the potential of gene editing in the future?",
+      "options": [
+        "To increase genetic disorders",
+        "To cure diseases and improve human health",
+        "To ignore ethical concerns",
+        "To slow down medical research"
+      ],
+      "correct_answer": "To cure diseases and improve human health"
+    },
+    {
+      "question": "How can futuristic thinking help in reducing poverty?",
+      "options": [
+        "By ignoring social issues",
+        "By creating innovative solutions for education, healthcare, and employment",
+        "By increasing inequality",
+        "By avoiding technological advancements"
+      ],
+      "correct_answer": "By creating innovative solutions for education, healthcare, and employment"
+    },
+    {
+      "question": "What is the role of augmented reality (AR) in the future?",
+      "options": [
+        "To replace all real-world experiences",
+        "To enhance real-world experiences with digital overlays",
+        "To ignore user interaction",
+        "To make technology more expensive"
+      ],
+      "correct_answer": "To enhance real-world experiences with digital overlays"
+    }
+  ]

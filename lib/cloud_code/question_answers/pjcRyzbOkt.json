@@ -1,0 +1,302 @@
+[
+    {
+        "question": "What is the main function of an electrode in an electrochemical cell?",
+        "options": ["To conduct electricity", "To store energy", "To act as a catalyst", "To separate ions"],
+        "correct_answer": "To conduct electricity"
+    },
+    {
+        "question": "Which metal is commonly used for electroplating to prevent rusting?",
+        "options": ["Copper", "Zinc", "Gold", "Silver"],
+        "correct_answer": "Zinc"
+    },
+    {
+        "question": "Which of the following is a good conductor of electricity?",
+        "options": ["Plastic", "Wood", "Copper", "Rubber"],
+        "correct_answer": "Copper"
+    },
+    {
+        "question": "What does LED stand for?",
+        "options": ["Light Emitting Diode", "Light Energy Device", "Low Energy Diode", "Light Emission Device"],
+        "correct_answer": "Light Emitting Diode"
+    },
+    {
+        "question": "Which of the following is a poor conductor of electricity?",
+        "options": ["Iron", "Aluminum", "Glass", "Silver"],
+        "correct_answer": "Glass"
+    },
+    {
+        "question": "How can you test if a liquid conducts electricity?",
+        "options": ["By using a thermometer", "By using a voltmeter", "By using a conductivity tester", "By using a pH meter"],
+        "correct_answer": "By using a conductivity tester"
+    },
+    {
+        "question": "What is the chemical effect of current?",
+        "options": ["Heating effect", "Magnetic effect", "Chemical decomposition", "Light emission"],
+        "correct_answer": "Chemical decomposition"
+    },
+    {
+        "question": "Which electrode is connected to the positive terminal of a battery?",
+        "options": ["Anode", "Cathode", "Electrolyte", "None of the above"],
+        "correct_answer": "Anode"
+    },
+    {
+        "question": "What is the purpose of electroplating?",
+        "options": ["To increase weight", "To improve appearance", "To reduce conductivity", "To increase size"],
+        "correct_answer": "To improve appearance"
+    },
+    {
+        "question": "Which material is often used as an electrode in batteries?",
+        "options": ["Plastic", "Graphite", "Wood", "Glass"],
+        "correct_answer": "Graphite"
+    },
+    {
+        "question": "What happens to the ions in an electrolyte during electrolysis?",
+        "options": ["They remain stationary", "They move towards the electrodes", "They evaporate", "They form a solid"],
+        "correct_answer": "They move towards the electrodes"
+    },
+    {
+        "question": "Which of the following is NOT a good conductor of electricity?",
+        "options": ["Silver", "Gold", "Rubber", "Copper"],
+        "correct_answer": "Rubber"
+    },
+    {
+        "question": "What is the role of an electrolyte in an electrochemical cell?",
+        "options": ["To conduct electricity", "To store energy", "To act as a catalyst", "To separate ions"],
+        "correct_answer": "To conduct electricity"
+    },
+    {
+        "question": "Which gas is commonly produced at the cathode during the electrolysis of water?",
+        "options": ["Oxygen", "Hydrogen", "Nitrogen", "Carbon dioxide"],
+        "correct_answer": "Hydrogen"
+    },
+    {
+        "question": "What is the main advantage of using LEDs over traditional bulbs?",
+        "options": ["Higher energy consumption", "Lower brightness", "Longer lifespan", "Higher heat production"],
+        "correct_answer": "Longer lifespan"
+    },
+    {
+        "question": "Which of the following liquids is a good conductor of electricity?",
+        "options": ["Distilled water", "Saltwater", "Oil", "Alcohol"],
+        "correct_answer": "Saltwater"
+    },
+    {
+        "question": "What is the effect of current on a magnetic compass?",
+        "options": ["No effect", "Deflection of the needle", "Heating effect", "Chemical decomposition"],
+        "correct_answer": "Deflection of the needle"
+    },
+    {
+        "question": "Which metal is commonly used for electroplating jewelry?",
+        "options": ["Iron", "Copper", "Gold", "Aluminum"],
+        "correct_answer": "Gold"
+    },
+    {
+        "question": "What is the main disadvantage of using poor conductors in electrical circuits?",
+        "options": ["High energy loss", "High conductivity", "Low resistance", "High durability"],
+        "correct_answer": "High energy loss"
+    },
+    {
+        "question": "Which of the following is a common use of electroplating?",
+        "options": ["Making batteries", "Purifying water", "Coating car parts", "Generating electricity"],
+        "correct_answer": "Coating car parts"
+    },
+    {
+        "question": "What is the main function of a cathode in an electrochemical cell?",
+        "options": ["To conduct electricity", "To store energy", "To act as a catalyst", "To separate ions"],
+        "correct_answer": "To conduct electricity"
+    },
+    {
+        "question": "Which of the following is a property of a good conductor?",
+        "options": ["High resistance", "Low resistance", "High durability", "Low durability"],
+        "correct_answer": "Low resistance"
+    },
+    {
+        "question": "What is the main purpose of using LEDs in electronic devices?",
+        "options": ["To generate heat", "To emit light", "To store energy", "To conduct electricity"],
+        "correct_answer": "To emit light"
+    },
+    {
+        "question": "Which of the following is a poor conductor of electricity?",
+        "options": ["Copper", "Aluminum", "Plastic", "Gold"],
+        "correct_answer": "Plastic"
+    },
+    {
+        "question": "What is the chemical effect of current on copper sulfate solution?",
+        "options": ["Formation of copper at the cathode", "Formation of oxygen at the anode", "Formation of hydrogen at the cathode", "Formation of sulfur at the anode"],
+        "correct_answer": "Formation of copper at the cathode"
+    },
+    {
+        "question": "Which of the following is a good conductor of electricity?",
+        "options": ["Glass", "Rubber", "Silver", "Wood"],
+        "correct_answer": "Silver"
+    },
+    {
+        "question": "What is the main advantage of using electroplating in manufacturing?",
+        "options": ["Increasing weight", "Improving appearance", "Reducing size", "Increasing conductivity"],
+        "correct_answer": "Improving appearance"
+    },
+    {
+        "question": "Which of the following is a common use of LEDs?",
+        "options": ["Heating devices", "Lighting", "Cooling systems", "Mechanical work"],
+        "correct_answer": "Lighting"
+    },
+    {
+        "question": "What is the effect of current on a solution of copper sulfate?",
+        "options": ["No effect", "Formation of copper at the cathode", "Formation of oxygen at the cathode", "Formation of hydrogen at the anode"],
+        "correct_answer": "Formation of copper at the cathode"
+    },
+    {
+        "question": "Which of the following is a poor conductor of electricity?",
+        "options": ["Iron", "Copper", "Wood", "Aluminum"],
+        "correct_answer": "Wood"
+    },
+    {
+        "question": "Which process involves coating a metal object with a thin layer of another metal using electricity?",
+        "options": ["Electrolysis", "Electroplating", "Galvanization", "Anodizing"],
+        "correct_answer": "Electroplating"
+    },
+    {
+        "question": "What is the main purpose of using a salt bridge in an electrochemical cell?",
+        "options": ["To conduct electricity", "To maintain electrical neutrality", "To store energy", "To act as a catalyst"],
+        "correct_answer": "To maintain electrical neutrality"
+    },
+    {
+        "question": "Which of the following is a common application of electroplating?",
+        "options": ["Making batteries", "Purifying water", "Coating jewelry", "Generating electricity"],
+        "correct_answer": "Coating jewelry"
+    },
+    {
+        "question": "What is the main function of a cathode in an electrochemical cell?",
+        "options": ["To conduct electricity", "To store energy", "To act as a catalyst", "To separate ions"],
+        "correct_answer": "To conduct electricity"
+    },
+    {
+        "question": "Which of the following is a property of a good conductor?",
+        "options": ["High resistance", "Low resistance", "High durability", "Low durability"],
+        "correct_answer": "Low resistance"
+    },
+    {
+        "question": "What is the main purpose of using LEDs in electronic devices?",
+        "options": ["To generate heat", "To emit light", "To store energy", "To conduct electricity"],
+        "correct_answer": "To emit light"
+    },
+    {
+        "question": "Which of the following is a poor conductor of electricity?",
+        "options": ["Copper", "Aluminum", "Plastic", "Gold"],
+        "correct_answer": "Plastic"
+    },
+    {
+        "question": "What is the chemical effect of current on copper sulfate solution?",
+        "options": ["Formation of copper at the cathode", "Formation of oxygen at the anode", "Formation of hydrogen at the cathode", "Formation of sulfur at the anode"],
+        "correct_answer": "Formation of copper at the cathode"
+    },
+    {
+        "question": "Which of the following is a good conductor of electricity?",
+        "options": ["Glass", "Rubber", "Silver", "Wood"],
+        "correct_answer": "Silver"
+    },
+    {
+        "question": "What is the main advantage of using electroplating in manufacturing?",
+        "options": ["Increasing weight", "Improving appearance", "Reducing size", "Increasing conductivity"],
+        "correct_answer": "Improving appearance"
+    },
+    {
+        "question": "Which of the following is a common use of LEDs?",
+        "options": ["Heating devices", "Lighting", "Cooling systems", "Mechanical work"],
+        "correct_answer": "Lighting"
+    },
+    {
+        "question": "What is the effect of current on a solution of copper sulfate?",
+        "options": ["No effect", "Formation of copper at the cathode", "Formation of oxygen at the cathode", "Formation of hydrogen at the anode"],
+        "correct_answer": "Formation of copper at the cathode"
+    },
+    {
+        "question": "Which of the following is a poor conductor of electricity?",
+        "options": ["Iron", "Copper", "Wood", "Aluminum"],
+        "correct_answer": "Wood"
+    },
+    {
+        "question": "What is the main function of an anode in an electrochemical cell?",
+        "options": ["To conduct electricity", "To store energy", "To act as a catalyst", "To separate ions"],
+        "correct_answer": "To conduct electricity"
+    },
+    {
+        "question": "Which of the following is a property of a poor conductor?",
+        "options": ["High resistance", "Low resistance", "High durability", "Low durability"],
+        "correct_answer": "High resistance"
+    },
+    {
+        "question": "What is the main purpose of using a voltmeter in an electrical circuit?",
+        "options": ["To measure current", "To measure voltage", "To measure resistance", "To measure power"],
+        "correct_answer": "To measure voltage"
+    },
+    {
+        "question": "Which of the following is a good conductor of electricity?",
+        "options": ["Plastic", "Wood", "Copper", "Rubber"],
+        "correct_answer": "Copper"
+    },
+    {
+        "question": "What is the main function of an electrolyte in an electrochemical cell?",
+        "options": ["To conduct electricity", "To store energy", "To act as a catalyst", "To separate ions"],
+        "correct_answer": "To conduct electricity"
+    },
+    {
+        "question": "Which gas is commonly produced at the anode during the electrolysis of water?",
+        "options": ["Oxygen", "Hydrogen", "Nitrogen", "Carbon dioxide"],
+        "correct_answer": "Oxygen"
+    },
+    {
+        "question": "What is the main advantage of using LEDs over traditional bulbs?",
+        "options": ["Higher energy consumption", "Lower brightness", "Longer lifespan", "Higher heat production"],
+        "correct_answer": "Longer lifespan"
+    },
+    {
+        "question": "Which of the following liquids is a poor conductor of electricity?",
+        "options": ["Distilled water", "Saltwater", "Oil", "Alcohol"],
+        "correct_answer": "Distilled water"
+    },
+    {
+        "question": "What is the effect of current on a magnetic compass?",
+        "options": ["No effect", "Deflection of the needle", "Heating effect", "Chemical decomposition"],
+        "correct_answer": "Deflection of the needle"
+    },
+    {
+        "question": "Which metal is commonly used for electroplating car parts?",
+        "options": ["Iron", "Copper", "Nickel", "Aluminum"],
+        "correct_answer": "Nickel"
+    },
+    {
+        "question": "What is the main disadvantage of using poor conductors in electrical circuits?",
+        "options": ["High energy loss", "High conductivity", "Low resistance", "High durability"],
+        "correct_answer": "High energy loss"
+    },
+    {
+        "question": "Which of the following is a common use of electroplating?",
+        "options": ["Making batteries", "Purifying water", "Coating car parts", "Generating electricity"],
+        "correct_answer": "Coating car parts"
+    },
+    {
+        "question": "What is the main function of a cathode in an electrochemical cell?",
+        "options": ["To conduct electricity", "To store energy", "To act as a catalyst", "To separate ions"],
+        "correct_answer": "To conduct electricity"
+    },
+    {
+        "question": "Which of the following is a property of a good conductor?",
+        "options": ["High resistance", "Low resistance", "High durability", "Low durability"],
+        "correct_answer": "Low resistance"
+    },
+    {
+        "question": "What is the main purpose of using LEDs in electronic devices?",
+        "options": ["To generate heat", "To emit light", "To store energy", "To conduct electricity"],
+        "correct_answer": "To emit light"
+    },
+    {
+        "question": "Which of the following is a poor conductor of electricity?",
+        "options": ["Copper", "Aluminum", "Plastic", "Gold"],
+        "correct_answer": "Plastic"
+    },
+    {
+        "question": "What is the chemical effect of current on copper sulfate solution?",
+        "options": ["Formation of copper at the cathode", "Formation of oxygen at the anode", "Formation of hydrogen at the cathode", "Formation of sulfur at the anode"],
+        "correct_answer": "Formation of copper at the cathode"
+    }
+]

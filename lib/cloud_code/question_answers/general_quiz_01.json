@@ -1,0 +1,872 @@
+[
+    {
+        "question": "What are the fundamental duties listed in the Indian Constitution?",
+        "option": [
+            "Right to Equality",
+            "Right to Constitutional Remedies",
+            "Respect for the National Flag",
+            "Protection of the Environment"
+        ],
+        "correct_answer": "Respect for the National Flag"
+    },
+    {
+        "question": "Which year marks the official end of British colonial rule in India?",
+        "option": [
+            "1945",
+            "1947",
+            "1950",
+            "1962"
+        ],
+        "correct_answer": "1947"
+    },
+    {
+        "question": "Under which Princely State was the caste system officially abolished for the first time in India?",
+        "option": [
+            "Mysore",
+            "Travancore",
+            "Baroda",
+            "Hyderabad"
+        ],
+        "correct_answer": "Travancore"
+    },
+    {
+        "question": "Who was the first Chief Justice of India?",
+        "option": [
+            "H. J. Kania",
+            "Patanjali Sastri",
+            "S. R. Das",
+            "A. N. Ray"
+        ],
+        "correct_answer": "H. J. Kania"
+    },
+    {
+        "question": "What was the primary cause of dissatisfaction among Indian sepoys that led to the Revolt of 1857?",
+        "option": [
+            "Doctrine of Lapse",
+            "Annexation of Oudh",
+            "Introduction of new Enfield rifle cartridges",
+            "Religious and social discrimination"
+        ],
+        "correct_answer": "Introduction of new Enfield rifle cartridges"
+    },
+    {
+        "question": "Who was a prominent woman reformer who worked towards the abolition of Sati?",
+        "option": [
+            "Annie Besant",
+            "Rani Lakshmibai",
+            "Sarojini Naidu",
+            "Raja Ram Mohan Roy"
+        ],
+        "correct_answer": "Raja Ram Mohan Roy"
+    },
+    {
+        "question": "Which session of the Indian National Congress adopted the 'Poorna Swaraj' resolution?",
+        "option": [
+            "Bombay Session, 1942",
+            "Calcutta Session, 1917",
+            "Lahore Session, 1929",
+            "Karachi Session, 1931"
+        ],
+        "correct_answer": "Lahore Session, 1929"
+    },
+    {
+        "question": "In which Part of the Indian Constitution are the Fundamental Rights enshrined?",
+        "option": [
+            "Part II",
+            "Part III",
+            "Part IV",
+            "Part V"
+        ],
+        "correct_answer": "Part III"
+    },
+    {
+        "question": "Which Act allowed the British East India Company to coin money in India?",
+        "option": [
+            "Charter Act of 1793",
+            "Regulating Act of 1773",
+            "Act of 1784",
+            "Charter Act of 1833"
+        ],
+        "correct_answer": "Charter Act of 1833"
+    },
+    {
+        "question": "The Mandal Commission is associated with which aspect of the caste system?",
+        "option": [
+            "Abolition of Untouchability",
+            "Reservation for OBCs",
+            "Inter-Caste Marriages",
+            "Land Reforms"
+        ],
+        "correct_answer": "Reservation for OBCs"
+    },
+    {
+        "question": "Which legal document was introduced by Lord Macaulay in India in 1835?",
+        "option": [
+            "Indian Penal Code",
+            "Indian Civil Code",
+            "Macaulay's Education Policy",
+            "Charter Act"
+        ],
+        "correct_answer": "Macaulay's Education Policy"
+    },
+    {
+        "question": "Who was the Governor-General of India during the Revolt of 1857?",
+        "option": [
+            "Lord Dalhousie",
+            "Lord Canning",
+            "Lord Lytton",
+            "Lord Curzon"
+        ],
+        "correct_answer": "Lord Canning"
+    },
+    {
+        "question": "Which female freedom fighter was known as the 'Nightingale of India'?",
+        "option": [
+            "Aruna Asaf Ali",
+            "Sarojini Naidu",
+            "Kasturba Gandhi",
+            "Sucheta Kriplani"
+        ],
+        "correct_answer": "Sarojini Naidu"
+    },
+    {
+        "question": "Which agreement led to the partition of Bengal in 1905?",
+        "option": [
+            "Simla Agreement",
+            "Ilbert Bill",
+            "Minto-Morley Reforms",
+            "Curzon's Partition"
+        ],
+        "correct_answer": "Curzon's Partition"
+    },
+    {
+        "question": "Which Article of the Indian Constitution provides the Right to Constitutional Remedies?",
+        "option": [
+            "Article 32",
+            "Article 19",
+            "Article 21",
+            "Article 14"
+        ],
+        "correct_answer": "Article 32"
+    },
+    {
+        "question": "What was the original name of the Indian Councils Act, 1909?",
+        "option": [
+            "Morley-Minto Reforms",
+            "Montagu-Chelmsford Reforms",
+            "Morarji Desai Reforms",
+            "William Bentick Reforms"
+        ],
+        "correct_answer": "Morley-Minto Reforms"
+    },
+    {
+        "question": "Dr. B.R. Ambedkar is associated with which significant movement against the caste system?",
+        "option": [
+            "Harijan Movement",
+            "Dalit Movement",
+            "Satnami Movement",
+            "Arya Samaj"
+        ],
+        "correct_answer": "Dalit Movement"
+    },
+    {
+        "question": "Which body is the highest judicial authority in India?",
+        "option": [
+            "Parliament",
+            "Supreme Court",
+            "High Court",
+            "President"
+        ],
+        "correct_answer": "Supreme Court"
+    },
+    {
+        "question": "Which battle marked the beginning of British political control in India?",
+        "option": [
+            "Battle of Buxar",
+            "Battle of Panipat",
+            "Battle of Plassey",
+            "Battle of Seringapatam"
+        ],
+        "correct_answer": "Battle of Plassey"
+    },
+    {
+        "question": "Who initiated the concept of the Widow Remarriage Act of 1856?",
+        "option": [
+            "Jyotirao Phule",
+            "Lord Dalhousie",
+            "Raja Ram Mohan Roy",
+            "Pandita Ramabai"
+        ],
+        "correct_answer": "Raja Ram Mohan Roy"
+    },
+    {
+        "question": "The Dandi March led by Mahatma Gandhi was a part of which movement?",
+        "option": [
+            "Non-Cooperation Movement",
+            "Civil Disobedience Movement",
+            "Quit India Movement",
+            "Khilafat Movement"
+        ],
+        "correct_answer": "Civil Disobedience Movement"
+    },
+    {
+        "question": "Which Part of the Indian Constitution deals with Panchayati Raj?",
+        "option": [
+            "Part IX",
+            "Part VII",
+            "Part VI",
+            "Part X"
+        ],
+        "correct_answer": "Part IX"
+    },
+    {
+        "question": "Which British Governor-General is known for introducing the policy of Subsidiary Alliance?",
+        "option": [
+            "Lord Wellesley",
+            "Lord Cornwallis",
+            "Lord Hastings",
+            "Lord Dalhousie"
+        ],
+        "correct_answer": "Lord Wellesley"
+    },
+    {
+        "question": "The Poona Pact of 1932 was an agreement between which two leaders?",
+        "option": [
+            "Nehru and Jinnah",
+            "Gandhi and Ambedkar",
+            "Nehru and Patel",
+            "Ambedkar and Jinnah"
+        ],
+        "correct_answer": "Gandhi and Ambedkar"
+    },
+    {
+        "question": "Which Article of the Indian Constitution deals with the abolition of Untouchability?",
+        "option": [
+            "Article 15",
+            "Article 17",
+            "Article 19",
+            "Article 21"
+        ],
+        "correct_answer": "Article 17"
+    },
+    {
+        "question": "Who was the Viceroy of India at the time of the Jallianwala Bagh massacre?",
+        "option": [
+            "Lord Curzon",
+            "Lord Irwin",
+            "Lord Chelmsford",
+            "Lord Minto"
+        ],
+        "correct_answer": "Lord Chelmsford"
+    },
+    {
+        "question": "Which reformer played a pivotal role in the Aligarh Movement for modern education?",
+        "option": [
+            "Maulana Azad",
+            "Sir Syed Ahmed Khan",
+            "Zakir Husain",
+            "Abul Kalam Azad"
+        ],
+        "correct_answer": "Sir Syed Ahmed Khan"
+    },
+    {
+        "question": "In what year was the Act of Abolition of Sati passed?",
+        "option": [
+            "1829",
+            "1830",
+            "1833",
+            "1835"
+        ],
+        "correct_answer": "1829"
+    },
+    {
+        "question": "The slogan 'Do or Die' is associated with which Indian freedom movement?",
+        "option": [
+            "Non-Cooperation Movement",
+            "Swadeshi Movement",
+            "Quit India Movement",
+            "Khilafat Movement"
+        ],
+        "correct_answer": "Quit India Movement"
+    },
+    {
+        "question": "Who was the first woman to be elected as the President of the Indian National Congress?",
+        "option": [
+            "Sarojini Naidu",
+            "Annie Besant",
+            "Indira Gandhi",
+            "Vijaya Lakshmi Pandit"
+        ],
+        "correct_answer": "Annie Besant"
+    },
+    {
+        "question": "Which Charter Act led to the appointment of the first Law Member to the Governor-General's Council?",
+        "option": [
+            "Charter Act of 1813",
+            "Charter Act of 1833",
+            "Charter Act of 1853",
+            "Charter Act of 1784"
+        ],
+        "correct_answer": "Charter Act of 1833"
+    },
+    {
+        "question": "Which legal case challenged the abolition of hereditary rights among Zamindars in British India?",
+        "option": [
+            "Permanent Settlement Case",
+            "Satara Case",
+            "Tanjore Case",
+            "Rohilla War Case"
+        ],
+        "correct_answer": "Tanjore Case"
+    },
+    {
+        "question": "Which British policy was criticized for encouraging the practice of 'Divide and Rule' in India?",
+        "option": [
+            "Indian Councils Act, 1909",
+            "Pitt's India Act",
+            "Rowlatt Act",
+            "Ilbert Bill"
+        ],
+        "correct_answer": "Indian Councils Act, 1909"
+    },
+    {
+        "question": "Which revolution is associated with the slogan 'Jai Jawan Jai Kisan' and has a significant impact on Indian agriculture?",
+        "option": [
+            "Green Revolution",
+            "White Revolution",
+            "Blue Revolution",
+            "Orange Revolution"
+        ],
+        "correct_answer": "Green Revolution"
+    },
+    {
+        "question": "The phrase 'Swaraj is my birthright and I shall have it' was declared by whom?",
+        "option": [
+            "Mahatma Gandhi",
+            "Bal Gangadhar Tilak",
+            "Jawaharlal Nehru",
+            "Subhas Chandra Bose"
+        ],
+        "correct_answer": "Bal Gangadhar Tilak"
+    },
+    {
+        "question": "Which Part of the Indian Constitution mandates the separation of the judiciary from the executive?",
+        "option": [
+            "Part IV",
+            "Part V",
+            "Part VII",
+            "Part VIII"
+        ],
+        "correct_answer": "Part IV"
+    },
+    {
+        "question": "What event led to the passing of the Government of India Act 1858?",
+        "option": [
+            "Industrial Revolution in Britain",
+            "Sepoy Mutiny of 1857",
+            "Annexation of Punjab",
+            "Partition of Bengal"
+        ],
+        "correct_answer": "Sepoy Mutiny of 1857"
+    },
+    {
+        "question": "The abolition of which system was advocated by Jyotirao Phule and Savitribai Phule?",
+        "option": [
+            "Sati",
+            "Caste System",
+            "Untouchability",
+            "Child Marriage"
+        ],
+        "correct_answer": "Untouchability"
+    },
+    {
+        "question": "Which Prime Minister of India is known for fostering the Panchsheel Agreement, emphasizing peaceful coexistence?",
+        "option": [
+            "Jawaharlal Nehru",
+            "Indira Gandhi",
+            "Lal Bahadur Shastri",
+            "Atal Bihari Vajpayee"
+        ],
+        "correct_answer": "Jawaharlal Nehru"
+    },
+    {
+        "question": "During whose Viceroyalty were the Indian Universities Act and the Partition of Bengal enacted?",
+        "option": [
+            "Lord Dalhousie",
+            "Lord Curzon",
+            "Lord Ripon",
+            "Lord Canning"
+        ],
+        "correct_answer": "Lord Curzon"
+    },
+    {
+        "question": "In response to which event was the Rowlatt Act passed by the British government?",
+        "option": [
+            "Non-Cooperation Movement",
+            "Khilafat Movement",
+            "Jallianwala Bagh massacre",
+            "Ghadar Conspiracy"
+        ],
+        "correct_answer": "Ghadar Conspiracy"
+    },
+    {
+        "question": "What are the main objectives of social justice in the context of Indian society?",
+        "option": [
+            "Elimination of discrimination",
+            "Economic growth",
+            "Industrialization",
+            "Urbanization"
+        ],
+        "correct_answer": "Elimination of discrimination"
+    },
+    {
+        "question": "Which natural resource is termed as the 'black gold' and is crucial for India's energy needs?",
+        "option": [
+            "Coal",
+            "Gold",
+            "Iron",
+            "Bauxite"
+        ],
+        "correct_answer": "Coal"
+    },
+    {
+        "question": "What is the Green Revolution, and during which program was it introduced in India?",
+        "option": [
+            "A significant increase in agricultural production; Fourth Five-Year Plan",
+            "A cleanliness initiative; Swachh Bharat Mission",
+            "Technological revolution; Digital India",
+            "An education initiative; Sarva Shiksha Abhiyan"
+        ],
+        "correct_answer": "A significant increase in agricultural production; Fourth Five-Year Plan"
+    },
+    {
+        "question": "Which body is responsible for the management of human resources and skill development in India?",
+        "option": [
+            "Ministry of Human Resource Development",
+            "Ministry of Agriculture",
+            "Ministry of Health",
+            "Ministry of Finance"
+        ],
+        "correct_answer": "Ministry of Human Resource Development"
+    },
+    {
+        "question": "How did the industrial policy of 1991 transform the Indian economy?",
+        "option": [
+            "Increased privatization and liberalization",
+            "Strict government control",
+            "Emphasis on state-run enterprises",
+            "Decrease in foreign trade"
+        ],
+        "correct_answer": "Increased privatization and liberalization"
+    },
+    {
+        "question": "What role does the government play in India’s mixed economy?",
+        "option": [
+            "Regulator and facilitator",
+            "Complete controller of all industries",
+            "Importer of all goods",
+            "Exporter of all raw materials"
+        ],
+        "correct_answer": "Regulator and facilitator"
+    },
+    {
+        "question": "Which event marked the beginning of independent India's economic planning?",
+        "option": [
+            "First Five-Year Plan in 1951",
+            "Independence Day in 1947",
+            "Constitution Day in 1950",
+            "Green Revolution"
+        ],
+        "correct_answer": "First Five-Year Plan in 1951"
+    },
+    {
+        "question": "What is a major social challenge still faced by India despite efforts on social justice?",
+        "option": [
+            "Gender inequality",
+            "Space exploration",
+            "Technological advancements",
+            "Global trade"
+        ],
+        "correct_answer": "Gender inequality"
+    },
+    {
+        "question": "Which mineral is considered crucial for the production of steel and is abundantly found in India?",
+        "option": [
+            "Iron ore",
+            "Copper",
+            "Manganese",
+            "Aluminium"
+        ],
+        "correct_answer": "Iron ore"
+    },
+    {
+        "question": "Name an agricultural practice that has helped conserve water and soil nutrients significantly.",
+        "option": [
+            "Drip irrigation",
+            "Excessive tilling",
+            "Slash and burn",
+            "Overgrazing"
+        ],
+        "correct_answer": "Drip irrigation"
+    },
+    {
+        "question": "Which initiative was launched to enhance skills of the youth in India?",
+        "option": [
+            "Skill India Mission",
+            "Start-Up India",
+            "Digital India",
+            "Swachh Bharat Abhiyan"
+        ],
+        "correct_answer": "Skill India Mission"
+    },
+    {
+        "question": "What sector includes services like banking, insurance, and education, and has grown significantly in India's economy?",
+        "option": [
+            "Tertiary sector",
+            "Primary sector",
+            "Secondary sector",
+            "Quaternary sector"
+        ],
+        "correct_answer": "Tertiary sector"
+    },
+    {
+        "question": "After independence, which practice was implemented to reduce regional disparities in economic development?",
+        "option": [
+            "Planned economic development",
+            "Laissez-faire policies",
+            "Increased war expenditure",
+            "Fostering isolationism"
+        ],
+        "correct_answer": "Planned economic development"
+    },
+    {
+        "question": "In terms of employment, which sector of agriculture has the highest percentage of workers in India?",
+        "option": [
+            "Subsistence farming",
+            "Commercial farming",
+            "Technological farming",
+            "Industrial agriculture"
+        ],
+        "correct_answer": "Subsistence farming"
+    },
+    {
+        "question": "Which policy framework guides the sustainable and equitable management of water resources in India?",
+        "option": [
+            "National Water Policy",
+            "Forest Conservation Policy",
+            "Agricultural Export Policy",
+            "National Highway Policy"
+        ],
+        "correct_answer": "National Water Policy"
+    },
+    {
+        "question": "What is the primary goal of the Minimum Support Price (MSP) policy for Indian farmers?",
+        "option": [
+            "To ensure farmers are not exploited by setting a minimum price",
+            "To encourage increased import of food grains",
+            "To boost industrial production",
+            "To decrease farmer productivity"
+        ],
+        "correct_answer": "To ensure farmers are not exploited by setting a minimum price"
+    },
+    {
+        "question": "What are Public Sector Undertakings (PSUs), and why were they established in India?",
+        "option": [
+            "Government-owned corporations aimed at boosting essential services",
+            "Private finance companies for stock investment",
+            "Multinational corporations for foreign trade",
+            "Small local businesses for rural areas"
+        ],
+        "correct_answer": "Government-owned corporations aimed at boosting essential services"
+    },
+    {
+        "question": "Which constitutional amendment in India focuses on establishing Panchayati Raj as a third tier of government?",
+        "option": [
+            "73rd Amendment",
+            "61st Amendment",
+            "100th Amendment",
+            "44th Amendment"
+        ],
+        "correct_answer": "73rd Amendment"
+    },
+    {
+        "question": "Which Indian government initiative focuses on promoting cooperative movements for improving agricultural processes?",
+        "option": [
+            "Operation Flood",
+            "Startup India",
+            "Make in India",
+            "Clean India Mission"
+        ],
+        "correct_answer": "Operation Flood"
+    },
+    {
+        "question": "Post-independence, which sector was given priority in Indian planning to boost infrastructural development?",
+        "option": [
+            "Heavy industries and steel plants",
+            "Textile and fashion industries",
+            "Service industries",
+            "Entertainment industries"
+        ],
+        "correct_answer": "Heavy industries and steel plants"
+    },
+    {
+        "question": "What is the role of the National Bank for Agriculture and Rural Development (NABARD) in India?",
+        "option": [
+            "Providing refinance support for construction of rural infrastructure",
+            "Managing international trade negotiations",
+            "Controlling urban development",
+            "Regulating stock exchanges"
+        ],
+        "correct_answer": "Providing refinance support for construction of rural infrastructure"
+    },
+    {
+        "question": "What importance does the Mangalyaan mission hold for India's presence in the space industry?",
+        "option": [
+            "It made India the first Asian country to reach Mars orbit",
+            "It promoted digital transactions",
+            "It confirmed India’s supremacy in solar power",
+            "It enabled ocean resource extraction"
+        ],
+        "correct_answer": "It made India the first Asian country to reach Mars orbit"
+    },
+    {
+        "question": "Which scientific movement helped significantly increase rice and wheat production in India?",
+        "option": [
+            "Green Revolution",
+            "White Revolution",
+            "Blue Revolution",
+            "Pink Revolution"
+        ],
+        "correct_answer": "Green Revolution"
+    },
+    {
+        "question": "What is the basic goal of Mahatma Gandhi National Rural Employment Guarantee Act (MGNREGA)?",
+        "option": [
+            "Providing 100 days of wage employment per year to rural households",
+            "Encouraging establishment of multinational companies",
+            "Boosting technological development in cities",
+            "Enhancing space research"
+        ],
+        "correct_answer": "Providing 100 days of wage employment per year to rural households"
+    },
+    {
+        "question": "Which geological formations store most of India's coal reserves?",
+        "option": [
+            "Gondwana formations",
+            "Deccan Traps",
+            "Aravalli Range",
+            "Western Ghats"
+        ],
+        "correct_answer": "Gondwana formations"
+    },
+    {
+        "question": "What was the primary aim of India's 'Make in India' initiative launched in 2014?",
+        "option": [
+            "To promote manufacturing and attract foreign investors",
+            "To minimize agricultural output",
+            "To decrease skill development projects",
+            "To increase dependency on imports"
+        ],
+        "correct_answer": "To promote manufacturing and attract foreign investors"
+    },
+    {
+        "question": "How does the concept of 'Sustainable Development' integrate with India's natural resource policies?",
+        "option": [
+            "Balanced use and conservation of resources for future generations",
+            "Heavy exploitation for immediate economic gains",
+            "Neglect of resources to encourage urbanization",
+            "Increasing fossil fuel dependence"
+        ],
+        "correct_answer": "Balanced use and conservation of resources for future generations"
+    },
+    {
+        "question": "What impact did liberalization have on India's industrial growth post-1991?",
+        "option": [
+            "Boosted international trade and foreign investment",
+            "Decreased industrial output",
+            "Led to industrial stagnation",
+            "Isolated Indian industries"
+        ],
+        "correct_answer": "Boosted international trade and foreign investment"
+    },
+    {
+        "question": "Why is the 'Integrated Child Development Services (ICDS)' scheme important in India?",
+        "option": [
+            "Provides nutritional support and education to children and mothers",
+            "Promotes high-end technology research",
+            "Focuses on senior citizen employment",
+            "Encourages industrialization in rural areas"
+        ],
+        "correct_answer": "Provides nutritional support and education to children and mothers"
+    },
+    {
+        "question": "What is India's policy on promoting biotechnological advancements within the agricultural sector?",
+        "option": [
+            "Enhancing crop yield through biotechnology",
+            "Discouraging any technological use in farming",
+            "Prohibiting the use of genetically modified organisms",
+            "Focusing purely on traditional farming methods"
+        ],
+        "correct_answer": "Enhancing crop yield through biotechnology"
+    },
+    {
+        "question": "Which initiative was pivotal for India's 'White Revolution', focusing on dairy production?",
+        "option": [
+            "Operation Flood",
+            "Swachh Bharat Abhiyan",
+            "Skill India",
+            "Digital India"
+        ],
+        "correct_answer": "Operation Flood"
+    },
+    {
+        "question": "Which renewable energy source is seeing significant development in India to combat climate change?",
+        "option": [
+            "Solar energy",
+            "Nuclear energy",
+            "Fossil fuels",
+            "Plastic derivatives"
+        ],
+        "correct_answer": "Solar energy"
+    },
+    {
+        "question": "Post-independence, what has been a key driver for ensuring social justice and equity in India?",
+        "option": [
+            "Implementation of reservations and affirmative action",
+            "Encouraging only urban development",
+            "Focusing only on international trade",
+            "Deploying national defense strategies"
+        ],
+        "correct_answer": "Implementation of reservations and affirmative action"
+    },
+    {
+        "question": "Which agricultural crop rotation is commonly seen in India to maintain soil fertility?",
+        "option": [
+            "Rice-Wheat",
+            "Cotton-Coffee",
+            "Maize-Cactus",
+            "Sugarcane-Coconut"
+        ],
+        "correct_answer": "Rice-Wheat"
+    },
+    {
+        "question": "How do public distribution systems (PDS) help in improving food security in India?",
+        "option": [
+            "By distributing subsidized staples to eligible households",
+            "By exporting local grains only",
+            "By eliminating all market-based food sales",
+            "By focusing on luxury food items"
+        ],
+        "correct_answer": "By distributing subsidized staples to eligible households"
+    },
+    {
+        "question": "Which region in India is noted for its rich bauxite reserves used in aluminum production?",
+        "option": [
+            "Chhattisgarh",
+            "Punjab",
+            "Kerala",
+            "Karnataka"
+        ],
+        "correct_answer": "Chhattisgarh"
+    },
+    {
+        "question": "How has digitalization impacted the economic presence of the Indian government in recent years?",
+        "option": [
+            "Increased efficiency in government services",
+            "Led to a decline in public services",
+            "Only benefited real estate sectors",
+            "Decreased literacy rates across the nation"
+        ],
+        "correct_answer": "Increased efficiency in government services"
+    },
+    {
+        "question": "What was a major economic reform in 1991 that reshaped India's industrial landscape?",
+        "option": [
+            "Liberalization",
+            "Protectionism",
+            "Isolationism",
+            "Feudalism"
+        ],
+        "correct_answer": "Liberalization"
+    },
+    {
+        "question": "In relation to human development post-independence, what is measured by the Human Development Index (HDI)?",
+        "option": [
+            "Health, education, and income",
+            "Automobile production, garment export, and import levels",
+            "Military strength, territory size, and population density",
+            "Internet penetration, number of startups, and digital infrastructure"
+        ],
+        "correct_answer": "Health, education, and income"
+    },
+    {
+        "question": "What significance did the first Industrial Policy Resolution of 1948 hold for India?",
+        "option": [
+            "Laid the foundation for the Indian mixed economy",
+            "Established a purely capitalist regime",
+            "Abandoned all existing industries",
+            "Focused solely on agriculture and not industry"
+        ],
+        "correct_answer": "Laid the foundation for the Indian mixed economy"
+    },
+    {
+        "question": "Which act was invoked for land reform programs to abolish the zamindari system in India?",
+        "option": [
+            "Abolition of Zamindari Act",
+            "Industrial Disputes Act",
+            "Environment Protection Act",
+            "Public Liability Insurance Act"
+        ],
+        "correct_answer": "Abolition of Zamindari Act"
+    },
+    {
+        "question": "Which Indian state leads in wind energy production, aiding in renewable resource use?",
+        "option": [
+            "Tamil Nadu",
+            "Jharkhand",
+            "Bihar",
+            "Rajasthan"
+        ],
+        "correct_answer": "Tamil Nadu"
+    },
+    {
+        "question": "How has the Sarva Shiksha Abhiyan aimed to impact the Indian education system since its inception?",
+        "option": [
+            "By ensuring every child receives free and compulsory elementary education",
+            "By promoting higher education only",
+            "By focusing solely on private education",
+            "By restricting education to urban areas only"
+        ],
+        "correct_answer": "By ensuring every child receives free and compulsory elementary education"
+    },
+    {
+        "question": "What has been the impact of Jain irrigation systems on Indian agriculture?",
+        "option": [
+            "Increased water efficiency and higher crop yields",
+            "Led to excessive water usage and wastage",
+            "Reduced agricultural outputs",
+            "Encouraged deforestation for agriculture"
+        ],
+        "correct_answer": "Increased water efficiency and higher crop yields"
+    },
+    {
+        "question": "Which wildlife protection measure was introduced in India to safeguard biodiversity?",
+        "option": [
+            "Project Tiger",
+            "Make in India",
+            "Beti Bachao Beti Padhao",
+            "Skill Development Mission"
+        ],
+        "correct_answer": "Project Tiger"
+    },
+    {
+        "question": "How does India's food security policy aim to reduce malnutrition?",
+        "option": [
+            "By promoting public distribution systems and mid-day meal schemes",
+            "By only focusing on urban workforce development",
+            "By decreasing agricultural production",
+            "By ignoring traditional food sources"
+        ],
+        "correct_answer": "By promoting public distribution systems and mid-day meal schemes"
+    }
+]

@@ -1,0 +1,298 @@
+[
+    {
+        "question": "What is the phenomenon of lightning?",
+        "options": ["A sudden discharge of electricity in the atmosphere", "A type of earthquake", "A form of tsunami", "A method of charging by rubbing"],
+        "correct_answer": "A sudden discharge of electricity in the atmosphere"
+    },
+    {
+        "question": "Which of the following is an example of charging by rubbing?",
+        "options": ["Rubbing a balloon on hair", "Connecting a battery to a bulb", "Using a magnet to attract iron", "Placing a metal rod in water"],
+        "correct_answer": "Rubbing a balloon on hair"
+    },
+    {
+        "question": "What are the two types of electric charges?",
+        "options": ["Positive and Negative", "North and South", "Electric and Magnetic", "Strong and Weak"],
+        "correct_answer": "Positive and Negative"
+    },
+    {
+        "question": "What is the purpose of a simple electroscope?",
+        "options": ["To detect the presence of electric charge", "To measure the intensity of light", "To record seismic waves", "To predict weather changes"],
+        "correct_answer": "To detect the presence of electric charge"
+    },
+    {
+        "question": "How is charge transferred between objects?",
+        "options": ["By direct contact", "By sound waves", "By light waves", "By magnetic fields"],
+        "correct_answer": "By direct contact"
+    },
+    {
+        "question": "What safety measures should be taken during a lightning storm?",
+        "options": ["Stay indoors and avoid using electrical appliances", "Stand under a tree", "Swim in a pool", "Use a metal umbrella"],
+        "correct_answer": "Stay indoors and avoid using electrical appliances"
+    },
+    {
+        "question": "What causes earthquakes?",
+        "options": ["Movement of Earth's plates", "Heavy rainfall", "Volcanic eruptions", "Strong winds"],
+        "correct_answer": "Movement of Earth's plates"
+    },
+    {
+        "question": "What are the three main layers of the Earth?",
+        "options": ["Crust, Mantle, Core", "Lithosphere, Hydrosphere, Atmosphere", "Land, Water, Air", "Rock, Soil, Sand"],
+        "correct_answer": "Crust, Mantle, Core"
+    },
+    {
+        "question": "How can buildings be protected against earthquakes?",
+        "options": ["Using flexible materials and shock absorbers", "Building on loose soil", "Constructing tall structures", "Using heavy materials"],
+        "correct_answer": "Using flexible materials and shock absorbers"
+    },
+    {
+        "question": "What instrument is used to measure seismic waves?",
+        "options": ["Seismograph", "Barometer", "Thermometer", "Anemometer"],
+        "correct_answer": "Seismograph"
+    },
+    {
+        "question": "What is the process of discharge in electricity?",
+        "options": ["The release of stored electric charge", "The generation of electric charge", "The transfer of electric charge", "The measurement of electric charge"],
+        "correct_answer": "The release of stored electric charge"
+    },
+    {
+        "question": "What are Earth's plates?",
+        "options": ["Large pieces of the Earth's crust", "Layers of the atmosphere", "Types of rocks", "Parts of a seismograph"],
+        "correct_answer": "Large pieces of the Earth's crust"
+    },
+    {
+        "question": "What is the Richter scale used for?",
+        "options": ["Measuring the magnitude of earthquakes", "Measuring the speed of wind", "Measuring the temperature", "Measuring the intensity of light"],
+        "correct_answer": "Measuring the magnitude of earthquakes"
+    },
+    {
+        "question": "What is an electroscope used for?",
+        "options": ["Detecting electric charge", "Measuring temperature", "Recording sound", "Observing stars"],
+        "correct_answer": "Detecting electric charge"
+    },
+    {
+        "question": "What is thunder?",
+        "options": ["The sound caused by lightning", "A type of earthquake", "A form of tsunami", "A method of charging by rubbing"],
+        "correct_answer": "The sound caused by lightning"
+    },
+    {
+        "question": "What is a thunderstorm?",
+        "options": ["A storm with thunder and lightning", "A type of earthquake", "A form of tsunami", "A method of charging by rubbing"],
+        "correct_answer": "A storm with thunder and lightning"
+    },
+    {
+        "question": "How is charge transferred between objects?",
+        "options": ["By direct contact", "By sound waves", "By light waves", "By magnetic fields"],
+        "correct_answer": "By direct contact"
+    },
+    {
+        "question": "What is a tsunami?",
+        "options": ["A large sea wave caused by an underwater earthquake", "A type of thunderstorm", "A form of lightning", "A method of charging by rubbing"],
+        "correct_answer": "A large sea wave caused by an underwater earthquake"
+    },
+    {
+        "question": "What is a tremor?",
+        "options": ["A small earthquake", "A type of thunderstorm", "A form of lightning", "A method of charging by rubbing"],
+        "correct_answer": "A small earthquake"
+    },
+    {
+        "question": "What is a conductor?",
+        "options": ["A material that allows electric charge to flow through it", "A type of earthquake", "A form of tsunami", "A method of charging by rubbing"],
+        "correct_answer": "A material that allows electric charge to flow through it"
+    },
+    {
+        "question": "What is a negative charge?",
+        "options": ["An excess of electrons", "A deficiency of electrons", "A type of earthquake", "A form of tsunami"],
+        "correct_answer": "An excess of electrons"
+    },
+    {
+        "question": "What is a positive charge?",
+        "options": ["A deficiency of electrons", "An excess of electrons", "A type of earthquake", "A form of tsunami"],
+        "correct_answer": "A deficiency of electrons"
+    },
+    {
+        "question": "What is the purpose of a seismograph?",
+        "options": ["To record seismic waves", "To measure temperature", "To detect electric charge", "To observe stars"],
+        "correct_answer": "To record seismic waves"
+    },
+    {
+        "question": "What is the phenomenon of lightning?",
+        "options": ["A sudden discharge of electricity in the atmosphere", "A type of earthquake", "A form of tsunami", "A method of charging by rubbing"],
+        "correct_answer": "A sudden discharge of electricity in the atmosphere"
+    },
+    {
+        "question": "What is the process of discharge in electricity?",
+        "options": ["The release of stored electric charge", "The generation of electric charge", "The transfer of electric charge", "The measurement of electric charge"],
+        "correct_answer": "The release of stored electric charge"
+    },
+    {
+        "question": "What is the purpose of a simple electroscope?",
+        "options": ["To detect the presence of electric charge", "To measure the intensity of light", "To record seismic waves", "To predict weather changes"],
+        "correct_answer": "To detect the presence of electric charge"
+    },
+    {
+        "question": "What safety measures should be taken during a lightning storm?",
+        "options": ["Stay indoors and avoid using electrical appliances", "Stand under a tree", "Swim in a pool", "Use a metal umbrella"],
+        "correct_answer": "Stay indoors and avoid using electrical appliances"
+    },
+    {
+        "question": "What causes earthquakes?",
+        "options": ["Movement of Earth's plates", "Heavy rainfall", "Volcanic eruptions", "Strong winds"],
+        "correct_answer": "Movement of Earth's plates"
+    },
+    {
+        "question": "What are the three main layers of the Earth?",
+        "options": ["Crust, Mantle, Core", "Lithosphere, Hydrosphere, Atmosphere", "Land, Water, Air", "Rock, Soil, Sand"],
+        "correct_answer": "Crust, Mantle, Core"
+    }
+    ,
+        {
+            "question": "What is the main cause of lightning?",
+            "options": ["Separation of electric charges in clouds", "Movement of tectonic plates", "Volcanic eruptions", "Solar flares"],
+            "correct_answer": "Separation of electric charges in clouds"
+        },
+        {
+            "question": "Which material is a good conductor of electricity?",
+            "options": ["Copper", "Rubber", "Wood", "Plastic"],
+            "correct_answer": "Copper"
+        },
+        {
+            "question": "What happens when a negatively charged object is brought near a neutral object?",
+            "options": ["The neutral object becomes positively charged", "The neutral object becomes negatively charged", "The neutral object remains neutral", "The neutral object repels the charged object"],
+            "correct_answer": "The neutral object becomes positively charged"
+        },
+        {
+            "question": "What is the function of a lightning rod?",
+            "options": ["To protect buildings from lightning strikes", "To measure the intensity of earthquakes", "To detect electric charges", "To generate electricity"],
+            "correct_answer": "To protect buildings from lightning strikes"
+        },
+        {
+            "question": "What is the Richter scale used to measure?",
+            "options": ["The magnitude of earthquakes", "The speed of wind", "The intensity of light", "The temperature"],
+            "correct_answer": "The magnitude of earthquakes"
+        },
+        {
+            "question": "What is the main component of the Earth's core?",
+            "options": ["Iron and Nickel", "Silicon and Oxygen", "Carbon and Hydrogen", "Magnesium and Calcium"],
+            "correct_answer": "Iron and Nickel"
+        },
+        {
+            "question": "What is the term for the point on the Earth's surface directly above the earthquake's focus?",
+            "options": ["Epicenter", "Hypocenter", "Seismograph", "Tremor"],
+            "correct_answer": "Epicenter"
+        },
+        {
+            "question": "What is the purpose of an electroscope?",
+            "options": ["To detect the presence of electric charge", "To measure temperature", "To record sound", "To observe stars"],
+            "correct_answer": "To detect the presence of electric charge"
+        },
+        {
+            "question": "What is the main cause of earthquakes?",
+            "options": ["Movement of tectonic plates", "Heavy rainfall", "Volcanic eruptions", "Strong winds"],
+            "correct_answer": "Movement of tectonic plates"
+        },
+        {
+            "question": "What is the process of charging by induction?",
+            "options": ["Charging an object without direct contact", "Charging an object by rubbing", "Charging an object by connecting to a battery", "Charging an object by placing it in water"],
+            "correct_answer": "Charging an object without direct contact"
+        },
+        {
+            "question": "What is the main cause of a tsunami?",
+            "options": ["Underwater earthquakes", "Thunderstorms", "Volcanic eruptions", "Solar flares"],
+            "correct_answer": "Underwater earthquakes"
+        },
+        {
+            "question": "What is the purpose of a seismograph?",
+            "options": ["To record seismic waves", "To measure temperature", "To detect electric charge", "To observe stars"],
+            "correct_answer": "To record seismic waves"
+        },
+        {
+            "question": "What is the term for the sudden release of energy in the Earth's crust that causes an earthquake?",
+            "options": ["Seismic wave", "Tremor", "Epicenter", "Fault"],
+            "correct_answer": "Fault"
+        },
+        {
+            "question": "What is the main cause of thunder?",
+            "options": ["The rapid expansion of air due to lightning", "The movement of tectonic plates", "Volcanic eruptions", "Solar flares"],
+            "correct_answer": "The rapid expansion of air due to lightning"
+        },
+        {
+            "question": "What is the purpose of a simple electroscope?",
+            "options": ["To detect the presence of electric charge", "To measure the intensity of light", "To record seismic waves", "To predict weather changes"],
+            "correct_answer": "To detect the presence of electric charge"
+        },
+        {
+            "question": "What is the main cause of a thunderstorm?",
+            "options": ["The rapid upward movement of warm, moist air", "The movement of tectonic plates", "Volcanic eruptions", "Solar flares"],
+            "correct_answer": "The rapid upward movement of warm, moist air"
+        },
+        {
+            "question": "What is the term for the shaking of the ground caused by seismic waves?",
+            "options": ["Earthquake", "Tsunami", "Thunderstorm", "Lightning"],
+            "correct_answer": "Earthquake"
+        },
+        {
+            "question": "What is the main cause of a tremor?",
+            "options": ["Small movements of tectonic plates", "Heavy rainfall", "Volcanic eruptions", "Strong winds"],
+            "correct_answer": "Small movements of tectonic plates"
+        },
+        {
+            "question": "What is the purpose of a lightning rod?",
+            "options": ["To protect buildings from lightning strikes", "To measure the intensity of earthquakes", "To detect electric charges", "To generate electricity"],
+            "correct_answer": "To protect buildings from lightning strikes"
+        },
+        {
+            "question": "What is the main cause of a negative charge?",
+            "options": ["An excess of electrons", "A deficiency of electrons", "The movement of tectonic plates", "Volcanic eruptions"],
+            "correct_answer": "An excess of electrons"
+        },
+        {
+            "question": "What is the main cause of a positive charge?",
+            "options": ["A deficiency of electrons", "An excess of electrons", "The movement of tectonic plates", "Volcanic eruptions"],
+            "correct_answer": "A deficiency of electrons"
+        },
+        {
+            "question": "What is the purpose of a seismograph?",
+            "options": ["To record seismic waves", "To measure temperature", "To detect electric charge", "To observe stars"],
+            "correct_answer": "To record seismic waves"
+        },
+        {
+            "question": "What is the main cause of lightning?",
+            "options": ["Separation of electric charges in clouds", "Movement of tectonic plates", "Volcanic eruptions", "Solar flares"],
+            "correct_answer": "Separation of electric charges in clouds"
+        },
+        {
+            "question": "What is the process of discharge in electricity?",
+            "options": ["The release of stored electric charge", "The generation of electric charge", "The transfer of electric charge", "The measurement of electric charge"],
+            "correct_answer": "The release of stored electric charge"
+        },
+        {
+            "question": "What is the purpose of a simple electroscope?",
+            "options": ["To detect the presence of electric charge", "To measure the intensity of light", "To record seismic waves", "To predict weather changes"],
+            "correct_answer": "To detect the presence of electric charge"
+        },
+        {
+            "question": "What safety measures should be taken during a lightning storm?",
+            "options": ["Stay indoors and avoid using electrical appliances", "Stand under a tree", "Swim in a pool", "Use a metal umbrella"],
+            "correct_answer": "Stay indoors and avoid using electrical appliances"
+        },
+        {
+            "question": "What causes earthquakes?",
+            "options": ["Movement of Earth's plates", "Heavy rainfall", "Volcanic eruptions", "Strong winds"],
+            "correct_answer": "Movement of Earth's plates"
+        },
+        {
+            "question": "What are the three main layers of the Earth?",
+            "options": ["Crust, Mantle, Core", "Lithosphere, Hydrosphere, Atmosphere", "Land, Water, Air", "Rock, Soil, Sand"],
+            "correct_answer": "Crust, Mantle, Core"
+        },
+        {
+            "question": "What is the term for the point on the Earth's surface directly above the earthquake's focus?",
+            "options": ["Epicenter", "Hypocenter", "Seismograph", "Tremor"],
+            "correct_answer": "Epicenter"
+        },
+        {
+            "question": "What is the main cause of a tsunami?",
+            "options": ["Underwater earthquakes", "Thunderstorms", "Volcanic eruptions", "Solar flares"],
+            "correct_answer": "Underwater earthquakes"
+        }
+    ]

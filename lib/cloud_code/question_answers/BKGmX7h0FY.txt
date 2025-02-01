@@ -1,0 +1,1206 @@
+var question_data =
+  [
+
+    {
+      "question": "He _____ to solve the problem all day.",
+      "options": ["is trying", "was trying", "tried", "has been trying"],
+      "correct_answer": "has been trying"
+    },
+    {
+      "question": "By this time next year, they ____ a new house.",
+      "options": ["will have bought", "would have bought", "will buy", "will had bought"],
+      "correct_answer": "will have bought"
+    },
+    {
+      "question": "The sun _____ brightly when we arrived.",
+      "options": ["shone", "shined", "shine", "shining"],
+      "correct_answer": "was shining"
+    },
+    {
+      "question": "The _____ cat curled up on the sofa.",
+      "options": ["sleeping", "sleepy", "sleeper", "sleep"],
+      "correct_answer": "sleepy"
+    },
+    {
+      "question": "He insisted _____ paying for dinner.",
+      "options": ["on", "for", "at", "to"],
+      "correct_answer": "on"
+    },
+    {
+      "question": "If she _____ earlier, she would have been on time.",
+      "options": ["leave", "left", "had left", "leaves"],
+      "correct_answer": "had left"
+    },
+    {
+      "question": "She requested that the documents _____ sent by courier.",
+      "options": ["be", "are", "were", "being"],
+      "correct_answer": "be"
+    },
+    {
+      "question": "The _____ scientist received a Nobel Prize for her research.",
+      "options": ["eminent", "imminent", "emergent", "eminentness"],
+      "correct_answer": "eminent"
+    },
+    {
+      "question": "My aunt _______ to India next week.",
+      "options": ["will have come", "will come", "will be coming", "would be coming"],
+      "correct_answer": "will be coming"
+    },
+    {
+      "question": "She realised that she. _______ (take) the wrong decision.",
+      "options": ["have taken", "had taken", "have took", "had took"],
+      "correct_answer": "had taken"
+    },
+    {
+      "question": "Although she worked hard, she ______ not pass the exam",
+      "options": ["can", "could", "will", "may"],
+      "correct_answer": "could"
+    },
+    {
+      "question": "Sheena _______ have already left",
+      "options": ["may", "can", "would", "should"],
+      "correct_answer": "may"
+    },
+    {
+      "question": "I ___ to find out what a word means",
+      "options": ["tried", "try", "do try", "am trying"],
+      "correct_answer": "am trying"
+    },
+    {
+      "question": "Those jeans _____ much",
+      "options": ["doesn't not", "did not cost", "dont' cost", "not costing"],
+      "correct_answer": "dont' cost"
+    },
+    {
+      "question": "Manita and Dia ____________ the problem all morning.",
+      "options": ["been discussing", "discuss", "are discussing", "have been discussing"],
+      "correct_answer": "have been discussing"
+    },
+    
+
+  ]
+
+// var question_data = [
+//   {
+//       "question": "What does the idiom 'spill the beans' mean?",
+//       "option": [
+//           "To plant seeds in the garden",
+//           "To reveal a secret",
+//           "To cause an accident"
+//       ],
+//       "correct_answer": "To reveal a secret"
+//   },
+//   {
+//       "question": "What does the phrase 'break the ice' signify?",
+//       "option": [
+//           "To break something frozen",
+//           "To initiate conversation in a social setting",
+//           "To begin a sporting event"
+//       ],
+//       "correct_answer": "To initiate conversation in a social setting"
+//   },
+//   {
+//       "question": "What is meant by 'barking up the wrong tree'?",
+//       "option": [
+//           "Pursuing a mistaken line of thought",
+//           "Training a dog incorrectly",
+//           "Climbing a tree for shelter"
+//       ],
+//       "correct_answer": "Pursuing a mistaken line of thought"
+//   },
+//   {
+//       "question": "Which action does the idiom 'hit the sack' describe?",
+//       "option": [
+//           "Going to sleep",
+//           "Working hard",
+//           "Taking a break"
+//       ],
+//       "correct_answer": "Going to sleep"
+//   },
+//   {
+//       "question": "What does it mean to 'let the cat out of the bag'?",
+//       "option": [
+//           "To free an animal",
+//           "To misplace something",
+//           "To reveal a secret"
+//       ],
+//       "correct_answer": "To reveal a secret"
+//   },
+//   {
+//       "question": "What is meant by the idiom 'bite the bullet'?",
+//       "option": [
+//           "Chewing something hard",
+//           "Facing a difficult situation bravely",
+//           "Pulling a trigger"
+//       ],
+//       "correct_answer": "Facing a difficult situation bravely"
+//   },
+//   {
+//       "question": "What does 'burn the midnight oil' mean?",
+//       "option": [
+//           "Work late into the night",
+//           "Light a lamp",
+//           "Use oil for cooking"
+//       ],
+//       "correct_answer": "Work late into the night"
+//   },
+//   {
+//       "question": "What does 'hit the nail on the head' signify?",
+//       "option": [
+//           "To drive a nail perfectly",
+//           "To describe exactly what is causing a situation",
+//           "To make a mistake"
+//       ],
+//       "correct_answer": "To describe exactly what is causing a situation"
+//   },
+//   {
+//       "question": "What does it mean to 'kick the bucket'?",
+//       "option": [
+//           "To have an accident",
+//           "To pass away",
+//           "To start a marathon"
+//       ],
+//       "correct_answer": "To pass away"
+//   },
+//   {
+//       "question": "What does 'piece of cake' imply?",
+//       "option": [
+//           "A delicious dessert",
+//           "A difficult task",
+//           "An easy task"
+//       ],
+//       "correct_answer": "An easy task"
+//   },
+//   {
+//       "question": "What does 'cost an arm and a leg' mean?",
+//       "option": [
+//           "To be expensive",
+//           "To cause injury",
+//           "To be a bargain"
+//       ],
+//       "correct_answer": "To be expensive"
+//   },
+//   {
+//       "question": "What does 'under the weather' imply?",
+//       "option": [
+//           "Being affected by bad weather",
+//           "Feeling unwell",
+//           "Reading a forecast"
+//       ],
+//       "correct_answer": "Feeling unwell"
+//   },
+//   {
+//       "question": "What is the meaning of 'raining cats and dogs'?",
+//       "option": [
+//           "Severe rainstorm",
+//           "Playing with pets",
+//           "Causing chaos"
+//       ],
+//       "correct_answer": "Severe rainstorm"
+//   },
+//   {
+//       "question": "What does 'beat around the bush' mean?",
+//       "option": [
+//           "To cultivate plants",
+//           "To avoid getting to the point",
+//           "To look for something lost"
+//       ],
+//       "correct_answer": "To avoid getting to the point"
+//   },
+//   {
+//       "question": "What is implied by the idiom 'on cloud nine'?",
+//       "option": [
+//           "To be extremely happy",
+//           "To fly in the sky",
+//           "To be unaware"
+//       ],
+//       "correct_answer": "To be extremely happy"
+//   },
+//   {
+//       "question": "What does 'pull someone's leg' mean?",
+//       "option": [
+//           "To physically drag someone",
+//           "To tease or joke with someone",
+//           "To hinder progress"
+//       ],
+//       "correct_answer": "To tease or joke with someone"
+//   },
+//   {
+//       "question": "What does 'the ball is in your court' imply?",
+//       "option": [
+//           "To be playing tennis",
+//           "To have control over the next decision",
+//           "To be in trouble"
+//       ],
+//       "correct_answer": "To have control over the next decision"
+//   },
+//   {
+//       "question": "What does it mean to 'let sleeping dogs lie'?",
+//       "option": [
+//           "To allow dogs to sleep",
+//           "To avoid interfering in a situation",
+//           "To hide one's mistakes"
+//       ],
+//       "correct_answer": "To avoid interfering in a situation"
+//   },
+//   {
+//       "question": "What does 'call it a day' signify?",
+//       "option": [
+//           "To name a day of the week",
+//           "To stop working for the day",
+//           "To accomplish a goal"
+//       ],
+//       "correct_answer": "To stop working for the day"
+//   },
+//   {
+//       "question": "What is meant by 'jump the gun'?",
+//       "option": [
+//           "To start something too early",
+//           "To leap over an obstacle",
+//           "To fire a weapon"
+//       ],
+//       "correct_answer": "To start something too early"
+//   }
+// ];
+
+// var question_data = [
+
+//     {
+//         "question": "Active/Passive Voice: The chef cooks a delicious meal for the guests.",
+//         "option": [
+//             "A delicious meal is cooked by the chef for the guests.",
+//             "A delicious meal had been cooked by the chef for the guests.",
+//             "A delicious meal has been cooked by the chef for the guests."
+//         ],
+//         "correct_answer": "A delicious meal is cooked by the chef for the guests."
+//     },
+
+//     {
+//         "question": "Active: The chef cooks a delicious meal for the guests. Passive: __________",
+//         "option": [
+//             "A delicious meal is cooked by the chef for the guests.",
+//             "A delicious meal had been cooked by the chef for the guests.",
+//             "A delicious meal has been cooked by the chef for the guests."
+//         ],
+//         "correct_answer": "A delicious meal is cooked by the chef for the guests."
+//     },
+//     {
+//         "question": "Active: The manager reviewed the report thoroughly. Passive: __________",
+//         "option": [
+//             "The report is being thoroughly reviewed by the manager.",
+//             "The report was thoroughly reviewed by the manager.",
+//             "The report will be thoroughly reviewed by the manager."
+//         ],
+//         "correct_answer": "The report was thoroughly reviewed by the manager."
+//     },
+//     {
+//         "question": "Active: They will announce the results tomorrow. Passive: __________",
+//         "option": [
+//             "The results are announced tomorrow.",
+//             "The results have been announced tomorrow.",
+//             "The results will be announced tomorrow."
+//         ],
+//         "correct_answer": "The results will be announced tomorrow."
+//     },
+//     {
+//         "question": "Active: The artist painted a beautiful portrait. Passive: __________",
+//         "option": [
+//             "A beautiful portrait was painted by the artist.",
+//             "A beautiful portrait was being painted by the artist.",
+//             "A beautiful portrait will be painted by the artist."
+//         ],
+//         "correct_answer": "A beautiful portrait was painted by the artist."
+//     },
+//     {
+//         "question": "Active: The team is designing a new project. Passive: __________",
+//         "option": [
+//             "A new project has been designed by the team.",
+//             "A new project is being designed by the team.",
+//             "A new project was designed by the team."
+//         ],
+//         "correct_answer": "A new project is being designed by the team."
+//     },
+//     {
+//         "question": "Active: The students submitted the assignments on time. Passive: __________",
+//         "option": [
+//             "The assignments were submitted on time by the students.",
+//             "The assignments have been submitted on time by the students.",
+//             "The assignments are submitted on time by the students."
+//         ],
+//         "correct_answer": "The assignments were submitted on time by the students."
+//     },
+//     {
+//         "question": "Active: The librarian has organized the books neatly. Passive: __________",
+//         "option": [
+//             "The books neatly have been organized by the librarian.",
+//             "The books are organized neatly by the librarian.",
+//             "The books have been organized neatly by the librarian."
+//         ],
+//         "correct_answer": "The books have been organized neatly by the librarian."
+//     },
+//     {
+//         "question": "Active: The company will launch the new product next month. Passive: __________",
+//         "option": [
+//             "The new product will be launched by the company next month.",
+//             "The new product is launched by the company next month.",
+//             "The new product has been launched by the company next month."
+//         ],
+//         "correct_answer": "The new product will be launched by the company next month."
+//     },
+//     {
+//         "question": "Active: The children were playing in the park. Passive: __________",
+//         "option": [
+//             "The park was played by the children.",
+//             "The park was being played in by the children.",
+//             "The park is played in by the children."
+//         ],
+//         "correct_answer": "The park was being played in by the children."
+//     },
+//     {
+//         "question": "Active: She had won the first prize in the competition. Passive: __________",
+//         "option": [
+//             "The first prize had been won by her in the competition.",
+//             "The first prize was being won by her in the competition.",
+//             "The first prize is won by her in the competition."
+//         ],
+//         "correct_answer": "The first prize had been won by her in the competition."
+//     }
+
+// ];
+
+var question_data = [
+    {
+        "question": "Which of the following is not a constituent of petroleum?",
+        "option": ["Petrol", "Coal", "Diesel", "Kerosene"],
+        "correct_answer": "Coal"
+    },
+    {
+        "question": "What is the primary reason for the formation of coal?",
+        "option": [
+            "Decomposition of dead animals",
+            "Accumulation of sedimentary rocks",
+            "Decomposition of plant matter",
+            "Volcanic activity"
+        ],
+        "correct_answer": "Decomposition of plant matter"
+    },
+    {
+        "question": "Which type of coal contains the highest percentage of carbon?",
+        "option": ["Lignite", "Bituminous", "Peat", "Anthracite"],
+        "correct_answer": "Anthracite"
+    },
+    {
+        "question": "Which process is used to separate different components of crude oil?",
+        "option": ["Filtration", "Fractional distillation", "Decantation", "Centrifugation"],
+        "correct_answer": "Fractional distillation"
+    },
+    {
+        "question": "Which of the following statements about the pressure in a liquid is true?",
+        "option": [
+            "Pressure increases with depth",
+            "Pressure decreases with depth",
+            "Pressure is the same at all depths",
+            "Pressure is independent of depth"
+        ],
+        "correct_answer": "Pressure increases with depth"
+    },
+    {
+        "question": "If a force is applied to an object at rest, what is likely to happen?",
+        "option": [
+            "The object will always remain at rest",
+            "The object will move at a constant speed",
+            "The object will accelerate",
+            "The force has no effect on the object"
+        ],
+        "correct_answer": "The object will accelerate"
+    },
+    {
+        "question": "Which of the following surfaces will produce the greatest friction?",
+        "option": ["Ice", "Smooth marble", "Sandpaper", "Glass"],
+        "correct_answer": "Sandpaper"
+    },
+    {
+        "question": "How does the presence of a lubricant affect friction?",
+        "option": [
+            "It increases the friction",
+            "It decreases the friction",
+            "It has no effect",
+            "It changes the type of friction"
+        ],
+        "correct_answer": "It decreases the friction"
+    },
+    {
+        "question": "Sound is a type of?",
+        "option": ["Electromagnetic wave", "Transverse wave", "Longitudinal wave", "Static vibration"],
+        "correct_answer": "Longitudinal wave"
+    },
+    {
+        "question": "Through which medium does sound travel the fastest?",
+        "option": ["Air", "Water", "Vacuum", "Steel"],
+        "correct_answer": "Steel"
+    },
+    {
+        "question": "Which phenomenon explains the splitting of white light into its constituent colors?",
+        "option": ["Reflection", "Refraction", "Diffusion", "Dispersion"],
+        "correct_answer": "Dispersion"
+    },
+    {
+        "question": "Why is it difficult to see a rainbow on a clear day?",
+        "option": [
+            "Rainbows only occur during foggy conditions",
+            "Light dispersion requires moisture in the air",
+            "A clear day does not allow dispersion",
+            "The sky absorbs the colors of the rainbow"
+        ],
+        "correct_answer": "Light dispersion requires moisture in the air"
+    },
+    {
+        "question": "Which part of the eye controls the size of the pupil?",
+        "option": ["Retina", "Cornea", "Iris", "Lens"],
+        "correct_answer": "Iris"
+    },
+    {
+        "question": "What causes a solar eclipse?",
+        "option": [
+            "The Earth comes between the Moon and the Sun",
+            "The Moon comes between the Earth and the Sun",
+            "The Sun comes between the Earth and the Moon",
+            "All three bodies align in a straight line"
+        ],
+        "correct_answer": "The Moon comes between the Earth and the Sun"
+    },
+    {
+        "question": "What type of combustion does not produce a flame?",
+        "option": ["Rapid combustion", "Spontaneous combustion", "Explosive combustion", "Smouldering"],
+        "correct_answer": "Smouldering"
+    },
+    {
+        "question": "What is the primary cause of acid rain?",
+        "option": [
+            "Release of carbon monoxide",
+            "Release of nitrogen oxides and sulfur dioxide",
+            "Decomposition of organic wastes",
+            "Release of hydrogen"
+        ],
+        "correct_answer": "Release of nitrogen oxides and sulfur dioxide"
+    },
+    {
+        "question": "Which factor does not affect frictional force?",
+        "option": ["Type of surface", "Area of contact", "Weight of the object", "Speed of the moving object"],
+        "correct_answer": "Area of contact"
+    },
+    {
+        "question": "Which unit is used to measure pressure?",
+        "option": ["Newton", "Pascal", "Joule", "Watt"],
+        "correct_answer": "Pascal"
+    },
+    {
+        "question": "Which force is responsible for holding the atmosphere to the Earth?",
+        "option": ["Magnetic force", "Gravity", "Centripetal force", "Nuclear force"],
+        "correct_answer": "Gravity"
+    },
+    {
+        "question": "Which of the following is an example of a luminous object?",
+        "option": ["Moon", "Mirror", "Candle flame", "Tree"],
+        "correct_answer": "Candle flame"
+    },
+    {
+        "question": "Which type of mirror is used in car headlights to reflect light over a wider area?",
+        "option": ["Plane mirror", "Concave mirror", "Convex mirror", "Cylindrical mirror"],
+        "correct_answer": "Concave mirror"
+    },
+    {
+        "question": "How does the pitch of a sound change as the frequency of its waves increases?",
+        "option": ["It becomes lower", "It remains the same", "It becomes higher", "It disappears"],
+        "correct_answer": "It becomes higher"
+    },
+    {
+        "question": "Which substance is used in dry cells as an electrolyte?",
+        "option": ["Sulfuric acid", "Zinc chloride", "Ammonium chloride", "Potassium hydroxide"],
+        "correct_answer": "Ammonium chloride"
+    },
+    {
+        "question": "Why do metals conduct electricity?",
+        "option": [
+            "Because of their atomic structure",
+            "Presence of free electrons",
+            "Because they are dense",
+            "High melting point"
+        ],
+        "correct_answer": "Presence of free electrons"
+    },
+    {
+        "question": "What property of sound allows us to distinguish between a flute and a violin?",
+        "option": ["Intensity", "Pitch", "Tone quality", "Loudness"],
+        "correct_answer": "Tone quality"
+    },
+    {
+        "question": "Why does refraction occur when light passes through different media?",
+        "option": [
+            "Because light speed remains constant",
+            "Due to a change in angle of incidence",
+            "Due to change in the fundamental properties of light",
+            "Due to change in speed of light"
+        ],
+        "correct_answer": "Due to change in speed of light"
+    },
+    {
+        "question": "What is the phenomenon that causes the sky to appear blue?",
+        "option": ["Reflection", "Refraction", "Scattering", "Absorption"],
+        "correct_answer": "Scattering"
+    },
+    {
+        "question": "What is the role of a catalyst in a combustion reaction?",
+        "option": [
+            "It slows down the reaction",
+            "It increases the energy requirement",
+            "It lowers the activation energy",
+            "It provides extra heat"
+        ],
+        "correct_answer": "It lowers the activation energy"
+    },
+    {
+        "question": "Which optical instrument uses both lenses and mirrors to magnify small objects?",
+        "option": ["Telescope", "Periscope", "Microscope", "Projector"],
+        "correct_answer": "Microscope"
+    },
+    {
+        "question": "Which type of friction has the highest magnitude when an object is in motion?",
+        "option": ["Static friction", "Sliding friction", "Rolling friction", "Fluid friction"],
+        "correct_answer": "Sliding friction"
+    },
+    {
+        "question": "What makes up the process of combustion fundamentally?",
+        "option": ["Oxidation", "Reduction", "Neutralization", "Sublimation"],
+        "correct_answer": "Oxidation"
+    },
+    {
+        "question": "Which device measures atmospheric pressure?",
+        "option": ["Thermometer", "Barometer", "Hygrometer", "Altimeter"],
+        "correct_answer": "Barometer"
+    },
+    {
+        "question": "What fundamental force is responsible for the cohesion of matter in the universe?",
+        "option": ["Electromagnetic force", "Gravitational force", "Weak nuclear force", "Strong nuclear force"],
+        "correct_answer": "Gravitational force"
+    },
+    {
+        "question": "What role does loudness play in the quality of sound?",
+        "option": ["Determines pitch", "Determine clarity", "Relates to amplitude", "Gives tone"],
+        "correct_answer": "Relates to amplitude"
+    },
+    {
+        "question": "The unit 'decibel' is used to measure what aspect of sound?",
+        "option": ["Intensity", "Frequency", "Wavelength", "Quality"],
+        "correct_answer": "Intensity"
+    },
+    {
+        "question": "In which type of material do light waves travel fastest?",
+        "option": ["Water", "Glass", "Vacuum", "Diamond"],
+        "correct_answer": "Vacuum"
+    },
+    {
+        "question": "What phenomenon occurs when light bends around corners of an obstacle or aperture?",
+        "option": ["Reflection", "Refraction", "Diffraction", "Interference"],
+        "correct_answer": "Diffraction"
+    },
+    {
+        "question": "What kind of image is formed by a convex mirror?",
+        "option": ["Real and enlarged", "Virtual and enlarged", "Real and diminished", "Virtual and diminished"],
+        "correct_answer": "Virtual and diminished"
+    },
+    {
+        "question": "Which law states that pressure applied to a confined fluid is transmitted equally in all directions?",
+        "option": [
+            "Bernoulli's principle",
+            "Archimedes' principle",
+            "Pascal's law",
+            "Newton's third law"
+        ],
+        "correct_answer": "Pascal's law"
+    },
+    {
+        "question": "Which light rays are responsible for the chemical change in photosynthesis?",
+        "option": ["Infrared rays", "Visible light", "Ultraviolet rays", "X-rays"],
+        "correct_answer": "Visible light"
+    },
+    {
+        "question": "What type of energy transformation occurs in a battery-operated flashlight?",
+        "option": [
+            "Electric to kinetic",
+            "Chemical to light",
+            "Thermal to chemical",
+            "Magnetic to electric"
+        ],
+        "correct_answer": "Chemical to light"
+    },
+    {
+        "question": "Which gas is not released during the complete combustion of hydrocarbons?",
+        "option": ["Carbon dioxide", "Water vapor", "Oxygen", "Nitrogen"],
+        "correct_answer": "Oxygen"
+    },
+    {
+        "question": "What causes the sound in a whistle?",
+        "option": [
+            "Vibration of strings",
+            "Flow of air through a narrow opening",
+            "Reflection of sound waves",
+            "Resonance of a drumhead"
+        ],
+        "correct_answer": "Flow of air through a narrow opening"
+    },
+    {
+        "question": "What happens to the light that enters a fiber-optic cable?",
+        "option": [
+            "It is absorbed by the walls of the cable",
+            "It is reflected continuously along the cable",
+            "It is refracted into multiple directions",
+            "It is slowed down and dispersed"
+        ],
+        "correct_answer": "It is reflected continuously along the cable"
+    },
+    {
+        "question": "What kind of reinforcement can be applied to friction to keep the tires of vehicles gripped to the road?",
+        "option": ["Adding water", "Applying oil", "Treading", "Flattening the surface"],
+        "correct_answer": "Treading"
+    },
+    {
+        "question": "What differentiates radio waves from visible light?",
+        "option": [
+            "Wavelength and frequency",
+            "Speed",
+            "Direction of travel",
+            "Magnetic polarity"
+        ],
+        "correct_answer": "Wavelength and frequency"
+    },
+    {
+        "question": "How do noise-cancelling headphones reduce unwanted ambient sounds?",
+        "option": [
+            "By sealing off the ears",
+            "Using sound-absorbing materials",
+            "Generating sound waves that destructively interfere with ambient sounds",
+            "Enhancing opposite sounds"
+        ],
+        "correct_answer": "Generating sound waves that destructively interfere with ambient sounds"
+    },
+    {
+        "question": "What property of a lens determines its focal length?",
+        "option": ["Thickness", "Curvature", "Material", "Color"],
+        "correct_answer": "Curvature"
+    }
+  ];
+  var question_data = 
+[
+  {
+      "question": "Solve the linear equation: 7x - 5 = 2x + 10.",
+      "option": [
+          "x = 3",
+          "x = 5",
+          "x = 10",
+          "x = -1"
+      ],
+      "correct_answer": "x = 3"
+  },
+  {
+      "question": "What is the cube root of 512?",
+      "option": [
+          "8",
+          "6",
+          "7",
+          "9"
+      ],
+      "correct_answer": "8"
+  },
+  {
+      "question": "A cube has a volume of 729 cm³. What is the length of its side?",
+      "option": [
+          "9 cm",
+          "7 cm",
+          "8 cm",
+          "10 cm"
+      ],
+      "correct_answer": "9 cm"
+  },
+  {
+      "question": "Find the area of a rectangle with a length of 15 cm and a breadth of 10 cm.",
+      "option": [
+          "150 cm²",
+          "120 cm²",
+          "140 cm²",
+          "160 cm²"
+      ],
+      "correct_answer": "150 cm²"
+  },
+  {
+      "question": "Factorize: x² - 9.",
+      "option": [
+          "(x + 3)(x - 3)",
+          "(x + 1)(x - 9)",
+          "(x - 3)(x + 9)",
+          "(x + 9)(x - 1)"
+      ],
+      "correct_answer": "(x + 3)(x - 3)"
+  },
+  {
+      "question": "Simplify: (2³)².",
+      "option": [
+          "64",
+          "32",
+          "8",
+          "256"
+      ],
+      "correct_answer": "64"
+  },
+  {
+      "question": "Rationalize the denominator: 5 / √2.",
+      "option": [
+          "5√2 / 2",
+          "2√2 / 5",
+          "√2 / 5",
+          "10 / √2"
+      ],
+      "correct_answer": "5√2 / 2"
+  },
+  {
+      "question": "Simplify the expression: 3x - 2(5x - 4).",
+      "option": [
+          "-7x + 8",
+          "-10x + 8",
+          "13x - 8",
+          "7x - 8"
+      ],
+      "correct_answer": "-7x + 8"
+  },
+  {
+      "question": "If the sum of a number and its double is 48, what is the number?",
+      "option": [
+          "16",
+          "18",
+          "14",
+          "12"
+      ],
+      "correct_answer": "16"
+  },
+  {
+      "question": "What is the cube of 4?",
+      "option": [
+          "64",
+          "16",
+          "32",
+          "48"
+      ],
+      "correct_answer": "64"
+  },
+  {
+    "question": "Solve for x: 3(x - 4) = 2x + 10.",
+    "option": [
+        "x = 22",
+        "x = 14",
+        "x = 8",
+        "x = 10"
+    ],
+    "correct_answer": "x = 22"
+},
+{
+    "question": "If a cube has a surface area of 150 cm², what is the length of its edge?",
+    "option": [
+        "5 cm",
+        "15 cm",
+        "10 cm",
+        "25 cm"
+    ],
+    "correct_answer": "5 cm"
+},
+{
+    "question": "The volume of a rectangular tank is 8640 cm³. If its length is 30 cm and its breadth is 12 cm, find the height.",
+    "option": [
+        "24 cm",
+        "30 cm",
+        "20 cm",
+        "15 cm"
+    ],
+    "correct_answer": "24 cm"
+},
+{
+    "question": "Factorize: x² + xy - 6y².",
+    "option": [
+        "(x + 3y)(x - 2y)",
+        "(x + 2y)(x - 3y)",
+        "(x - y)(x + 6y)",
+        "(x + y)(x - 6y)"
+    ],
+    "correct_answer": "(x + 2y)(x - 3y)"
+},
+{
+    "question": "Calculate the value of (4/5)^-3.",
+    "option": [
+        "125/64",
+        "64/125",
+        "27/64",
+        "64/27"
+    ],
+    "correct_answer": "125/64"
+},
+{
+    "question": "Simplify: 81^(3/4).",
+    "option": [
+        "27",
+        "9",
+        "18",
+        "7"
+    ],
+    "correct_answer": "27"
+},
+{
+    "question": "If 2ash - 3h = h(2a - 5), solve for h.",
+    "option": [
+        "h = 0",
+        "h = -1",
+        "h = 1",
+        "No solution"
+    ],
+    "correct_answer": "h = 0"
+},
+{
+    "question": "Rationalize the expression and simplify: (2 + √3) / (2 - √3).",
+    "option": [
+        "7 + 4√3",
+        "5 - √3",
+        "7 - 2√3",
+        "3 + 2√3"
+    ],
+    "correct_answer": "7 + 4√3"
+},
+{
+    "question": "Simplify the expression: 4x - 2[3x - (2 - x)].",
+    "option": [
+        "3x + 4",
+        "x - 4",
+        "x + 2",
+        "2x - 2"
+    ],
+    "correct_answer": "x + 2"
+},
+{
+    "question": "Solve for y: 5y + 3 = 2(y + 6) - (3y - 9).",
+    "option": [
+        "y = 0",
+        "y = 3",
+        "y = -3",
+        "y = 9"
+    ],
+    "correct_answer": "y = 0"
+},
+{
+    "question": "If a^3 + b^3 = 61 and a + b = 4, find ab.",
+    "option": [
+        "7",
+        "11",
+        "9",
+        "5"
+    ],
+    "correct_answer": "5"
+},
+{
+  "question": "Solve for x: 4(x + 3) = 2x + 18.",
+  "option": [
+      "x = 6",
+      "x = 12",
+      "x = 3",
+      "x = 9"
+  ],
+  "correct_answer": "x = 3"
+},
+{
+  "question": "Find the cube root of 1728.",
+  "option": [
+      "12",
+      "22",
+      "18",
+      "24"
+  ],
+  "correct_answer": "12"
+},
+{
+  "question": "The total surface area of a cube is 384 cm². Find its edge length.",
+  "option": [
+      "8 cm",
+      "6 cm",
+      "10 cm",
+      "12 cm"
+  ],
+  "correct_answer": "8 cm"
+},
+{
+  "question": "Factorize the expression: x² - 10x + 25.",
+  "option": [
+      "(x - 5)²",
+      "(x + 5)²",
+      "(x + 3)(x - 8)",
+      "(x - 10)(x + 1)"
+  ],
+  "correct_answer": "(x - 5)²"
+},
+{
+  "question": "Simplify and evaluate: 2^4 * 3^2.",
+  "option": [
+      "144",
+      "162",
+      "96",
+      "72"
+  ],
+  "correct_answer": "144"
+},
+{
+  "question": "Express in standard form: 0.000123.",
+  "option": [
+      "1.23 x 10^-4",
+      "1.23 x 10^-3",
+      "1.23 x 10^-5",
+      "1.23 x 10^-6"
+  ],
+  "correct_answer": "1.23 x 10^-4"
+},
+{
+  "question": "Rationalize the denominator: 5 / (2 + √3).",
+  "option": [
+      "(10 - 5√3) / 1",
+      "(10 - 5√3) / 2",
+      "(10 + 5√3) / 7",
+      "(4 - √3) / 5"
+  ],
+  "correct_answer": "(10 - 5√3) / 1"
+},
+{
+  "question": "Solve: 7x - 5 = 5x + 13.",
+  "option": [
+      "x = 9",
+      "x = 3",
+      "x = 6",
+      "x = 5"
+  ],
+  "correct_answer": "x = 9"
+},
+{
+  "question": "Simplify: (3x^2y) * (4xy^3).",
+  "option": [
+      "12x^3y^4",
+      "7x^3y^3",
+      "7x^4y^5",
+      "12x^2y^3"
+  ],
+  "correct_answer": "12x^3y^4"
+},
+{
+  "question": "If a cube has volume 2197 cm³, find the length of its side.",
+  "option": [
+      "13 cm",
+      "11 cm",
+      "14 cm",
+      "15 cm"
+  ],
+  "correct_answer": "13 cm"
+},
+{
+  "question": "Solve for x: 5x - 2(x + 3) = 3x + 4.",
+  "option": [
+      "x = 7",
+      "x = 1",
+      "x = 0",
+      "x = -1"
+  ],
+  "correct_answer": "x = 7"
+},
+{
+  "question": "How many cubes of side 2 cm can be packed in a cuboid of dimensions 8 cm x 6 cm x 4 cm?",
+  "option": [
+      "12 cubes",
+      "10 cubes",
+      "24 cubes",
+      "18 cubes"
+  ],
+  "correct_answer": "24 cubes"
+},
+{
+  "question": "Factorize the expression: 2x² - 8x + 6.",
+  "option": [
+      "2(x - 1)(x - 3)",
+      "2(x + 1)(x - 3)",
+      "2(x + 3)(x - 1)",
+      "2(x + 1)(x + 3)"
+  ],
+  "correct_answer": "2(x - 1)(x - 3)"
+},
+{
+  "question": "If the cube root of a number is 7, what is the number?",
+  "option": [
+      "343",
+      "49",
+      "21",
+      "147"
+  ],
+  "correct_answer": "343"
+},
+{
+  "question": "Solve: 2^(x+1) = 16.",
+  "option": [
+      "x = 3",
+      "x = 1",
+      "x = 4",
+      "x = 2"
+  ],
+  "correct_answer": "x = 3"
+},
+{
+  "question": "Express 0.00045 in standard form.",
+  "option": [
+      "4.5 x 10^-4",
+      "4.5 x 10^-5",
+      "4.5 x 10^-6",
+      "4.5 x 10^-3"
+  ],
+  "correct_answer": "4.5 x 10^-4"
+},
+{
+  "question": "Rationalize and simplify: 3 / (√7 - √5).",
+  "option": [
+      "(3√7 + 3√5) / 2",
+      "(3√7 - 3√5) / 2",
+      "(3√7 - 3√5) / 12",
+      "(3√7 + 3√5) / 12"
+  ],
+  "correct_answer": "(3√7 + 3√5) / 2"
+},
+{
+  "question": "Simplify: (x^3 * y^2) / (x * y^3).",
+  "option": [
+      "x^2 / y",
+      "x^4 / y^2",
+      "x / y",
+      "x^2 * y"
+  ],
+  "correct_answer": "x^2 / y"
+},
+{
+  "question": "Solve for x: 4(x - 3) - 2x = 2x + 8.",
+  "option": [
+      "x = 7",
+      "x = 5",
+      "x = 10",
+      "x = 9"
+  ],
+  "correct_answer": "x = 10"
+},
+{
+  "question": "Find the cube root of 4913.",
+  "option": [
+      "17",
+      "13",
+      "19",
+      "15"
+  ],
+  "correct_answer": "17"
+},
+{
+  "question": "If the volume of a cylinder is 1540 cm³ and its height is 10 cm, find the radius of the base. Use π = 3.14.",
+  "option": [
+      "7 cm",
+      "5 cm",
+      "10 cm",
+      "14 cm"
+  ],
+  "correct_answer": "7 cm"
+},
+{
+  "question": "Factorize completely: x² + 5x + 6.",
+  "option": [
+      "(x + 2)(x + 3)",
+      "(x - 2)(x + 3)",
+      "(x + 1)(x + 6)",
+      "(x - 3)(x - 2)"
+  ],
+  "correct_answer": "(x + 2)(x + 3)"
+},
+{
+  "question": "Simplify the expression: (2x^2y^3)(3xy^2)/6x^2y^4.",
+  "option": [
+      "xy",
+      "xy^2",
+      "2xy",
+      "2x"
+  ],
+  "correct_answer": "xy^2"
+},
+{
+  "question": "Solve: 3x + 8 = 5x - (3 - x).",
+  "option": [
+      "x = 5",
+      "x = 3",
+      "x = 7",
+      "x = 0"
+  ],
+  "correct_answer": "x = 5"
+},
+{
+  "question": "Express the reciprocal of 0.01 in standard form.",
+  "option": [
+      "10^2",
+      "10^-2",
+      "10^3",
+      "10^-3"
+  ],
+  "correct_answer": "10^2"
+},
+{
+  "question": "Simplify: 9^(3/2).",
+  "option": [
+      "27",
+      "18",
+      "81",
+      "9"
+  ],
+  "correct_answer": "27"
+},
+{
+  "question": "If (x + 6)(x - 6) = 0, then x equals?",
+  "option": [
+      "±6",
+      "6",
+      "-6",
+      "0"
+  ],
+  "correct_answer": "±6"
+},
+{
+  "question": "Calculate: 16^(5/4).",
+  "option": [
+      "32",
+      "16",
+      "8",
+      "4"
+  ],
+  "correct_answer": "32"
+},
+{
+  "question": "Rationalize the denominator: 6 / (√3 + √5).",
+  "option": [
+      "3(√3 - √5)",
+      "(6√3 - 6√5) / 2",
+      "(6√3 + 6√5) / 4",
+      "(3√3 - 3√5) / 2"
+  ],
+  "correct_answer": "(6√3 - 6√5) / 4"
+},
+{
+  "question": "Simplify: (5x^4y^3)/(10xy).",
+  "option": [
+      "x^3y^2/2",
+      "x^2y/2",
+      "x^3y^2",
+      "y^2/(2x^3)"
+  ],
+  "correct_answer": "x^3y^2/2"
+}
+  
+]

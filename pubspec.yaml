@@ -5,28 +5,87 @@ publish_to: "none" # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: ">=3.0.6 <4.0.0"
+  sdk: ">=3.5.0 <4.0.0"
 
 dependencies:
-  cached_network_image: ^3.2.0
-  cupertino_icons: ^1.0.2
-  dartx: ^1.1.0
-  dio: ^5.1.2
+  cached_network_image: ^3.4.1
+  cupertino_icons: ^1.0.8
+  dartx: ^1.2.0
+  dio: ^5.7.0
   flutter:
     sdk: flutter
-  get: ^4.6.1
-  get_storage: ^2.0.3
-  google_fonts: ^6.2.1
-  package_info_plus: ^8.0.2
-  http: ^1.1.0
-  share_plus: ^10.0.1
+  get: ^4.6.6
+  get_storage: ^2.1.1
+  package_info_plus: ^8.1.1
+  # package_info_plus: ^5.0.1 
+  http: ^1.2.2
+  # share_plus: ^10.1.2
   flutter_file_dialog: ^3.0.2
-  path_provider: ^2.0.15
+  path_provider: ^2.1.5
+  # search_choices: ^2.2.11
+  file_selector_web: ^0.9.4
+  # file_picker: ^8.1.2
+  mime: ^1.0.4
+  http_parser: ^4.0.2
+  flutter_rating_bar: ^4.0.1
+  google_fonts: ^6.2.1
+  table_calendar: ^3.1.2
+  month_year_picker: ^0.4.0+1
+  timelines: ^0.1.0
+  story_page_view: ^1.0.0
+  exprollable_page_view: ^1.0.1
+  extra_alignments: ^1.0.0+1
+  flextras: ^1.0.0
+  flutter_animate: ^4.5.1
+  gap: ^3.0.1
+  # get_it: ^8.0.2
+  get_it: ^7.2.0
+  get_it_mixin: ^4.2.2
+  go_router: ^14.6.1
+  sized_context: ^1.0.0+4
+  rnd: ^0.2.0
+  provider: ^6.1.2
+  image_fade: ^0.6.2
+  swipe_cards: ^2.0.0+1
+  expandable_page_view: ^1.0.17
+  flutter_card_swiper: ^7.0.2
+  card_swiper: ^3.0.1
+  infinite_scroll_pagination: ^4.1.0
+  like_button: ^2.0.5
+  shimmer: ^3.0.0
+  flutter_svg: ^2.0.16
+  google_maps_flutter: ^2.10.0
+  smooth_page_indicator: ^1.2.0+3
+  internet_connection_checker: ^1.0.0+1
+  shared_preferences: ^2.3.3
+  drop_cap_text: ^1.1.3
+  flutter_circular_text: ^0.3.1
+  equatable: ^2.0.7
+  desktop_window: ^0.4.2
+  flutter_displaymode: ^0.6.0
+  youtube_player_flutter: ^9.1.1
+  youtube_player_iframe: ^5.2.1
+  animated_gradient: ^0.0.3
+  flutter_pdfview: ^1.3.4
+  # pdfx: ^2.8.0
+  cached_network_image_platform_interface: ^4.1.1
+  tuple: ^2.0.2
+  encrypt: ^5.0.3
+  share_plus: ^10.1.3
+  pdfx: ^2.8.0
+  flutter_markdown: ^0.7.5
+  file_picker: ^8.1.7
+  image_picker: ^1.1.2
+  universal_html: ^2.2.4
+
 
 dev_dependencies:
-  flutter_launcher_icons: "^0.13.1"
+  flutter_launcher_icons: ^0.14.1
+  flutter_lints: ^5.0.0
   flutter_test:
     sdk: flutter
+
+    
 flutter_launcher_icons:
   android: true #should generate android icon
   ios: true #should generate IOS icon
