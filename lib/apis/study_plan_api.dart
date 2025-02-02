@@ -3,9 +3,11 @@ import 'package:quizzie_thunder/models/study_plan_response_model.dart';
 import 'package:quizzie_thunder/utils/dio_client.dart';
 
 class StudyPlanApi {
-  Future<AllStudyPlanResponseModel> getAllStudyPlans() async {
+  Future<AllStudyPlanResponseModel> getAllStudyPlans({String? searchTermId}) async {
     try {
-      final response = await DioClient.getDioInstance().post("/studyplans");
+      final response = await DioClient.getDioInstance().post("/studyplans",data:{
+        "searchTermId": searchTermId
+      });
       return AllStudyPlanResponseModel.fromJson(response.data['result']);
     } catch (e) {
       // rethrow;

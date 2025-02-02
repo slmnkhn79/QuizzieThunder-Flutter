@@ -32,9 +32,20 @@ class AllStudyPlans extends StatelessWidget {
             studyPlansAllController.getAllStudyPlans();
           },
           child: studyPlansAllController.isLoading.value
-              ? const Center(
-                  child: CircularProgressIndicator(
-                  color: ThemeColor.white,
+              ? Center(
+                  child: SizedBox(
+                  height: MediaQuery.of(context).size.height,
+                  width: MediaQuery.of(context).size.width > 600
+                      ? 600
+                      : MediaQuery.of(context).size.width,
+                  child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        CircularProgressIndicator(
+                          color: ThemeColor.headerOne,
+                        ),
+                      ]),
                 ))
               : studyPlans(context, studyPlansAllController))),
     );
@@ -59,9 +70,13 @@ class AllStudyPlans extends StatelessWidget {
         child: Column(
           children: [
             SizedBox(
-              height: MediaQuery.of(context).size.height * 0.1,
-              child: Text("Filters"),
-            ),
+                height: MediaQuery.of(context).size.height * 0.1,
+                child: filterContainer(context, studyPlansAllController)),
+            TextButton(
+                onPressed: () {
+                  studyPlansAllController.setSearchTermId('');
+                },
+                child: Text("Reset")),
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.8,
               child: GridView.builder(
@@ -107,5 +122,127 @@ class AllStudyPlans extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  SizedBox filterContainer(
+      BuildContext context, StudyPlansAllController studyPlansAllController) {
+    return SizedBox(
+        height: MediaQuery.of(context).size.height * 0.15,
+        child: studyPlansAllController.isSearchLoading.value
+            ? Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  const CircularProgressIndicator(),
+                ],
+              )
+            :
+            // GridView.builder(
+            //     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            //         crossAxisCount: 4, childAspectRatio: 3),
+            //     itemCount: studyPlansAllController
+            //         .searchResponseModel!.searchResults.length,
+            //     itemBuilder: (context, index) {
+            //       var item = studyPlansAllController
+            //           .searchResponseModel!.searchResults[index];
+            //       return InkWell(
+            //         onTap: () {
+            //           studyPlansAllController.setSearchTermId(item.id);
+            //         },
+            //         child: Container(
+            //             margin:
+            //                 EdgeInsets.symmetric(horizontal: 4, vertical: 4),
+            //             decoration: BoxDecoration(
+            //                 color: ThemeColor.white,
+            //                 borderRadius: BorderRadius.circular(2)),
+            //             padding: const EdgeInsets.symmetric(
+            //                 horizontal: 2, vertical: 2),
+            //             child: Text(
+            //               item.displayValue,
+            //               textAlign: TextAlign.center,
+            //               style: TextStyle(
+            //                   color: ThemeColor.black,
+            //                   fontSize: 14,
+            //                   fontWeight: FontWeight.bold),
+            //             )),
+            //       );
+            //     },
+            //   )
+            GridView.builder(
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 4,
+                  childAspectRatio: 3,
+                ),
+                itemCount: studyPlansAllController
+                    .searchResponseModel!.searchResults.length,
+                itemBuilder: (context, index) {
+                  final item = studyPlansAllController
+                      .searchResponseModel!.searchResults[index];
+
+// Determine if this item is currently selected
+                  final bool isSelected =
+                      studyPlansAllController.searchTermId == item.id;
+
+                  return InkWell(
+                    onTap: () {
+                      studyPlansAllController.setSearchTermId(item.id);
+                    },
+                    child: Container(
+                      margin: const EdgeInsets.symmetric(
+                          horizontal: 6, vertical: 6),
+                      decoration: BoxDecoration(
+                        color: isSelected
+                            ? Colors.blue[50] // A subtle highlight color
+                            : ThemeColor.white,
+                        borderRadius: BorderRadius.circular(10),
+                        // Highlight with a thicker, colored border if selected
+                        border: Border.all(
+                          color: isSelected
+                              ? Colors.blueAccent
+                              : Colors.grey.shade300,
+                          width: isSelected ? 2 : 1,
+                        ),
+                        // Subtle shadow
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black12,
+                            blurRadius: 4,
+                            offset: Offset(2, 2),
+                          ),
+                        ],
+                      ),
+                      child: Stack(
+                        children: [
+                          // Center the display text
+                          Center(
+                            child: Text(
+                              item.displayValue,
+                              style: TextStyle(
+                                color: isSelected
+                                    ? Colors.blueAccent
+                                    : ThemeColor.black,
+                                fontSize: 14,
+                                fontWeight: FontWeight.w600,
+                              ),
+                              textAlign: TextAlign.center,
+                            ),
+                          ),
+                          // Optional check icon if selected
+                          if (isSelected)
+                            Positioned(
+                              top: 6,
+                              right: 6,
+                              child: Icon(
+                                Icons.check_circle,
+                                color: Colors.blueAccent,
+                                size: 18,
+                              ),
+                            ),
+                        ],
+                      ),
+                    ),
+                  );
+                },
+              ));
   }
 }
